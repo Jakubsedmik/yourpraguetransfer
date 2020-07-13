@@ -10,3 +10,499 @@ Author: Studioseven.cz
 Author URI: https://studioseven.cz/
 */
 
+/*--- GLOBAL CLASSES AND MAIN SETTING ---*/
+
+/*definitions of fonts*/
+@font-face{
+    font-family: Roboto;
+    src: url(../yourpraguetransfer/assets/fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face{
+    font-family: Roboto;
+    src: url(../yourpraguetransfer/assets/fonts/Roboto-Italic.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face{
+    font-family: Roboto;
+    src: url(../yourpraguetransfer/assets/fonts/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: Roboto;
+    src: url(../yourpraguetransfer/assets/fonts/Roboto-Thin.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face{
+    font-family: Myriad;
+    src: url(../yourpraguetransfer/assets/fonts/MYRIADPRO-BOLD.OTF);
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*setting global colors*/
+:root{
+    --s7_color-1: black;
+    --s7_color-2: #fd7824;
+    --s7_color-3: #f15d00;
+    --s7_color-4: #333333;
+}
+
+/*global text color*/
+*{
+    color: var(--s7_color-4);
+    font-family: "Roboto";
+}
+
+/*site-width with smooth resizing*/
+body .s7_sw-sec{
+    max-width: 1250px;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/*content below header*/
+html body{
+    margin-top: 91px;
+}
+
+/* H1, H2, ... */
+body h1{
+    font-size: 69px;
+    font-family: "Roboto";
+}
+body h2{
+    font-size: 43px;
+    font-family: "Roboto";
+}
+body .btn{
+    background-color: var(--s7_color-2);
+    font-family: "Roboto";
+}
+body .btn:hover{
+    background-color: var(--s7_color-3);
+}
+/*--- HEADER ---*/
+body .navbar{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.navbar img{
+    max-width: 422px;
+}
+.navbar .nav-link{
+    font-family: "Roboto";
+    color: var(--s7_color-1);
+}
+.navbar .nav-item:last-child .nav-link{
+    background-color: var(--s7_color-2);
+    padding: 0.3125rem 1rem;
+    transition: 0.2s ease-out;
+}
+.navbar .nav-item:last-child .nav-link:hover{
+   background-color: var(--s7_color-3);
+}
+
+/*--- HP SLIDER ---*/
+#main-slider{
+    background-image: url("../yourpraguetransfer/assets/images/HP-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 75px;
+    min-height: 880px;
+}
+#main-slider .s7_slider-under-title-text{
+    margin-bottom: 60px;
+    font-size: 22px;
+}
+#main-slider .s7_ftw{
+    max-width: 868px;
+}
+#main-slider input{
+    max-width: 339px;
+    height: 58px;
+    box-shadow: 0 0 35px 4px rgba(0, 0, 0, 0.34);
+}
+#main-slider input::placeholder{
+    font-size: 20px;
+    color: #a9a9a9;
+}
+#main-slider .s7_ftw-arrown i{
+    font-size: 28px;
+    transition: 0.1s ease-in-out;
+}
+#main-slider .s7_ftw-arrown i.active{
+    transform: scale(1.5);
+}
+#main-slider .s7_slider-inputs{
+    margin-bottom: 40px;
+}
+#main-slider .btn{
+    font-size: 24px;
+    max-width: 329px;
+    padding-left: 70px;
+    padding-right: 70px;
+    box-shadow: 0 0 35px 4px rgba(0, 0, 0, 0.34);
+    transition: 0.2s ease-out;
+}
+#main-slider .btn:hover{
+    padding-left: 78px;
+    padding-right: 78px;
+}
+#main-slider .font-italic{
+    font-size: 22px;
+}
+#main-slider .s7_slider-ico-img{
+    max-width: 70px;
+    height: auto;
+    margin-bottom: 20px;
+}
+#main-slider .s7_slider-ico-text{
+    font-size: 15px;
+    font-family: "Myriad";
+    margin-bottom: 35px;
+}
+#main-slider .s7_slider-covid{
+    max-width: 198px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: rgba(208, 208, 208, 0.29);
+    transition: 0.2s ease-out;
+}
+#main-slider .s7_slider-covid:hover{
+    background-color: rgba(208, 208, 208, 0.4);
+    text-decoration: none;
+}
+#main-slider .s7_virus-img{
+    max-width: 17px;
+}
+#main-slider .s7_slider-covid-text{
+    line-height: 1.1;
+    border-bottom: 1px solid;
+}
+
+/*--- HP VEHICLE PARK ---*/
+#vozovy-park{
+    padding-top: 48px;
+    padding-bottom: 54px;
+}
+#vozovy-park .s7_vozovy-park-sw{
+    max-width: 1436px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+#vozovy-park h2{
+    margin-bottom: 33px;
+}
+#vozovy-park h2:before{
+    content: "";
+    position: absolute;
+    background-color: var(--s7_color-2);
+    width: 86px;
+    height: 4px;
+    left: 50%;
+    bottom: -20px;
+    transform: translate(-50%);
+}
+#vozovy-park .s7_vozovy-park-text{
+    font-size: 20px;
+    margin-bottom: 53px;
+}
+#vozovy-park .s7_vozovy-park-auto{
+    margin-bottom: 60px;
+}
+#vozovy-park .s7_vozovy-park-content{
+    border: 1px solid rgb(217, 217, 217);
+    padding: 29px 25px 33px;
+}
+#vozovy-park .s7_car-img{
+    margin-bottom: 10px;
+}
+#vozovy-park figure{
+    overflow: hidden;
+}
+#vozovy-park figure:before{
+    content: "";
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    right: -72px;
+    top: -72px;
+    transform: rotate(45deg);
+    text-align: center;
+    background-image: linear-gradient(95deg, #fdbf5c, #fd7824, #cc2f97, #9538c0, #4a63d4);
+}
+#vozovy-park figure:after{
+    content: "TOP";
+    position: absolute;
+    color: white;
+    right: 10px;
+    top: 17px;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: "Roboto";
+}
+#vozovy-park h3{
+    font-size: 41px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+#vozovy-park .fa-star{
+    font-size: 14px;
+    color: #8341c7;
+}
+#vozovy-park .font-italic{
+    font-size: 21px;
+    color: var(--s7_color-2);
+    margin-bottom: 12px;
+}
+#vozovy-park .s7_vozovy-park-popis{
+    font-size: 15px;
+}
+#vozovy-park .s7_vozovy-park-cena{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+#vozovy-park .s7_vozovy-park-dot{
+    width: 4px;
+    height: 4px;
+    background-color: var(--s7_color-4);
+    border-radius: 5px;
+}
+#vozovy-park .btn{
+    font-size: 21px;
+    max-width: 267px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+#vozovy-park .s7_btn-all-cars{
+    max-width: 307px;
+    font-size: 21px;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+    background-color: #ebebeb;
+    transition: 0.2s ease-out;
+}
+#vozovy-park .s7_btn-all-cars:hover{
+    padding-left: 60px;
+    padding-right: 60px;
+    text-decoration: none;
+    background-color: #e0e0e0;
+}
+/*--- REFERENCES ---*/
+#references{
+    background-image: url("../yourpraguetransfer/assets/images/slider-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 71px;
+    min-height: 720px;
+}
+#references h2{
+    margin-bottom: 12px;
+}
+#references .s7_reference-undertitle{
+    font-size: 20px;
+    margin-bottom: 33px;
+}
+#references .s7_references-person-img{
+    max-width: 268px;
+    margin-bottom: 23px;
+}
+#references .s7_references-slider-name{
+    font-size: 24px;
+}
+#references .s7_references-slider-text{
+    font-size: 20px;
+    max-width: 726px;
+    padding-top: 20px;
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 35px 4px rgba(0, 0, 0, 0.18);
+}
+#references .btn{
+    font-size: 18px;
+    padding-top: 12px;
+    padding-bottom: 7px;
+    max-width: 246px;
+}
+#references .carousel-control-next, #references .carousel-control-prev{
+    align-items: unset;
+}
+#references .carousel-control-prev-icon, #references .carousel-control-next-icon{
+    background-image: unset;
+    width: unset;
+    height: unset;
+    position: absolute;
+    top: 30%;
+}
+#references .fa-chevron-left, #references .fa-chevron-right{
+    font-size: 55px;
+}
+/*--- HP NUMBER ONE ---*/
+#number-one{
+    background-color: #ebebeb;
+    padding-top: 44px;
+    padding-bottom: 42px;
+}
+#number-one img{
+    max-width: 105px;
+    margin-bottom: 32px;
+}
+#number-one h4{
+    margin-bottom: 30px;
+}
+#number-one h4:before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: var(--s7_color-2);
+    left: 50%;
+    bottom: -18px;
+    transform: translate(-50%);
+}
+#number-one .s7_number-one-text{
+    max-width: 850px;
+    font-size: 20px;
+}
+#number-one:before{
+    content: "";
+    position: absolute;
+    border-bottom: 34px solid transparent;
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-top: 34px solid #ebebeb;
+    bottom: -68px;
+    left: 50%;
+    transform: translate(-50%);
+}
+/*--- HP CONTACT ---*/
+#contact{
+    padding-top: 75px;
+    padding-bottom: 86px;
+}
+#contact .s7_contact-text{
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+#contact .s7_contact-col{
+    padding-top: 27px;
+    padding-bottom: 20px;
+}
+#contact .s7_contact-ico-img{
+    max-width: 50px;
+    margin-right: 20px;
+}
+#contact .s7_contact-ico-text{
+    font-size: 30px;
+    color: var(--s7_color-4);
+}
+#contact a.s7_contact-ico-text{
+    border-bottom: 3px solid var(--s7_color-2);
+}
+#contact .s7_contact-phone, #contact .s7_contact-envelope{
+    margin-bottom: 40px;
+}
+#contact .s7_contact-map{
+    margin-bottom: 47px;
+}
+#contact .s7_contact-bigger-text{
+    font-size: 30px;
+    color: var(--s7_color-2);
+    margin-bottom: 10px;
+}
+#contact .s7_contact-info{
+    font-size: 18px;
+    max-width: 520px;
+    margin-bottom: 24px;
+}
+#contact .btn{
+    font-size: 18px;
+    padding-top: 9px;
+    max-width: 209px;
+}
+#contact .s7_map-col{
+    padding-left: 45px;
+}
+/*--- FOOTER ---*/
+#footer{
+    padding-top: 77px;
+    padding-bottom: 68px;
+}
+#footer .s7_footer-logo{
+    max-width: 422px;
+    margin-bottom: 45px;
+}
+#footer .s7_footer-nav{
+    font-weight: 100;
+    font-size: 20px;
+}
+#footer .s7_footer-nav-link{
+    color: var(--s7_color-4);
+}
+#footer .s7_footer-nav-link.active{
+    font-weight: bold;
+    color: var(--s7_color-2);
+}
+#footer .s7_footer-destinations{
+    font-size: 20px;
+    margin-bottom: 0;
+}
+#footer .s7_footer_contact-ico-img{
+    max-width: 33px;
+    margin-right: 15px;
+}
+#footer .s7_footer-contact-phone, #footer .s7_footer-contact-envelope{
+    margin-bottom: 37px;
+}
+#footer .s7_footer-contact{
+    color: var(--s7_color-4);
+    font-size: 20px;
+}
+#footer a.s7_footer-contact{
+    border-bottom: 2px solid var(--s7_color-2);
+}
+#footer .s7_footer-social-ico{
+    width: 64px;
+    height: 64px;
+    background-color: #e4e4e4;
+    border-radius: 50px;
+    font-size: 28px;
+    margin-right: 18px;
+    margin-bottom: 24px;
+    transition: 0.2s ease-out;
+}
+#footer .s7_footer-social-ico:last-child{
+    margin-right: 0;
+}
+#footer .s7_footer-social-ico:hover{
+    background-color: #cfcfcf;
+}
+#footer .s7_privacy-policy{
+    font-size: 20px;
+    color: var(--s7_color-4);
+}
+/*--- COPYRIGHT ---*/
+#copyright{
+    padding-top: 47px;
+    padding-bottom: 31px;
+    background-color: #e4e4e4;
+}
+#copyright .s7_copyright-reference{
+    font-size: 26px;
+}
+#copyright p{
+    letter-spacing: 16.7px;
+}
+#copyright p, #copyright a{
+    color: #8d8d8d;
+}
