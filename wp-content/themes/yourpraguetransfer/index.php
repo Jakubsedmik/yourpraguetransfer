@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="#" class="s7_slider-covid d-flex mx-auto w-100 align-items-center justify-content-center"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/virus.png" alt="virus" class="s7_virus-img w-100 mr-2"><span class="s7_slider-covid-text text-white text-uppercase"><strong class="text-white">Covid19 </strong>opatření</span></a>
+                <a href="#" class="s7_slider-covid d-flex mx-auto w-100 align-items-center justify-content-center"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/virus.png" alt="virus" class="s7_virus-img w-100 mr-2"><span class="s7_slider-covid-text text-white text-uppercase"><strong class="text-white">Covid19 </strong>opatření</span></a>
             </div>
         </div>
     </section>
@@ -236,7 +236,7 @@
             <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" target="_blank">
                 <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" alt="car-5">
             </a>
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" target="_blank">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" target="_blank">
                 <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" alt="car-6">
             </a>
         </div>
