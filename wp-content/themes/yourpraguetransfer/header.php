@@ -36,7 +36,7 @@
     <body>
         <header class="container-fluid bg-white fixed-top px-0">
             <nav class="s7_sw-sec navbar navbar-expand-lg mx-auto"> <!-- Bootstrap sticky responsive header -->
-                <a href="/" class="navbar-brand"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/page-logo.png" alt="logo-icon-car"></a> <!-- Logo -->
+                <a href="/" class="navbar-brand"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/page-logo.png" alt="logo-icon-car"></a> <!-- Logo -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button> <!-- Burger Icon -->
