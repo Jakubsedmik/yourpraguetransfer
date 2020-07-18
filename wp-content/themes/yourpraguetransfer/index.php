@@ -31,23 +31,23 @@
             </p>
             <div class="row">
                 <div class="s7_slider-ico col text-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/drink.png" alt="láhev vody" class="s7_slider-ico-img">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/drink.png" alt="láhev vody" class="s7_slider-ico-img">
                     <p class="s7_slider-ico-text text-white text-uppercase font-weight-bold">Pití zdarma</p>
                 </div>
                 <div class="s7_slider-ico col text-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/pay-cards.png" alt="platební karty" class="s7_slider-ico-img">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/pay-cards.png" alt="platební karty" class="s7_slider-ico-img">
                     <p class="s7_slider-ico-text text-white text-uppercase font-weight-bold">Platba online</p>
                 </div>
                 <div class="s7_slider-ico col text-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Safety.png" alt="štít" class="s7_slider-ico-img">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/Safety.png" alt="štít" class="s7_slider-ico-img">
                     <p class="s7_slider-ico-text text-white text-uppercase font-weight-bold">Bezpečnost</p>
                 </div>
                 <div class="s7_slider-ico col text-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/wifi.png" alt="wifi" class="s7_slider-ico-img">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/wifi.png" alt="wifi" class="s7_slider-ico-img">
                     <p class="s7_slider-ico-text text-white text-uppercase font-weight-bold">Wifi na palubě</p>
                 </div>
                 <div class="s7_slider-ico col text-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/24-7-ico.png" alt="nonstop" class="s7_slider-ico-img">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/24-7-ico.png" alt="nonstop" class="s7_slider-ico-img">
                     <p class="s7_slider-ico-text text-white text-uppercase font-weight-bold">Nonstop 24/7</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="s7_vozovy-park-auto col-lg-4 col-md-6 col-12">
                     <div class="s7_vozovy-park-content">
-                        <figure class="position-relative mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
+                        <figure class="position-relative mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
                         <div class="d-flex align-items-center">
                             <h3 class="font-weight-bold">High Class</h3>
                             <div class="sz_vozovy-park-start">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="s7_vozovy-park-auto col-lg-4 col-md-6 col-12">
                     <div class="s7_vozovy-park-content">
-                        <figure class="position-relative mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
+                        <figure class="position-relative mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
                         <div class="d-flex align-items-center">
                             <h3 class="font-weight-bold">High Class</h3>
                             <div class="sz_vozovy-park-start">
@@ -111,7 +111,7 @@
                 </div>
                 <div class="s7_vozovy-park-auto col-lg-4 col-md-6 col-12">
                     <div class="s7_vozovy-park-content">
-                        <figure class="position-relative mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
+                        <figure class="position-relative mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda.jpg" alt="" class="s7_car-img img-fluid w-100"></figure>
                         <div class="d-flex align-items-center">
                             <h3 class="font-weight-bold">High Class</h3>
                             <div class="sz_vozovy-park-start">
@@ -148,21 +148,21 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item text-center active">
-                        <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
+                        <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
                         <p class="s7_references-slider-name font-weight-bold text-white">Petr David - Busines Manager - Praha</p>
                         <p class="s7_references-slider-text bg-white w-100 mx-auto px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
                         </p>
                         <a href="#" class="btn rounded-0 w-100 text-white text-uppercase font-weight-bold">Google reference</a>
                     </div>
                     <div class="carousel-item text-center">
-                        <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
+                        <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
                         <p class="s7_references-slider-name font-weight-bold text-white">Petr David - Busines Manager - Praha</p>
                         <p class="s7_references-slider-text bg-white w-100 mx-auto px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
                         </p>
                         <a href="#" class="btn rounded-0 w-100 text-white text-uppercase font-weight-bold">Google reference</a>
                     </div>
                     <div class="carousel-item text-center">
-                        <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
+                        <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/ref-person.png" alt="" class="s7_references-person-img">
                         <p class="s7_references-slider-name font-weight-bold text-white">Petr David - Busines Manager - Praha</p>
                         <p class="s7_references-slider-text bg-white w-100 mx-auto px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
                         </p>
@@ -184,7 +184,7 @@
     <!-- Number one -->
     <section id="number-one" class="container-fluid position-relative">
         <div class="s7_sw-sec mx-auto text-center">
-            <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/medaile.png" alt="" class="w-100">
+            <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/medaile.png" alt="" class="w-100">
             <h4 class="text-uppercase text-center font-weight-bold position-relative">Jsme jednička na trhu</h4>
             <p class="s7_number-one-text text-center font-weight-light w-100 mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus nunc, pellentesque in venenatis sed, fermentum vitae nibh. Aliquam convallis pulvinar massa in rutrum</p>
         </div>
@@ -195,15 +195,15 @@
         <div class="row">
             <div class="s7_contact-col col-lg-6 col-12">
                 <div class="s7_contact-phone d-flex align-items-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/phone.png" alt="phone" class="s7_contact-ico-img w-100">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/phone.png" alt="phone" class="s7_contact-ico-img w-100">
                     <a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none">+420 722 855 989</a>
                 </div>
                 <div class="s7_contact-envelope d-flex align-items-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/envelope.png" alt="phone" class="s7_contact-ico-img w-100">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/envelope.png" alt="phone" class="s7_contact-ico-img w-100">
                     <a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none">info@yourpraguetransfers.cz</a>
                 </div>
                 <div class="s7_contact-map d-flex align-items-center">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/map-mark.png" alt="phone" class="s7_contact-ico-img w-100">
+                    <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/map-mark.png" alt="phone" class="s7_contact-ico-img w-100">
                     <span class="s7_contact-ico-text font-weight-bold">Evropská 27, 247 89, Praha 6</span>
                 </div>
                 <p class="s7_contact-bigger-text font-weight-bold">Něco o onás</p>
@@ -221,23 +221,23 @@
     <!-- Justified gallery -->
     <section id="fp-gallery" class="container-fluid p-0">
         <div id="car-gallery-fp">
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/bmw.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/bmw.jpg" alt="car-1">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/bmw.jpg" target="_blank">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/bmw.jpg" alt="car-1">
             </a>
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/vw.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/vw.jpg" alt="car-2">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/vw.jpg" target="_blank">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/vw.jpg" alt="car-2">
             </a>
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/kia.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/kia.jpg" alt="car-3">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/kia.jpg" target="_blank">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/kia.jpg" alt="car-3">
             </a>
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/vw-t.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/vw-t.jpg" alt="car-4">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/vw-t.jpg" target="_blank">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/vw-t.jpg" alt="car-4">
             </a>
-            <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" alt="car-5">
+            <a href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" target="_blank">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/skoda-gal.jpg" alt="car-5">
             </a>
             <a href="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" target="_blank">
-                <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" alt="car-6">
+                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/bmw-2.jpg" alt="car-6">
             </a>
         </div>
         
