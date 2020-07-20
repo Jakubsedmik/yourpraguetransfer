@@ -30,16 +30,21 @@
         <link rel="stylesheet" href="../yourpraguetransfer/wp-content\themes/yourpraguetransfer/assets/JustifiedGallery/justifiedGallery.min.css">
         <script src="../yourpraguetransfer/wp-content\themes/yourpraguetransfer/assets/JustifiedGallery/jquery.justifiedGallery.min.js"></script>
         
+        <!-- Burger Icon Animation -->
+        <script src="../yourpraguetransfer/wp-content\themes/yourpraguetransfer/assets/js/bi-js.js"></script>
     </head>
-    <body>
+    <body class="position-relative">
         <header class="container-fluid bg-white fixed-top px-0">
-            <nav class="s7_sw-sec navbar navbar-expand-lg mx-auto"> <!-- Bootstrap sticky responsive header -->
+            <nav class="s7_sw-sec navbar navbar-expand-xl mx-auto"> <!-- Bootstrap sticky responsive header -->
                 <a href="/" class="navbar-brand"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/page-logo.png" alt="logo-icon-car"></a> <!-- Logo -->
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button id="s7_nav-icon3" class="s7_burger-menu-icon navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button> <!-- Burger Icon -->
                 <div id="navbarCollapse" class="navbar-collapse collapse"> <!-- Responsive menu -->
-                    <ul class="navbar-nav align-items-center ml-auto">
+                    <ul class="navbar-nav ml-auto justify-content-between align-items-md-center align-items-end flex-md-row flex-column">
                         <li class="nav-item active">
                             <a href="/" class="s7_color-1 nav-link text-uppercase">Home</a>
                         </li>

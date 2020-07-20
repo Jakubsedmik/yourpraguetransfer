@@ -6,7 +6,7 @@
             <h1 class="text-center text-white text-uppercase pb-2 mb-4">Přeprava na zavolanou</h1>
             <p class="s7_slider-under-title-text text-center text-white">Jednoduše Zvolte odkud pojedete a kam to bude a získejte okamžik nabídky</p>
             <form action="" class="s7_ftw text-center w-100 mx-auto">
-                <div class="s7_slider-inputs d-flex align-items-center justify-content-between">
+                <div class="s7_slider-inputs d-flex align-items-center justify-content-between flex-md-row flex-column">
                     <input type="text" placeholder="Z místa (např. Letiště Václava ..." class="w-100 border-0 px-3 py-0">
                     <div class="s7_ftw-arrown">
                         <i class="fas fa-caret-right active mr-2 text-white"></i>
@@ -24,9 +24,8 @@
                     <i class="fas fa-chevron-right text-white"></i>
                 </button>
             </form>
-            <p class="text-center text-white font-italic mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique posuere <br>
-                mi vitae venenatis. Suspendisse viverra ligula diam, sed pellentesque <br>
+            <p class="s7_slider-long-text mx-auto text-center text-white font-italic mb-5">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique posuere mi vitae venenatis. Suspendisse viverra ligula diam, sed pellentesque <br class="d-md-block d-none">
                 nunc luctus at. Phasellus pulvinar sagittis
             </p>
             <div class="row">
@@ -78,7 +77,7 @@
                         </div>
                         <div class="s7_vozovy-park-typ-auto font-italic">Škoda Superb Laurint Clement</div>
                         <p class="s7_vozovy-park-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula.</p>
-                        <div class="s7_vozovy-park-cena d-flex align-items-center">
+                        <div class="s7_vozovy-park-cena d-flex flex-wrap align-items-center">
                             <i class="fas fa-taxi mr-2 pt-1"></i><span><strong>45 </strong>eur/km</span>
                             <div class="s7_vozovy-park-dot mx-2"></div>
                             <span><strong>45 </strong>eur/letištní transport</span>
@@ -101,7 +100,7 @@
                         </div>
                         <div class="s7_vozovy-park-typ-auto font-italic">Škoda Superb Laurint Clement</div>
                         <p class="s7_vozovy-park-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula.</p>
-                        <div class="s7_vozovy-park-cena d-flex align-items-center">
+                        <div class="s7_vozovy-park-cena d-flex flex-wrap align-items-center">
                             <i class="fas fa-taxi mr-2 pt-1"></i><span><strong>45 </strong>eur/km</span>
                             <div class="s7_vozovy-park-dot mx-2"></div>
                             <span><strong>45 </strong>eur/letištní transport</span>
@@ -124,7 +123,7 @@
                         </div>
                         <div class="s7_vozovy-park-typ-auto font-italic">Škoda Superb Laurint Clement</div>
                         <p class="s7_vozovy-park-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula.</p>
-                        <div class="s7_vozovy-park-cena d-flex align-items-center">
+                        <div class="s7_vozovy-park-cena d-flex flex-wrap align-items-center">
                             <i class="fas fa-taxi mr-2 pt-1"></i><span><strong>45 </strong>eur/km</span>
                             <div class="s7_vozovy-park-dot mx-2"></div>
                             <span><strong>45 </strong>eur/letištní transport</span>
@@ -185,7 +184,7 @@
     <section id="number-one" class="container-fluid position-relative">
         <div class="s7_sw-sec mx-auto text-center">
             <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/medaile.png" alt="" class="w-100">
-            <h4 class="text-uppercase text-center font-weight-bold position-relative">Jsme jednička na trhu</h4>
+            <h2 class="text-uppercase text-center font-weight-bold position-relative">Jsme jednička na trhu</h2>
             <p class="s7_number-one-text text-center font-weight-light w-100 mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus nunc, pellentesque in venenatis sed, fermentum vitae nibh. Aliquam convallis pulvinar massa in rutrum</p>
         </div>
     </section>
