@@ -17,13 +17,15 @@
         <title>Your Prague Transfers</title>
 
 
-        <!-- Main CSS -->
+        <!-- CSS -->
         <link rel="stylesheet" href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/style.css">
+        <link rel="stylesheet" href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/style-reservation-page.css">
 
         <!--Font Awesome-->
         <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/fontawesome.css" rel="stylesheet">
         <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/brands.css" rel="stylesheet">
         <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/solid.css" rel="stylesheet">
+        <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/regular.css" rel="stylesheet">
         
         <!-- Arrows animation -->
         <script src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/js/arrow.js"></script>
@@ -41,7 +43,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> <!-- Burger Icon -->
                 <div id="navbarCollapse" class="navbar-collapse collapse"> <!-- Responsive menu -->
-                    <ul class="navbar-nav align-items-center ml-auto">
+                    <ul class="navbar-nav ml-auto justify-content-between align-items-md-center align-items-end flex-md-row flex-column">
                         <li class="nav-item active">
                             <a href="/" class="s7_color-1 nav-link text-uppercase">Home</a>
                         </li>
