@@ -1,0 +1,528 @@
+/*--- UNDERPAGE SLIDER ---*/
+#your-way{
+    background-image: url("../yourpraguetransfer/assets/images/UP-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 27px;
+    padding-bottom: 34px;
+}
+#your-way h1{
+    font-size: 40px;
+}
+#your-way .s7_place-ftw{
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+#your-way .s7_ftw-arrows{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+#your-way .s7_underpage-col-row{
+    max-width: 700px;
+    margin-bottom: 25px;
+}
+#your-way .s7_underpage-ico{
+    margin-right: 38px;
+}
+#your-way .s7_underpage-ico:last-child{
+    margin-right: 0;
+}
+#your-way figure{
+    max-width: 53px;
+    margin-right: 19px;
+}
+#your-way .s7_underpage-text{
+    font-size: 35px;
+}
+#your-way .btn{
+    max-width: 185px;
+    font-size: 14px;
+    padding-left: 35px;
+    padding-right: 35px;
+    box-shadow: 0 4px 35px 0 rgba(0, 0, 0, 0.34);
+    transition: 0.2s ease-out;
+}
+#your-way .btn:hover{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+/*--- MAP & CARS ---*/
+#search-map{
+    
+}
+.s7_mapitself{
+    position: sticky;
+    height: 100vh;
+    top: 40px;
+    width: 100%;
+}
+#search-map .s7_car-col{
+    padding-left: 35px;
+    padding-top: 31px;
+    padding-right: 40px;
+    max-width: 52%;
+}
+#search-map .s7_map-col{
+    max-width: 48%;
+    position: relative;
+}
+#search-map .col-xl-6{
+    flex: unset;
+}
+#search-map form{
+    margin-bottom: 41px;
+}
+#search-map select{
+    max-width: 280px;
+    background-color: #ebebeb;
+    color: var(--s7_color-4);
+    font-size: 18px;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 13px;
+}
+#search-map select:first-of-type{
+    margin-right: 26px;
+}
+#search-map .s7_nabidka-aut{
+    padding-bottom: 29px;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 44px;
+}
+#search-map .s7_nabidka-aut:last-child{
+    border-bottom: unset;
+    padding-bottom: unset;
+}
+#search-map .s7_nabidka-aut-info{
+    margin-bottom: 6px;
+}
+#search-map .s7_res-car-img{
+    margin-right: 37px;
+}
+#search-map .s7_res-car-img:before{
+    content: "Top";
+    color: white;
+    text-transform: uppercase;
+    background-image: linear-gradient(105deg, #fdbf5c, #fd7824, #cc2f97, #9538c0, #4a63d4);
+    border-radius: 30px;
+    padding: 5px;
+    left: 0;
+    top: -10px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 42px;
+    position: absolute;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#search-map .s7_car-text{
+    margin-right: 32px;
+}
+#search-map h3{
+    font-size: 35px;
+}
+#search-map .s7_nabidka-aut-stars i{
+    color: #8341c7;
+    font-size: 14px;
+}
+#search-map .s7_nabidka-aut-typ-auto{
+    color: var(--s7_color-2);
+    font-size: 21px;
+}
+#search-map .s7_nabidka-aut-popis{
+    max-width: 308px;
+    font-size: 15px;
+}
+#search-map button{
+    padding-left: 10px;
+    font-size: 14px;
+    padding-right: 15px;
+}
+#search-map button i{
+    margin-right: 3px;
+}
+#search-map .s7_reservation-buttons{
+    max-width: 238px;
+}
+#search-map .s7_res-button-one-way{
+    padding-bottom: 13px;
+    border-bottom: 1px solid #ebebeb;
+}
+#search-map .s7_res-button-two-way{
+    padding-top: 13px;
+}
+#search-map .s7_res-price{
+    line-height: 1;
+    max-width: 111px;
+}
+#search-map .s7_res-big-text, #search-map .s7_res-normal-text{
+    color: var(--s7_color-2);
+}
+#search-map .s7_res-big-text{
+    font-size: 25px;
+    margin-bottom: 2px;
+}
+#search-map .s7_res-normal-text{
+    font-size: 16px;
+}
+#search-map .s7_res-small-text{
+    font-size: 12px;
+}
+#search-map .s7_res-btn, #search-map .s7_nabidka-aut-stars i{
+    font-size: 9.2px;
+}
+#search-map .s7_res-btn{
+    max-height: 27px;
+    max-width: 127px;
+    letter-spacing: 0.6px;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0.27);
+    transition: 0.2s ease-out;
+}
+#search-map .s7_res-btn:hover{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#search-map .s7_reservation-ico{
+    margin-right: 18px;
+}
+#search-map .s7_res-ico{
+    margin-right: 11px;
+}
+#search-map .s7_reservation-ico-text{
+    font-size: 12px;
+    color: #858585;
+}
+
+
+/*--- RESERVATION CONTACT ---*/
+#res-contact{
+    background-color: #f7f7f7;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+#res-contact .s7_res-contact-phone, #res-contact .s7_res-contact-envelope{
+    margin-right: 60px;
+}
+#res-contact figure{
+    max-width: 50px;
+    margin-right: 19px;
+}
+#res-contact a, #res-contact span{
+    font-size: 30px;
+    color: var(--s7_color-4);
+}
+#res-contact a{
+    border-bottom: 3px solid var(--s7_color-2);
+}
+
+
+/*--- RESERVATION FORMS ---*/
+.modal .modal-dialog{
+    max-width: 822px;
+}
+.modal .modal-content{
+    border-radius: 15px;
+    box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.34);
+}
+.modal .modal-header{
+    padding-top: 38px;
+}
+.modal button.close{
+    position: absolute;
+    right: -19px;
+    top: -18px;
+    border-radius: 50px;
+    background: #868686;
+    color: white;
+    text-shadow: none;
+    opacity: 1!important;
+    padding: 14px;
+    margin: 0;
+}
+.modal button.close span{
+    color: white;
+    font-size: 35px;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal h2{
+    margin-bottom: 32px;
+}
+.modal h2:before{
+    content: "";
+    position: absolute;
+    background-color: var(--s7_color-2);
+    width: 86px;
+    height: 4px;
+    left: 50%;
+    bottom: -10px;
+    transform: translate(-50%);
+}
+.modal .s7_modal-header-text{
+    font-size: 20px;
+}
+.modal .modal-body{
+    padding-left: 46px;
+    padding-right: 56px;
+    padding-bottom: 0;
+}
+.modal h3{
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.modal .fa-map-marker-alt{
+    margin-right: 7px;
+    color: var(--s7_color-2);
+    font-size: 25px;
+}
+.modal .s7_modal-body-undertext{
+    margin-bottom: 7px;
+}
+.modal .s7_modal-body-lower-text{
+    color: #575757;
+    font-size: 14px;
+}
+.modal input, .modal select{
+    height: 70px;
+    padding-left: 27px;
+    padding-right: 27px;
+    background-color: #f1f1f1;
+}
+.modal input, .modal input::placeholder, .modal select{
+    color: var(--s7_color-4);
+    font-size: 18px;
+}
+.modal .s7_modal-body-content-start-1{
+    margin-bottom: 64px;
+}
+.modal .s7_form-1-end{
+    margin-top: 42px;
+    margin-bottom: 33px;
+}
+.modal figure{
+    margin-right: 18px;
+}
+.modal .s7_form-1-end-big-text{
+    font-size: 35px;
+}
+.modal .s7_form-next-btn{
+    max-width: 329px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 59px;
+    padding-right: 59px;
+    font-size: 24px;
+    transition: 0.2s ease-out;
+    box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.16);
+}
+.modal .s7_form-next-btn:hover{
+    padding-left: 49px;
+    padding-right: 49px;
+}
+.modal .modal-footer{
+    padding-left: 45px;
+    padding-right: 55px;
+    padding-top: 39px;
+    padding-bottom: 60px;
+}
+.modal .s7_modal-footer-text{
+    background-color: #c4c4c4;
+    font-size: 20px;
+    padding: 4px 12px;
+}
+.modal .s7_modal-footer-text.s7_modal-footer-text-filled{
+    background-color: var(--s7_color-2);
+}
+.modal .s7_modal-body-content-start-2{
+    margin-bottom: 69px;
+}
+.modal .fa-clock{
+    margin-right: 10px;
+    color: var(--s7_color-2);
+    font-size: 25px;
+}
+.modal .s7_modal-body-content.disabled{
+    opacity: 0.5;
+}
+input::-webkit-calendar-picker-indicator { 
+    background-image: url('../yourpraguetransfer/assets/images/Calendar.png');
+}
+.modal input[type="number"]{
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;  
+}
+.modal input[type=number]::-webkit-inner-spin-button, 
+.modal input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+.modal .s7_button-plus-minus{
+    height: 34px;
+    width: 30px;
+    font-size: 30px;
+    line-height: 0;
+    background-color: #afafaf;
+    font-weight: 400;
+    overflow: hidden;
+}
+.modal .s7_buttons-p-m{
+    height: 70px;
+    right: 0;
+    bottom: 0;
+}
+.modal .s7_modal-body-content-mid-2{
+    margin-bottom: 60px;
+}
+.modal .fa-male{
+    color: var(--s7_color-2);
+    margin-right: 7px;
+}
+.modal .s7_modal-body-content-end-2{
+    margin-bottom: 50px;
+}
+.modal .modal-footer-2{
+    padding-top: 75px;
+    padding-bottom: 66px;
+}
+.modal .s7_modal-body-content-start-3 input::placeholder{
+    opacity: 0.5;
+}
+.modal .fa-user-alt{
+    margin-right: 8px;
+    color: var(--s7_color-2);
+    font-size: 25px;
+}
+.modal .s7_input-personal-info-row{
+    margin-bottom: 19px;
+}
+.modal .fa-star{
+    margin-right: 6px;
+    color: var(--s7_color-2);
+    font-size: 25px;
+}
+.modal .s7_input-form-note{
+    margin-bottom: 45px;
+}
+.modal input[type="checkbox"]{
+    height: unset;
+}
+.modal .s7_input-form-note{
+    margin-bottom: 42px;
+}
+.modal .s7_custom-checkboxes-title{
+    margin-bottom: 26px;
+}
+.modal .s7_form-special-checkboxes{
+    margin-bottom: 42px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 49px;
+  padding-right: 0;
+  margin: 0 31px 0 0;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: unset;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 31px;
+  width: 31px;
+  background-color: #f1f1f1;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #afafaf;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #afafaf;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 11px;
+    top: 6px;
+    width: 10px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.modal .s7_modal-body-content-start-4 h3{
+    margin-bottom: 17px;
+}
+.modal .s7_modal-body-content-start-4{
+    margin-bottom: 35px;
+}
+.modal .s7_content-ico-row{
+    margin-bottom: 12px;
+}
+.modal .s7_content-ico{
+    font-size: 19px;
+    color: var(--s7_color-4);
+    margin-right: 6px;
+}
+.modal .s7_recap-date-time-start{
+    margin-right: 18px;
+}
+.modal .s7_recap-name, .modal .s7_recap-start, .modal .fa-long-arrow-alt-right{
+    margin-right: 8px;
+}
+.modal .s7_chose-payment-method{
+    margin-bottom: 38px;
+}
+.modal .s7_form-4-end{
+    margin-bottom: 32px;
+}
+.modal .s7_form-4-text-links{
+    font-size: 20px;
+    margin-bottom: 23px;
+}
+.modal .s7_form-4-text-links a{
+    color: var(--s7_color-2);
+}

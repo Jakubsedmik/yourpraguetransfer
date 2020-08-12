@@ -51,5 +51,12 @@
         <footer id="copyright">
             <p class="s7_copyright-reference text-uppercase text-center font-weight-light mb-0">Vytvořilo <a href="http://studioseven.cz/" class="text-decoration-none">StudioSeven.cz</a></p>
         </footer>
+
+        <?php wp_footer(); ?>
+        <?php
+        if(!DEPLOYMENT){
+            echo globalUtils::renderDebug();
+        }
+        ?>
     </body>
 </html

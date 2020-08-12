@@ -1,299 +1,397 @@
 <?php include "header.php"; ?>
-  
-<!--  Buttons -> Just for view forms by modals-->
-<div class="bg-light" style="height: 100vh">
-    <section class="s7_sw-sec mx-auto p-5">
-        <div class="row">
-            <div class="col-3">
-                <button type="button" class="text-white btn bg-primary" data-toggle="modal" data-target="#Modal-form-1">Form 1</button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="text-white btn bg-secondary" data-toggle="modal" data-target="#Modal-form-2">Form 2</button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="text-white btn bg-danger" data-toggle="modal" data-target="#Modal-form-3">Form 3</button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="text-white btn bg-warning" data-toggle="modal" data-target="#Modal-form-4">Form 4</button>
-            </div>
-        </div>
-    </section>
-</div>
 
-
-<!-- /*------  Modals  ------*/ -->
-<!-- /*--- Modal 1 ---*/ -->
-<div class="modal fade" id="Modal-form-1" tabindex="-1" role="dialog" aria-labelledby="Modal-form-1-Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content border-0">
-     
-      <div class="modal-header flex-column align-items-center border-0">
-        <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-1-Label">Rezervace <span class="font-weight-light">cesty</span></h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <p class="s7_modal-header-text text-center">Proveďte rezervaci Vaší cesty a nic Vám neunikne</p>
-      </div>
-      
-      <div class="modal-body">
-        <div class="s7_modal-body-content s7_modal-body-content-start-1">
-            <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Vyzvedneme Vás</h3>
-            <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-            <input type="text" name="s7_input-form-start" placeholder="Letiště Václava Havla (PRG), Aviatická, Praha 6, Česko" class="border-0 w-100" required>
-        </div>
-        <div class="s7_modal-body-content s7_modal-body-content-end-1">
-            <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Odvezeme Vás</h3>
-            <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-            <input type="text" name="s7_input-form-goal" placeholder="ROXY, Dlouhá, Staré Město, Česko" class="border-0 w-100" required>
-        </div>
-        <div class="s7_form-1-end row flex-sm-row flex-column">
-            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                <figure class="mb-0">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-way.png" alt="">
-                </figure>
-                <p class="s7_form-1-end-big-text font-weight-bold mb-0">14.3 <span class="font-weight-light">Km</span></p>
+<section id="your-way" class="container-fluid text-white">
+    <div class="s7_underpage-slider-sw s7_sw-sec mx-auto">
+        <h1 class="text-center text-white text-uppercase font-weight-bold pb-2">Vaše cesta</h1>
+        <div class="s7_place-ftw d-flex align-items-center flex-md-row flex-column justify-content-center">
+            <div class="s7_place-start d-flex align-items-center">
+                <i class="fas text-white fa-map-marker-alt mr-3"></i>
+                <p class="text-white font-weight-light mb-0">Praha, Letiště Václava Havla</p>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                <figure class="mb-0">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-time.png" alt="">
-                </figure>
-                <p class="s7_form-1-end-big-text font-weight-bold mb-0">28 <span class="font-weight-light">min</span></p>
+            <div class="s7_ftw-arrows">
+                <i class="fas fa-caret-right mr-2 text-white"></i>
+                <i class="fas fa-caret-right mr-2 text-white"></i>
+                <i class="fas fa-caret-right text-white"></i>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                <figure class="mb-0">
-                    <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-cash.png" alt="">
-                </figure>
-                <p class="s7_form-1-end-big-text font-weight-bold mb-0">580 <span class="font-weight-light">Kč</span></p>
+            <div class="s7_place-finish d-flex align-items-center">
+                <i class="fas text-white fa-map-marker-alt mr-3"></i>
+                <p class="text-white font-weight-light mb-0">Praha, Vodičkova 24</p>
             </div>
         </div>
-        <div class="s7_form-next-btn-div">
-            <button type="submit" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                <span class="text-white text-uppercase">Pokračovat</span>
-                <i class="fas fa-chevron-right text-white"></i>
-            </button>
+        <div class="s7_underpage-col-row mx-auto d-flex justify-content-center">
+            <div class="s7_underpage-ico d-flex align-items-center">
+                <figure class="mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/route.png" alt="" class="w-100"></figure>
+                <p class="s7_underpage-text font-weight-light text-white mb-0"><strong class="text-white">14.3</strong> Km</p>
+            </div>
+            <div class="s7_underpage-ico d-flex align-items-center">
+                <figure class="mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/time.png" alt="" class="w-100"></figure>
+                <p class="s7_underpage-text font-weight-light text-white mb-0"><strong class="text-white">28</strong> min</p>
+            </div>
+            <div class="s7_underpage-ico d-flex align-items-center">
+                <figure class="mb-0"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/money.png" alt="" class="w-100"></figure>
+                <p class="s7_underpage-text font-weight-light text-white mb-0">od <strong class="text-white">580</strong> Kč</p>
+            </div>
         </div>
-      </div>
-      
-      <div class="modal-footer border-0 d-flex flex-wrap justify-content-between">
-          <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">1. Místo</p>
-          <p class="s7_modal-footer-text text-white m-0">2. Osoby a datum</p>
-          <p class="s7_modal-footer-text text-white m-0">3. Údaje objednatele</p>
-          <p class="s7_modal-footer-text text-white m-0">4. Platba</p>
-          <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
-      </div>
+        <a href="#" class="btn rounded-0 w-100 font-weight-bold d-flex align-items-center justify-content-between mx-auto text-uppercase"><span class="text-white">Změnit cestu</span><i class="fas fa-chevron-right text-white"></i></a>
     </div>
-  </div>
-</div>
-
-<!-- /*--- Modal 2 ---*/ -->
-<div class="modal fade" id="Modal-form-2" tabindex="-1" role="dialog" aria-labelledby="Modal-form-2-Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content border-0">
-            <div class="modal-header flex-column align-items-center border-0">
-                <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-2-Label">Rezervace <span class="font-weight-light">cesty</span></h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <p class="s7_modal-header-text text-center">Proveďte rezervaci Vaší cesty a nic Vám neunikne</p>
-            </div>
-
-            <div class="modal-body">
-                <div class="s7_modal-body-content s7_modal-body-content-start-2">
-                    <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme</h3>
-                    <label for="s7_input-form-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                    <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-date" class="border-0 w-100" required>
+</section>
+<section id="search-map" class="container-fluid row mx-0">
+    <div class="s7_car-col col-xl-6 col-12 pr-0">
+        <form action="">
+            <select name="sorting_name" id="sorting_id" class="text-uppercase border-0 rounded-0 w-100">
+                <option value="default"><span>Řadit dle </span><i class="fas fa-chevron-down"></i></option>
+            </select>
+            <select name="currency_name" id="curreny_id" class="text-uppercase border-0 rounded-0 w-100">
+                <option value="default"><span>Měna </span><i class="fas fa-chevron-down"></i></option>
+            </select>
+        </form>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
                 </div>
-                <div class="s7_modal-body-content s7_modal-body-content-mid-2 disabled">
-                    <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme (cesta zpět)</h3>
-                    <label for="s7_input-form-goal-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                    <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-goal-date" class="border-0 w-100" disabled required>
-                </div>
-                <div class="s7_modal-body-content s7_modal-body-content-end-2 position-relative">
-                    <h3 class="font-weight-bold"><i class="fas fa-male"></i>Kdy pro Vás přijedeme (cesta zpět)</h3>
-                    <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                    <input type="number" name="s7_input-form-count-passenger" value="3" class="border-0 w-100" required>
-                    <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus">+</button>
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus">-</button>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
                     </div>
                 </div>
-                <div class="s7_form-next-btn-div">
-                    <button type="submit" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                        <span class="text-white text-uppercase">Pokračovat</span>
-                        <i class="fas fa-chevron-right text-white"></i>
-                    </button>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
                 </div>
             </div>
-
-            <div class="modal-footer modal-footer-2 border-0 d-flex flex-wrap justify-content-between">
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">1. Místo</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">2. Osoby a datum</p>
-                <p class="s7_modal-footer-text text-white m-0">3. Údaje objednatele</p>
-                <p class="s7_modal-footer-text text-white m-0">4. Platba</p>
-                <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
+        </div>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                </div>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+            </div>
+        </div>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                </div>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+            </div>
+        </div>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                </div>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+            </div>
+        </div>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                </div>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+            </div>
+        </div>
+        <div class="s7_nabidka-aut">
+            <div class="s7_nabidka-aut-info d-flex">
+                <figure class="s7_res-car-img mb-0 position-relative"><img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/auto-reservation.png" alt=""></figure>
+                <div class="s7_car-text">
+                    <div class="d-flex align-items-center">
+                        <h3 class="font-weight-bold mr-3 mb-0">High Class</h3>
+                        <div class="s7_nabidka-aut-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="s7_nabidka-aut-typ-auto font-italic mb-1">Škoda Superb Laurint Clement</div>
+                    <p class="s7_nabidka-aut-popis">Etiam aliquam, arcu tristique ultrices vestibulum, augue erat convallis dui, a sodales quam augue ut ligula. <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                </div>
+                <div class="s7_reservation-buttons w-100">
+                    <div class="s7_res-button-one-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">580 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                    <div class="s7_res-button-two-way d-flex align-items-center">
+                        <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">1.000 <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                        <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-3.png" alt="štít" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-2.png" alt="wifi" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-4.png" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                </div>
+                <div class="s7_reservation-ico text-center d-flex align-items-center">
+                    <figure class="s7_res-ico mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/res-ico-1.png" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                    <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- /*--- Modal 3 ---*/ -->
-<div class="modal fade" id="Modal-form-3" tabindex="-1" role="dialog" aria-labelledby="Modal-form-3-Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content border-0">
-            <div class="modal-header flex-column align-items-center border-0">
-                <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-3-Label">Rezervace <span class="font-weight-light">cesty</span></h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <p class="s7_modal-header-text text-center">Proveďte rezervaci Vaší cesty a nic Vám neunikne</p>
-            </div>
-
-            <div class="modal-body">
-                <div class="s7_modal-body-content s7_modal-body-content-start-3">
-                    <h3 class="font-weight-bold"><i class="fas fa-user-alt"></i>Vaše údaje</h3>
-                    <div class="s7_input-personal-info-row row">
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-first-name" class="s7_modal-body-undertext text-uppercase">Jméno *</label>
-                            <input type="text" name="s7_input-form-first-name" class="border-0 w-100" placeholder="Jan" required>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-last-name" class="s7_modal-body-undertext text-uppercase">Jméno *</label>
-                            <input type="text" name="s7_input-form-last-name" class="border-0 w-100" placeholder="Novák" required>
-                        </div>
-                    </div>
-                    <div class="s7_input-personal-info-row row">
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-email" class="s7_modal-body-undertext text-uppercase">Email *</label>
-                            <input type="email" name="s7_input-form-email" class="border-0 w-100" placeholder="test@yourpraguetransfer.cz" required>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-tel" class="s7_modal-body-undertext text-uppercase">Telefon *</label>
-                            <input type="text" name="s7_input-form-tel" class="border-0 w-100" placeholder="+420 777 888 999" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" required>
-                        </div>
-                    </div>
-                    <div class="s7_input-personal-info-row row">
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-sign" class="s7_modal-body-undertext text-uppercase">Pickup sign</label>
-                            <input type="text" name="s7_input-form-sign" class="border-0 w-100" placeholder="JANNOVAK">
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <label for="s7_input-form-travel" class="s7_modal-body-undertext text-uppercase">Číslo letu/vlaku/autobusu</label>
-                            <input type="text" name="s7_input-form-travel" class="border-0 w-100" placeholder="CX-8875">
-                        </div>
-                    </div>
-                    <label for="s7_input-form-note" class="s7_modal-body-undertext text-uppercase">Poznámka</label>
-                    <input type="text" name="s7_input-form-note" class="s7_input-form-note border-0 w-100" placeholder="Přivezte mi něco k jídlu prosím">
-                    <h3 class="s7_custom-checkboxes-title font-weight-bold"><i class="fas fa-star"></i>Speciální požadavky</h3>
-                    <div class="s7_form-special-checkboxes form-check p-0 d-flex">
-                        <label class="container">Velká zavazadla
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">Dětská sedačka
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="s7_form-next-btn-div">
-                    <button type="submit" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                        <span class="text-white text-uppercase">Pokračovat</span>
-                        <i class="fas fa-chevron-right text-white"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="modal-footer modal-footer-3 border-0 d-flex flex-wrap justify-content-between">
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">1. Místo</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">2. Osoby a datum</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">3. Údaje objednatele</p>
-                <p class="s7_modal-footer-text text-white m-0">4. Platba</p>
-                <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
-            </div>
-        </div>
+    <div class="s7_map-col col-xl-6 col-12 px-0">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d327864.24120414926!2d14.18544508487069!3d50.05933245499073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b939c0970798b%3A0x400af0f66164090!2sPraha!5e0!3m2!1scs!2scz!4v1595241988737!5m2!1scs!2scz" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="s7_mapitself"></iframe>
     </div>
-</div>
-
-<!-- /*--- Modal 4 ---*/ -->
-<div class="modal fade" id="Modal-form-4" tabindex="-1" role="dialog" aria-labelledby="Modal-form-4-Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content border-0">
-            <div class="modal-header flex-column align-items-center border-0 pb-0">
-                <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-4-Label">Rezervace <span class="font-weight-light">cesty</span></h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <p class="s7_modal-header-text text-center">Proveďte rezervaci Vaší cesty a nic Vám neunikne</p>
-            </div>
-
-            <div class="modal-body pt-0">
-                <div class="s7_modal-body-content s7_modal-body-content-start-4">
-                    <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Rekapitulace</h3>
-                    <div class="s7_content-ico-row s7_recap-dates-times d-flex align-items-baseline">
-                        <i class="s7_content-ico far fa-calendar-alt"></i>
-                        <p class="s7_recap-date-time-start mb-0">22. 6. 2020 16:30</p>
-                        <i class="s7_content-ico fas fa-history"></i>
-                        <p class="s7_recap-date-time-goal mb-0">25.6.2020 18:30</p>
-                    </div>
-                    <div class="s7_content-ico-row s7_recap-persons d-flex align-items-baseline">
-                        <i class="s7_content-ico fas fa-user-alt"></i>
-                        <p class="s7_recap-name mb-0">Jakub Sedmík</p>
-                        <p class="s7_recap-count mb-0"> (4 osoby)</p>
-                    </div>
-                    <div class="s7_content-ico-row s7_recap-start-goal d-flex align-items-baseline mb-0">
-                        <i class="s7_content-ico fas fa-map-marker-alt"></i>
-                        <p class="s7_recap-start mb-0">Letiště Praha</p>
-                        <i class="s7_content-ico fas fa-long-arrow-alt-right"></i>
-                        <p class="s7_recap-goal mb-0">Roxy Praha</p>
-                    </div>
-                </div>
-                <div class="s7_modal-body-content s7_modal-body-content-mid-4">
-                    <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Jak zaplatíte <span class="s7_payment-title">(580 Kč)</span></h3>
-                    <div class="s7_chose-payment-method">
-                        <label for="s7_payment-methods" class="s7_modal-body-undertext text-uppercase">Vyberte platební metodu</label>
-                        <select name="s7_payment-methods" id="methods" class="border-0 w-100">
-                            <option value="online">Platba online - kartou / online bankovním převodem</option>
-                            <option value="cash">Platba hotově v cíli</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="s7_form-4-end row flex-sm-row flex-column">
-                    <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                        <figure class="mb-0">
-                            <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-way.png" alt="">
-                        </figure>
-                        <p class="s7_form-1-end-big-text font-weight-bold mb-0">14.3 <span class="font-weight-light">Km</span></p>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                        <figure class="mb-0">
-                            <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-time.png" alt="">
-                        </figure>
-                        <p class="s7_form-1-end-big-text font-weight-bold mb-0">28 <span class="font-weight-light">min</span></p>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                        <figure class="mb-0">
-                            <img src="../yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/Form-cash.png" alt="">
-                        </figure>
-                        <p class="s7_form-1-end-big-text font-weight-bold mb-0">580 <span class="font-weight-light">Kč</span></p>
-                    </div>
-                </div>
-                <p class="s7_form-4-text-links text-center">Pokračováním souhlasíte s <a href="#" class="font-weight-bold">podmínkami</a> a s <a href="#" class="font-weight-bold">obchodními podmínkami</a></p>
-                <div class="s7_form-next-btn-div">
-                    <button type="submit" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                        <span class="text-white text-uppercase">Pokračovat</span>
-                        <i class="fas fa-chevron-right text-white"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="modal-footer modal-footer-3 border-0 d-flex flex-wrap justify-content-between">
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">1. Místo</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">2. Osoby a datum</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">3. Údaje objednatele</p>
-                <p class="s7_modal-footer-text s7_modal-footer-text-filled text-white m-0">4. Platba</p>
-                <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
-            </div>
-        </div>
+</section>
+<section id="res-contact" class="container-fluid d-flex justify-content-center">
+    <div class="s7_res-contact-phone d-flex align-items-center">
+        <figure class="mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/phone.png" alt="phone" class="s7_res-contact-ico-img w-100"></figure>
+        <a href="tel:+420 722 855 989" class="s7_res-contact-ico-text font-weight-bold text-decoration-none">+420 722 855 989</a>
     </div>
-</div>
+    <div class="s7_res-contact-envelope d-flex align-items-center">
+        <figure class="mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/envelope.png" alt="phone" class="s7_res-contact-ico-img w-100"></figure>
+        <a href="mailto:info@yourpraguetransfers.cz" class="s7_res-contact-ico-text font-weight-bold text-decoration-none">info@yourpraguetransfers.cz</a>
+    </div>
+    <div class="s7_res-contact-map d-flex align-items-center">
+        <figure class="mb-0"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/map-mark.png" alt="phone" class="s7_res-contact-ico-img w-100"></figure>
+        <span class="s7_res-contact-ico-text font-weight-bold">Evropská 27, 247 89, Praha 6</span>
+    </div>
+</section>
 <?php include "footer.php"; ?>

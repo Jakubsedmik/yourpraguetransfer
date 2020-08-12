@@ -1,0 +1,1 @@
+{"test":true,"price":12.34,"curr":"CZK","status":"PENDING","fee":"unknown"}

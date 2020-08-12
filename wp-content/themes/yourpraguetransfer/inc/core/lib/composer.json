@@ -1,0 +1,6 @@
+{
+    "require": {
+        "gopay/payments-sdk-php": "^1.4",
+        "fakturoid/fakturoid-php": "^1.0"
+    }
+}
