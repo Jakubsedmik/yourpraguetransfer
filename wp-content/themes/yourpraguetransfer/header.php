@@ -7,15 +7,6 @@
         <title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
         <?php wp_head(); ?>
 
-
-
-        <!--Font Awesome-->
-        <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/fontawesome.css" rel="stylesheet">
-        <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/brands.css" rel="stylesheet">
-        <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/solid.css" rel="stylesheet">
-        <link href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/FontAwesome/fontawesome-free-5.13.1-web/css/regular.css" rel="stylesheet">
-
-        
     </head>
     <body <?php body_class(); ?>>
 

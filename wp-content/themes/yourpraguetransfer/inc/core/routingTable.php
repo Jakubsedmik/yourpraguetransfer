@@ -4,7 +4,7 @@
 $base_url_regex = str_replace("/", "\/", BASE_URL);
 
 $routes = array(
-	$base_url_regex . 'new\/' => "homeController",
+	$base_url_regex . 'vyhledavani\/' => "vyhledavaniController",
 	$base_url_regex . 'inzerat\/' => "inzeratDetailController",
 	$base_url_regex . 'uzivatel\/' => "uzivatelDetailController",
 	$base_url_regex . "login\/" => "loginController",

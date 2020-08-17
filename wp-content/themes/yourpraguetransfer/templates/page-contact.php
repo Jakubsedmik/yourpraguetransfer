@@ -1,23 +1,23 @@
 <section id="contact" class="s7_sw-sec mx-auto"> <!-- Contact -->
-    <h2 class="text-center text-uppercase font-weight-bold">Kontakt</h2>
-    <p class="s7_contact-text text-center">Rezervujte si jízdu přímo na našem dispečinku. Neváhejte zavolat.</p>
+    <h2 class="text-center text-uppercase font-weight-bold"><?php echo get_theme_mod( "kontakt_title" ); ?></h2>
+    <p class="s7_contact-text text-center"><?php echo get_theme_mod( "kontakt_subtitle" ); ?></p>
     <div class="row">
         <div class="s7_contact-col col-lg-6 col-12">
             <div class="s7_contact-phone d-flex align-items-center">
-                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/phone.png" alt="phone" class="s7_contact-ico-img w-100">
-                <a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none">+420 722 855 989</a>
+                <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/phone.png" alt="phone" class="s7_contact-ico-img w-100">
+                <a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo get_theme_mod( "telefon" ); ?></a>
             </div>
             <div class="s7_contact-envelope d-flex align-items-center">
-                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/envelope.png" alt="phone" class="s7_contact-ico-img w-100">
-                <a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none">info@yourpraguetransfers.cz</a>
+                <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/envelope.png" alt="phone" class="s7_contact-ico-img w-100">
+                <a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo get_theme_mod( "email" ); ?></a>
             </div>
             <div class="s7_contact-map d-flex align-items-center">
-                <img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/map-mark.png" alt="phone" class="s7_contact-ico-img w-100">
-                <span class="s7_contact-ico-text font-weight-bold">Evropská 27, 247 89, Praha 6</span>
+                <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/map-mark.png" alt="phone" class="s7_contact-ico-img w-100">
+                <span class="s7_contact-ico-text font-weight-bold"><?php echo get_theme_mod( "adresa" ); ?></span>
             </div>
-            <p class="s7_contact-bigger-text font-weight-bold">Něco o onás</p>
-            <p class="s7_contact-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-            <a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100">Více o nás</a>
+            <p class="s7_contact-bigger-text font-weight-bold"><?php echo get_theme_mod( "neco_o_nas_title" ); ?></p>
+            <p class="s7_contact-info"><?php echo get_theme_mod( "neco_o_nas_subtitle" ); ?></p>
+            <a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100"><?php echo get_theme_mod( "vice_o_nas_button" ); ?></a>
         </div>
         <div class="col-lg-6 col-12">
             <div class="s7_map-col h-100">

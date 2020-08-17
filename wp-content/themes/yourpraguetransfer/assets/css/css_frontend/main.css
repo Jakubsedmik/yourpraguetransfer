@@ -3,39 +3,44 @@
 /*definitions of fonts*/
 @import "style-reservation-page.css";
 @import "justifiedGallery.min.css";
+@import "animate.min.css";
+@import "../../fonts/fonts_frontend/FontAwesome/fontawesome-free-5.13.1-web/css/fontawesome.css";
+@import "../../fonts/fonts_frontend/FontAwesome/fontawesome-free-5.13.1-web/css/brands.css";
+@import "../../fonts/fonts_frontend/FontAwesome/fontawesome-free-5.13.1-web/css/solid.css";
+@import "../../fonts/fonts_frontend/FontAwesome/fontawesome-free-5.13.1-web/css/regular.css";
 @font-face {
   font-family: Roboto;
-  src: url(../../fonts/Roboto-Bold.ttf);
+  src: url(../../fonts/fonts_frontend/Roboto-Bold.ttf);
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: Roboto;
-  src: url(../../fonts/Roboto-Italic.ttf);
+  src: url(../../fonts/fonts_frontend/Roboto-Italic.ttf);
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: Roboto;
-  src: url(../../fonts/Roboto-Regular.ttf);
+  src: url(../../fonts/fonts_frontend/Roboto-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: Roboto;
-  src: url(../../fonts/Roboto-Thin.ttf);
+  src: url(../../fonts/fonts_frontend/Roboto-Thin.ttf);
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
   font-family: Myriad;
-  src: url(../../fonts/myriadpro-bold.otf);
+  src: url(../../fonts/fonts_frontend/MYRIADPRO-BOLD.OTF);
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: Myriad;
-  src: url(../../fonts/myriadpro-regular.otf);
+  src: url(../../fonts/fonts_frontend/myriadpro-regular.otf);
   font-weight: normal;
   font-style: normal;
 }
@@ -109,8 +114,22 @@ body .navbar {
   top: 32px;
 }
 /*--- HP SLIDER ---*/
+.s7_form-field {
+  position: relative;
+  width: 38%;
+}
+.s7_form-field img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+.s7_form-field input::placeholder,
+.s7_form-field input {
+  font-size: 16px!important;
+}
 #main-slider {
-  background-image: url("../../images/HP-bg.jpg");
+  background-image: url("../../images/images_frontend/HP-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -120,7 +139,8 @@ body .navbar {
 }
 #main-slider .s7_slider-under-title-text {
   margin-bottom: 60px;
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: 300;
 }
 #main-slider .s7_ftw {
   max-width: 868px;
@@ -137,6 +157,7 @@ body .navbar {
 #main-slider .s7_ftw-arrown i {
   font-size: 28px;
   transition: 0.1s ease-in-out;
+  color: var(--s7_color-2);
 }
 #main-slider .s7_ftw-arrown i.active {
   transform: scale(1.5);
@@ -173,11 +194,15 @@ body .navbar {
   margin-bottom: 35px;
   letter-spacing: 1px;
 }
+#main-slider .s7_slider-usps {
+  max-width: 1000px;
+  margin: 0px auto;
+}
 #main-slider .s7_slider-covid {
   max-width: 198px;
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: rgba(208, 208, 208, 0.29);
+  background-color: rgba(0, 0, 0, 0.29);
   transition: 0.2s ease-out;
 }
 #main-slider .s7_slider-covid:hover {
@@ -306,7 +331,7 @@ body .navbar {
 }
 /*--- REFERENCES ---*/
 #references {
-  background-image: url("../../images/slider-bg.jpg");
+  background-image: url("../../images/images_frontend/slider-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -472,6 +497,21 @@ body .navbar {
 #footer .s7_footer_contact-ico-img {
   max-width: 33px;
   margin-right: 15px;
+}
+.s7_footer_contact-ico-img {
+  width: 33px;
+  height: 33px;
+  background-position: center;
+  background-size: contain;
+}
+.s7_footer_contact-ico-img.address {
+  background-image: url(../../images/images_frontend/map-mark.png);
+}
+.s7_footer_contact-ico-img.phone {
+  background-image: url(../../images/images_frontend/phone.png);
+}
+.s7_footer_contact-ico-img.mail {
+  background-image: url(../../images/images_frontend/envelope.png);
 }
 #footer .s7_footer-contact-phone,
 #footer .s7_footer-contact-envelope {
@@ -839,5 +879,8 @@ body .navbar {
   .navbar img {
     max-width: 210px;
   }
+}
+:root {
+  --animate-delay: 0.5s;
 }
 /*# sourceMappingURL=main.css.map */

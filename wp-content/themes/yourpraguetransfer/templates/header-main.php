@@ -1,6 +1,16 @@
 <header class="container-fluid bg-white px-0 fixed-special-top">
     <nav class="s7_sw-sec navbar navbar-expand-lg mx-auto"> <!-- Bootstrap sticky responsive header -->
-        <a href="/" class="navbar-brand"><img src="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/page-logo.png" alt="logo-icon-car"></a> <!-- Logo -->
+        <div class="navbar-brand">
+
+            <?php
+            if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+                the_custom_logo();
+            }else {
+            ?>
+                <h1><?php echo get_bloginfo( 'name' ); ?></h1>
+            <?php } ?>
+
+        </div> <!-- Logo -->
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> <!-- Burger Icon -->
