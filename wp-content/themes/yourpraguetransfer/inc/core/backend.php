@@ -6,7 +6,7 @@
 
 
 function mojeMenu(){
-	$page_hook = add_menu_page("Inzeráty" , "Inzeráty", "publish_posts", PLUGIN_SLUG, "s7interface");
+	$page_hook = add_menu_page("Správa vozidel" , "Správa vozidel", "publish_posts", PLUGIN_SLUG, "s7interface");
 	add_action( 'load-' . $page_hook , 'my_ob_start');
 }
 

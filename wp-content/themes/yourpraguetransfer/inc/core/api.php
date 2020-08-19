@@ -159,7 +159,7 @@ function uploadFile(){
 			$obrazek = assetsFactory::createEntity("obrazekClass", array(
 				'url' => $default_url,
 				'kod' => $universal_name,
-				'inzerat_id' => $_POST['id']
+				'vozidlo_id' => $_POST['id']
 			));
 		}else{
 			$obrazek = assetsFactory::createEntity("obrazekClass", array(

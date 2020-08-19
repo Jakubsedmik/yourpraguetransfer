@@ -8,7 +8,7 @@ class obrazekClass extends zakladniKamenClass {
 	protected $db_kod;
 	protected $db_url;
 
-	protected $db_inzerat_id;
+	protected $db_vozidlo_id;
 	protected $db_front;
 
 
