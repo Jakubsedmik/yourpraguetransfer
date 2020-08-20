@@ -915,6 +915,16 @@ class Tools {
         return $output;
     }
 
+
+    public static function simpleInput($name, $controller, $label, $type){
+	    $output = "";
+	    $output .= '<div class="md-form">';
+	    $output .= '<input type="'. $type . '" id="' . $name . '" name="' . $name . '" class="form-control" value="' . $controller->getPostData('db_hvezdy') . '">';
+	    $output .= '<label for="' . $name . '">' . $label . '</label>';
+	    $output .= '</div>';
+	    return $output;
+    }
+
 	public static function getSelectBoxForEntities($classname_from, $selected_object_id, $naming_property, $label='Výběr', $id, $search_label='Vyhledávání'){
 		$allPossibleOptions = assetsFactory::getAllEntity($classname_from);
 		$is_selected = false;

@@ -80,7 +80,7 @@ abstract class controller {
     /*
      * Slouží k získávání dat z postu např při vytváření nových instancí
      */
-    protected function getPostData($key){
+    public function getPostData($key){
         if(isset($this->requestData[$key])){
             return $this->requestData[$key];
         }

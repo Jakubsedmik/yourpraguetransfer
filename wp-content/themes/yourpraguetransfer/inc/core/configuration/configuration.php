@@ -589,57 +589,20 @@ $frontend_common_messages = array(
 
 // VŠEOBECNÝ SLOVNÍK PRO PŘEKLADY FIELDŮ
 $dictionary = array(
-	'db_nazev_pob'       => 'Název pobočky',
-	'db_nazev_kat'       => 'Název kategorie',
-	'db_nazev'           => 'Název',
-	'db_nazev_suroviny'  => 'Název suroviny',
-	'db_mnozstvi'        => 'Množství',
-	'db_jednotka'        => 'Jednotka',
-	'db_email'           => 'Email',
-	'db_telefon'         => 'Telefon',
-	'db_ulice'           => 'Ulice',
-	'db_cp'              => 'Č.P.',
-	'db_mesto'           => 'Město',
-	'db_psc'             => 'PSČ',
-	'db_obrazek'         => 'Obrázek',
-	'db_vaha'            => 'Váha',
-	'db_cena'            => 'Cena',
-	'db_kategorieid'     => 'Kategorie',
-	'db_popisek'         => 'Popisek',
-	'db_kod'             => 'Kód produktu',
-	'db_inzerat_id'      => 'ID Inzerátu',
-	'db_id'              => 'ID',
-	'db_titulek'         => 'Titulek',
-	'db_url'             => 'Obrázek',
-	'db_typ_nemovitosti' => 'Typ nemovitosti',
-	'db_stav_objektu'    => 'Stav objektu',
-	'db_jmeno'           => "Jméno",
-	'db_prijmeni'        => "Příjmení",
-	'db_datum_vytvoreni' => "Datum vytvoření",
-	'db_typ_stavby'      => "Typ stavby",
-	'db_typ_inzeratu'    => "Typ inzerátu",
-	'db_parkovaci_misto' => "Parkovací místo",
-	'db_top'             => "Top",
+
 	'db_domain'          => "Doména",
 	'db_property'        => "Vlastnost",
 	'db_value'           => "Hodnota",
 	'db_translation'     => "Překlad",
 	'db_front'           => "Náhledový obrázek",
-	'db_penb'            => 'PENB',
-	'db_vybavenost'      => 'Vybavenost',
-	'db_typ_vlastnictvi' => 'Typ vlastnictví',
-	'db_material'        => 'Materiál',
-	'db_vytah'           => 'Výtah',
-	'db_terasa'          => 'Terasa',
-	'db_mestska_cast'    => 'Městská část',
-	'db_stav_inzeratu'   => 'Stav inzerátu',
-	'db_stav'            => 'Stav objednávky',
-	'db_hash'            => 'Hash platební brány',
-	'db_uzivatel_id'     => 'Id uživatele',
-	'db_nazev_sluzby' => "Název služby",
-	'db_accept' => "Zaúčtováno",
-	'db_invoice_link' => "Faktura",
-	'db_invoice_id' => "Fakturoid ID"
+    'db_nazev' => 'Název',
+    'db_trida' => 'Třída',
+    'db_hvezdy' => 'Počet hvězd',
+    'db_top' => 'TOP',
+    'db_max_osob' => 'Max. osob',
+    'db_max_zavazadel' => 'Max. zavazadel',
+    'db_cena_za_jednotku' => 'Cena za jednotku',
+    'db_jednotka' => 'Jednotka',
 );
 
 
@@ -672,7 +635,10 @@ $models = array(
 	),
 	"transakceClass" => array(
 		"backendController" => "transakce"
-	)
+	),
+    "vozidloClass" => array(
+        "backendController" => "vozidlo"
+    )
 );
 
 // RELATIONS
@@ -744,11 +710,9 @@ $localDials = array(
 // clasess
 
 $classes = array(
-	'inzeratClass'  => "Inzerát",
+	'vozidloClass'  => "Vozidlo",
 	'obrazekClass'  => "Obrázek",
-	'uzivatelClass' => "Uživatel",
 	'objednavkaClass' => "Objednávka",
-	'transakceClass' => "Transakce"
 );
 
 

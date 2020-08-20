@@ -20,7 +20,7 @@
                     <!-- Text -->
                     <p class="card-text">Editace vozidel a s nimi spjatých informací - obrázky, ceníky, apod.</p>
                     <!-- Link -->
-                    <a href="<?php echo Tools::getRoute("inzeratClass"); ?>" class="orange-text d-flex flex-row-reverse p-2">
+                    <a href="<?php echo Tools::getRoute("vozidloClass"); ?>" class="orange-text d-flex flex-row-reverse p-2">
                         <h5 class="waves-effect waves-light">Vozidla<i class="fas fa-angle-double-right ml-2"></i></h5>
                     </a>
 
