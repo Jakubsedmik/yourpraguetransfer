@@ -14,7 +14,7 @@
 			<!-- Form -->
 			<form class="text-center" style="color: #757575;" action="<?php Tools::getCurrentUrl(); ?>" method="POST">
 				<input type="hidden" name="db_id" value="<?php echo $this->viewData['obrazek']->getId(); ?>">
-
+                <input type="hidden" name="db_entity_class" value="<?php echo $this->viewData['obrazek']->dejData("db_entity_class"); ?>">
 
 				<?php
 				$obr = $this->viewData['obrazek']->dejData('db_url');
@@ -58,10 +58,10 @@
 						</div>
                         <div class="form-row js-detail-button">
                             <div class="col-10">
-						        <?php echo Tools::getSelectBoxForEntities("inzeratClass", $this->viewData['obrazek']->db_inzerat_id, array('db_id', 'db_titulek'),'Inzerát','db_inzerat_id'); ?>
+						        <?php echo Tools::getSelectBoxForEntities($this->viewData['obrazek']->db_entity_class, $this->viewData['obrazek']->db_entity_id, array('db_id', 'db_nazev'),'Vozidlo','db_entity_id'); ?>
                             </div>
                             <div class="col-2">
-                                <a href="<?php echo Tools::getRoute("inzeratClass","edit",$this->viewData['obrazek']->db_inzerat_id) ?>" class="btn btn-secondary btn-sm">Detail</a>
+                                <a href="<?php echo Tools::getRoute("vozidloClass","edit",$this->viewData['obrazek']->db_entity_id) ?>" class="btn btn-secondary btn-sm">Detail</a>
                             </div>
                         </div>
 						<div>

@@ -9,7 +9,7 @@
         <h5 class="card-header info-color white-text text-center py-4">
             <strong>Vytvoření vozidla</strong>
             <p class="mb-0 text-white">Zde můžete vytvořit nové vozidlo. Nejdříve vozidlo vytvořte a až poté můžete připojit k vozidlu fotografie pomocí úpravy vozidla.</p>
-            <a class="position-absolute admin-nav" href="<?php echo Tools::getRoute("inzeratClass"); ?>"><i class="fas fa-bars"></i> Zpět na výpis</a>
+            <a class="position-absolute admin-nav" href="<?php echo Tools::getRoute("vozidloClass"); ?>"><i class="fas fa-bars"></i> Zpět na výpis</a>
         </h5>
 
         <!--Card content-->
@@ -54,12 +54,12 @@
 
                     <!-- Cena za jednotku -->
                     <div class="col">
-                        <?php echo Tools::simpleInput("db_cena", $this, "Cena za jednotku", "number"); ?>
+                        <?php echo Tools::simpleInput("db_cena_za_jednotku", $this, "Cena za jednotku", "number"); ?>
                     </div>
 
                     <!-- Jednotka -->
                     <div class="col">
-                        <?php echo Tools::getSelectBoxForDials('vozidloClass', 'jednotka', $this->getPostData('db_jednotka'),'Jednotka', 'Jednotka'); ?>
+                        <?php echo Tools::getSelectBoxForDials('vozidloClass', 'jednotka', $this->getPostData('db_jednotka'),'Jednotka', 'db_jednotka'); ?>
                     </div>
 
                     <div class="col">
@@ -82,6 +82,3 @@
     <!-- Material form register -->
 
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9RxWxpRRoy9R-wAILv5Owb7GaXHLVaw"
-        async defer></script>

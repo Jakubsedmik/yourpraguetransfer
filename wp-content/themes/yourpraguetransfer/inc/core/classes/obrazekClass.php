@@ -8,7 +8,8 @@ class obrazekClass extends zakladniKamenClass {
 	protected $db_kod;
 	protected $db_url;
 
-	protected $db_vozidlo_id;
+	protected $db_entity_id;
+	protected $db_entity_class;
 	protected $db_front;
 
 

@@ -25,6 +25,6 @@ class vozidloClass extends zakladniKamenClass
 
     public function getTableName()
     {
-        // TODO: Implement getTableName() method.
+        return "s7_vozidlo";
     }
 }

@@ -283,3 +283,15 @@ function updateURLParameter(url, param, paramVal){
     var rows_txt = temp + "" + param + "=" + paramVal;
     return baseURL + "?" + newAdditionalURL + rows_txt;
 }
+
+
+/* SWITCH AUTOCOMPLETION ON, CREATE LAT AND LNG */
+function initAutocomplete() {
+    var input = $(".js-autocomplete")[0];
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlace();
+        console.log(place.address_components);
+    });
+}

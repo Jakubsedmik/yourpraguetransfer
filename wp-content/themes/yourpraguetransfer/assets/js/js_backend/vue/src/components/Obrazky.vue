@@ -69,6 +69,9 @@
             'entity_id' : {
                 default: 5
             },
+            'entity_class' : {
+                default: "vozidloClass"
+            },
             'api_link' : {
                 default: '/realsys/wp-admin/admin-ajax.php'
             },
@@ -86,7 +89,7 @@
                 default: 1500
             },
             'home_url' : {
-                default:  'http://localhost/realsys'
+                default:  'http://localhost/yourpraguetransfer'
             }
         },
         methods: {
@@ -140,6 +143,7 @@
                 params.append('action', "setParam");
                 var _this = this;
 
+                
                 axios.post(postUrl, params).then(function (response) {
                     if (response){
                         if(typeof response.data == "object"){
@@ -166,7 +170,7 @@
                             'db_url' : {value: response.default_url, type: "string"},
                             'db_titulek' : {value: response.universal_name, type: "string"},
                             'db_popisek' : {value:"", type:"string"},
-                            'db_front': {value:0, type:"bool"}
+                            'db_front': {value:0, type:"bool"},
                         });
                     }else{
                         alert("Došlo k chybě při vytváření obrázků");
@@ -176,6 +180,7 @@
             uploadSubParams(formData){
                 formData.append('action', 'upload');
                 formData.append('id', this.entity_id);
+                formData.append('entity_class', this.entity_class)
                 return formData;
             },
             serverConfig: function () {

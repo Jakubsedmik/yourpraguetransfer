@@ -20,7 +20,7 @@ class obrazekController extends controller {
 			if(Tools::checkPresenceOfParam("ulozit", $this->requestData)){
 				$request_data = $this->requestData;
 				$response = Tools::formProcessor(
-					array("db_id", "db_titulek", "db_popisek", "db_kod", "db_front", "db_datum_zalozeni", "db_url", "db_inzerat_id","db_kod","db_url"),
+					array("db_id", "db_titulek", "db_popisek", "db_kod", "db_front", "db_datum_zalozeni", "db_url", "db_entity_id","db_kod","db_url", "db_entity_class"),
 					$request_data,
 					'obrazekClass',
 					'edit'

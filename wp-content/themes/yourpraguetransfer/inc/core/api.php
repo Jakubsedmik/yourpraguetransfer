@@ -13,8 +13,8 @@ $api_actions = array(
 		'callback' => 'uploadFile',
 		'private' => true
 	),
-	'getInzeratObrazky' => array(
-		'callback' => 'getInzeratObrazky',
+	'getEntityObrazky' => array(
+		'callback' => 'getEntityObrazky',
 		'private' => true
 	),
 	'setParam' => array(
@@ -159,7 +159,8 @@ function uploadFile(){
 			$obrazek = assetsFactory::createEntity("obrazekClass", array(
 				'url' => $default_url,
 				'kod' => $universal_name,
-				'vozidlo_id' => $_POST['id']
+				'entity_id' => $_POST['id'],
+                'entity_class' => $_POST['entity_class']
 			));
 		}else{
 			$obrazek = assetsFactory::createEntity("obrazekClass", array(
@@ -284,12 +285,12 @@ function getElements (){
 
 }
 
-function getInzeratObrazky(){
+function getEntityObrazky(){
 	$response = new stdClass();
 	if(Tools::checkPresenceOfParam("id", $_GET)){
 		$id = $_GET['id'];
 		$filter = array();
-		$filter[] = new filterClass("inzerat_id","=", $id);
+		$filter[] = new filterClass("entity_id","=", $id);
 		$obrazky = assetsFactory::getAllEntity("obrazekClass",$filter);
 		$response->status = 1;
 		$response->obrazky = $obrazky;
@@ -311,8 +312,8 @@ function setObrazkyParam(){
 		$obrazek = assetsFactory::getEntity("obrazekClass",$id);
 		if($param == "db_front"){
 			$filter = array();
-			$inzerat_id = $obrazek->db_inzerat_id;
-			$filter[] = new filterClass("inzerat_id", "=", $inzerat_id);
+			$entity_id = $obrazek->db_entity_id;
+			$filter[] = new filterClass("entity_id", "=", $entity_id);
 			$obrazky = assetsFactory::getAllEntity("obrazekClass",$filter);
 			foreach ($obrazky as $key => $value){
 				$value->db_front = 0;

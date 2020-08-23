@@ -608,7 +608,9 @@ class Tools {
 		                $height = array_shift($destination_size);
 			            $image->cropThumbnailImage($width,$height);
 			            $image->setImageCompressionQuality(IMAGE_QUALITY);
-			            self::addImageWatermark($image);
+			            if(ADD_WATERMARK){
+			                self::addImageWatermark($image);
+                        }
 			            $image->writeImage($destination_path);
                     }
 	            }
@@ -916,10 +918,21 @@ class Tools {
     }
 
 
-    public static function simpleInput($name, $controller, $label, $type){
+    public static function simpleInput($name, $controller, $label, $type, $classlist = false){
+	    if(!is_string($controller) && is_object($controller)){
+	        $value = $controller->getPostData('db_hvezdy');
+        }else{
+	        $value = $controller;
+        }
+
+	    $classes = "";
+	    if(is_array($classlist)){
+	        $classes = implode(" ", $classlist);
+        }
+
 	    $output = "";
 	    $output .= '<div class="md-form">';
-	    $output .= '<input type="'. $type . '" id="' . $name . '" name="' . $name . '" class="form-control" value="' . $controller->getPostData('db_hvezdy') . '">';
+	    $output .= '<input type="'. $type . '" id="' . $name . '" name="' . $name . '" class="form-control ' . $classes . '" value="' . $value . '">';
 	    $output .= '<label for="' . $name . '">' . $label . '</label>';
 	    $output .= '</div>';
 	    return $output;

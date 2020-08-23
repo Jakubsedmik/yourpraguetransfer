@@ -67,10 +67,31 @@ function adminHeaders($hook){
 		wp_enqueue_script("mdb_min_js", $pluginUrl . "/assets/js/js_backend/src/mdb.js", array("bootstrap_min_js"), VERSION_LINKS, true);
 		wp_enqueue_script("base_js", $pluginUrl . "/assets/js/js_backend/src/main.js", array("jquery_min_js"), VERSION_LINKS, true);
 		wp_enqueue_script("jquery_ui_js", $pluginUrl . "/assets/js/js_backend/src/jquery-ui.js", array("jquery_min_js"), VERSION_LINKS, true);
-		wp_enqueue_script("bundle_js", $pluginUrl . "/assets/js/js_backend/dist/bundle.js", array("jquery"), VERSION_LINKS, true);
+		//wp_enqueue_script("bundle_js", $pluginUrl . "/assets/js/js_backend/dist/bundle.js", array("jquery"), VERSION_LINKS, true);
 		wp_enqueue_script("filepond_js", $pluginUrl . "/assets/js/js_backend/src/filepond.js", array("jquery"), VERSION_LINKS, true);
+
+
+		// VUE CLI
+        $vueDirectory    = join( "/", [ get_template_directory_uri(), 'assets', 'js', 'js_backend' ,'vue', 'dist' ] );
+        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css' );
+        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], '1.0.0', true );
+        wp_enqueue_style( 'backend-vue-style' );
+        wp_enqueue_script( 'backend-vue-script' );
+
 	}
 
 }
 
 add_action("admin_enqueue_scripts", "adminHeaders");
+
+
+function is_develop_serve()
+{
+    $connection = @fsockopen('localhost', '8080');
+
+    if ( $connection ) {
+        return true;
+    }
+
+    return false;
+}

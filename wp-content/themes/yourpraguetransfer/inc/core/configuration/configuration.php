@@ -129,58 +129,16 @@ $field_rules = array(
 			"type"     => URL_RELATIVE,
 			"required" => true
 		),
-		"db_inzerat_id" => array(
+		"db_entity_id" => array(
 			"type"     => FOREIGN_KEY,
 			"required" => false
 		),
+		'db_entity_class'=> array(
+		    "type" => STRING255,
+            "required" => true
+        ),
 		"db_front"      => array(
 			"type"     => BOOL,
-			"required" => false
-		)
-	),
-	'uzivatelClass'   => array(
-		"db_id"       => array(
-			"type"     => NUMBER,
-			"required" => false
-		),
-		"db_jmeno"    => array(
-			"type"     => STRING,
-			"required" => true
-		),
-		"db_prijmeni" => array(
-			"type"     => STRING,
-			"required" => true
-		),
-		"db_email"    => array(
-			"type"     => EMAIL,
-			"required" => true
-		),
-		"db_telefon"  => array(
-			"type"     => TEL,
-			"required" => true
-		),
-		"db_fbid"     => array(
-			"type"     => STRING255,
-			"required" => false
-		),
-		"db_gmid"     => array(
-			"type"     => STRING255,
-			"required" => false
-		),
-		"db_avatar"   => array(
-			"type"     => URL_RELATIVE,
-			"required" => false
-		),
-		"db_popis"    => array(
-			"type"     => STRING,
-			"required" => false
-		),
-		"db_stav"     => array(
-			"type"     => NUMBER,
-			"required" => false
-		),
-		"db_heslo" => array(
-			"type" => STRING255,
 			"required" => false
 		)
 	),
@@ -218,168 +176,6 @@ $field_rules = array(
 			"required" => false
 		)
 	),
-	"inzeratClass"    => array(
-		'db_id'               => array(
-			'type'     => NUMBER,
-			'required' => false
-		),
-		'db_titulek'          => array(
-			"required" => true,
-			"type"     => STRING255
-		),
-		'db_popis'            => array(
-			"required" => true,
-			"type"     => STRING
-		),
-		'db_typ_nemovitosti'  => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_typ_stavby'       => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_typ_inzeratu'     => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_pocet_mistnosti'  => array(
-			"required" => true,
-			"type"     => STRING255
-		),
-		'db_patro'            => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_celkem_podlazi' => array(
-			"required" => false,
-			"type" => NUMBER
-		),
-		'db_parkovaci_misto'  => array(
-			"required" => true,
-			"type"     => BOOL
-		),
-		'db_garaz'            => array(
-			"required" => true,
-			"type"     => BOOL
-		),
-		'db_balkon'           => array(
-			"required" => true,
-			"type"     => BOOL
-		),
-		'db_vytah'           => array(
-			"required" => true,
-			"type"     => BOOL
-		),
-		'db_terasa'           => array(
-			"required" => true,
-			"type"     => BOOL
-		),
-		'db_stav_objektu'     => array(
-			'required' => true,
-			'type'     => NUMBER
-		),
-		'db_stav_inzeratu'    => array(
-			'required' => true,
-			'type'     => NUMBER
-		),
-		'db_penb'           => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_vybavenost'           => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_material'           => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_typ_vlastnictvi'           => array(
-			"required" => true,
-			"type"     => NUMBER
-		),
-		'db_podlahova_plocha' => array(
-			'required' => false,
-			'type'     => NUMBER
-		),
-		'db_pozemkova_plocha' => array(
-			'required' => false,
-			'type'     => NUMBER
-		),
-		'db_uzitkova_plocha' => array(
-			'required' => false,
-			'type'     => NUMBER
-		),
-		'db_lat'              => array(
-			'required' => true,
-			'type'     => FLOAT
-		),
-		'db_lng'              => array(
-			'required' => true,
-			'type'     => FLOAT
-		),
-		'db_ulice'            => array(
-			'required' => true,
-			'type'     => STRING255
-		),
-		'db_mesto'            => array(
-			'required' => true,
-			'type'     => STRING255
-		),
-		'db_mestska_cast'           => array(
-			"required" => true,
-			"type"     => STRING255
-		),
-		'db_psc'              => array(
-			'required' => true,
-			'type'     => STRING63
-		),
-		'db_cp'               => array(
-			'required' => true,
-			'type'     => STRING63
-		),
-		'db_uzivatel_id'      => array(
-			'required' => false,
-			'type'     => FOREIGN_KEY
-		),
-		'db_top'              => array(
-			'required' => true,
-			'type'     => NUMBER
-		),
-		'db_cena'             => array(
-			'required' => false,
-			'type'     => PRICE
-		),
-		'db_cena_poznamka'    => array(
-			'required' => false,
-			'type'     => STRING511
-		),
-		'db_cena_najem' => array(
-			'required' => false,
-			'type' => PRICE
-		),
-		'db_poplatky' => array(
-			'required' => false,
-			'type' => PRICE_ZERO
-		),
-		'db_kauce' => array(
-			'required' => false,
-			'type' => PRICE_ZERO
-		),
-		'db_vhodny_pro' => array(
-			'required' => false,
-			'type' => STRING255
-		),
-		'db_k_dispozici_od' => array(
-			'required' => false,
-			'type' => DATE
-		),
-		'db_dalsi_vybaveni' => array(
-			'required' => false,
-			'type' => STRING
-		)
-	),
 	"ciselnikClass"   => array(
 		'db_id'          => array(
 			'type'     => NUMBER,
@@ -402,32 +198,44 @@ $field_rules = array(
 			'required' => true
 		),
 	),
-	"transakceClass" => array(
-		"db_id" => array(
-			"type" => NUMBER,
-			"required" => false
-		),
-		'db_nazev_sluzby'      => array(
-			'type'     => STRING255,
-			'required' => true
-		),
-		'db_id_odesilatel' => array(
-			'type' => FOREIGN_KEY,
-			'required' => true
-		),
-		'db_id_prijemce' => array(
-			'type' => NUMBER,
-			'required' => true
-		),
-		'db_mnozstvi' => array(
-			'type' => NUMBER,
-			'required' => true
-		),
-		'db_accept' => array(
-			'type' => BOOL,
-			'required' => true
-		),
-	)
+    'vozidloClass' => array(
+        'db_id' => array(
+            'type' => NUMBER,
+            'required' => false
+        ),
+        'db_nazev' => array(
+            'type' => STRING511,
+            'required' => true
+        ),
+        'db_trida' => array(
+            'type' => NUMBER,
+            'required' => true
+        ),
+        'db_max_zavazadel' => array(
+            'type' => NUMBER,
+            'required' => false
+        ),
+        'db_max_osob' => array(
+            'type' => NUMBER,
+            'required' => false
+        ),
+        'db_hvezdy' => array(
+            'type' => NUMBER,
+            'required' => false
+        ),
+        'db_cena_za_jednotku' => array(
+            'type' => NUMBER,
+            'required' => true
+        ),
+        'db_jednotka' => array(
+            'type' => NUMBER,
+            'required' => true
+        ),
+        'db_top' => array(
+            'type' => BOOL,
+            'required' => false
+        )
+    )
 );
 
 
@@ -589,7 +397,6 @@ $frontend_common_messages = array(
 
 // VŠEOBECNÝ SLOVNÍK PRO PŘEKLADY FIELDŮ
 $dictionary = array(
-
 	'db_domain'          => "Doména",
 	'db_property'        => "Vlastnost",
 	'db_value'           => "Hodnota",
@@ -603,6 +410,10 @@ $dictionary = array(
     'db_max_zavazadel' => 'Max. zavazadel',
     'db_cena_za_jednotku' => 'Cena za jednotku',
     'db_jednotka' => 'Jednotka',
+    'db_id' => 'ID',
+    'db_url' => 'URL',
+    'db_titulek' => 'Titulek',
+    'db_popisek' => 'Popisek'
 );
 
 
@@ -612,66 +423,9 @@ define( "GOPAY_INLINE", false);
 define ("GOPAY_STANDARD_CALLBACK", home_url() . "/gopay/?action=confirmPayment");
 define ("GOPAY_QUICK_CALLBACK", home_url() . "/gopay/?action=confirmQuickPayment");
 
-// MODEL / CONTROLLER  napojení
-$models = array(
-	"obrazekClass"    => array(
-		"frontendController" => "obrazekController",
-		"backendController"  => "obrazek"
-	),
-	"inzeratClass"    => array(
-		"backendController" => "inzeraty"
-	),
-	"uzivatelClass"   => array(
-		"backendController" => "uzivatel"
-	),
-	"objednavkaClass" => array(
-		"backendController" => "objednavka"
-	),
-	"ciselnikClass"   => array(
-		"backendController" => "stav"
-	),
-	"grafy"           => array(
-		"backendController" => "graf"
-	),
-	"transakceClass" => array(
-		"backendController" => "transakce"
-	),
-    "vozidloClass" => array(
-        "backendController" => "vozidlo"
-    )
-);
+require_once("model_controller_backend.php");
 
-// RELATIONS
-$relationships = array(
-	"inzeratClass" => array(
-		'db_uzivatel_id' => array(
-			'class' => 'uzivatelClass',
-		)
-	),
-	"obrazekClass" => array(
-		'db_inzerat_id' => array(
-			'class' => 'inzeratClass',
-		)
-	),
-	"hlidacipesClass" => array(
-		'db_uzivatel_id' => array(
-			'class' => 'uzivatelClass'
-		)
-	),
-	"objednavkaClass" => array(
-		'db_uzivatel_id' => array(
-			'class' => 'uzivatelClass'
-		)
-	),
-	"transakceClass" => array(
-		'db_id_odesilatel' => array(
-			'class' => 'uzivatelClass'
-		),
-		'db_id_prijemce' => array(
-			'class' => 'uzivatelClass'
-		)
-	)
-);
+require_once("relations.php");
 
 
 // CISELNIKY
@@ -693,8 +447,11 @@ $dials = array(
 	),
 	'objednavkaClass' => array(
 		'db_stav'
-	)
-
+	),
+    'vozidloClass' => array(
+        'db_trida',
+        'db_jednotka'
+    )
 );
 
 $localDials = array(
@@ -755,6 +512,7 @@ define("DATE_FORMAT", "d.m.Y");
 
 
 // DEFAULT WATERMARK
+define("ADD_WATERMARK", false);
 define("WATERMARK", __DIR__ . "/../../../assets/images/images_backend/watermark.png");
 define("WATERMARK_RESIZE_FACTOR", 1);
 
