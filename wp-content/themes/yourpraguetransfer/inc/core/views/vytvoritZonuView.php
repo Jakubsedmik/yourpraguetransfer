@@ -1,6 +1,4 @@
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIBdR0G1-KMTJDEmHeLdI87qAItL7zyw&libraries=places&callback=initAutocomplete"
-        async defer></script>
 
 <div class="container">
 
@@ -24,8 +22,9 @@
                 <?php echo Tools::simpleInput("db_nazev", $this, "Název zóny", "text"); ?>
 
 
-                <?php echo Tools::simpleInput("map_place", $this, "Místo, oblast, město", "text", array("js-autocomplete")); ?>
-
+                <div class="app">
+                    <Zonecreator></Zonecreator>
+                </div>
 
                 <!-- Sign up button -->
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="vytvorit" value="1" type="submit">Vytvořit</button>

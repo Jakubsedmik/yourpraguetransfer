@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Inzeraty from "./components/Inzeraty.vue";
 import Obrazky from "./components/Obrazky.vue";
-
+import Zonecreator from "./components/Zonecreator.vue";
 
 var appexists = document.querySelector(".app");
 if(appexists){
@@ -11,8 +11,9 @@ if(appexists){
       test: "tetss"
     },
     components :{
-      Inzeraty, Obrazky
+      Inzeraty, Obrazky, Zonecreator
     }
   });
   window.app = app;
+
 }

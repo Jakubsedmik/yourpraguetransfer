@@ -65,10 +65,14 @@ function adminHeaders($hook){
 		wp_enqueue_script("popper_min_js", $pluginUrl . "/assets/js/js_backend/src/popper.min.js", array("jquery_min_js"), VERSION_LINKS, true);
 		wp_enqueue_script("bootstrap_min_js", $pluginUrl . "/assets/js/js_backend/src/bootstrap.min.js", array("popper_min_js"), VERSION_LINKS, true);
 		wp_enqueue_script("mdb_min_js", $pluginUrl . "/assets/js/js_backend/src/mdb.js", array("bootstrap_min_js"), VERSION_LINKS, true);
-		wp_enqueue_script("base_js", $pluginUrl . "/assets/js/js_backend/src/main.js", array("jquery_min_js"), VERSION_LINKS, true);
+        global $ajax_localization;
+        wp_register_script("base_js",$pluginUrl . "/assets/js/js_backend/src/main.js", array("jquery_min_js"), VERSION_LINKS, true);
+        wp_localize_script("base_js","serverData", $ajax_localization);
+        wp_enqueue_script("base_js");
 		wp_enqueue_script("jquery_ui_js", $pluginUrl . "/assets/js/js_backend/src/jquery-ui.js", array("jquery_min_js"), VERSION_LINKS, true);
 		//wp_enqueue_script("bundle_js", $pluginUrl . "/assets/js/js_backend/dist/bundle.js", array("jquery"), VERSION_LINKS, true);
 		wp_enqueue_script("filepond_js", $pluginUrl . "/assets/js/js_backend/src/filepond.js", array("jquery"), VERSION_LINKS, true);
+
 
 
 		// VUE CLI

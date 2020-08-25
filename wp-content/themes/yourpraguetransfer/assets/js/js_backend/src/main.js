@@ -292,6 +292,146 @@ function initAutocomplete() {
 
     autocomplete.addListener('place_changed', function() {
         var place = autocomplete.getPlace();
-        console.log(place.address_components);
+        console.log(place);
+        var place_json = JSON.stringify(place.address_components);
+        $("#map_json").val(place_json);
     });
+}
+
+
+jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
+};
+
+
+$(document).ready(function () {
+    var $zone_drawing = $("#zone_drawing");
+    if($zone_drawing.length > 0){
+        $.loadScript('https://maps.googleapis.com/maps/api/js?key=' + serverData.google_api_key + '&libraries=drawing,places', function(){
+            initZonyMap($zone_drawing);
+
+        });
+    }
+
+});
+
+
+
+/* ZONY MANAGER */
+
+
+function initZonyMap($map){
+    var souradnice = {lat: 49.865529, lng: 15.183360};
+    var zoom = 7;
+
+    map = new google.maps.Map($map[0], {
+        center: souradnice,
+        zoom: zoom
+    });
+
+    if(typeof zony !== "undefined"){
+        drawZony(map, zony);
+    }
+
+    var drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.POLYGON,
+        drawingControl: true,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: ['polygon']
+        },
+        markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+        polygonOptions: {
+            fillColor: "yellow",
+            fillOpacity: 0.35,
+            strokeWeight: 3,
+            clickable: false,
+            editable: true,
+            zIndex: 99
+        },
+    });
+    drawingManager.setMap(map);
+
+    google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+        // dokončení cesty
+        if (event.type == google.maps.drawing.OverlayType.POLYGON) {
+
+            var body = getCords(event);
+            var postData = {
+                "idpobocky" : 0,
+                "body" : body,
+                "action" : "addZone"
+            };
+
+
+            $.post(serverData.ajaxUrl, postData, function(data){
+                /*if(data.status == "ok"){
+                    event.overlay.getPath().idzona = data.zonaid;
+                    var cas = "Celý den";
+                    allPaths[data.zonaid] = event.overlay;
+                    var zona = $('<div class="zona" data-zonaid="' + data.zonaid + '"><span class="oi oi-trash"></span><span class="oi oi-pencil"></span><span class="popis">Zona - ' + data.zonaid + '</span><time class="time">' + cas + '</time><span style="display: none;" class="minimalni">' + zony[key].db_minimalni + '</span><span style="display: none;" class="aktivni">' + zony[key].db_aktivni + '</span></div>');
+                    $(".zonyList").append(zona);
+                    showReport("Úspěšně uloženo", "success");
+                    // změna cesty
+                    google.maps.event.addListener(allPaths[data.zonaid].getPath(), 'insert_at', function(index, obj) {
+                        changePath(this);
+                    });
+
+                    google.maps.event.addListener(allPaths[data.zonaid].getPath(), 'set_at', function(index, obj) {
+                        changePath(this);
+                    });
+                }else if(data.status == "formError") {
+                    showReport("Došlo k chybě", "fail");
+                }*/
+
+            });
+
+        }
+
+
+
+
+    });
+
+    /*for(key in allPaths){
+        // změna cesty
+        google.maps.event.addListener(allPaths[key].getPath(), 'insert_at', function(index, obj) {
+            changePath(this);
+        });
+
+        google.maps.event.addListener(allPaths[key].getPath(), 'set_at', function(index, obj) {
+            changePath(this);
+        });
+    }*/
+
+}
+
+
+function bodClass(lat, lng) {
+    this.lat = lat;
+    this.lng = lng;
+}
+
+function getCords(event){
+    var path = [];
+    if(typeof event.getArray == "function"){
+        $.each(event.getArray(), function (key, latlng) {
+            var lat = latlng.lat();
+            var lng = latlng.lng();
+            path.push(new bodClass(lat, lng));
+        });
+        return path;
+    }
+
+    $.each(event.overlay.getPath().getArray(), function (key, latlng) {
+        var lat = latlng.lat();
+        var lng = latlng.lng();
+        path.push(new bodClass(lat, lng));
+    });
+    return path;
 }

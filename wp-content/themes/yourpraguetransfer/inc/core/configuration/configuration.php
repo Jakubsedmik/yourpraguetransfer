@@ -46,7 +46,7 @@ define( "AJAXURL", admin_url( "admin-ajax.php" ) );
 
 // Google auth id
 define("GOOGLE_ID", "169419171066-51n84mk31m3sdi47rtkj84tprnrppker.apps.googleusercontent.com");
-define("GOOGLE_API_KEY", "AIzaSyDU9RxWxpRRoy9R-wAILv5Owb7GaXHLVaw");
+define("GOOGLE_API_KEY", "AIzaSyBLIBdR0G1-KMTJDEmHeLdI87qAItL7zyw");
 define("GOOGLE_SERVER_API_KEY", "AIzaSyDLb5HxunZlhEtXHmELaNbd9XMajfkoQvc");
 
 // FAKTUROID Credentials
@@ -488,7 +488,8 @@ $ajax_localization = array(
 		"zruseno" => __("Zrušeno","realsys"),
 		"klepneteProZruseni" => __("Klepněte pro zrušení", "realsys"),
 		"klepneteProOpakovani" => __("Klepněte pro opakování", "realsys")
-	)
+	),
+    "google_api_key" => GOOGLE_API_KEY
 );
 
 require_once __DIR__ . "/configuration_images.php";
