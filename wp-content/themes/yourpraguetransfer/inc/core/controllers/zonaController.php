@@ -12,67 +12,109 @@ class zonaController extends controller
 
     public function create() {
 
+
         if ( Tools::checkPresenceOfParam( "vytvorit", $this->requestData ) ) {
             $request_data = $this->requestData;
 
-            if(Tools::checkPresenceOfParam("map_json",$this->requestData)){
+            $polygons = array();
+            foreach ($this->requestData as $key => $value){
+                if(strpos($key, "polygon") !== false){
+                    $polygons[] = json_decode(stripslashes($value));
+                }
+            }
 
-                $map_json = $this->requestData['map_json'];
-                $map_json = stripslashes($map_json);
-                $map_json = json_decode($map_json);
-
-                $available_types = array(
-                    "db_administrative_area_level_1" => "*",
-                    "db_administrative_area_level_2" => "*",
-                    "db_administrative_area_level_3" => "*",
-                    "db_administrative_area_level_4" => "*",
-                    "db_administrative_area_level_5" => "*",
-                    "db_locality" => "*",
-                    "db_neighborhood" => "*",
-                    "db_sublocality" => "*",
-                    "db_sublocality_level_1" => "*",
-                    "db_sublocality_level_2" => "*",
-                    "db_sublocality_level_3" => "*",
-                    "db_sublocality_level_4" => "*",
-                    "db_sublocality_level_5" => "*"
+            if(count($polygons) > 0){
+                $creation_array = array(
+                    "db_nazev" => $this->requestData['db_nazev'],
+                    "db_zone_polygon" => $polygons
                 );
 
-                $final_arr = $available_types;
+                $id = false;
 
-                foreach ($map_json as $component_index => $component){
-                    foreach ($available_types as $type_index => $type){
-                        $new_type = str_replace("db_","", $type_index);
-                        if(array_search($new_type, $component->types) !== false){
-                            $final_arr[$type_index] = $component->long_name;
-                        }
+                $response = Tools::formProcessor(
+                    array(
+                        "db_nazev",
+                        "db_zone_polygon"
+                    ),
+                    $creation_array,
+                    'zonaClass',
+                    'create'
+                );
+            }else{
+
+            }
+        }
+
+        $allZones = assetsFactory::getAllEntity("zonaClass");
+        $allPolygons = array();
+        foreach ($allZones as $zone_key => $zone_value){
+            foreach ($zone_value->db_zone_polygon as $polygon_index => $polygon_value){
+                $allPolygons[] = $polygon_value;
+            }
+        }
+
+        $this->viewData['all_polygons'] = $allPolygons;
+
+        $this->setView( "vytvoritZonu" );
+        $this->performView();
+    }
+
+    public function edit() {
+
+        if ( Tools::checkPresenceOfParam( "id", $this->requestData ) ) {
+            $id      = $this->requestData['id'];
+
+            $allZones = assetsFactory::getAllEntity("zonaClass", array(new filterClass("id","!=", $id)));
+            $allPolygons = array();
+            foreach ($allZones as $zone_key => $zone_value){
+                foreach ($zone_value->db_zone_polygon as $polygon_index => $polygon_value){
+                    $allPolygons[] = $polygon_value;
+                }
+            }
+
+            $this->viewData['all_polygons'] = $allPolygons;
+
+            $zona = assetsFactory::getEntity( 'zonaClass', $id );
+            if ( $zona !== false ) {
+                $this->viewData['zona'] = $zona;
+            }
+
+            if ( Tools::checkPresenceOfParam( "ulozit", $this->requestData ) ) {
+                $request_data = $this->requestData;
+
+                $polygons = array();
+                foreach ($this->requestData as $key => $value){
+                    if(strpos($key, "polygon") !== false){
+                        $polygons[] = json_decode(stripslashes($value));
                     }
                 }
 
-                globalUtils::writeDebug($final_arr);
+                if(count($polygons) > 0){
+                    $creation_array = array(
+                        "db_id" => $id,
+                        "db_nazev" => $this->requestData['db_nazev'],
+                        "db_zone_polygon" => $polygons
+                    );
+                }
 
-
+                $response = Tools::formProcessor(
+                    array(
+                        "db_id",
+                        "db_nazev",
+                        "db_zone_polygon"
+                    ),
+                    $creation_array,
+                    'zonaClass',
+                    'edit'
+                );
             }
 
-            $id           = false;
-
-            $response = Tools::formProcessor(
-                array(
-                    "db_nazev",
-                    "db_trida",
-                    "db_max_zavazadel",
-                    "db_max_osob",
-                    "db_hvezdy",
-                    "db_cena_za_jednotku",
-                    "db_jednotka",
-                    "db_top",
-                ),
-                $request_data,
-                'zonaClass',
-                'create'
-            );
+        } else {
+            frontendError::addMessage( "ID", ERROR, "Chybějící ID" );
         }
 
-        $this->setView( "vytvoritZonu" );
+
+        $this->setView( "upravZonu" );
         $this->performView();
     }
 

@@ -1,5 +1,4 @@
 
-
 <div class="container">
 
     <!-- Material form register -->
@@ -17,19 +16,21 @@
             <!-- Form -->
             <form class="text-center" style="color: #757575;" action="<?php Tools::getCurrentUrl(); ?>" method="POST">
 
+                <input type="hidden" name="db_id" value="<?php echo $this->viewData['zona']->getId(); ?>">
 
 
-                <?php echo Tools::simpleInput("db_nazev", $this, "Název zóny", "text"); ?>
+                <?php echo Tools::simpleInput("db_nazev", $this->viewData['zona']->dejData('db_nazev'), "Název zóny", "text"); ?>
 
 
                 <div class="app">
                     <Zonecreator
                         :prerender_zones="<?php echo Tools::prepareJsonToOutputHtmlAttr($this->viewData['all_polygons']); ?>"
+                        :prerender_editable_zones="<?php echo Tools::prepareJsonToOutputHtmlAttr($this->viewData['zona']->db_zone_polygon); ?>"
                     ></Zonecreator>
                 </div>
 
                 <!-- Sign up button -->
-                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="vytvorit" value="1" type="submit">Vytvořit</button>
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="ulozit" value="1" type="submit">Upravit</button>
 
 
             </form>

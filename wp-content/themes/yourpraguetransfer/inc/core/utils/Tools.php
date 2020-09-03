@@ -938,10 +938,10 @@ class Tools {
 	    return $output;
     }
 
-	public static function getSelectBoxForEntities($classname_from, $selected_object_id, $naming_property, $label='Výběr', $id, $search_label='Vyhledávání'){
+	public static function getSelectBoxForEntities($classname_from, $selected_object_id, $naming_property, $label='Výběr', $id, $search_label='Vyhledávání', $multiple = false){
 		$allPossibleOptions = assetsFactory::getAllEntity($classname_from);
 		$is_selected = false;
-		$output = '<select class="mdb-select md-form mt-0" searchable="' . $search_label . '" id="' . $id .  '" name="' . $id . '">';
+		$output = '<select class="mdb-select md-form mt-0" searchable="' . $search_label . '" id="' . $id .  '" name="' . $id . '" ' . (($multiple) ? 'multiple' : '') . '>';
 
 		foreach ($allPossibleOptions as $key => $value){
 			if($value->db_id == $selected_object_id) {
@@ -974,10 +974,12 @@ class Tools {
 			}
 		}
 
-		if($is_selected){
-			$output .= '<option value="" disabled>' . $label . '</option>';
-        }else{
-			$output .= '<option value="" disabled selected>' . $label . '</option>';
+		if($multiple == false){
+            if($is_selected){
+                $output .= '<option value="" disabled>' . $label . '</option>';
+            }else{
+                $output .= '<option value="" disabled selected>' . $label . '</option>';
+            }
         }
 
 		$output .= '</select>';

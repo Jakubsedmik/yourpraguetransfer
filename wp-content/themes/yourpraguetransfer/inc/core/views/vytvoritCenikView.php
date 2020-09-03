@@ -23,7 +23,7 @@
 
                 <!-- Zóna -->
                 <div class="md-form mt-0">
-                    <?php echo Tools::getSelectBoxForEntities("zonaClass",  $this->getPostData('db_zona_id'), array('db_id', 'db_nazev'),'Zóna','db_zona_id'); ?>
+                    <?php echo Tools::getSelectBoxForEntities("zonaClass",  $this->getPostData('db_zona_id'), array('db_id', 'db_nazev'),'Zóna','db_zona_id', "Vyhledávání", true); ?>
                 </div>
 
                 <div class="form-row">

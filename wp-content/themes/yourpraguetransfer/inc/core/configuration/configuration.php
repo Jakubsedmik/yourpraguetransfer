@@ -235,6 +235,16 @@ $field_rules = array(
             'type' => BOOL,
             'required' => false
         )
+    ),
+    'zonaClass' => array(
+        'db_nazev' => array(
+            'required' => true,
+            'type' => STRING255
+        ),
+        'db_zone_polygon' => array(
+            'required' => true,
+            'type' => PHPARRAY
+        )
     )
 );
 

@@ -21,4 +21,12 @@ class zonaClass extends zakladniKamenClass
     {
         return "s7_zona";
     }
+
+    public function getInterfaceTypes()
+    {
+        return array(
+            "db_id" => "number",
+            "db_nazev" => "string",
+        );
+    }
 }
