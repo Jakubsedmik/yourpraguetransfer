@@ -247,9 +247,9 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 	        if($this->valid) {
 		        $this->valid = $this->checkValidity( $name, $value );
 	        }
+
         	$this->$name = $value;
 	        if(!$this->forceNotUpdate){
-
                 return $this->aktualizovat();
 	        }
         }
@@ -525,6 +525,7 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 	            if($this->valid){
 		            $this->valid = $this->checkValidity($new_key, $value);
 	            }
+
                 $this->$new_key = $value;
             }else{
                 trigger_error("Zadaná vlastnost " . $new_key . " v třídě " . __CLASS__ . " neexistuje : populateClass");

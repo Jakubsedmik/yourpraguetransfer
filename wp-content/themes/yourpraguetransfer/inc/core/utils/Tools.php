@@ -941,10 +941,40 @@ class Tools {
 	public static function getSelectBoxForEntities($classname_from, $selected_object_id, $naming_property, $label='Výběr', $id, $search_label='Vyhledávání', $multiple = false){
 		$allPossibleOptions = assetsFactory::getAllEntity($classname_from);
 		$is_selected = false;
+		if($multiple){
+		    $id = $id .= '[]';
+        }
 		$output = '<select class="mdb-select md-form mt-0" searchable="' . $search_label . '" id="' . $id .  '" name="' . $id . '" ' . (($multiple) ? 'multiple' : '') . '>';
 
 		foreach ($allPossibleOptions as $key => $value){
-			if($value->db_id == $selected_object_id) {
+		    if(is_array($selected_object_id)){
+		        if(in_array($value->db_id, $selected_object_id)){
+                    $output .= '<option selected value="' . $value->db_id . '">';
+                    for ($i=0; $i < count($naming_property); $i++) {
+                        $property = $naming_property[$i];
+                        if($i == count($naming_property)-1){
+                            $output .= $value->$property;
+                        }else{
+                            $output .= $value->$property . ' | ';
+                        }
+
+                    }
+                    $output .= '</option>';
+                }else{
+                    $output .= '<option value="' . $value->db_id . '">';
+                    for ($i=0; $i < count($naming_property); $i++) {
+                        $property = $naming_property[$i];
+                        if($i == count($naming_property)-1){
+                            $output .= $value->$property;
+                        }else{
+                            $output .= $value->$property . ' | ';
+                        }
+
+                    }
+                    $output .= '</option>';
+                }
+            }
+			elseif ($value->db_id == $selected_object_id) {
 			    if($is_selected == false){
 				    $is_selected = true;
                 }

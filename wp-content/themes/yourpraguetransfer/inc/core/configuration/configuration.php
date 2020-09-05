@@ -236,6 +236,40 @@ $field_rules = array(
             'required' => false
         )
     ),
+    'cenikClass' => array(
+        'db_id' => array(
+            'required' => false,
+            'type' => NUMBER
+        ),
+        'db_nazev' => array(
+            'required' => true,
+            'type' => STRING255
+        ),
+        'db_zona_id' => array(
+            'required' => true,
+            'type' => PHPARRAY
+        ),
+        'db_cena_tam' => array(
+            'required' => true,
+            'type' => NUMBER
+        ),
+        'db_cena_zpet' => array(
+            'required' => false,
+            'type' => NUMBER
+        ),
+        'db_max_osob' => array(
+            'required' => false,
+            'type' => NUMBER
+        ),
+        'db_min_osob' => array(
+            'required' => false,
+            'type' => NUMBER
+        ),
+        'db_vozidlo_id' => array(
+            'required' => true,
+            'type' => FOREIGN_KEY
+        ),
+    ),
     'zonaClass' => array(
         'db_nazev' => array(
             'required' => true,
@@ -423,7 +457,10 @@ $dictionary = array(
     'db_id' => 'ID',
     'db_url' => 'URL',
     'db_titulek' => 'Titulek',
-    'db_popisek' => 'Popisek'
+    'db_popisek' => 'Popisek',
+    'db_cena_tam' => 'Cena tam',
+    'db_cena_zpet' => 'Cena zpět',
+    'db_min_osob' => 'Min. osob'
 );
 
 

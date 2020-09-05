@@ -7,7 +7,7 @@
         <h5 class="card-header info-color white-text text-center py-4">
             <strong>Vytvoření ceníku</strong>
             <p class="mb-0 text-white">Vytvořte ceník k vozidlu specifikováním do jaké zóny může vozidlo zajet a jaký je možný počet osob</p>
-            <a class="position-absolute admin-nav" href="<?php echo Tools::getRoute("vozidloClass"); ?>"><i class="fas fa-bars"></i> Zpět na výpis</a>
+            <a class="position-absolute admin-nav" href="<?php echo Tools::getRoute("cenikClass"); ?>"><i class="fas fa-bars"></i> Zpět na výpis</a>
         </h5>
 
         <!--Card content-->
@@ -15,6 +15,8 @@
 
             <!-- Form -->
             <form class="text-center" style="color: #757575;" action="<?php Tools::getCurrentUrl(); ?>" method="POST">
+
+                <?php echo Tools::simpleInput("db_nazev", $this, "Název", "text"); ?>
 
                 <!-- Vozidlo -->
                 <div class="md-form mt-3">
