@@ -100,17 +100,38 @@
 
         </div>
 
+        <div class="mt-3 mb-2 userAdsContainer app">
+
+            <div class="p-3 text-center border-top">
+                <h3>Obrázky vozidla</h3>
+                <p class="mb-0">Zde vidíte obrázky vozidla</p>
+            </div>
+
+            <Obrazky
+                entity_id="<?php echo $this->viewData['vozidlo']->getId(); ?>"
+                api_link="<?php echo AJAXURL; ?>"
+                edit_link="<?php echo Tools::getRoute("obrazekClass","edit"); ?>"
+                entity_class="vozidloClass"
+            ></Obrazky>
+
+            <div class="p-3 text-center border-top">
+                <h3>Ceníky vozidla</h3>
+                <p class="mb-0">Zde vidíte ceníky vozidla. Můžete je upravit nebo smazat.</p>
+            </div>
+
+            <inzeraty
+                api_url="<?php echo AJAXURL ?>"
+                base_url="<?php echo ADMIN_BASE_URL ?>" model="cenikClass"
+                item_controller="cenik"
+                home_url="<?php echo home_url() ?>"
+                sub_params="?action=getElements&db_vozidlo_id=<?php echo $this->viewData['vozidlo']->getId(); ?>"
+            ></inzeraty>
+
+        </div>
+
     </div>
     <!-- Material form register -->
 
 </div>
 
 
-<div class="app" id="addImages">
-    <Obrazky
-        entity_id="<?php echo $this->viewData['vozidlo']->getId(); ?>"
-        api_link="<?php echo AJAXURL; ?>"
-        edit_link="<?php echo Tools::getRoute("obrazekClass","edit"); ?>"
-        entity_class="vozidloClass"
-    ></Obrazky>
-</div>

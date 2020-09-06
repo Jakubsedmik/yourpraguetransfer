@@ -229,8 +229,17 @@ function getElements (){
 	}
 
 	$dbFilters = array();
+	$is_or = false;
 	foreach ($filters as $key => $value){
-		$dbFilters[] = new filterClass($key, "=", $value);
+	    if(strpos($value,"|") !== false){
+	        $multipleFilter = explode("|",$value);
+	        $is_or = true;
+	        foreach ($multipleFilter as $filterIndex => $filterValue){
+                $dbFilters[] = new filterClass($key, "=", $filterValue);
+            }
+        }else{
+            $dbFilters[] = new filterClass($key, "=", $value);
+        }
 	}
 
 
@@ -242,7 +251,7 @@ function getElements (){
 
 		if(Tools::checkPresenceOfParam("search", $allrequest)){
 			$search = $allrequest['search'];
-			$items = assetsFactory::getAllEntity($model, $dbFilters);
+			$items = assetsFactory::getAllEntity($model, $dbFilters,false, false, $is_or);
 
 			$items = array_filter($items, function($obj, $index) use ($search){
 				return $obj->findMe($search);
@@ -253,8 +262,8 @@ function getElements (){
 
 		}else{
 
-			$items = assetsFactory::getAllEntity($model, $dbFilters, $offset, $count_page);
-			$count = assetsFactory::getAllEntityCount($model, $dbFilters);
+			$items = assetsFactory::getAllEntity($model, $dbFilters, $offset, $count_page, $is_or);
+			$count = assetsFactory::getAllEntityCount($model, $dbFilters, $is_or);
 
 		}
 

@@ -63,6 +63,27 @@
 
         </div>
 
+        <div class="mt-3 mb-2 userAdsContainer app">
+
+            <div class="p-3 text-center border-top">
+                <h3>Zóny vozidla</h3>
+                <p class="mb-0">Zde vidíte ceníky vozidla. Můžete je upravit nebo smazat.</p>
+            </div>
+
+            <?php
+                $zones =  $this->viewData['cenik']->db_zona_id;
+                $zony = implode("|", $zones);
+            ?>
+            <inzeraty
+                api_url="<?php echo AJAXURL ?>"
+                base_url="<?php echo ADMIN_BASE_URL ?>" model="zonaClass"
+                item_controller="zona"
+                home_url="<?php echo home_url() ?>"
+                sub_params="?action=getElements&db_id=<?php echo $zony; ?>"
+            ></inzeraty>
+
+        </div>
+
     </div>
     <!-- Material form register -->
 
