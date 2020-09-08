@@ -5,6 +5,8 @@ class vozidloClass extends zakladniKamenClass
 {
 
     protected $db_nazev;
+    protected $db_popis;
+    protected $db_letistni_transfer;
     protected $db_trida;
     protected $db_hvezdy;
     protected $db_top;

@@ -259,7 +259,7 @@ body .navbar {
 #vozovy-park figure {
   overflow: hidden;
 }
-#vozovy-park figure:before {
+#vozovy-park figure.top:before {
   content: "";
   position: absolute;
   width: 144px;
@@ -270,7 +270,7 @@ body .navbar {
   text-align: center;
   background-image: linear-gradient(95deg, #fdbf5c, #fd7824, #cc2f97, #9538c0, #4a63d4);
 }
-#vozovy-park figure:after {
+#vozovy-park figure.top:after {
   content: "TOP";
   position: absolute;
   color: white;
@@ -281,7 +281,7 @@ body .navbar {
   font-family: "Roboto";
 }
 #vozovy-park h3 {
-  font-size: 41px;
+  font-size: 32px;
   margin-right: 10px;
   margin-bottom: 2px;
 }
@@ -299,7 +299,7 @@ body .navbar {
 }
 #vozovy-park .s7_vozovy-park-cena {
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 18px;
 }
 #vozovy-park .s7_vozovy-park-dot {
   width: 4px;

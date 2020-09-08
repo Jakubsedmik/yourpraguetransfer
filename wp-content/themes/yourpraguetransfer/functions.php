@@ -21,7 +21,7 @@ function s7_scripts_styles() {
 		wp_enqueue_style("main_css", site_url() . ASSETS_PATH . "css/css_frontend/main.css", array(), VERSION_LINKS);
 
 		// JS
-		wp_enqueue_script("jquery_js", site_url() . ASSETS_PATH . "js/js_frontend/jquery-3.3.1.slim.min.js", array(), VERSION_LINKS, true);
+		wp_enqueue_script("jquery_js", site_url() . ASSETS_PATH . "js/js_frontend/jquery-3.5.1.min.js", array(), VERSION_LINKS, true);
         wp_enqueue_script("popper_js", site_url() . ASSETS_PATH . "js/js_frontend/popper.min.js", array('jquery_js'), VERSION_LINKS, true);
 		wp_enqueue_script("bootstrap_js", site_url() . ASSETS_PATH . "js/js_frontend/bootstrap.min.js", array("jquery_js"), VERSION_LINKS, true);
         wp_enqueue_script("justifiedgallery_js", site_url() . ASSETS_PATH . "js/js_frontend/jquery.justifiedGallery.min.js", array("jquery_js"), VERSION_LINKS, true);

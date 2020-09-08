@@ -18,8 +18,21 @@
 
                 <input type="hidden" name="db_id" value="<?php echo $this->viewData['vozidlo']->getId(); ?>">
 
-                <!-- Název -->
-                <?php echo Tools::simpleInput("db_nazev", $this->viewData['vozidlo']->dejData('db_nazev'), "Název", "text"); ?>
+                <div class="form-row">
+
+                    <!-- Název -->
+                    <div class="col">
+                        <?php echo Tools::simpleInput("db_nazev", $this->viewData['vozidlo']->dejData('db_nazev'), "Název", "text"); ?>
+                    </div>
+
+                    <!-- Letištní transfer -->
+                    <div class="col">
+                        <?php echo Tools::simpleInput("db_letistni_transfer", $this->viewData['vozidlo']->dejData('db_letistni_transfer'), "Rychlá cena - letištní transfer", "number"); ?>
+                    </div>
+                </div>
+
+                <!-- Popis -->
+                <?php echo Tools::simpleInput("db_popis", $this->viewData['vozidlo']->dejData('db_popis'), "Popis", "textarea"); ?>
 
 
                 <!-- Třída -->

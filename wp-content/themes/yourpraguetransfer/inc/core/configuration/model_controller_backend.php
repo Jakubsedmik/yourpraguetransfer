@@ -33,5 +33,8 @@ $models = array(
     ),
     'zonaClass' => array(
         "backendController" => "zona"
+    ),
+    'referenceClass' => array(
+        "backendController" => "reference"
     )
 );

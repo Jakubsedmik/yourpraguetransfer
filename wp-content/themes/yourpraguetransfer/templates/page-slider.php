@@ -7,7 +7,7 @@
             <div class="s7_slider-inputs d-flex align-items-center justify-content-between flex-md-row flex-column">
                 <div class="s7_form-field">
                     <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/input1.png">
-                    <input type="text" placeholder="Z místa (např. Letiště Václava ..." class="w-100 border-0 px-5 py-0">
+                    <input type="text" placeholder="Z místa (např. Letiště Václava ..." class="w-100 border-0 px-5 py-0 js-autocomplete">
                 </div>
                 <div class="s7_ftw-arrown">
                     <i class="fas fa-caret-right active mr-2 "></i>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="s7_form-field">
                     <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/input2.png">
-                    <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0">
+                    <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0 js-autocomplete">
                 </div>
             </div>
             <button type="submit" class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4">

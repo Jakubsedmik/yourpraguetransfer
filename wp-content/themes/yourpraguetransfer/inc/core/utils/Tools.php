@@ -930,11 +930,20 @@ class Tools {
 	        $classes = implode(" ", $classlist);
         }
 
-	    $output = "";
-	    $output .= '<div class="md-form">';
-	    $output .= '<input type="'. $type . '" id="' . $name . '" name="' . $name . '" class="form-control ' . $classes . '" value="' . $value . '">';
-	    $output .= '<label for="' . $name . '">' . $label . '</label>';
-	    $output .= '</div>';
+	    if($type != 'textarea'){
+            $output = "";
+            $output .= '<div class="md-form">';
+            $output .= '<input type="'. $type . '" id="' . $name . '" name="' . $name . '" class="form-control ' . $classes . '" value="' . $value . '">';
+            $output .= '<label for="' . $name . '">' . $label . '</label>';
+            $output .= '</div>';
+        }else{
+            $output = "";
+            $output .= '<div class="md-form">';
+            $output .= '<textarea type="'. $type . '" id="' . $name . '" name="' . $name . '" class="md-textarea form-control ' . $classes . '" rows="3">' . $value . '</textarea>';
+            $output .= '<label for="' . $name . '">' . $label . '</label>';
+            $output .= '</div>';
+        }
+
 	    return $output;
     }
 

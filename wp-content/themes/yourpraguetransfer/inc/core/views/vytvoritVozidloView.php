@@ -18,11 +18,21 @@
             <!-- Form -->
             <form class="text-center" style="color: #757575;" action="<?php Tools::getCurrentUrl(); ?>" method="POST">
 
-                <!-- Název -->
-                <div class="md-form">
-                    <input type="text" id="db_nazev" name="db_nazev" class="form-control" value="<?php echo $this->getPostData('db_nazev'); ?>">
-                    <label for="db_titulek">Název</label>
+                <div class="form-row">
+
+                    <!-- Název -->
+                    <div class="col">
+                        <?php echo Tools::simpleInput("db_nazev", $this, "Název", "text"); ?>
+                    </div>
+
+                    <!-- Letištní transfer -->
+                    <div class="col">
+                        <?php echo Tools::simpleInput("db_letistni_transfer", $this, "Rychlá cena - letištní transfer", "number"); ?>
+                    </div>
                 </div>
+
+                <!-- Popis -->
+                <?php echo Tools::simpleInput("db_popis", $this, "Popis", "textarea"); ?>
 
 
                 <!-- Třída -->

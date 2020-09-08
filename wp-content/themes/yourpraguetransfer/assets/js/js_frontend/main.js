@@ -19,3 +19,48 @@ jQuery(document).ready(function() {
         waitThumbnailsLoad: false,
     });
 });
+
+
+/* SWITCH AUTOCOMPLETION ON, CREATE LAT AND LNG */
+function initAutocomplete() {
+    var inputs = $(".js-autocomplete");
+    inputs.each(function () {
+        var input = this;
+        var subinfoHidden = $(this).closest("div").find(".js-autocomplete-json");
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            var place_json = JSON.stringify(place.address_components);
+            if(subinfoHidden.length) {
+                subinfoHidden.val(place_json);
+            }
+        });
+
+    });
+}
+
+
+
+
+$(document).ready(function () {
+
+    // SCRIPT LOADER
+    jQuery.loadScript = function (url, callback) {
+        jQuery.ajax({
+            url: url,
+            dataType: 'script',
+            success: callback,
+            async: true
+        });
+    };
+
+    // POWER UP AUTOCOMPLETE IF IS NEEDED
+    var $autocompletes = $(".js-autocomplete");
+    if($autocompletes.length > 0){
+        $.loadScript('https://maps.googleapis.com/maps/api/js?key=' + serverData.google_api_key + '&libraries=drawing,places', function(){
+            initAutocomplete();
+        });
+    }
+
+});

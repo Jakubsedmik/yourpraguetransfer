@@ -287,14 +287,21 @@ function updateURLParameter(url, param, paramVal){
 
 /* SWITCH AUTOCOMPLETION ON, CREATE LAT AND LNG */
 function initAutocomplete() {
-    var input = $(".js-autocomplete")[0];
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var inputs = $(".js-autocomplete");
+    inputs.each(function () {
 
-    autocomplete.addListener('place_changed', function() {
-        var place = autocomplete.getPlace();
-        console.log(place);
-        var place_json = JSON.stringify(place.address_components);
-        $("#map_json").val(place_json);
+        var input = this;
+        var subinfoHidden = $(this).closest("div").find(".js-autocomplete-json");
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            var place_json = JSON.stringify(place.address_components);
+            if(subinfoHidden.length) {
+                subinfoHidden.val(place_json);
+            }
+        });
+
     });
 }
 

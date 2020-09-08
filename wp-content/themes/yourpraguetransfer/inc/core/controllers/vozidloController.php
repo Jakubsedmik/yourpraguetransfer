@@ -17,6 +17,8 @@ class vozidloController extends controller {
             $response = Tools::formProcessor(
                 array(
                     "db_nazev",
+                    "db_popis",
+                    "db_letistni_transfer",
                     "db_trida",
                     "db_max_zavazadel",
                     "db_max_osob",
@@ -56,6 +58,8 @@ class vozidloController extends controller {
                     array(
                         "db_id",
                         "db_nazev",
+                        "db_popis",
+                        "db_letistni_transfer",
                         "db_trida",
                         "db_max_zavazadel",
                         "db_max_osob",

@@ -207,6 +207,14 @@ $field_rules = array(
             'type' => STRING511,
             'required' => true
         ),
+        'db_popis' => array(
+            'type' => STRING511,
+            'required' => true
+        ),
+        'db_letistni_transfer' => array(
+            'type' => PRICE,
+            'required' => true
+        ),
         'db_trida' => array(
             'type' => NUMBER,
             'required' => true
@@ -269,6 +277,24 @@ $field_rules = array(
             'required' => true,
             'type' => FOREIGN_KEY
         ),
+    ),
+    'referenceClass' => array(
+        'db_id' => array(
+            'required' => false,
+            'type' => NUMBER
+        ),
+        'db_jmeno' => array(
+            'required' => true,
+            'type' => STRING255
+        ),
+        'db_pozice' => array(
+            'required' => true,
+            'type' => STRING255
+        ),
+        'db_reference' => array(
+            'required' => true,
+            'type' => STRING511
+        )
     ),
     'zonaClass' => array(
         'db_nazev' => array(
@@ -460,7 +486,10 @@ $dictionary = array(
     'db_popisek' => 'Popisek',
     'db_cena_tam' => 'Cena tam',
     'db_cena_zpet' => 'Cena zpět',
-    'db_min_osob' => 'Min. osob'
+    'db_min_osob' => 'Min. osob',
+    'db_jmeno' => 'Jméno',
+    'db_pozice' => 'Pozice',
+    'db_reference' => 'Text reference'
 );
 
 
