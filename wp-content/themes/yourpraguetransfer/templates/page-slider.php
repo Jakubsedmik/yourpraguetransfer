@@ -3,11 +3,11 @@
     <div class="s7_main-slider-sw s7_sw-sec mx-auto">
         <h1 class="font-weight-bold text-center text-uppercase pb-2 mb-4 animate__animated animate__fadeInDown animate__delay-1s"><?php echo get_theme_mod( "slider_text_main" ); ?></h1>
         <p class="s7_slider-under-title-text text-center animate__animated animate__fadeInDown animate__delay-2s"><?php echo get_theme_mod( "slider_text_secondary" ); ?></p>
-        <form action="" class="s7_ftw text-center w-100 mx-auto animate__animated animate__bounceIn animate__delay-3s">
+        <form action="<?php echo Tools::getFERoute("vozidloClass",false,"listing"); ?>" method="GET" class="s7_ftw text-center w-100 mx-auto animate__animated animate__bounceIn animate__delay-3s">
             <div class="s7_slider-inputs d-flex align-items-center justify-content-between flex-md-row flex-column">
                 <div class="s7_form-field">
                     <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/input1.png">
-                    <input type="text" placeholder="Z místa (např. Letiště Václava ..." class="w-100 border-0 px-5 py-0 js-autocomplete">
+                    <input type="text" placeholder="Z místa (např. Letiště Václava ..." class="w-100 border-0 px-5 py-0 js-autocomplete" name="destination_from" required>
                 </div>
                 <div class="s7_ftw-arrown">
                     <i class="fas fa-caret-right active mr-2 "></i>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="s7_form-field">
                     <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/input2.png">
-                    <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0 js-autocomplete">
+                    <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0 js-autocomplete" name="destination_to" required>
                 </div>
             </div>
             <button type="submit" class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4">

@@ -31,6 +31,13 @@ function s7_scripts_styles() {
 		wp_localize_script("main_js","serverData", $ajax_localization);
 		wp_enqueue_script("main_js");
 
+        // VUE CLI
+        $vueDirectory    = join( "/", [ get_template_directory_uri(), 'assets', 'js', 'js_frontend' ,'vue', 'dist' ] );
+        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css' );
+        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], '1.0.0', true );
+        wp_enqueue_style( 'backend-vue-style' );
+        wp_enqueue_script( 'backend-vue-script' );
+
 	}else{
 
 		// Vše se kompiluje skrze GULP - gulp frontend_styles, gulp frontend_scripts - tyto úlohy

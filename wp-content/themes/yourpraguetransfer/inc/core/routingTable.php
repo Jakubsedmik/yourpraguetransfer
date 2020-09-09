@@ -66,5 +66,8 @@ $routing_urls = array(
 	),
 	"objednavkaClass" => array(
 		"detail" => home_url() . "/objednavka/"
-	)
+	),
+    "vozidloClass" => array(
+        "listing" => home_url() . "/vyhledavani/"
+    )
 );
