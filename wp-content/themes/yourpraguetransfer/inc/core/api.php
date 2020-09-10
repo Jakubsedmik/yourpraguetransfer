@@ -1184,3 +1184,8 @@ function payForContact(){
 	wp_send_json($response);
 	die();
 }
+
+
+function getCarOffers(){
+
+}

@@ -2,6 +2,17 @@
 
 
 <?php
+    $zona = assetsFactory::getEntity("zonaClass", 4);
+
+    $point = new stdClass();
+    $point->lat = 50.076586;
+    $point->lng = 50.255919;
+    $zona->isVertexInside($point);
+
+?>
+
+
+<?php
     get_template_part("templates/page","slider");
 
     if ( have_posts() ) {

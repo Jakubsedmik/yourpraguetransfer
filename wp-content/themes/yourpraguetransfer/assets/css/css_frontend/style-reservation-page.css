@@ -56,7 +56,6 @@
 .s7_mapitself{
     position: sticky;
     height: 100vh;
-    top: 40px;
     width: 100%;
 }
 #search-map .s7_car-col{

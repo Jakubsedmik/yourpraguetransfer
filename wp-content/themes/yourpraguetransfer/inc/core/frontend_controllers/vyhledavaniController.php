@@ -21,8 +21,8 @@ class vyhledavaniController extends frontendController
 
             $this->workData['destination_from'] = $destination_from;
             $this->workData['destination_to'] = $destination_to;
-            $this->workData['lat_lng_from'] = $lat_lng_from;
-            $this->workData['lat_lng_to'] = $lat_lng_to;
+            $this->workData['destination_from_lat_lng'] = $lat_lng_from;
+            $this->workData['destination_to_lat_lng'] = $lat_lng_to;
             return true;
 
         }else{
