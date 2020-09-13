@@ -8,15 +8,22 @@ class zonaClass extends zakladniKamenClass
     protected $db_zone_polygon;
 
     public function isVertexInside($vertex){
+
         require_once ("pointLocation.php");
         $loc = new pointLocation();
+        $zone_polygon = $this->db_zone_polygon;
 
-        foreach ($this->db_zone_polygon as $key => $value){
-            var_dump($loc->pointInPolygon($vertex, $value));
-            globalUtils::writeDebug($value);
+        foreach ($zone_polygon as $key => $value){
+            $polygon = $value;
+            if($loc->pointInPolygon($vertex, $polygon)){
+                return true;
+            }
         }
 
+        return false;
+
     }
+
 
     protected function zakladniVypis()
     {

@@ -5,8 +5,8 @@
     $zona = assetsFactory::getEntity("zonaClass", 4);
 
     $point = new stdClass();
-    $point->lat = 50.076586;
-    $point->lng = 50.255919;
+    $point->lat = 50.098450;
+    $point->lng = 14.365457;
     $zona->isVertexInside($point);
 
 ?>
