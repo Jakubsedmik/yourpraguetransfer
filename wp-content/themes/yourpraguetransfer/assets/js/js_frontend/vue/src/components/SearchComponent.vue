@@ -250,10 +250,15 @@
             fetchCarsAndPrices: function () {
                 var _this = this;
                 var request = {
-                    from_lat_lng: this.from_lat_lng,
-                    to_lat_lng: this.to_lat_lng,
+                    from_lat_lng: _this.destination_from_lat_lng,
+                    to_lat_lng: this.destination_to_lat_lng,
                 };
-                Axios.post(_this.api_url,{test:"test"}).then(function (response) {
+
+                var finalurl = _this.api_url + "?action=getCarOffers";
+
+                console.log(request);
+
+                Axios.post(finalurl, request).then(function (response) {
                     if (response)
                         if(typeof response.data == "object"){
 

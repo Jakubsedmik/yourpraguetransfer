@@ -76,7 +76,11 @@ $api_actions = array(
 	'payForContact' => array(
 		'callback' => 'payForContact',
 		'private' => false
-	)
+	),
+    'getCarOffers' => array(
+        'callback' => 'getCarOffers',
+        'private' => false
+    )
 );
 
 
@@ -1188,4 +1192,67 @@ function payForContact(){
 
 function getCarOffers(){
 
+    // now shut down error reporting for a while
+    error_reporting(0);
+    ini_set('display_errors', 'Off');
+
+    /* GETTING REQUEST DATA */
+    $request_body = file_get_contents('php://input');
+    $data = json_decode($request_body, true);
+
+    /* */
+    $response = new stdClass();
+
+
+
+
+    if(Tools::checkPresenceOfParam("from_lat_lng", $data) && Tools::checkPresenceOfParam("to_lat_lng",$data)){
+        $from_lat_lng = $request_body['from_lat_lng'];
+        $to_lat_lng = $request_body['to_lat_lng'];
+
+        $letiste_zona = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "=","'letiště'")));
+        if(is_array($letiste_zona) && count($letiste_zona) > 0){
+            $letiste_zona = array_pop($letiste_zona);
+
+            $destination = false;
+
+            if($letiste_zona->isVertexInside($from_lat_lng)){
+                $destination = $to_lat_lng;
+            }elseif($letiste_zona->isVertexInside($to_lat_lng)){
+                $destination = $from_lat_lng;
+            }else{
+                $destination = false;
+            }
+
+            if($destination !== false){
+                $destination_zone = false;
+                $rest_zones = assetsFactory::getAllEntity("zoneClass",array(new filterClass("nazev", "!=", "'letiště'")));
+
+                foreach ($rest_zones as $key => $value){
+                    if($value->isVertexInside($destination)){
+                        $destination_zone = $value;
+                    }
+                }
+
+                if($destination_zone!== false){
+                    var_dump($destination_zone);
+                }
+
+            }else{
+
+            }
+
+
+        }else{
+            $response->status = 0;
+            $response->message = "Letiště nebylo nalezeno";
+        }
+
+    }else{
+        $response->status = 0;
+        $response->message = "Chybějící parametry";
+    }
+
+    wp_send_json($response);
+    die();
 }

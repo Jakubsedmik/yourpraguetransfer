@@ -7,6 +7,11 @@ class zonaClass extends zakladniKamenClass
     protected $db_nazev;
     protected $db_zone_polygon;
 
+    /**
+     * Zkontroluje zdali daný vertex spadá do zóny. Prochází všechny polygony v zóně.
+     * @param $vertex
+     * @return bool
+     */
     public function isVertexInside($vertex){
 
         require_once ("pointLocation.php");
@@ -15,7 +20,7 @@ class zonaClass extends zakladniKamenClass
 
         foreach ($zone_polygon as $key => $value){
             $polygon = $value;
-            if($loc->pointInPolygon($vertex, $polygon)){
+            if($loc->pointInPolygon($vertex, $polygon) > 0){
                 return true;
             }
         }
@@ -23,6 +28,7 @@ class zonaClass extends zakladniKamenClass
         return false;
 
     }
+
 
 
     protected function zakladniVypis()
