@@ -29,5 +29,10 @@ $relationships = array(
         'db_id_prijemce' => array(
             'class' => 'uzivatelClass'
         )
+    ),
+    "cenikClass" => array(
+        'db_vozidlo_id' => array(
+            'class' => 'vozidloClass'
+        )
     )
 );

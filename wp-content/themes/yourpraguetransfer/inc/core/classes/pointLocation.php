@@ -86,7 +86,11 @@ class pointLocation {
     }
 
     function pointStringToCoordinates($pointString) {
-        return array("x" => $pointString->lng, "y" => $pointString->lat);
+        if(is_array($pointString)){
+            return array("x" => $pointString['lng'], "y" => $pointString['lat']);
+        }else{
+            return array("x" => $pointString->lng, "y" => $pointString->lat);
+        }
     }
 
     function enclosePolygon(&$polygon){

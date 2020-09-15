@@ -33,6 +33,7 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 
 	private $subobjects; // proměnná sloužící k automatickému načítání struktur, které jsou k objektu přiřazené pomocí vazeb
 	private $forceNotUpdate;
+	private $serialize_only_database_values;
     
     /*
      * Konstruktor základního Kamene
@@ -269,6 +270,10 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
         }
         
     }
+
+    public function serializeOnlyDatabase(){
+        $this->serialize_only_database_values = true;
+    }
     
     /*
      * magic get
@@ -490,7 +495,11 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
         $json_properties = array();
 
 	    if($this->ignoreInterface){
-			$json_properties = $all_properties;
+	        if($this->serialize_only_database_values){
+                $json_properties = $db_properties;
+            }else{
+                $json_properties = $all_properties;
+            }
 	    }else{
 	        foreach ($interface as $key => $val){
 		        if(isset($db_properties[$key])){
@@ -506,8 +515,6 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 		        }
 	        }
 	    }
-
-
         
         return $json_properties;
         
