@@ -8,7 +8,7 @@
                 <div class="s7_place-ftw d-flex align-items-center flex-md-row flex-column justify-content-center">
                     <div class="s7_place-start d-flex align-items-center">
                         <i class="fas text-white fa-map-marker-alt mr-3"></i>
-                        <p class="text-white font-weight-light mb-0">{{this.destination_from}}</p>
+                        <p class="text-white font-weight-light mb-0">{{this.ddestination_from}}</p>
                     </div>
                     <div class="s7_ftw-arrows">
                         <i class="fas fa-caret-right mr-2 text-white"></i>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="s7_place-finish d-flex align-items-center">
                         <i class="fas text-white fa-map-marker-alt mr-3"></i>
-                        <p class="text-white font-weight-light mb-0">{{this.destination_to}}</p>
+                        <p class="text-white font-weight-light mb-0">{{this.ddestination_to}}</p>
                     </div>
                 </div>
                 <div class="s7_underpage-col-row mx-auto d-flex justify-content-center">
@@ -53,11 +53,11 @@
 
 
                 <div class="s7_nabidka-aut">
-                    <div class="s7_nabidka-aut-info d-flex" v-for="auto in this.car_offers">
+                    <div class="s7_nabidka-aut-info d-flex flex-wrap" v-for="auto in this.car_offers">
                         <figure class="s7_res-car-img mb-0 position-relative"><img :src="images_path + '/auto-reservation.png'" alt=""></figure>
                         <div class="s7_car-text">
                             <div class="d-flex align-items-center">
-                                <h3 class="font-weight-bold mr-3 mb-0">{{auto.class}}</h3>
+                                <h3 class="font-weight-bold mr-3 mb-0">{{auto.db_trida}}</h3>
                                 <div class="s7_nabidka-aut-stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -66,49 +66,48 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                             </div>
-                            <div class="s7_nabidka-aut-typ-auto font-italic mb-1">{{auto.name}}</div>
-                            <p class="s7_nabidka-aut-popis">{{auto.short_desc}} <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                            <div class="s7_nabidka-aut-typ-auto font-italic mb-1">{{auto.db_nazev}}</div>
+                            <p class="s7_nabidka-aut-popis">{{getPopis(auto)}} <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
                         </div>
-                        <div class="s7_reservation-buttons w-100">
+                        <div class="s7_reservation-buttons">
                             <div class="s7_res-button-one-way d-flex align-items-center">
-                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{auto.one_way}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{getPriceTowards(auto)}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
                                 <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
                             </div>
                             <div class="s7_res-button-two-way d-flex align-items-center">
-                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{auto.two_way}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
+                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{getPriceBackwards(auto)}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
                                 <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="s7_nabidka-aut-sluzby d-flex flex-row">
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="láhev vody" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
-                        </div>
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
-                        </div>
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-3.png'" alt="štít" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
-                        </div>
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-2.png'" alt="wifi" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
-                        </div>
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="nonstop" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
-                        </div>
-                        <div class="s7_reservation-ico text-center d-flex align-items-center">
-                            <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                            <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
-                        </div>
-                    </div>
-                </div>
 
-
+                        <div class="s7_nabidka-aut-sluzby d-flex flex-row">
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="láhev vody" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-3.png'" alt="štít" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-2.png'" alt="wifi" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
 
             </div>
             <div class="s7_map-col col-xl-6 col-12 px-0">
@@ -136,6 +135,7 @@
 
 <script>
     import {Loader, LoaderOptions} from 'google-maps';
+    import {Truncate} from 'lodash';
     import Axios from "axios";
     import VueAxios from 'vue-axios';
 
@@ -151,18 +151,7 @@
                 currency: 0,
                 sortBy: 0,
                 loading: true,
-                car_offers: [
-                    {
-                        id: 0,
-                        class: "High Class",
-                        stars: 5,
-                        name: "Škoda Superb Lauring Clement",
-                        one_way: 580,
-                        two_way: 1000,
-                        short_desc: "Toto je testovací popisek, buď hodný pejsku",
-                        top: true
-                    }
-                ]
+                car_offers: {}
             }
         },
         props: {
@@ -256,18 +245,48 @@
 
                 var finalurl = _this.api_url + "?action=getCarOffers";
 
-                console.log(request);
 
                 Axios.post(finalurl, request).then(function (response) {
                     if (response)
                         if(typeof response.data == "object"){
-
+                            _this.car_offers = response.data.cars;
                         }else{
                             console.error("Data is not type of Object");
                         }
                 }).catch(function (error) {
                     console.error(error);
                 });
+            },
+            getPriceTowards: function(car){
+                if(car.hasOwnProperty('db_cenik_cena_tam')){
+                    return car.db_cenik_cena_tam;
+                }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
+                    return car.db_letistni_transfer;
+                }else{
+                    // zde je třeba rozpoznat zdali jednotka je km nebo h
+                    return car.db_cena_za_jednotku * this.distance;
+                }
+            },
+            getPriceBackwards: function(car){
+                if(car.hasOwnProperty('db_cenik_cena_zpet')){
+                    return car.db_cenik_cena_zpet;
+                }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
+                    return car.db_letistni_transfer * 2;
+                }else{
+                    // zde je třeba rozpoznat zdali jednotka je km nebo h
+                    return car.db_cena_za_jednotku * this.distance * 2;
+                }
+            },
+            getPopis: function (car) {
+                return _.truncate(car.db_popis, {'length': 120});
+            }
+        },
+        computed: {
+            ddestination_to: function () {
+                return _.truncate(this.destination_to);
+            },
+            ddestination_from: function () {
+                return _.truncate(this.destination_from);
             }
         }
     }

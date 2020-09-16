@@ -96,10 +96,11 @@
     padding-bottom: unset;
 }
 #search-map .s7_nabidka-aut-info{
-    margin-bottom: 6px;
+    margin-bottom: 40px;
 }
 #search-map .s7_res-car-img{
     margin-right: 37px;
+    width: calc(35% - 69px);
 }
 #search-map .s7_res-car-img:before{
     content: "Top";
@@ -121,6 +122,7 @@
 }
 #search-map .s7_car-text{
     margin-right: 32px;
+    width: 35%;
 }
 #search-map h3{
     font-size: 35px;
@@ -146,6 +148,7 @@
     margin-right: 3px;
 }
 #search-map .s7_reservation-buttons{
+    width: 30%;
     max-width: 238px;
 }
 #search-map .s7_res-button-one-way{

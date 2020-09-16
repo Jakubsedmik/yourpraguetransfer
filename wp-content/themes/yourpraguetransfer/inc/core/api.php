@@ -1276,9 +1276,6 @@ function getCarOffers(){
                         $min_osob = $value->db_min_osob;
 
                         $vozidlo = $value->getSubobject("vozidlo");
-                        $vozidlo->writeDials();
-                        $vozidlo->ignoreInterface();
-                        $vozidlo->serializeOnlyDatabase();
                         $vozidlo->setForceNotUpdate();
                         $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
                         $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
@@ -1300,8 +1297,6 @@ function getCarOffers(){
                     $vozidla_dalsi = assetsFactory::getAllEntity("vozidloClass");
                     foreach ($vozidla_dalsi as $key => $value){
                         if(!isset($vozidla[$value->getId()])){
-                            $value->ignoreInterface();
-                            $value->serializeOnlyDatabase();
                             $vozidla[$value->getId()] = $value;
                         }
                     }
@@ -1315,6 +1310,9 @@ function getCarOffers(){
                 }else{
                     // pokud zóny nesedí vylistujeme všechny auta a dáme ceny za km
                     $vozidla = assetsFactory::getAllEntity("vozidloClass");
+                    foreach ($vozidla as $key => $value){
+                        $value->set_not_update('db_letistni_transfer', false);
+                    }
                     $response->cars = $vozidla;
                     $response->status = 1;
                     $response->message = "Žádná z destinací nespadá do zóny, zobrazuji klasickou kilometráž";
@@ -1337,6 +1335,14 @@ function getCarOffers(){
     }else{
         $response->status = 0;
         $response->message = "Chybějící parametry";
+    }
+
+    if(property_exists($response, "cars")){
+        foreach ($response->cars as $key => $value){
+            $value->writeDials();
+            $value->ignoreInterface();
+            $value->serializeOnlyDatabase();
+        }
     }
 
     wp_send_json($response);
