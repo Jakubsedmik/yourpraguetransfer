@@ -1339,11 +1339,13 @@ function getCarOffers(){
 
     if(property_exists($response, "cars")){
         foreach ($response->cars as $key => $value){
+            $value->getSubobject("obrazek");
             $value->writeDials();
             $value->ignoreInterface();
-            $value->serializeOnlyDatabase();
         }
     }
+
+    $response->cars = array_values($response->cars);
 
     wp_send_json($response);
     die();

@@ -242,7 +242,27 @@ $field_rules = array(
         'db_top' => array(
             'type' => BOOL,
             'required' => false
-        )
+        ),
+        'db_wifi' => array(
+            'type' => BOOL,
+            'required' => false
+        ),
+        'db_voda' => array(
+            'type' => BOOL,
+            'required' => false
+        ),
+        'db_vyzvednuti' => array(
+            'type' => BOOL,
+            'required' => false
+        ),
+        'db_klimatizace' => array(
+            'type' => BOOL,
+            'required' => false
+        ),
+        'db_voucher' => array(
+            'type' => BOOL,
+            'required' => false
+        ),
     ),
     'cenikClass' => array(
         'db_id' => array(

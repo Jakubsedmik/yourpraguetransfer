@@ -69,13 +69,37 @@
 
                     <!-- Jednotka -->
                     <div class="col">
+                        <label>Jednotka</label>
                         <?php echo Tools::getSelectBoxForDials('vozidloClass', 'jednotka', $this->viewData['vozidlo']->dejData('db_jednotka'),'Jednotka', 'db_jednotka'); ?>
                     </div>
 
+                </div>
+
+
+                <div class="form-row">
                     <div class="col">
                         <?php echo Tools::switcher("Ano","Ne", "Top", 1, 'db_top', $this->viewData['vozidlo']->dejData('db_top')); ?>
                     </div>
 
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Wifi na palubě", 1, 'db_wifi', $this->viewData['vozidlo']->dejData('db_wifi')); ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Voda zdarma", 1, 'db_voda', $this->viewData['vozidlo']->dejData('db_voda')); ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Vyzvednutí v hale", 1, 'db_vyzvednuti', $this->viewData['vozidlo']->dejData('db_vyzvednuti')); ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Klimatizace", 1, 'db_klimatizace', $this->viewData['vozidlo']->dejData('db_klimatizace')); ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Voucher na turistiku", 1, 'db_voucher', $this->viewData['vozidlo']->dejData('db_voucher')); ?>
+                    </div>
                 </div>
 
                 <div class="form-row">

@@ -1,5 +1,5 @@
 <template>
-    <div class="searchComponent">
+    <div class="searchComponent" :class="{componentLoading: this.loading}">
 
         <!-- REKAPITULACE -->
         <section id="your-way" class="container-fluid text-white">
@@ -34,7 +34,10 @@
                         <p class="s7_underpage-text font-weight-light text-white mb-0">od <strong class="text-white">580</strong> Kč</p>
                     </div>
                 </div>
-                <a href="#" class="btn rounded-0 w-100 font-weight-bold d-flex align-items-center justify-content-between mx-auto text-uppercase"><span class="text-white">Změnit cestu</span><i class="fas fa-chevron-right text-white"></i></a>
+                <a :href="home_url" class="btn rounded-0 w-100 font-weight-bold d-flex align-items-center justify-content-between mx-auto text-uppercase">
+                    <span class="text-white">Změnit cestu</span>
+                    <i class="fas fa-chevron-right text-white"></i>
+                </a>
             </div>
         </section>
 
@@ -43,27 +46,27 @@
         <section id="search-map" class="container-fluid row mx-0">
             <div class="s7_car-col col-xl-6 col-12 pr-0">
                 <form action="">
-                    <select name="sorting_name" id="sorting_id" class="text-uppercase border-0 rounded-0 w-100">
-                        <option value="default"><span>Řadit dle </span><i class="fas fa-chevron-down"></i></option>
+                    <select name="sorting_name" id="sorting_id" class="text-uppercase border-0 rounded-0 w-100" v-model="sortBy">
+                        <option value="0" selected>Řadit dle: Ceny vzestupně</option>
+                        <option value="1">Řadit dle: Ceny sestupně</option>
                     </select>
-                    <select name="currency_name" id="curreny_id" class="text-uppercase border-0 rounded-0 w-100">
-                        <option value="default"><span>Měna </span><i class="fas fa-chevron-down"></i></option>
+                    <select name="currency_name" id="curreny_id" class="text-uppercase border-0 rounded-0 w-100" v-model="currency">
+                        <option value="0" selected>Měna: CZK</option>
+                        <option value="1">Měna: EUR</option>
                     </select>
                 </form>
 
 
                 <div class="s7_nabidka-aut">
-                    <div class="s7_nabidka-aut-info d-flex flex-wrap" v-for="auto in this.car_offers">
-                        <figure class="s7_res-car-img mb-0 position-relative"><img :src="images_path + '/auto-reservation.png'" alt=""></figure>
+                    <div class="s7_nabidka-aut-info d-flex flex-wrap" v-for="(auto, index) in cars_offers" :key="index">
+                        <figure class="s7_res-car-img mb-0 position-relative mb-2" :class="{top: parseInt(auto.db_top)==1}">
+                            <img :src="getFrontImage(auto)" alt="" class="img-fluid">
+                        </figure>
                         <div class="s7_car-text">
                             <div class="d-flex align-items-center">
                                 <h3 class="font-weight-bold mr-3 mb-0">{{auto.db_trida}}</h3>
                                 <div class="s7_nabidka-aut-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star" v-for="hvezda in parseInt(auto.db_hvezdy)"></i>
                                 </div>
                             </div>
                             <div class="s7_nabidka-aut-typ-auto font-italic mb-1">{{auto.db_nazev}}</div>
@@ -71,39 +74,46 @@
                         </div>
                         <div class="s7_reservation-buttons">
                             <div class="s7_res-button-one-way d-flex align-items-center">
-                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{getPriceTowards(auto)}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">jednosměrná</p></div>
-                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                                <div class="s7_res-price w-100 font-weight-bold">
+                                    <p class="s7_res-big-text">{{getPriceTowards(auto) | format_price(currency)}}</p>
+                                    <p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
+                                    <span class="text-white">Rezervovat</span>
+                                    <i class="fas fa-chevron-right text-white"></i>
+                                </a>
                             </div>
                             <div class="s7_res-button-two-way d-flex align-items-center">
-                                <div class="s7_res-price w-100 font-weight-bold"><p class="s7_res-big-text">{{getPriceBackwards(auto)}} <span class="s7_res-normal-text">Kč</span></p><p class="s7_res-small-text mb-0">obousměrná</p></div>
-                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center"><span class="text-white">Rezervovat</span><i class="fas fa-chevron-right text-white"></i></a>
+                                <div class="s7_res-price w-100 font-weight-bold">
+                                    <p class="s7_res-big-text">{{getPriceBackwards(auto) | format_price(currency)}}</p>
+                                    <p class="s7_res-small-text mb-0">obousměrná</p></div>
+                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
+                                    <span class="text-white">Rezervovat</span>
+                                    <i class="fas fa-chevron-right text-white"></i>
+                                </a>
                             </div>
                         </div>
 
                         <div class="s7_nabidka-aut-sluzby d-flex flex-row">
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                            <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_voda) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="láhev vody" class="s7_reservation-ico-img"></figure>
                                 <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
                             </div>
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
-                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
-                            </div>
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
-                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-3.png'" alt="štít" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Bezpečnost</p>
-                            </div>
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
+                            <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_wifi) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-2.png'" alt="wifi" class="s7_reservation-ico-img"></figure>
                                 <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
                             </div>
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
-                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="nonstop" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+
+                            <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_vyzvednuti) === 1">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="nonstop" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Vyzvednutí v odletové hale</p>
                             </div>
-                            <div class="s7_reservation-ico text-center d-flex align-items-center">
-                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Platba online</p>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_klimatizace) === 1">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-3.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Klimatizované vozidlo</p>
+                            </div>
+                            <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_voucher) === 1">
+                                <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-5.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Voucher na turistiku</p>
                             </div>
                         </div>
                     </div>
@@ -151,7 +161,7 @@
                 currency: 0,
                 sortBy: 0,
                 loading: true,
-                car_offers: {}
+                car_offers: []
             }
         },
         props: {
@@ -182,6 +192,14 @@
             api_url: {
                 required: true,
                 type: String
+            },
+            home_url: {
+                required: true,
+                type: String
+            },
+            kurz_eur: {
+                required: true,
+                type: Number
             }
         },
         async mounted() {
@@ -250,6 +268,7 @@
                     if (response)
                         if(typeof response.data == "object"){
                             _this.car_offers = response.data.cars;
+                            _this.loading = false;
                         }else{
                             console.error("Data is not type of Object");
                         }
@@ -258,28 +277,55 @@
                 });
             },
             getPriceTowards: function(car){
+                var price = 0;
                 if(car.hasOwnProperty('db_cenik_cena_tam')){
-                    return car.db_cenik_cena_tam;
+                    price = car.db_cenik_cena_tam;
                 }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
-                    return car.db_letistni_transfer;
+                    price = car.db_letistni_transfer;
                 }else{
                     // zde je třeba rozpoznat zdali jednotka je km nebo h
-                    return car.db_cena_za_jednotku * this.distance;
+                    price = car.db_cena_za_jednotku * this.distance;
                 }
+
+                if(this.currency == 1){
+                    price = price / this.kurz_eur;
+                }
+
+                price = Math.round(price);
+                return price;
             },
             getPriceBackwards: function(car){
+                var price = 0;
+
                 if(car.hasOwnProperty('db_cenik_cena_zpet')){
-                    return car.db_cenik_cena_zpet;
+                    price = car.db_cenik_cena_zpet;
                 }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
-                    return car.db_letistni_transfer * 2;
+                    price = car.db_letistni_transfer * 2;
                 }else{
                     // zde je třeba rozpoznat zdali jednotka je km nebo h
-                    return car.db_cena_za_jednotku * this.distance * 2;
+                    price = car.db_cena_za_jednotku * this.distance * 2;
                 }
+
+                if(this.currency == 1){
+                    price = price / this.kurz_eur;
+                }
+
+                price = Math.round(price);
+                return price;
             },
             getPopis: function (car) {
                 return _.truncate(car.db_popis, {'length': 120});
-            }
+            },
+            getFrontImage: function (car) {
+                var obrazky = car.subobjects.obrazekClass;
+                for(var index in obrazky){
+                    let obrazek = obrazky[index];
+                    if(obrazek.db_front.value == 1){
+                        return this.home_url + obrazek.db_url.value;
+                    }
+                }
+                return this.images_path + "/auto-reservation.png";
+            },
         },
         computed: {
             ddestination_to: function () {
@@ -287,11 +333,82 @@
             },
             ddestination_from: function () {
                 return _.truncate(this.destination_from);
+            },
+            cars_offers: function () {
+                var sortin = this.sortBy;
+                var _this = this;
+                if(this.car_offers.length > 0){
+                    var res = this.car_offers.sort(function (a, b) {
+                        var price_a = _this.getPriceTowards(a);
+                        var price_b = _this.getPriceTowards(b);
+
+                        if(sortin === 0){
+                            if(price_a < price_b){
+                                return -1;
+                            }else if(price_a > price_b) {
+                                return 1;
+                            }else{
+                                return 0;
+                            }
+                        }else{
+                            if(price_a < price_b){
+                                return 1;
+                            }else if(price_a > price_b) {
+                                return -1;
+                            }else{
+                                return 0;
+                            }
+                        }
+
+                    });
+                    return res;
+                }else{
+                    return [];
+                }
+            }
+        },
+        filters: {
+            format_price: function (price, currency) {
+                if(currency == 1){
+                    const formatter = new Intl.NumberFormat('cs-CZ', {
+                        style: 'currency',
+                        currency: 'EUR',
+                        minimumFractionDigits: 0
+                    });
+                    return formatter.format(price);
+                }else{
+                    const formatter = new Intl.NumberFormat('cs-CZ', {
+                        style: 'currency',
+                        currency: 'CZK',
+                        minimumFractionDigits: 0
+                    });
+                    return formatter.format(price);
+                }
+            }
+        },
+        watch: {
+            sortBy: function () {
+                //this.$forceUpdate();
             }
         }
     }
 </script>
 
 <style scoped>
+    .componentLoading{
+        position: relative;
+    }
 
+    .componentLoading:after{
+        content: "";
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background-color: rgba(255,255,255,0.7);
+        background-image: url("../../../../../images/images_frontend/loading.gif");
+        position: absolute;
+        background-position: 50% 20%;
+        background-repeat: no-repeat;
+    }
 </style>

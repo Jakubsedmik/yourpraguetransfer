@@ -1126,4 +1126,20 @@ class Tools {
             (isset($parts['query']) ? "?{$parts['query']}" : '') .
             (isset($parts['fragment']) ? "#{$parts['fragment']}" : '');
 	}
+
+	public static function getEURRatio(){
+        $file = file_get_contents("http://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.xml");
+        $kurzy =  simplexml_load_string($file);
+        $polemen = $kurzy->tabulka->radek;
+        foreach ($polemen as $mena){
+            if($mena->attributes()->kod == "EUR"){
+                $kurz = $mena->attributes()->kurz;
+                $kurz = str_replace(",", ".", $kurz);
+                $kurz = (float) $kurz;
+                return $kurz;
+            }
+        }
+        return false;
+
+    }
 }

@@ -54,9 +54,10 @@
     
 }
 .s7_mapitself{
-    position: sticky;
+    position: sticky!important;
     height: 100vh;
     width: 100%;
+    top: 0;
 }
 #search-map .s7_car-col{
     padding-left: 35px;
@@ -75,7 +76,7 @@
     margin-bottom: 41px;
 }
 #search-map select{
-    max-width: 280px;
+    max-width: 320px;
     background-color: #ebebeb;
     color: var(--s7_color-4);
     font-size: 18px;
@@ -102,7 +103,7 @@
     margin-right: 37px;
     width: calc(35% - 69px);
 }
-#search-map .s7_res-car-img:before{
+#search-map .s7_res-car-img.top:before{
     content: "Top";
     color: white;
     text-transform: uppercase;
