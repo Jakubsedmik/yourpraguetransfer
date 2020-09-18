@@ -666,8 +666,10 @@ class Tools {
                                 $height = array_shift( $destination_size );
                                 $image->cropThumbnailImage( $width, $height );
                                 $image->setImageCompressionQuality( IMAGE_QUALITY );
-                                self::addImageWatermark($image, false);
-                                echo "<strong>Making watermark for : " . $saving_as . "</strong>";
+                                if(ADD_WATERMARK){
+                                    self::addImageWatermark($image, false);
+                                    echo "<strong>Making watermark for : " . $saving_as . "</strong>";
+                                }
                                 $image->writeImage( $saving_as );
                             }
                         }

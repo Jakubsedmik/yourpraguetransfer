@@ -27,11 +27,19 @@
                     return true;
                 });
 
+                if(is_object($front_img)){
+                    $front_img = $front_img->getImageDimensions();
+                    $front_img = home_url() . $front_img['listing'];
+                }else{
+                    $front_img = FRONTEND_IMAGES_PATH . "/auto-reservation.png";
+                }
+
+
             ?>
             <div class="s7_vozovy-park-auto col-lg-4 col-md-6 col-12">
                 <div class="s7_vozovy-park-content">
                     <figure class="position-relative mb-0 <?php echo ($value->db_top == 1) ? "top" : '' ?>">
-                        <img src="<?php echo home_url() . "" . $front_img->db_url; ?>" alt="" class="s7_car-img img-fluid w-100">
+                        <img src="<?php echo $front_img; ?>" alt="" class="s7_car-img img-fluid w-100">
                     </figure>
                     <div class="d-flex align-items-center">
                         <h3 class="font-weight-bold"><?php echo $value->dejData("db_trida"); ?></h3>

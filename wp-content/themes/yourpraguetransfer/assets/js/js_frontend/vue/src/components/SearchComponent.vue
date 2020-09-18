@@ -70,12 +70,16 @@
                                 </div>
                             </div>
                             <div class="s7_nabidka-aut-typ-auto font-italic mb-1">{{auto.db_nazev}}</div>
-                            <p class="s7_nabidka-aut-popis">{{getPopis(auto)}} <button class="border-0 radius-0"><i class="far fa-image"></i>Více fotografií</button></p>
+                            <p class="s7_nabidka-aut-popis">
+                                {{getPopis(auto)}}
+                                <gallery :images="getRestPhotos(auto)" :index="image_index" v-if="getRestPhotos(auto).length > 0" @close="image_index = null"></gallery>
+                                <button class="border-0 radius-0" @click="image_index=0" v-if="getRestPhotos(auto).length > 0"><i class="far fa-image"></i>Více fotografií</button>
+                            </p>
                         </div>
                         <div class="s7_reservation-buttons">
                             <div class="s7_res-button-one-way d-flex align-items-center">
                                 <div class="s7_res-price w-100 font-weight-bold">
-                                    <p class="s7_res-big-text">{{getPriceTowards(auto) | format_price(currency)}}</p>
+                                    <p class="s7_res-big-text">{{getPriceTowards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
                                     <p class="s7_res-small-text mb-0">jednosměrná</p></div>
                                 <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
                                     <span class="text-white">Rezervovat</span>
@@ -84,7 +88,7 @@
                             </div>
                             <div class="s7_res-button-two-way d-flex align-items-center">
                                 <div class="s7_res-price w-100 font-weight-bold">
-                                    <p class="s7_res-big-text">{{getPriceBackwards(auto) | format_price(currency)}}</p>
+                                    <p class="s7_res-big-text">{{getPriceBackwards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
                                     <p class="s7_res-small-text mb-0">obousměrná</p></div>
                                 <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
                                     <span class="text-white">Rezervovat</span>
@@ -140,6 +144,8 @@
                 <span class="s7_res-contact-ico-text font-weight-bold">Evropská 27, 247 89, Praha 6</span>
             </div>
         </section>
+
+        <ReservationForms></ReservationForms>
     </div>
 </template>
 
@@ -148,10 +154,15 @@
     import {Truncate} from 'lodash';
     import Axios from "axios";
     import VueAxios from 'vue-axios';
+    import VueGallery from 'vue-gallery';
+    import ReservationForms from "./ReservationForms";
 
 
     export default {
         name: "search-component",
+        components: {
+            'gallery': VueGallery, ReservationForms
+        },
         data: function(){
             return {
                 google: null,
@@ -161,7 +172,8 @@
                 currency: 0,
                 sortBy: 0,
                 loading: true,
-                car_offers: []
+                car_offers: [],
+                image_index: null
             }
         },
         props: {
@@ -283,8 +295,11 @@
                 }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
                     price = car.db_letistni_transfer;
                 }else{
-                    // zde je třeba rozpoznat zdali jednotka je km nebo h
-                    price = car.db_cena_za_jednotku * this.distance;
+                    if(car.db_jednotka == "km"){
+                        price = car.db_cena_za_jednotku * this.distance;
+                    }else if (car.db_jednotka == "h"){
+                        price = car.db_cena_za_jednotku * Math.ceil(this.duration/1000/60/60);
+                    }
                 }
 
                 if(this.currency == 1){
@@ -302,8 +317,11 @@
                 }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
                     price = car.db_letistni_transfer * 2;
                 }else{
-                    // zde je třeba rozpoznat zdali jednotka je km nebo h
-                    price = car.db_cena_za_jednotku * this.distance * 2;
+                    if(car.db_jednotka == "km"){
+                        price = car.db_cena_za_jednotku * this.distance * 2;
+                    }else if (car.db_jednotka == "h"){
+                        price = car.db_cena_za_jednotku * Math.ceil(this.duration/1000/60/60) * 2;
+                    }
                 }
 
                 if(this.currency == 1){
@@ -326,6 +344,20 @@
                 }
                 return this.images_path + "/auto-reservation.png";
             },
+            getRestPhotos: function (car) {
+                var obrazky = car.subobjects.obrazekClass;
+                var obr_arr = [];
+                for(var index in obrazky){
+                    let obrazek = obrazky[index];
+                    if(obrazek.db_front.value != 1){
+                        var image_url = this.home_url + obrazek.db_url.value;
+                        image_url = image_url.replace("default","gallery");
+                        obr_arr.push(image_url);
+                    }
+                }
+
+                return obr_arr;
+            }
         },
         computed: {
             ddestination_to: function () {
@@ -333,6 +365,9 @@
             },
             ddestination_from: function () {
                 return _.truncate(this.destination_from);
+            },
+            currency_label: function () {
+                return (this.currency == 1 ? "€" : "Kč");
             },
             cars_offers: function () {
                 var sortin = this.sortBy;
@@ -342,7 +377,7 @@
                         var price_a = _this.getPriceTowards(a);
                         var price_b = _this.getPriceTowards(b);
 
-                        if(sortin === 0){
+                        if(sortin == 0){
                             if(price_a < price_b){
                                 return -1;
                             }else if(price_a > price_b) {
@@ -368,22 +403,9 @@
             }
         },
         filters: {
-            format_price: function (price, currency) {
-                if(currency == 1){
-                    const formatter = new Intl.NumberFormat('cs-CZ', {
-                        style: 'currency',
-                        currency: 'EUR',
-                        minimumFractionDigits: 0
-                    });
-                    return formatter.format(price);
-                }else{
-                    const formatter = new Intl.NumberFormat('cs-CZ', {
-                        style: 'currency',
-                        currency: 'CZK',
-                        minimumFractionDigits: 0
-                    });
-                    return formatter.format(price);
-                }
+            format_price: function (price) {
+                let val = price;
+                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             }
         },
         watch: {

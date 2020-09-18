@@ -8,11 +8,11 @@ define("DEFAULT_IMAGE_SIZE", 'default');
 
 $image_sizes = array(
 	'listing' => array(
-		'size' => array(400,600),
+		'size' => array(520,300),
 		'prefix' => 'listing'
 	),
 	'gallery' => array(
-		'size' => array(200,200),
+		'size' => array(1040,600),
 		'prefix' => 'gallery'
 	),
 	'original' => array(
@@ -20,7 +20,7 @@ $image_sizes = array(
 		'prefix' => 'original'
 	),
 	'default' => array(
-		'size' => array(1000,1000),
+		'size' => array(260,150),
 		'prefix' => 'default'
 	)
 );
