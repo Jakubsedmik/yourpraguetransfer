@@ -81,7 +81,7 @@
                                 <div class="s7_res-price w-100 font-weight-bold">
                                     <p class="s7_res-big-text">{{getPriceTowards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
                                     <p class="s7_res-small-text mb-0">jednosměrná</p></div>
-                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
+                                <a href="#" data-toggle="modal" data-target="#Modal-form-1" @click="openPopup(auto, getPriceTowards(auto), false)" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
                                     <span class="text-white">Rezervovat</span>
                                     <i class="fas fa-chevron-right text-white"></i>
                                 </a>
@@ -90,7 +90,7 @@
                                 <div class="s7_res-price w-100 font-weight-bold">
                                     <p class="s7_res-big-text">{{getPriceBackwards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
                                     <p class="s7_res-small-text mb-0">obousměrná</p></div>
-                                <a href="#" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
+                                <a href="#" data-toggle="modal" data-target="#Modal-form-1" @click="openPopup(auto, getPriceBackwards(auto), true)" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
                                     <span class="text-white">Rezervovat</span>
                                     <i class="fas fa-chevron-right text-white"></i>
                                 </a>
@@ -145,7 +145,16 @@
             </div>
         </section>
 
-        <ReservationForms></ReservationForms>
+        <ReservationForms
+            :destination_from="destination_from"
+            :destination_to="destination_to"
+            :distance="distance"
+            :duration="duration"
+            :currency="currency"
+            :selected_offer="selected_offer"
+            :selected_way_option="selected_way_option"
+            :precalculated_price="precalculated_price"
+        ></ReservationForms>
     </div>
 </template>
 
@@ -173,7 +182,10 @@
                 sortBy: 0,
                 loading: true,
                 car_offers: [],
-                image_index: null
+                image_index: null,
+                selected_offer: false,
+                selected_way_option: false,
+                precalculated_price: 0
             }
         },
         props: {
@@ -357,6 +369,12 @@
                 }
 
                 return obr_arr;
+            },
+            openPopup: function (auto, price, twoway) {
+                this.selected_offer = auto;
+                this.selected_way_option = twoway;
+                this.precalculated_price = price;
+                this.$root.$emit('openPopup');
             }
         },
         computed: {
