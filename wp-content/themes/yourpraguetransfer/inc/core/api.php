@@ -1321,6 +1321,9 @@ function getCarOffers(){
             }else{
                 // pokud nesedí letiště vylistujeme všechny auta a dáme ceny za km
                 $vozidla = assetsFactory::getAllEntity("vozidloClass");
+                foreach ($vozidla as $key => $value){
+                    $value->set_not_update('db_letistni_transfer', false);
+                }
                 $response->cars = $vozidla;
                 $response->status = 1;
                 $response->message = "Žádná z destinací není letiště, zobrazuji klasickou kilometráž";

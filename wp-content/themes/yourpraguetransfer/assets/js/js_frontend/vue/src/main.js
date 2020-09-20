@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import SearchComponent from "./components/SearchComponent.vue";
+import Vuelidate from 'vuelidate';
+Vue.use(Vuelidate);
 
-
-const moment = require('moment')
-require('moment/locale/cs')
+const moment = require('moment');
+require('moment/locale/cs');
 Vue.use(require('vue-moment'), {
   moment
 });

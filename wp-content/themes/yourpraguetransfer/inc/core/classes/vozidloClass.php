@@ -36,4 +36,13 @@ class vozidloClass extends zakladniKamenClass
     {
         return "s7_vozidlo";
     }
+
+    public function getInterfaceTypes() {
+        return array(
+            "db_id" => "number",
+            "db_nazev" => "string",
+            "db_trida" => "string",
+
+        );
+    }
 }

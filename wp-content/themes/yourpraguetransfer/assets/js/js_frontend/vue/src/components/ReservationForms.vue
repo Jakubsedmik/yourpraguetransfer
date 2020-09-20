@@ -18,13 +18,21 @@
                     <div class="modal-body" v-if="step == 0">
                         <div class="s7_modal-body-content s7_modal-body-content-start-1">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Vyzvedneme Vás</h3>
-                            <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                            <input type="text" name="s7_input-form-start" v-model="data_destination_from" class="border-0 w-100" required>
+                            <div class="form-field">
+                                <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
+                                <input type="text" name="s7_input-form-start" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_from.$model">
+                                <div class="form-field-error" v-if="!$v.step_first.data_destination_from.required">Toto pole je povinné</div>
+                                <div class="form-field-error" v-if="!$v.step_first.data_destination_from.minLength">Toto pole musí mít minimálně 3 znaky</div>
+                            </div>
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-end-1">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Odvezeme Vás</h3>
-                            <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                            <input type="text" name="s7_input-form-goal" v-model="data_destination_to" class="border-0 w-100" required>
+                            <div class="form-field">
+                                <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
+                                <input type="text" name="s7_input-form-goal" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_to.$model">
+                                <div class="form-field-error" v-if="!$v.step_first.data_destination_to.required">Toto pole je povinné</div>
+                                <div class="form-field-error" v-if="!$v.step_first.data_destination_to.minLength">Toto pole musí mít minimálně 3 znaky</div>
+                            </div>
                         </div>
                         <div class="s7_form-1-end row flex-sm-row flex-column">
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
@@ -57,21 +65,30 @@
                     <div class="modal-body" v-if="step == 1">
                         <div class="s7_modal-body-content s7_modal-body-content-start-2">
                             <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme</h3>
-                            <label for="s7_input-form-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                            <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-date" class="border-0 w-100" v-model="time_date" required>
+                            <div class="form-field">
+                                <label for="s7_input-form-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
+                                <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-date" class="border-0 w-100" v-model.trim="$v.step_second.time_date.$model">
+                                <div class="form-field-error" v-if="!$v.step_second.time_date.required">Toto pole je povinné</div>
+                            </div>
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-mid-2" :class="{'disabled': !selected_way_option}">
                             <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme (cesta zpět)</h3>
-                            <label for="s7_input-form-goal-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                            <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-goal-date" v-model="time_date_two_way" class="border-0 w-100" disabled required>
+                            <div class="form-field">
+                                <label for="s7_input-form-goal-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
+                                <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-goal-date" v-model.trim="$v.step_second.time_date_two_way.$model" class="border-0 w-100" :disabled="!selected_way_option">
+                                <div class="form-field-error" v-if="!$v.step_second.time_date_two_way.required">Toto pole je povinné</div>
+                            </div>
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-end-2 position-relative">
                             <h3 class="font-weight-bold"><i class="fas fa-male"></i>Počet osob</h3>
-                            <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                            <input type="number" name="s7_input-form-count-passenger" value="3" class="border-0 w-100" v-model="persons" required>
-                            <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus">+</button>
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus">-</button>
+                            <div class="form-field">
+                                <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
+                                <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model">
+                                <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
+                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus">+</button>
+                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus">-</button>
+                                </div>
+                                <div class="form-field-error" v-if="!$v.step_second.persons.required">Toto pole je povinné</div>
                             </div>
                         </div>
                         <div class="s7_form-next-btn-div">
@@ -87,44 +104,60 @@
                             <h3 class="font-weight-bold"><i class="fas fa-user-alt"></i>Vaše údaje</h3>
                             <div class="s7_input-personal-info-row row">
                                 <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-first-name" class="s7_modal-body-undertext text-uppercase">Jméno *</label>
-                                    <input type="text" name="s7_input-form-first-name" class="border-0 w-100" placeholder="Jan" required v-model="name">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-first-name" class="s7_modal-body-undertext text-uppercase">Jméno *</label>
+                                        <input type="text" name="s7_input-form-first-name" class="border-0 w-100" placeholder="Jan" v-model.trim="$v.step_third.name.$model">
+                                        <div class="form-field-error" v-if="!$v.step_third.name.required">Toto pole je povinné</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-last-name" class="s7_modal-body-undertext text-uppercase">Příjmení *</label>
-                                    <input type="text" name="s7_input-form-last-name" class="border-0 w-100" placeholder="Novák" required v-model="surename">
-                                </div>
-                            </div>
-                            <div class="s7_input-personal-info-row row">
-                                <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-email" class="s7_modal-body-undertext text-uppercase">Email *</label>
-                                    <input type="email" name="s7_input-form-email" class="border-0 w-100" placeholder="test@yourpraguetransfer.cz" required v-model="email">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-tel" class="s7_modal-body-undertext text-uppercase">Telefon *</label>
-                                    <input type="text" name="s7_input-form-tel" class="border-0 w-100" placeholder="+420 777 888 999" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" required v-model="telephone">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-last-name" class="s7_modal-body-undertext text-uppercase">Příjmení *</label>
+                                        <input type="text" name="s7_input-form-last-name" class="border-0 w-100" placeholder="Novák" v-model.trim="$v.step_third.surename.$model">
+                                        <div class="form-field-error" v-if="!$v.step_third.surename.required">Toto pole je povinné</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="s7_input-personal-info-row row">
                                 <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-sign" class="s7_modal-body-undertext text-uppercase">Pickup sign</label>
-                                    <input type="text" name="s7_input-form-sign" class="border-0 w-100" placeholder="JANNOVAK" v-model="pickupsign">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-email" class="s7_modal-body-undertext text-uppercase">Email *</label>
+                                        <input type="email" name="s7_input-form-email" class="border-0 w-100" placeholder="test@yourpraguetransfer.cz" v-model.trim="$v.step_third.email.$model">
+                                        <div class="form-field-error" v-if="!$v.step_third.email.required">Toto pole je povinné</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <label for="s7_input-form-travel" class="s7_modal-body-undertext text-uppercase">Číslo letu/vlaku/autobusu</label>
-                                    <input type="text" name="s7_input-form-travel" class="border-0 w-100" placeholder="CX-8875" v-model="transport_id">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-tel" class="s7_modal-body-undertext text-uppercase">Telefon *</label>
+                                        <input type="text" name="s7_input-form-tel" class="border-0 w-100" placeholder="+420 777 888 999" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" v-model.trim="$v.step_third.telephone.$model">
+                                        <div class="form-field-error" v-if="!$v.step_third.telephone.required">Toto pole je povinné</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s7_input-personal-info-row row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-sign" class="s7_modal-body-undertext text-uppercase">Pickup sign</label>
+                                        <input type="text" name="s7_input-form-sign" class="border-0 w-100" placeholder="JANNOVAK" v-model="step_third.pickupsign">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-field">
+                                        <label for="s7_input-form-travel" class="s7_modal-body-undertext text-uppercase">Číslo letu/vlaku/autobusu</label>
+                                        <input type="text" name="s7_input-form-travel" class="border-0 w-100" placeholder="CX-8875" v-model="step_third.transport_id">
+                                    </div>
                                 </div>
                             </div>
                             <label for="s7_input-form-note" class="s7_modal-body-undertext text-uppercase">Poznámka</label>
-                            <input type="text" name="s7_input-form-note" class="s7_input-form-note border-0 w-100" placeholder="Přivezte mi něco k jídlu prosím" v-model="note">
+                            <input type="text" name="s7_input-form-note" class="s7_input-form-note border-0 w-100" placeholder="Přivezte mi něco k jídlu prosím" v-model="step_third.note">
                             <h3 class="s7_custom-checkboxes-title font-weight-bold"><i class="fas fa-star"></i>Speciální požadavky</h3>
                             <div class="s7_form-special-checkboxes form-check p-0 d-flex">
                                 <label class="container">Velká zavazadla
-                                    <input type="checkbox" v-model="large_baggage">
+                                    <input type="checkbox" v-model="step_third.large_baggage">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container">Dětská sedačka
-                                    <input type="checkbox" v-model="kid_seat">
+                                    <input type="checkbox" v-model="step_third.kid_seat">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -163,7 +196,7 @@
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Jak zaplatíte <span class="s7_payment-title">({{precalculated_price | format_price}} Kč)</span></h3>
                             <div class="s7_chose-payment-method">
                                 <label for="s7_payment-methods" class="s7_modal-body-undertext text-uppercase">Vyberte platební metodu</label>
-                                <select name="s7_payment-methods" id="methods" class="border-0 w-100" v-model="payment">
+                                <select name="s7_payment-methods" id="methods" class="border-0 w-100" v-model="step_fourth.payment">
                                     <option value="online">Platba online - kartou / online bankovním převodem</option>
                                     <option value="cash">Platba hotově v cíli</option>
                                 </select>
@@ -212,6 +245,9 @@
 </template>
 
 <script>
+
+    import { required, minLength, email, integer } from 'vuelidate/lib/validators'
+
     export default {
         name: "ReservationForms",
         props: {
@@ -251,28 +287,78 @@
         data: function () {
             return {
                 step: 0,
-                data_destination_from: "",
-                data_destination_to: "",
-                time_date: "",
-                time_date_two_way: "",
-                persons: 1,
-                name: "",
-                surename: "",
-                email: "",
-                telephone: "",
-                pickupsign: "",
-                transport_id: "",
-                note: "",
-                kid_seat: false,
-                large_baggage: false,
-                payment: "online"
+
+                step_first: {
+                    data_destination_from: "",
+                    data_destination_to: "",
+                },
+                step_second: {
+                    time_date: "",
+                    time_date_two_way: "",
+                    persons: 1,
+                },
+                step_third: {
+                    name: "",
+                    surename: "",
+                    email: "",
+                    telephone: "",
+                    pickupsign: "",
+                    transport_id: "",
+                    note: "",
+                    kid_seat: false,
+                    large_baggage: false,
+                },
+                step_fourth: {
+                    payment: "online"
+                }
+
             }
+        },
+        validations: {
+            step_first: {
+                data_destination_from: {
+                    required,
+                    minLength: minLength(3)
+                },
+                data_destination_to: {
+                    required,
+                    minLength: minLength(3)
+                }
+            },
+            step_second: {
+                time_date: {
+                    required
+                },
+                time_date_two_way: {
+                    required
+                },
+                persons: {
+                    required
+                }
+            },
+            step_third: {
+                name: {
+                    required,
+                    minLength: minLength(3)
+                },
+                surename: {
+                    required,
+                    minLength: minLength(3)
+                },
+                email: {
+                    required,
+                    email
+                },
+                telephone: {
+                    required
+                }
+            },
         },
         mounted() {
             var _this = this;
 
-            this.data_destination_from = this.destination_from;
-            this.data_destination_to = this.destination_to;
+            this.step_first.data_destination_from = this.destination_from;
+            this.step_first.data_destination_to = this.destination_to;
 
             this.$root.$on("openPopup",function () {
                 _this.step = 0;

@@ -308,15 +308,17 @@
                     price = car.db_letistni_transfer;
                 }else{
                     if(car.db_jednotka == "km"){
-                        price = car.db_cena_za_jednotku * this.distance;
+                        price = parseInt(car.db_cena_za_jednotku) * this.distance;
                     }else if (car.db_jednotka == "h"){
-                        price = car.db_cena_za_jednotku * Math.ceil(this.duration/1000/60/60);
+                        price = parseInt(car.db_cena_za_jednotku) * Math.ceil(this.duration/1000/60/60);
                     }
                 }
 
                 if(this.currency == 1){
                     price = price / this.kurz_eur;
                 }
+
+                console.log(price);
 
                 price = Math.round(price);
                 return price;
@@ -327,18 +329,20 @@
                 if(car.hasOwnProperty('db_cenik_cena_zpet')){
                     price = car.db_cenik_cena_zpet;
                 }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
-                    price = car.db_letistni_transfer * 2;
+                    price = parseInt(car.db_letistni_transfer) * 2;
                 }else{
                     if(car.db_jednotka == "km"){
-                        price = car.db_cena_za_jednotku * this.distance * 2;
+                        price = parseInt(car.db_cena_za_jednotku) * this.distance * 2;
                     }else if (car.db_jednotka == "h"){
-                        price = car.db_cena_za_jednotku * Math.ceil(this.duration/1000/60/60) * 2;
+                        price = parseInt(car.db_cena_za_jednotku) * Math.ceil(this.duration/1000/60/60) * 2;
                     }
                 }
 
                 if(this.currency == 1){
                     price = price / this.kurz_eur;
                 }
+
+                console.log(price);
 
                 price = Math.round(price);
                 return price;
