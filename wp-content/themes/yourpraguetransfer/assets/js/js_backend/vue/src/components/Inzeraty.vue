@@ -373,8 +373,6 @@
 
 <style scoped lang="less">
 
-    @website: "http://localhost/realsys/";
-
     p {
         font-size: 35px;
     }
@@ -408,7 +406,7 @@
     }
     .waitingForData:after{
         content: '';
-        background-image: url("@{website}wp-content/themes/realsys/assets/images/images_backend/loading.gif");
+        background-image: url("../../../../../images/images_backend/loading.gif");
         position: absolute;
         top: 0;
         left: 0px;
