@@ -37,19 +37,19 @@
                         <div class="s7_form-1-end row flex-sm-row flex-column">
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/Form-way.png" alt="">
+                                    <img :src="this.images_path + '/Form-way.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{distance}} <span class="font-weight-light">Km</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/Form-time.png" alt="">
+                                    <img :src="this.images_path + '/Form-time.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{Math.round(duration/1000/60/60*100)/100}} <span class="font-weight-light">h</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/Form-cash.png" alt="">
+                                    <img :src="this.images_path + '/Form-cash.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{precalculated_price | format_price}} <span class="font-weight-light">Kč</span></p>
                             </div>
@@ -205,19 +205,19 @@
                         <div class="s7_form-4-end row flex-sm-row flex-column">
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/Form-way.png" alt="">
+                                    <img :src="this.images_path + '/Form-way.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{distance}} <span class="font-weight-light">Km</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/Form-time.png" alt="">
+                                    <img :src="this.images_path + '/Form-time.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{Math.round(duration/1000/60/60*100)/100}} <span class="font-weight-light">h</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
-                                    <img src="/yourpraguetransfer/wp-content/themes/yourpraguetransfer/assets/images/images_frontend_frontend/Form-cash.png" alt="">
+                                    <img :src="this.images_path + '/Form-cash.png'" alt="">
                                 </figure>
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{precalculated_price | format_price}} <span class="font-weight-light">Kč</span></p>
                             </div>
@@ -273,15 +273,19 @@
             },
             selected_offer: {
                 required: true,
-                type: Object
+                type: Object | Boolean
             },
             selected_way_option: {
                 required: true,
-                type: Number
+                type: Number | Boolean
             },
             precalculated_price: {
                 required: true,
                 type: Number
+            },
+            images_path: {
+                required: true,
+                type: String
             }
         },
         data: function () {

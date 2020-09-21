@@ -154,6 +154,7 @@
             :selected_offer="selected_offer"
             :selected_way_option="selected_way_option"
             :precalculated_price="precalculated_price"
+            :images_path="images_path"
         ></ReservationForms>
     </div>
 </template>
@@ -318,8 +319,6 @@
                     price = price / this.kurz_eur;
                 }
 
-                console.log(price);
-
                 price = Math.round(price);
                 return price;
             },
@@ -341,8 +340,6 @@
                 if(this.currency == 1){
                     price = price / this.kurz_eur;
                 }
-
-                console.log(price);
 
                 price = Math.round(price);
                 return price;
