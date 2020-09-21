@@ -15,10 +15,12 @@
                         <p class="s7_modal-header-text text-center">Proveďte rezervaci Vaší cesty a nic Vám neunikne</p>
                     </div>
 
+
+                    <!-- PART 1 -->
                     <div class="modal-body" v-if="step == 0">
                         <div class="s7_modal-body-content s7_modal-body-content-start-1">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Vyzvedneme Vás</h3>
-                            <div class="form-field">
+                            <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_from.$error }">
                                 <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="text" name="s7_input-form-start" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_from.$model">
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_from.required">Toto pole je povinné</div>
@@ -27,7 +29,7 @@
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-end-1">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Odvezeme Vás</h3>
-                            <div class="form-field">
+                            <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_to.$error }">
                                 <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="text" name="s7_input-form-goal" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_to.$model">
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_to.required">Toto pole je povinné</div>
@@ -62,10 +64,13 @@
                         </div>
                     </div>
 
+
+
+                    <!-- PART 2 -->
                     <div class="modal-body" v-if="step == 1">
                         <div class="s7_modal-body-content s7_modal-body-content-start-2">
                             <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme</h3>
-                            <div class="form-field">
+                            <div class="form-field" :class="{ 'form-field--error': $v.step_second.time_date.$error }">
                                 <label for="s7_input-form-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-date" class="border-0 w-100" v-model.trim="$v.step_second.time_date.$model">
                                 <div class="form-field-error" v-if="!$v.step_second.time_date.required">Toto pole je povinné</div>
@@ -73,7 +78,7 @@
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-mid-2" :class="{'disabled': !selected_way_option}">
                             <h3 class="font-weight-bold"><i class="far fa-clock"></i>Kdy pro Vás přijedeme (cesta zpět)</h3>
-                            <div class="form-field">
+                            <div class="form-field" :class="{ 'form-field--error': $v.step_second.time_date_two_way.$error }">
                                 <label for="s7_input-form-goal-date" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="datetime-local" value="2020-06-22T19:30" name="s7_input-form-goal-date" v-model.trim="$v.step_second.time_date_two_way.$model" class="border-0 w-100" :disabled="!selected_way_option">
                                 <div class="form-field-error" v-if="!$v.step_second.time_date_two_way.required">Toto pole je povinné</div>
@@ -81,7 +86,7 @@
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-end-2 position-relative">
                             <h3 class="font-weight-bold"><i class="fas fa-male"></i>Počet osob</h3>
-                            <div class="form-field">
+                            <div class="form-field" :class="{ 'form-field--error': $v.step_second.persons.$error }">
                                 <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model">
                                 <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
@@ -99,19 +104,21 @@
                         </div>
                     </div>
 
+
+                    <!-- PART 3 -->
                     <div class="modal-body" v-if="step == 2">
                         <div class="s7_modal-body-content s7_modal-body-content-start-3">
                             <h3 class="font-weight-bold"><i class="fas fa-user-alt"></i>Vaše údaje</h3>
                             <div class="s7_input-personal-info-row row">
                                 <div class="col-md-6 col-12">
-                                    <div class="form-field">
+                                    <div class="form-field" :class="{ 'form-field--error': $v.step_third.name.$error }">
                                         <label for="s7_input-form-first-name" class="s7_modal-body-undertext text-uppercase">Jméno *</label>
                                         <input type="text" name="s7_input-form-first-name" class="border-0 w-100" placeholder="Jan" v-model.trim="$v.step_third.name.$model">
                                         <div class="form-field-error" v-if="!$v.step_third.name.required">Toto pole je povinné</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="form-field">
+                                    <div class="form-field" :class="{ 'form-field--error': $v.step_third.surename.$error }" >
                                         <label for="s7_input-form-last-name" class="s7_modal-body-undertext text-uppercase">Příjmení *</label>
                                         <input type="text" name="s7_input-form-last-name" class="border-0 w-100" placeholder="Novák" v-model.trim="$v.step_third.surename.$model">
                                         <div class="form-field-error" v-if="!$v.step_third.surename.required">Toto pole je povinné</div>
@@ -120,14 +127,14 @@
                             </div>
                             <div class="s7_input-personal-info-row row">
                                 <div class="col-md-6 col-12">
-                                    <div class="form-field">
+                                    <div class="form-field" :class="{ 'form-field--error': $v.step_third.email.$error }">
                                         <label for="s7_input-form-email" class="s7_modal-body-undertext text-uppercase">Email *</label>
                                         <input type="email" name="s7_input-form-email" class="border-0 w-100" placeholder="test@yourpraguetransfer.cz" v-model.trim="$v.step_third.email.$model">
                                         <div class="form-field-error" v-if="!$v.step_third.email.required">Toto pole je povinné</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="form-field">
+                                    <div class="form-field" :class="{ 'form-field--error': $v.step_third.telephone.$error }">
                                         <label for="s7_input-form-tel" class="s7_modal-body-undertext text-uppercase">Telefon *</label>
                                         <input type="text" name="s7_input-form-tel" class="border-0 w-100" placeholder="+420 777 888 999" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" v-model.trim="$v.step_third.telephone.$model">
                                         <div class="form-field-error" v-if="!$v.step_third.telephone.required">Toto pole je povinné</div>
@@ -171,25 +178,26 @@
                     </div>
 
 
+                    <!-- PART 4 -->
                     <div class="modal-body pt-0" v-if="step == 3">
                         <div class="s7_modal-body-content s7_modal-body-content-start-4">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Rekapitulace</h3>
                             <div class="s7_content-ico-row s7_recap-dates-times d-flex align-items-baseline">
                                 <i class="s7_content-ico far fa-calendar-alt"></i>
-                                <p class="s7_recap-date-time-start mb-0">{{time_date}}</p>
-                                <i class="s7_content-ico fas fa-history"></i>
-                                <p class="s7_recap-date-time-goal mb-0">{{time_date_two_way}}</p>
+                                <p class="s7_recap-date-time-start mb-0">{{step_second.time_date}}</p>
+                                <i class="s7_content-ico fas fa-history" v-if="selected_way_option == true"></i>
+                                <p class="s7_recap-date-time-goal mb-0" v-if="selected_way_option == true">{{step_second.time_date_two_way}}</p>
                             </div>
                             <div class="s7_content-ico-row s7_recap-persons d-flex align-items-baseline">
                                 <i class="s7_content-ico fas fa-user-alt"></i>
-                                <p class="s7_recap-name mb-0">{{name}} {{surename}}</p>
-                                <p class="s7_recap-count mb-0"> ({{persons}} osoby)</p>
+                                <p class="s7_recap-name mb-0">{{step_third.name}} {{step_third.surename}}</p>
+                                <p class="s7_recap-count mb-0"> ({{step_second.persons}} osoby)</p>
                             </div>
                             <div class="s7_content-ico-row s7_recap-start-goal d-flex align-items-baseline mb-0">
                                 <i class="s7_content-ico fas fa-map-marker-alt"></i>
-                                <p class="s7_recap-start mb-0">{{destination_from}}</p>
+                                <p class="s7_recap-start mb-0">{{step_first.data_destination_from}}</p>
                                 <i class="s7_content-ico fas fa-long-arrow-alt-right"></i>
-                                <p class="s7_recap-goal mb-0">{{destination_to}}</p>
+                                <p class="s7_recap-goal mb-0">{{step_first.data_destination_to}}</p>
                             </div>
                         </div>
                         <div class="s7_modal-body-content s7_modal-body-content-mid-4">
@@ -232,10 +240,10 @@
                     </div>
 
                     <div class="modal-footer border-0 d-flex flex-wrap justify-content-between">
-                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=0}" @click="step=0">1. Místo</p>
-                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=1}" @click="step=1">2. Osoby a datum</p>
-                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=2}" @click="step=2">3. Údaje objednatele</p>
-                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=3}" @click="step=3">4. Platba</p>
+                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=0}" @click="setStep(0)">1. Místo</p>
+                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=1}" @click="setStep(1)">2. Osoby a datum</p>
+                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=2}" @click="setStep(2)">3. Údaje objednatele</p>
+                        <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=3}" @click="setStep(3)">4. Platba</p>
                         <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
                     </div>
                 </div>
@@ -246,7 +254,7 @@
 
 <script>
 
-    import { required, minLength, email, integer } from 'vuelidate/lib/validators'
+    import { required, minLength, email, integer, requiredIf } from 'vuelidate/lib/validators'
 
     export default {
         name: "ReservationForms",
@@ -334,7 +342,9 @@
                     required
                 },
                 time_date_two_way: {
-                    required
+                    requiredIf: requiredIf(function(){
+                        return this.selected_way_option === true;
+                    })
                 },
                 persons: {
                     required
@@ -370,7 +380,27 @@
         },
         methods: {
             nextStep: function () {
-                this.step++;
+                var toValidate = null;
+                switch (this.step) {
+                    case 0: toValidate = this.$v.step_first;break;
+                    case 1: toValidate = this.$v.step_second;break;
+                    case 2: toValidate = this.$v.step_third;break;
+                    case 3: toValidate = true;break;
+                }
+                if(toValidate === true){
+                    console.log("submit form");
+                    return true;
+                }
+
+                toValidate.$touch();
+                if (!toValidate.$invalid) {
+                    this.step++;
+                }
+            },
+            setStep: function(step){
+                if(this.step > step){
+                    this.step = step;
+                }
             }
         },
         filters: {
@@ -384,4 +414,20 @@
 
 <style scoped>
 
+    .form-field-error{
+        display: none;
+    }
+
+    .form-field--error .form-field-error{
+        display: block;
+        color: red;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 5px;
+    }
+
+    .form-field--error input {
+        outline: 1px solid red;
+    }
 </style>

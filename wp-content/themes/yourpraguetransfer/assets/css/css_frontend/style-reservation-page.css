@@ -345,7 +345,13 @@
 }
 .modal .s7_modal-footer-text.s7_modal-footer-text-filled{
     background-color: var(--s7_color-2);
+    cursor: pointer;
 }
+
+.modal .s7_modal-footer-text.s7_modal-footer-text-filled:hover{
+    background-color: var(--s7_color-3);
+}
+
 .modal .s7_modal-body-content-start-2{
     margin-bottom: 69px;
 }
