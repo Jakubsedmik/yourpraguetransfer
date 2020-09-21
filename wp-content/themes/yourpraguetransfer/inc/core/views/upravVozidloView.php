@@ -149,6 +149,7 @@
                 api_link="<?php echo AJAXURL; ?>"
                 edit_link="<?php echo Tools::getRoute("obrazekClass","edit"); ?>"
                 entity_class="vozidloClass"
+                home_url="<?php echo home_url(); ?>"
             ></Obrazky>
 
             <div class="p-3 text-center border-top">
