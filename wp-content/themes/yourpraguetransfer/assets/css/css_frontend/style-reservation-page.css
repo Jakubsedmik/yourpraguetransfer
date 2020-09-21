@@ -358,7 +358,7 @@
     opacity: 0.5;
 }
 input::-webkit-calendar-picker-indicator { 
-    background-image: url('../yourpraguetransfer/assets/images/Calendar.png');
+    background-image: url('../../images/Calendar.png');
 }
 .modal input[type="number"]{
   -webkit-appearance: textfield;
