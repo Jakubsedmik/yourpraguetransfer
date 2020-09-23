@@ -80,6 +80,10 @@ $api_actions = array(
     'getCarOffers' => array(
         'callback' => 'getCarOffers',
         'private' => false
+    ),
+    "checkCarPrice" => array(
+        'callback' => 'checkCarPrice',
+        'private' => false
     )
 );
 
@@ -1352,4 +1356,9 @@ function getCarOffers(){
 
     wp_send_json($response);
     die();
+}
+
+
+function checkCarPrice(){
+    die("OK");
 }

@@ -5,7 +5,7 @@
         <!-- /*--- Modal 1 ---*/ -->
         <div class="modal fade" id="Modal-form-1" tabindex="-1" role="dialog" aria-labelledby="Modal-form-1-Label" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content border-0">
+                <div class="modal-content border-0" :class="{componentLoading: this.loading}">
 
                     <div class="modal-header flex-column align-items-center border-0">
                         <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-1-Label">Rezervace <span class="font-weight-light">cesty</span></h2>
@@ -16,13 +16,15 @@
                     </div>
 
 
+
                     <!-- PART 1 -->
                     <div class="modal-body" v-if="step == 0">
                         <div class="s7_modal-body-content s7_modal-body-content-start-1">
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Vyzvedneme Vás</h3>
                             <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_from.$error }">
                                 <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                                <input type="text" name="s7_input-form-start" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_from.$model">
+                                <input type="text" name="s7_input-form-start" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_from.$model" @change="checkForNewPrice">
+
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_from.required">Toto pole je povinné</div>
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_from.minLength">Toto pole musí mít minimálně 3 znaky</div>
                             </div>
@@ -31,7 +33,7 @@
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Odvezeme Vás</h3>
                             <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_to.$error }">
                                 <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                                <input type="text" name="s7_input-form-goal" class="border-0 w-100" v-model.trim="$v.step_first.data_destination_to.$model">
+                                <input type="text" name="s7_input-form-goal" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_to.$model" @change="checkForNewPrice">
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_to.required">Toto pole je povinné</div>
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_to.minLength">Toto pole musí mít minimálně 3 znaky</div>
                             </div>
@@ -88,7 +90,7 @@
                             <h3 class="font-weight-bold"><i class="fas fa-male"></i>Počet osob</h3>
                             <div class="form-field" :class="{ 'form-field--error': $v.step_second.persons.$error }">
                                 <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                                <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model">
+                                <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model" @change="checkForNewPrice">
                                 <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
                                     <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus">+</button>
                                     <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus">-</button>
@@ -254,10 +256,16 @@
 
 <script>
 
-    import { required, minLength, email, integer, requiredIf } from 'vuelidate/lib/validators'
+    import { required, minLength, email, integer, requiredIf } from 'vuelidate/lib/validators';
+    import Axios from "axios";
+    import VueAxios from 'vue-axios';
+    import VueGoogleAutocomplete from 'vue-google-autocomplete'
 
     export default {
         name: "ReservationForms",
+        components: {
+            VueGoogleAutocomplete
+        },
         props: {
             destination_from : {
                 required: true,
@@ -294,6 +302,10 @@
             images_path: {
                 required: true,
                 type: String
+            },
+            api_url: {
+                required: true,
+                type: String
             }
         },
         data: function () {
@@ -322,7 +334,8 @@
                 },
                 step_fourth: {
                     payment: "online"
-                }
+                },
+                loading: false,
 
             }
         },
@@ -377,6 +390,11 @@
             this.$root.$on("openPopup",function () {
                 _this.step = 0;
             });
+
+            this.$root.$on("googleMapsInitialized",function () {
+                initAutocomplete();
+            });
+
         },
         methods: {
             nextStep: function () {
@@ -401,6 +419,31 @@
                 if(this.step > step){
                     this.step = step;
                 }
+            },
+            checkForNewPrice: function () {
+
+                this.loading = true;
+                var request = {
+                    persons: this.persons,
+                    destination_from: this.data_destination_from,
+                    destination_to: this.data_destination_to
+                };
+
+                var _this = this;
+                var finalurl = _this.api_url + "?action=checkCarPrice";
+
+                Axios.post(finalurl, request).then(function (response) {
+                    if (response){
+                        if(typeof response.data == "object"){
+                            console.log("OK");
+                        }else{
+                            console.error("Data is not type of Object");
+                        }
+                    }
+                    _this.loading = false;
+                }).catch(function (error) {
+                    console.error(error);
+                });
             }
         },
         filters: {
@@ -408,11 +451,22 @@
                 let val = price;
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             }
+        },
+        computed: {
+            data_destination_from: function () {
+                return this.step_first.data_destination_from;
+            },
+            data_destination_to: function () {
+                return this.step_first.data_destination_to;
+            },
+            persons: function () {
+                return this.step_second.persons;
+            },
         }
     }
 </script>
 
-<style scoped>
+<style>
 
     .form-field-error{
         display: none;
@@ -430,4 +484,26 @@
     .form-field--error input {
         outline: 1px solid red;
     }
+
+    .pac-container{
+        z-index: 99999999;
+    }
+
+    .componentLoading{
+        position: relative;
+    }
+
+    .componentLoading:after{
+        content: "";
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background-color: rgba(255,255,255,0.7);
+        background-image: url("../../../../../images/images_frontend/loading.gif");
+        position: absolute;
+        background-position: 50% 20%;
+        background-repeat: no-repeat;
+    }
+
 </style>

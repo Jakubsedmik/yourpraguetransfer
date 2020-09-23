@@ -155,6 +155,7 @@
             :selected_way_option="selected_way_option"
             :precalculated_price="precalculated_price"
             :images_path="images_path"
+            :api_url="api_url"
         ></ReservationForms>
     </div>
 </template>
@@ -234,6 +235,8 @@
                 const loader = new Loader(this.google_api_key, options);
                 const google = await loader.load();
                 this.google = google;
+                window.google = google;
+                this.$root.$emit("googleMapsInitialized");
                 this.createRoute();
 
             } catch (error) {
