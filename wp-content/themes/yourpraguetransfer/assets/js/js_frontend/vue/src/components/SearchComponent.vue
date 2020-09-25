@@ -147,7 +147,7 @@
 
         <ReservationForms
             :destination_from="destination_from"
-            :destination_from_lat_lng="destination_to_lat_lng"
+            :destination_from_lat_lng="destination_from_lat_lng"
             :destination_to="destination_to"
             :destination_to_lat_lng="destination_to_lat_lng"
             :distance="distance"

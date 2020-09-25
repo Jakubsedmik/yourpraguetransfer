@@ -29,6 +29,74 @@ class zonaClass extends zakladniKamenClass
 
     }
 
+    public static function isVertexOnAirport(array $vertexes){
+
+
+        // najdi letištní zónu
+        $letiste_zona = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "=","'letiště'")));
+        trigger_error("isVertexOnAirpor::Letištní zóna nebyla nalezena", E_ERROR);
+
+        $response = new stdClass();
+        $response->belongToAirport = array();
+        $response->notBelongToAirport = array();
+
+        if(is_array($letiste_zona) && count($letiste_zona) > 0) {
+            $letiste_zona = array_pop($letiste_zona);
+
+            // zjisti zdali některý z bodů spadá do letištní zóny
+            foreach ($vertexes as $key => $value){
+                if ($letiste_zona->isVertexInside($value)) {
+                    $response->belongToAirport[] = $value;
+                }else{
+                    $response->notBelongToAirport[] = $value;
+                }
+            }
+        }
+
+        return $response;
+    }
+
+    public static function isVertexInZones($vertex){
+
+        // najdeme zbylé zóny, které nejsou letiště
+        $rest_zones = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "!=", "'letiště'")));
+
+        // zjistím zdali destinace spadá do některé ze zón
+        foreach ($rest_zones as $key => $value){
+            if($value->isVertexInside($vertex)){
+                return $value;
+            }
+        }
+        return false;
+
+    }
+
+    public function getCeniky(){
+
+        $ceniky = assetsFactory::getAllEntity("cenikClass");
+        $destination_zone = $this;
+
+        $ceniky = array_filter($ceniky, function ($val) use ($destination_zone){
+            $zony = $val->db_zona_id;
+            foreach ($zony as $key => $value){
+                if($value == $destination_zone->getId()) return true;
+            }
+            return false;
+        });
+
+        // ceníky seřadíme dle ceny tam
+        usort($ceniky, function ($a, $b){
+            if($a->db_cena_tam > $b->db_cena_tam){
+                return 1;
+            }elseif ($a->db_cena_tam < $b->db_cena_tam){
+                return -1;
+            }
+            return 0;
+        });
+
+        return $ceniky;
+    }
+
 
 
     protected function zakladniVypis()

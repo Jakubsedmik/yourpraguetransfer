@@ -1214,129 +1214,84 @@ function getCarOffers(){
         $from_lat_lng = $data['from_lat_lng'];
         $to_lat_lng = $data['to_lat_lng'];
 
-        // najdi letištní zónu
-        $letiste_zona = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "=","'letiště'")));
 
-        if(is_array($letiste_zona) && count($letiste_zona) > 0){
-            $letiste_zona = array_pop($letiste_zona);
+        // zjisti zdali některý z bodů spadá na letiště a který nespadá
+        $airport = zonaClass::isVertexOnAirport(array($from_lat_lng, $to_lat_lng));
 
-            // zjisti zdali některý z bodů spadá do letištní zóny
+        // pokud některý z bodu spadá do letištní zóny nastavili jsme destination jako finální bod
+        if(count($airport->notBelongToAirport)>0 && count($airport->belongToAirport)>0){
+            $destination = array_pop($airport->notBelongToAirport);
 
-            if($letiste_zona->isVertexInside($from_lat_lng)){
-                $destination = $to_lat_lng;
-            }elseif($letiste_zona->isVertexInside($to_lat_lng)){
-                $destination = $from_lat_lng;
-            }else{
-                $destination = false;
-            }
+            // zjistíme zdali daná destinace spadá do některé
+            $destination_zone = zonaClass::isVertexInZones($destination);
 
-            // pokud některý z bodu spadá do letištní zóny nastavili jsme destination jako finální bod
-            if($destination !== false){
+            if($destination_zone!== false){
 
-                // najdeme zbylé zóny, které nejsou letiště
-                $destination_zone = false;
-                $rest_zones = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "!=", "'letiště'")));
+                // získám ze zóny všechny ceníky které mají zahrnutou zónu v sobě
+                $ceniky = $destination_zone->getCeniky();
 
+                $vozidla = array();
 
-                // zjistím zdali destinace spadá do některé ze zón
-                foreach ($rest_zones as $key => $value){
-                    if($value->isVertexInside($destination)){
-                        $destination_zone = $value;
-                    }
-                }
+                // k ceníkům a najedeme vozidla, ty zakládáme do pole a připojujeme k ním ceny z ceníků
+                foreach ($ceniky as $key => $value){
 
-                if($destination_zone!== false){
+                    $cena_tam = $value->db_cena_tam;
+                    $cena_zpet = $value->db_cena_zpet;
+                    $max_osob = $value->db_max_osob;
+                    $min_osob = $value->db_min_osob;
 
-                    // pokud ano, najdeme k ním ceníky
-                    $ceniky = assetsFactory::getAllEntity("cenikClass");
+                    $vozidlo = $value->getSubobject("vozidlo");
+                    $vozidlo->setForceNotUpdate();
+                    $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
+                    $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
+                    $vozidlo->set_not_update("db_cenik_max_osob",$max_osob);
+                    $vozidlo->set_not_update("db_cenik_min_osob",$min_osob);
 
-                    $ceniky = array_filter($ceniky, function ($val) use ($destination_zone){
-                        $zony = $val->db_zona_id;
-                        foreach ($zony as $key => $value){
-                            if($value == $destination_zone->getId()) return true;
-                        }
-                        return false;
-                    });
-
-                    // ceníky seřadíme dle ceny tam
-                    usort($ceniky, function ($a, $b){
-                        if($a->db_cena_tam > $b->db_cena_tam){
-                            return 1;
-                        }elseif ($a->db_cena_tam < $b->db_cena_tam){
-                            return -1;
-                        }
-                        return 0;
-                    });
-
-
-                    $vozidla = array();
-
-                    // k ceníkům a najedeme vozidla, ty zakládáme do pole a připojujeme k ním ceny z ceníků
-                    foreach ($ceniky as $key => $value){
-
-                        $cena_tam = $value->db_cena_tam;
-                        $cena_zpet = $value->db_cena_zpet;
-                        $max_osob = $value->db_max_osob;
-                        $min_osob = $value->db_min_osob;
-
-                        $vozidlo = $value->getSubobject("vozidlo");
-                        $vozidlo->setForceNotUpdate();
-                        $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
-                        $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
-                        $vozidlo->set_not_update("db_cenik_max_osob",$max_osob);
-                        $vozidlo->set_not_update("db_cenik_min_osob",$min_osob);
-
-                        // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
-                        if(isset($vozidla[$vozidlo->getId()])){
-                            $old_vozidlo = $vozidla[$vozidlo->getId()];
-                            if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
-                                $vozidla[$vozidlo->getId()] = $vozidlo;
-                            }
-                        }else{
+                    // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
+                    if(isset($vozidla[$vozidlo->getId()])){
+                        $old_vozidlo = $vozidla[$vozidlo->getId()];
+                        if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
                             $vozidla[$vozidlo->getId()] = $vozidlo;
                         }
+                    }else{
+                        $vozidla[$vozidlo->getId()] = $vozidlo;
                     }
-
-                    // je třeba vylistovat zbylá auta která nebyli v zóně, protože pro ně stanovíme cenu dle KM, pokud již je vůz v poli tak nepřidáváme, cena zóny má přednost
-                    $vozidla_dalsi = assetsFactory::getAllEntity("vozidloClass");
-                    foreach ($vozidla_dalsi as $key => $value){
-                        if(!isset($vozidla[$value->getId()])){
-                            $vozidla[$value->getId()] = $value;
-                        }
-                    }
-
-                    $response = new stdClass();
-                    $response->cars = $vozidla;
-
-
-                    $response->status = 1;
-                    $response->message = "Zvýhodněné ceny nalezeny";
-                }else{
-                    // pokud zóny nesedí vylistujeme všechny auta a dáme ceny za km
-                    $vozidla = assetsFactory::getAllEntity("vozidloClass");
-                    foreach ($vozidla as $key => $value){
-                        $value->set_not_update('db_letistni_transfer', false);
-                    }
-                    $response->cars = $vozidla;
-                    $response->status = 1;
-                    $response->message = "Žádná z destinací nespadá do zóny, zobrazuji klasickou kilometráž";
                 }
 
+                // je třeba vylistovat zbylá auta která nebyli v zóně, protože pro ně stanovíme cenu dle KM, pokud již je vůz v poli tak nepřidáváme, cena zóny má přednost
+                $vozidla_dalsi = assetsFactory::getAllEntity("vozidloClass");
+                foreach ($vozidla_dalsi as $key => $value){
+                    if(!isset($vozidla[$value->getId()])){
+                        $vozidla[$value->getId()] = $value;
+                    }
+                }
+
+                $response = new stdClass();
+                $response->cars = $vozidla;
+
+
+                $response->status = 1;
+                $response->message = "Zvýhodněné ceny nalezeny";
             }else{
-                // pokud nesedí letiště vylistujeme všechny auta a dáme ceny za km
+                // pokud zóny nesedí vylistujeme všechny auta a dáme ceny za km
                 $vozidla = assetsFactory::getAllEntity("vozidloClass");
                 foreach ($vozidla as $key => $value){
                     $value->set_not_update('db_letistni_transfer', false);
                 }
                 $response->cars = $vozidla;
                 $response->status = 1;
-                $response->message = "Žádná z destinací není letiště, zobrazuji klasickou kilometráž";
+                $response->message = "Žádná z destinací nespadá do zóny, zobrazuji klasickou kilometráž";
             }
 
-
         }else{
-            $response->status = 0;
-            $response->message = "Letiště nebylo nalezeno";
+            // pokud nesedí letiště vylistujeme všechny auta a dáme ceny za km
+            $vozidla = assetsFactory::getAllEntity("vozidloClass");
+            foreach ($vozidla as $key => $value){
+                $value->set_not_update('db_letistni_transfer', false);
+            }
+            $response->cars = $vozidla;
+            $response->status = 1;
+            $response->message = "Žádná z destinací není letiště, zobrazuji klasickou kilometráž";
         }
 
     }else{
@@ -1399,9 +1354,12 @@ function checkCarPrice(){
             $ceniky = $car->getSubobject("cenik");
             if($ceniky && count($ceniky) > 0){
 
+
             }else{
+
                 $price_per_unit = $car->db_cena_za_jednotku;
                 $unit = $car->db_jednotka;
+
                 if($unit == 0){
                     $final_price = $price_per_unit * $distance;
                 }else{
@@ -1409,9 +1367,9 @@ function checkCarPrice(){
                 }
 
                 $response->status = 1;
-                $response->message = "Vracím ceny";
+                $response->message = "Zóny nenalezeny, vracím ceny za jednodku";
                 $response->payload = array(
-                    'final_price' => '',
+                    'final_price' => $final_price,
                 );
             }
 

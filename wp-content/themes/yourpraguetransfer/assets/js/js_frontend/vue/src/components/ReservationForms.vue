@@ -206,7 +206,7 @@
                                 <figure class="mb-0">
                                     <img :src="this.images_path + '/Form-cash.png'" alt="">
                                 </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{precalculated_price | format_price}} <span class="font-weight-light">Kč</span></p>
+                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{data_final_price | format_price}} <span class="font-weight-light">Kč</span></p>
                             </div>
                         </div>
 
@@ -294,6 +294,7 @@
                 data_destination_to_lat_lng: false,
                 data_distance: 0,
                 data_duration: 0,
+                data_final_price: 0,
                 step_first: {
                     data_destination_from: "",
                     data_destination_to: "",
@@ -366,15 +367,15 @@
         mounted() {
             var _this = this;
 
-            this.step_first.data_destination_from = this.destination_from;
-            this.step_first.data_destination_to = this.destination_to;
-            this.data_destination_from_lat_lng = this.destination_from_lat_lng;
-            this.data_destination_to_lat_lng = this.destination_to_lat_lng;
-            this.data_distance = this.distance;
-            this.data_duration = this.duration;
-
             this.$root.$on("openPopup",function () {
                 _this.step = 0;
+                _this.step_first.data_destination_from = _this.destination_from;
+                _this.step_first.data_destination_to = _this.destination_to;
+                _this.data_destination_from_lat_lng = _this.destination_from_lat_lng;
+                _this.data_destination_to_lat_lng = _this.destination_to_lat_lng;
+                _this.data_distance = _this.distance;
+                _this.data_duration = _this.duration;
+                _this.data_final_price = _this.precalculated_price;
             });
 
             this.$root.$on("googleMapsInitialized",function () {
@@ -401,7 +402,8 @@
                             lat: autocomplete.getPlace().geometry.location.lat(),
                             lng: autocomplete.getPlace().geometry.location.lng()
                         };
-                        _this.checkForNewPrice();
+
+                        _this.getNewDistance();
                     });
 
                 });
@@ -442,7 +444,8 @@
                     this.step = step;
                 }
             },
-            getNewDistance: async function () {
+            getNewDistance: function () {
+                this.loading = true;
                 var directionsService = new google.maps.DirectionsService();
                 var _this = this;
 
@@ -453,16 +456,17 @@
                     travelMode: google.maps.TravelMode[selectedMode]
                 };
 
-                await directionsService.route(request, function(response, status) {
+                directionsService.route(request, function(response, status) {
                     if (status == 'OK') {
+
                         _this.data_distance = Math.round(response.routes[0].legs[0].distance.value / 1000);
                         _this.data_duration = response.routes[0].legs[0].duration.value * 1000;
+                        _this.checkForNewPrice();
                     }
                 });
             },
             checkForNewPrice: function () {
 
-                this.getNewDistance();
                 this.loading = true;
                 var request = {
                     persons: this.step_second.persons,
@@ -480,7 +484,9 @@
                 Axios.post(finalurl, request).then(function (response) {
                     if (response){
                         if(typeof response.data == "object"){
-                            console.log("OK");
+                            if(response.data.payload.final_price !== _this.precalculated_price){
+                                _this.data_final_price = response.data.payload.final_price;
+                            }
                         }else{
                             console.error("Data is not type of Object");
                         }
