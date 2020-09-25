@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
 /* SWITCH AUTOCOMPLETION ON, CREATE LAT AND LNG */
 function initAutocomplete() {
 
-    var inputs = $(".js-autocomplete, .js-vue-autocomplete");
+    var inputs = $(".js-autocomplete");
 
     inputs.each(function () {
         var input = this;
@@ -33,10 +33,6 @@ function initAutocomplete() {
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.addListener('place_changed', function() {
             var place = autocomplete.getPlace();
-            
-            input.dispatchEvent(new Event('input'));
-            input.dispatchEvent(new Event('change'));
-            input.dispatchEvent(new Event("blur"));
 
             var place_json = JSON.stringify(place.address_components);
             if(subinfoHidden.length) {

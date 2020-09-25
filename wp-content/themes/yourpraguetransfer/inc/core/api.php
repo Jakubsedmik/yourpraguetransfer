@@ -1197,8 +1197,8 @@ function payForContact(){
 function getCarOffers(){
 
     // now shut down error reporting for a while
-    //error_reporting(0);
-    //ini_set('display_errors', 'Off');
+    error_reporting(0);
+    ini_set('display_errors', 'Off');
 
     /* GETTING REQUEST DATA */
     $request_body = file_get_contents('php://input');
@@ -1360,5 +1360,71 @@ function getCarOffers(){
 
 
 function checkCarPrice(){
-    die("OK");
+    // now shut down error reporting for a while
+    error_reporting(0);
+    ini_set('display_errors', 'Off');
+
+    /* GETTING REQUEST DATA */
+    $request_body = file_get_contents('php://input');
+    $data = json_decode($request_body, true);
+
+    /* */
+    $response = new stdClass();
+
+    if(
+        Tools::checkPresenceOfParam("selected_offer", $data) &&
+        Tools::checkPresenceOfParam("destination_from", $data) &&
+        Tools::checkPresenceOfParam("destination_to", $data) &&
+        Tools::checkPresenceOfParam("persons", $data) &&
+        Tools::checkPresenceOfParam("precalculated_price", $data) &&
+        Tools::checkPresenceOfParam("distance", $data) &&
+        Tools::checkPresenceOfParam("duration", $data)
+        ){
+
+        $selected_offer = $data['selected_offer'];
+        $destination_from = $data['destination_from'];
+        $destination_to = $data['destination_to'];
+        $persons = $data['persons'];
+        $precalculated_price = $data['precalculated_price'];
+        $duration = $data['duration'];
+        $distance = $data['distance'];
+
+
+        $lat_lng_from = Tools::geocodeAdress($destination_from);
+        $lat_lng_to = Tools::geocodeAdress($destination_to);
+        $car = $selected_offer['db_id'];
+        $car = assetsFactory::getEntity("vozidloClass", $car);
+        if($car){
+
+            $ceniky = $car->getSubobject("cenik");
+            if($ceniky && count($ceniky) > 0){
+
+            }else{
+                $price_per_unit = $car->db_cena_za_jednotku;
+                $unit = $car->db_jednotka;
+                if($unit == 0){
+                    $final_price = $price_per_unit * $distance;
+                }else{
+                    $final_price = $price_per_unit * $duration;
+                }
+
+                $response->status = 1;
+                $response->message = "Vracím ceny";
+                $response->payload = array(
+                    'final_price' => '',
+                );
+            }
+
+        }else{
+            $response->status = 0;
+            $response->message = "Vozidlo nebylo nalezeno";
+        }
+    }else{
+        $response->status = 0;
+        $response->message = "Chybějící parametry";
+    }
+
+    wp_send_json($response);
+    die();
+
 }

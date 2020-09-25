@@ -23,7 +23,7 @@
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Vyzvedneme Vás</h3>
                             <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_from.$error }">
                                 <label for="s7_input-form-start" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                                <input type="text" name="s7_input-form-start" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_from.$model" @change="checkForNewPrice">
+                                <input type="text" name="data_destination_from_lat_lng" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_from.$model">
 
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_from.required">Toto pole je povinné</div>
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_from.minLength">Toto pole musí mít minimálně 3 znaky</div>
@@ -33,37 +33,12 @@
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>Odvezeme Vás</h3>
                             <div class="form-field" :class="{ 'form-field--error': $v.step_first.data_destination_to.$error }">
                                 <label for="s7_input-form-goal" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
-                                <input type="text" name="s7_input-form-goal" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_to.$model" @change="checkForNewPrice">
+                                <input type="text" name="data_destination_to_lat_lng" class="border-0 w-100 js-vue-autocomplete" v-model.trim="$v.step_first.data_destination_to.$model">
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_to.required">Toto pole je povinné</div>
                                 <div class="form-field-error" v-if="!$v.step_first.data_destination_to.minLength">Toto pole musí mít minimálně 3 znaky</div>
                             </div>
                         </div>
-                        <div class="s7_form-1-end row flex-sm-row flex-column">
-                            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                                <figure class="mb-0">
-                                    <img :src="this.images_path + '/Form-way.png'" alt="">
-                                </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{distance}} <span class="font-weight-light">Km</span></p>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                                <figure class="mb-0">
-                                    <img :src="this.images_path + '/Form-time.png'" alt="">
-                                </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{Math.round(duration/1000/60/60*100)/100}} <span class="font-weight-light">h</span></p>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
-                                <figure class="mb-0">
-                                    <img :src="this.images_path + '/Form-cash.png'" alt="">
-                                </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{precalculated_price | format_price}} <span class="font-weight-light">Kč</span></p>
-                            </div>
-                        </div>
-                        <div class="s7_form-next-btn-div">
-                            <button type="submit" @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                                <span class="text-white text-uppercase">Pokračovat</span>
-                                <i class="fas fa-chevron-right text-white"></i>
-                            </button>
-                        </div>
+
                     </div>
 
 
@@ -92,18 +67,13 @@
                                 <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">Adresa * <span class="s7_modal-body-lower-text">(při změně adresy může dojít k přepočítání ceny)</span></label>
                                 <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model" @change="checkForNewPrice">
                                 <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
-                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus">+</button>
-                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus">-</button>
+                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus" @click="increasePersons()">+</button>
+                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus" @click="decreasePersons()">-</button>
                                 </div>
                                 <div class="form-field-error" v-if="!$v.step_second.persons.required">Toto pole je povinné</div>
                             </div>
                         </div>
-                        <div class="s7_form-next-btn-div">
-                            <button type="submit"  @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                                <span class="text-white text-uppercase">Pokračovat</span>
-                                <i class="fas fa-chevron-right text-white"></i>
-                            </button>
-                        </div>
+
                     </div>
 
 
@@ -171,12 +141,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="s7_form-next-btn-div">
-                            <button type="submit" @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                                <span class="text-white text-uppercase">Pokračovat</span>
-                                <i class="fas fa-chevron-right text-white"></i>
-                            </button>
-                        </div>
+
                     </div>
 
 
@@ -212,18 +177,30 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="s7_form-4-end row flex-sm-row flex-column">
+                        <p class="s7_form-4-text-links text-center">Pokračováním souhlasíte s <a href="#" class="font-weight-bold">podmínkami</a> a s <a href="#" class="font-weight-bold">obchodními podmínkami</a></p>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="s7_form-next-btn-div">
+                            <button type="submit" @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
+                                <span class="text-white text-uppercase">Pokračovat</span>
+                                <i class="fas fa-chevron-right text-white"></i>
+                            </button>
+                        </div>
+
+                        <div class="s7_form-1-end row flex-sm-row flex-column">
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
                                     <img :src="this.images_path + '/Form-way.png'" alt="">
                                 </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{distance}} <span class="font-weight-light">Km</span></p>
+                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{data_distance}} <span class="font-weight-light">Km</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
                                     <img :src="this.images_path + '/Form-time.png'" alt="">
                                 </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{Math.round(duration/1000/60/60*100)/100}} <span class="font-weight-light">h</span></p>
+                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{Math.round(data_duration/1000/60/60*100)/100}} <span class="font-weight-light">h</span></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-12 d-flex align-items-center justify-content-center mb-md-0 mb-4">
                                 <figure class="mb-0">
@@ -232,13 +209,7 @@
                                 <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{precalculated_price | format_price}} <span class="font-weight-light">Kč</span></p>
                             </div>
                         </div>
-                        <p class="s7_form-4-text-links text-center">Pokračováním souhlasíte s <a href="#" class="font-weight-bold">podmínkami</a> a s <a href="#" class="font-weight-bold">obchodními podmínkami</a></p>
-                        <div class="s7_form-next-btn-div">
-                            <button type="submit" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
-                                <span class="text-white text-uppercase">Pokračovat</span>
-                                <i class="fas fa-chevron-right text-white"></i>
-                            </button>
-                        </div>
+
                     </div>
 
                     <div class="modal-footer border-0 d-flex flex-wrap justify-content-between">
@@ -271,9 +242,17 @@
                 required: true,
                 type: String
             },
+            destination_from_lat_lng: {
+                required: true,
+                type: Object
+            },
             destination_to : {
                 required: true,
                 type: String
+            },
+            destination_to_lat_lng: {
+                required: true,
+                type: Object
             },
             distance: {
                 required: true,
@@ -311,7 +290,10 @@
         data: function () {
             return {
                 step: 0,
-
+                data_destination_from_lat_lng: false,
+                data_destination_to_lat_lng: false,
+                data_distance: 0,
+                data_duration: 0,
                 step_first: {
                     data_destination_from: "",
                     data_destination_to: "",
@@ -386,17 +368,57 @@
 
             this.step_first.data_destination_from = this.destination_from;
             this.step_first.data_destination_to = this.destination_to;
+            this.data_destination_from_lat_lng = this.destination_from_lat_lng;
+            this.data_destination_to_lat_lng = this.destination_to_lat_lng;
+            this.data_distance = this.distance;
+            this.data_duration = this.duration;
 
             this.$root.$on("openPopup",function () {
                 _this.step = 0;
             });
 
             this.$root.$on("googleMapsInitialized",function () {
-                initAutocomplete();
+                _this.initAutocomplete();
             });
 
         },
         methods: {
+
+            initAutocomplete: function(){
+                var inputs = document.querySelectorAll(".js-vue-autocomplete");
+                var _this = this;
+
+                inputs.forEach(function (value) {
+                    var input = value;
+
+                    var autocomplete = new google.maps.places.Autocomplete(input);
+                    autocomplete.addListener('place_changed', function() {
+                        input.dispatchEvent(new Event('input'));
+                        input.dispatchEvent(new Event('change'));
+                        input.dispatchEvent(new Event("blur"));
+                        var dataName = input.getAttribute("name");
+                        _this[dataName] = {
+                            lat: autocomplete.getPlace().geometry.location.lat(),
+                            lng: autocomplete.getPlace().geometry.location.lng()
+                        };
+                        _this.checkForNewPrice();
+                    });
+
+                });
+
+            },
+
+            increasePersons: function(){
+                this.step_second.persons++;
+                this.checkForNewPrice();
+            },
+            decreasePersons: function(){
+                if(this.step_second.persons > 0){
+                    this.step_second.persons--;
+                    this.checkForNewPrice();
+                }
+            },
+
             nextStep: function () {
                 var toValidate = null;
                 switch (this.step) {
@@ -420,13 +442,36 @@
                     this.step = step;
                 }
             },
+            getNewDistance: async function () {
+                var directionsService = new google.maps.DirectionsService();
+                var _this = this;
+
+                var selectedMode = 'DRIVING';
+                var request = {
+                    origin: this.data_destination_from_lat_lng,
+                    destination: this.data_destination_to_lat_lng,
+                    travelMode: google.maps.TravelMode[selectedMode]
+                };
+
+                await directionsService.route(request, function(response, status) {
+                    if (status == 'OK') {
+                        _this.data_distance = Math.round(response.routes[0].legs[0].distance.value / 1000);
+                        _this.data_duration = response.routes[0].legs[0].duration.value * 1000;
+                    }
+                });
+            },
             checkForNewPrice: function () {
 
+                this.getNewDistance();
                 this.loading = true;
                 var request = {
-                    persons: this.persons,
-                    destination_from: this.data_destination_from,
-                    destination_to: this.data_destination_to
+                    persons: this.step_second.persons,
+                    destination_from: this.step_first.data_destination_from,
+                    destination_to: this.step_first.data_destination_to,
+                    selected_offer: this.selected_offer,
+                    precalculated_price: this.precalculated_price,
+                    duration: this.data_duration,
+                    distance: this.data_distance
                 };
 
                 var _this = this;
