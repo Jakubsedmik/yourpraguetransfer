@@ -158,6 +158,7 @@
             :precalculated_price="precalculated_price"
             :images_path="images_path"
             :api_url="api_url"
+            :home_url="home_url"
         ></ReservationForms>
     </div>
 </template>
@@ -310,8 +311,6 @@
                 var price = 0;
                 if(car.hasOwnProperty('db_cenik_cena_tam')){
                     price = car.db_cenik_cena_tam;
-                }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
-                    price = car.db_letistni_transfer;
                 }else{
                     if(car.db_jednotka == "km"){
                         price = parseInt(car.db_cena_za_jednotku) * this.distance;
@@ -332,8 +331,6 @@
 
                 if(car.hasOwnProperty('db_cenik_cena_zpet')){
                     price = car.db_cenik_cena_zpet;
-                }else if(car.hasOwnProperty('db_letistni_transfer') && car.db_letistni_transfer!== false){
-                    price = parseInt(car.db_letistni_transfer) * 2;
                 }else{
                     if(car.db_jednotka == "km"){
                         price = parseInt(car.db_cena_za_jednotku) * this.distance * 2;

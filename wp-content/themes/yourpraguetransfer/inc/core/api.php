@@ -1227,7 +1227,7 @@ function getCarOffers(){
 
             if($destination_zone!== false){
 
-                // získám ze zóny všechny ceníky které mají zahrnutou zónu v sobě
+                // získám ze zóny všechny ceníky které mají zahrnutou zónu v sobě a jsou seřazené od nejlevnějšího po nejdražší
                 $ceniky = $destination_zone->getCeniky();
 
                 $vozidla = array();
@@ -1333,7 +1333,9 @@ function checkCarPrice(){
         Tools::checkPresenceOfParam("persons", $data) &&
         Tools::checkPresenceOfParam("precalculated_price", $data) &&
         Tools::checkPresenceOfParam("distance", $data) &&
-        Tools::checkPresenceOfParam("duration", $data)
+        Tools::checkPresenceOfParam("duration", $data) &&
+        Tools::checkPresenceOfParam("currency", $data) &&
+        isset($data["selected_way_option"])
         ){
 
         $selected_offer = $data['selected_offer'];
@@ -1341,36 +1343,78 @@ function checkCarPrice(){
         $destination_to = $data['destination_to'];
         $persons = $data['persons'];
         $precalculated_price = $data['precalculated_price'];
+        $selected_way_option = $data['selected_way_option'];
         $duration = $data['duration'];
         $distance = $data['distance'];
+        $currency = $data['currency'];
 
 
         $lat_lng_from = Tools::geocodeAdress($destination_from);
         $lat_lng_to = Tools::geocodeAdress($destination_to);
+
         $car = $selected_offer['db_id'];
         $car = assetsFactory::getEntity("vozidloClass", $car);
+
         if($car){
+            if($car->db_max_osob >= $persons){
 
-            $ceniky = $car->getSubobject("cenik");
-            if($ceniky && count($ceniky) > 0){
+                $res = zonaClass::isVertexOnAirport(array($lat_lng_to, $lat_lng_from));
+                if (count($res->belongToAirport)>0 && count($res->notBelongToAirport)>0){
 
+                    $destination = array_pop($res->notBelongToAirport);
 
-            }else{
+                    $ceniky = $car->getSubobject("cenik");
+                    $ceniky_belonging = array();
+                    if($ceniky && count($ceniky) > 0){
 
-                $price_per_unit = $car->db_cena_za_jednotku;
-                $unit = $car->db_jednotka;
+                        foreach ($ceniky as $key => $value){
+                            foreach ($value->db_zona_id as $key1 => $value1){
 
-                if($unit == 0){
-                    $final_price = $price_per_unit * $distance;
+                                $zona = assetsFactory::getEntity("zonaClass",$value1);
+
+                                // zkontroluj zdali je vertex inside
+                                if($zona->isVertexInside($destination)){
+
+                                    // zkontroluj zdali sedí počet osob
+                                    if($value->db_max_osob >= $persons && $value->db_min_osob <= $persons){
+                                        $ceniky_belonging[] = $value;
+                                    }
+                                }
+
+                            }
+                        }
+
+                        // pole následně seřad dle ceny a vezmi nejdražší
+                        $ceniky_belonging = cenikClass::sortCeniky($ceniky_belonging);
+
+                        if(count($ceniky_belonging) > 0){
+                            $cenik = array_pop($ceniky_belonging);
+
+                            $response->message = "Ceníky a jejich zóny souhlasí s destinací";
+                            $response->status = 1;
+
+                            // zkontroluj zdali je cesta zpět nebo jen tam
+                            if($selected_way_option){
+                                $response->payload = array(
+                                    "final_price" => $cenik->db_cena_zpet
+                                );
+                            }else{
+                                $response->payload = array(
+                                    "final_price" => $cenik->db_cena_tam
+                                );
+                            }
+                        }else{
+                            $response = calculateBasicPrice($car, $distance, $duration, $selected_way_option);
+                        }
+                    }else{
+                        $response = calculateBasicPrice($car, $distance, $duration, $selected_way_option);
+                    }
                 }else{
-                    $final_price = $price_per_unit * $duration;
+                    $response = calculateBasicPrice($car, $distance, $duration, $selected_way_option);
                 }
-
-                $response->status = 1;
-                $response->message = "Zóny nenalezeny, vracím ceny za jednodku";
-                $response->payload = array(
-                    'final_price' => $final_price,
-                );
+            }else{
+                $response->status = -1;
+                $response->message = "Pozor, zadal jste příliš velký počet osob, toto vozidlo není dimenzováno pro takový počet osob";
             }
 
         }else{
@@ -1382,7 +1426,39 @@ function checkCarPrice(){
         $response->message = "Chybějící parametry";
     }
 
+    if($currency == 1){
+        $kurz = Tools::getEURRatio();
+        $response->payload['final_price'] = ceil($response->payload['final_price'] / $kurz);
+    }
+
     wp_send_json($response);
     die();
 
+}
+
+
+function calculateBasicPrice($car, $distance, $duration, $selected_way_option){
+    $response = new stdClass();
+
+    $price_per_unit = $car->db_cena_za_jednotku;
+    $unit = $car->db_jednotka;
+
+    if($unit == 0){
+        $final_price = $price_per_unit * $distance;
+    }else{
+        $final_price = $price_per_unit * ceil($duration / 1000 / 60 / 60);
+    }
+
+    $response->status = 1;
+    $response->message = "Zóny nenalezeny, vracím ceny za jednodku";
+    if($selected_way_option){
+        $response->payload = array(
+            'final_price' => $final_price * 2,
+        );
+    }else{
+        $response->payload = array(
+            'final_price' => $final_price,
+        );
+    }
+    return $response;
 }

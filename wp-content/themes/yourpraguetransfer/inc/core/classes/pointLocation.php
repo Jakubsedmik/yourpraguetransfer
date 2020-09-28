@@ -41,7 +41,6 @@ class pointLocation {
 
         $this->enclosePolygon($polygon);
 
-        globalUtils::writeDebug($polygon);
 
         // Check if the point sits exactly on a vertex
         if ($this->pointOnVertex == true and $this->pointOnVertex($point, $vertices) == true) {

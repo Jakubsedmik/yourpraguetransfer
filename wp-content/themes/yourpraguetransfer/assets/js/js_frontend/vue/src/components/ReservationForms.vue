@@ -206,7 +206,7 @@
                                 <figure class="mb-0">
                                     <img :src="this.images_path + '/Form-cash.png'" alt="">
                                 </figure>
-                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{data_final_price | format_price}} <span class="font-weight-light">Kč</span></p>
+                                <p class="s7_form-1-end-big-text font-weight-bold mb-0">{{data_final_price | format_price}} <span class="font-weight-light">{{currency_label}}</span></p>
                             </div>
                         </div>
 
@@ -219,6 +219,11 @@
                         <p class="s7_modal-footer-text text-white m-0" :class="{'s7_modal-footer-text-filled': step>=3}" @click="setStep(3)">4. Platba</p>
                         <p class="s7_modal-footer-text text-white m-0">5. Potvrzení</p>
                     </div>
+
+                    <form :action="home_url + '/objednavka/'" method="post">
+                        <input type="hidden" :name="index" :value="field" v-for="(field,index) in form_data">
+                        <button ref="formSubmit" type="submit"></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -285,6 +290,10 @@
             api_url: {
                 required: true,
                 type: String
+            },
+            home_url: {
+                required: true,
+                type: String
             }
         },
         data: function () {
@@ -295,6 +304,7 @@
                 data_distance: 0,
                 data_duration: 0,
                 data_final_price: 0,
+                data_currency: false,
                 step_first: {
                     data_destination_from: "",
                     data_destination_to: "",
@@ -368,14 +378,19 @@
             var _this = this;
 
             this.$root.$on("openPopup",function () {
-                _this.step = 0;
-                _this.step_first.data_destination_from = _this.destination_from;
-                _this.step_first.data_destination_to = _this.destination_to;
-                _this.data_destination_from_lat_lng = _this.destination_from_lat_lng;
-                _this.data_destination_to_lat_lng = _this.destination_to_lat_lng;
-                _this.data_distance = _this.distance;
-                _this.data_duration = _this.duration;
-                _this.data_final_price = _this.precalculated_price;
+                setTimeout(function () {
+                    _this.step = 0;
+                    _this.step_first.data_destination_from = _this.destination_from;
+                    _this.step_first.data_destination_to = _this.destination_to;
+                    _this.data_destination_from_lat_lng = _this.destination_from_lat_lng;
+                    _this.data_destination_to_lat_lng = _this.destination_to_lat_lng;
+                    _this.data_distance = _this.distance;
+                    _this.data_duration = _this.duration;
+                    _this.data_currency = _this.currency;
+                    _this.data_final_price = _this.precalculated_price;
+                    _this.data_conversion_rate = this.conversion_rate;
+                },100);
+
             });
 
             this.$root.$on("googleMapsInitialized",function () {
@@ -415,7 +430,7 @@
                 this.checkForNewPrice();
             },
             decreasePersons: function(){
-                if(this.step_second.persons > 0){
+                if(this.step_second.persons > 1){
                     this.step_second.persons--;
                     this.checkForNewPrice();
                 }
@@ -430,7 +445,7 @@
                     case 3: toValidate = true;break;
                 }
                 if(toValidate === true){
-                    console.log("submit form");
+                    this.$refs['formSubmit'].click();
                     return true;
                 }
 
@@ -475,7 +490,9 @@
                     selected_offer: this.selected_offer,
                     precalculated_price: this.precalculated_price,
                     duration: this.data_duration,
-                    distance: this.data_distance
+                    distance: this.data_distance,
+                    selected_way_option: this.selected_way_option,
+                    currency: this.data_currency
                 };
 
                 var _this = this;
@@ -484,8 +501,13 @@
                 Axios.post(finalurl, request).then(function (response) {
                     if (response){
                         if(typeof response.data == "object"){
-                            if(response.data.payload.final_price !== _this.precalculated_price){
-                                _this.data_final_price = response.data.payload.final_price;
+                            if(response.data.status == 1){
+                                if(response.data.payload.final_price !== _this.precalculated_price){
+                                    _this.data_final_price = response.data.payload.final_price;
+                                }
+                            }else if(response.data.status == -1){
+                                _this.decreasePersons();
+                                alert(response.data.message);
                             }
                         }else{
                             console.error("Data is not type of Object");
@@ -513,6 +535,23 @@
             persons: function () {
                 return this.step_second.persons;
             },
+            currency_label: function () {
+                return (this.data_currency == 1 ? "€" : "Kč");
+            },
+            form_data: function () {
+                let result = {
+                    ...this.step_first,
+                    ...this.step_second,
+                    ...this.step_third,
+                    ...this.step_fourth,
+                    'destination_from' : this.data_destination_from,
+                    'destination_to' : this.data_destination_to,
+                    'final_price' : this.data_final_price,
+                    'currency' : this.data_currency,
+                    'selected_way_option' : this.selected_way_option
+                };
+                return result;
+            }
         }
     }
 </script>

@@ -85,14 +85,7 @@ class zonaClass extends zakladniKamenClass
         });
 
         // ceníky seřadíme dle ceny tam
-        usort($ceniky, function ($a, $b){
-            if($a->db_cena_tam > $b->db_cena_tam){
-                return 1;
-            }elseif ($a->db_cena_tam < $b->db_cena_tam){
-                return -1;
-            }
-            return 0;
-        });
+        $ceniky = cenikClass::sortCeniky($ceniky);
 
         return $ceniky;
     }

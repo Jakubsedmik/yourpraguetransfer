@@ -40,4 +40,16 @@ class cenikClass extends zakladniKamenClass
             "db_min_osob" => "number"
         );
     }
+
+    public static function sortCeniky($ceniky){
+        usort($ceniky, function ($a, $b){
+            if($a->db_cena_tam > $b->db_cena_tam){
+                return 1;
+            }elseif ($a->db_cena_tam < $b->db_cena_tam){
+                return -1;
+            }
+            return 0;
+        });
+        return $ceniky;
+    }
 }
