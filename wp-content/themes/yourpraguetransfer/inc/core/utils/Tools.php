@@ -1116,6 +1116,23 @@ class Tools {
 	    return false;
     }
 
+    public static function getDistanceDuration($address_from, $address_to){
+	    $link = 'https://maps.googleapis.com/maps/api/directions/json?origin=' . urlencode($address_from) . '&destination=' . urlencode($address_to) . '&key=' . GOOGLE_API_KEY;
+        $result = json_decode(file_get_contents($link));
+
+        if(property_exists($result, "routes")){
+            $result = array_shift($result->routes);
+            if(property_exists($result,'legs')){
+                $legs = array_shift($result->legs);
+                $response = new stdClass();
+                $response->distance = ceil($legs->distance->value / 1000);
+                $response->duration = ceil($legs->duration->value / 60 / 60);
+                return $response;
+            }
+        }
+        return false;
+    }
+
     public static function build_url(array $parts) {
         return (isset($parts['scheme']) ? "{$parts['scheme']}:" : '') .
             ((isset($parts['user']) || isset($parts['host'])) ? '//' : '') .

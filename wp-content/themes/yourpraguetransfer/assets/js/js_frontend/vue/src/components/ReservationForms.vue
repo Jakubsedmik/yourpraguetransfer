@@ -221,8 +221,8 @@
                     </div>
 
                     <form :action="home_url + '/objednavka/'" method="post">
-                        <input type="hidden" :name="index" :value="field" v-for="(field,index) in form_data">
-                        <button ref="formSubmit" type="submit"></button>
+                        <input type="hidden" :name="'db_' + index" :value="field" v-for="(field,index) in form_data">
+                        <button ref="formSubmit" name="submit" value="1" type="submit"></button>
                     </form>
                 </div>
             </div>
@@ -544,11 +544,10 @@
                     ...this.step_second,
                     ...this.step_third,
                     ...this.step_fourth,
-                    'destination_from' : this.data_destination_from,
-                    'destination_to' : this.data_destination_to,
                     'final_price' : this.data_final_price,
                     'currency' : this.data_currency,
-                    'selected_way_option' : this.selected_way_option
+                    'selected_way_option' : this.selected_way_option,
+                    'car_id' : this.selected_offer.db_id
                 };
                 return result;
             }

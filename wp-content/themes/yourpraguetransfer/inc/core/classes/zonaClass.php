@@ -34,7 +34,6 @@ class zonaClass extends zakladniKamenClass
 
         // najdi letištní zónu
         $letiste_zona = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "=","'letiště'")));
-        trigger_error("isVertexOnAirpor::Letištní zóna nebyla nalezena", E_ERROR);
 
         $response = new stdClass();
         $response->belongToAirport = array();
@@ -51,6 +50,8 @@ class zonaClass extends zakladniKamenClass
                     $response->notBelongToAirport[] = $value;
                 }
             }
+        }else{
+            trigger_error("isVertexOnAirpor::Letištní zóna nebyla nalezena", E_USER_WARNING);
         }
 
         return $response;

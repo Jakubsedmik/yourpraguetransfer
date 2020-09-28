@@ -3,38 +3,43 @@
 
 class objednavkaController extends frontendController {
 
-	public function beforeHeadersAction() {
+    public function beforeHeadersAction() {
+        return true;
+    }
 
-	}
+    public function action() {
 
-	public function action() {
-		if(uzivatelClass::getUserLoggedId() == false){
-			frontendError::addMessage(__("Autorizace","realsys"), ERROR, __("Uživatel není přihlášený. Pro nákup kreditů se nejprve přihlašte","realsys"));
-			$this->setView("error");
-			return false;
-		}
+	    if(
+	        Tools::checkPresenceOfParam("submit", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_data_destination_from", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_data_destination_to", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_persons", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_selected_way_option", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_currency", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_car_id", $this->requestData)){
 
-		$result = Tools::postChecker($this->requestData, array(
-			'serviceOrder' => array(
-				'required' => false,
-				'type' => NUMBER
-			)
-		), true) && Tools::checkPresenceOfParam("serviceOrder",$this->requestData);
 
-		if($result){
-			global $cenik_sluzeb;
-			$idservice = $this->requestData['serviceOrder'];
-			if(isset($cenik_sluzeb[$idservice])){
-				$service = $cenik_sluzeb[$idservice];
-				$customService = array(
-					'ammount' => $service['price'],
-					'price' => $service['price'] * ALONE_CREDIT_PRICE,
-					'name' => $service['name'],
-					'message' => __('Nákupem kreditů nebude služba aktivována, po nákupu kreditů prosím službu opět stejným postupem aktivujte za již nakoupené kredity',"realsys")
-				);
-				$this->workData['customService'] = $customService;
-			}
-		}
+	        $car_id = $this->requestData['db_car_id'];
+	        $destination_from = $this->requestData['db_data_destination_from'];
+            $destination_to = $this->requestData['db_data_destination_to'];
+            $persons = $this->requestData['db_persons'];
+            $way_option = $this->requestData['db_selected_way_option'];
+            $currency = $this->requestData['db_currency'];
+
+
+            $distances = Tools::getDistanceDuration($destination_from, $destination_to);
+            $duration = $distances->duration;
+            $distance = $distances->distance;
+
+            $response = vozidloClass::calculateComplexPrice($car_id, $destination_from, $destination_to, $persons, $way_option, $duration, $distance, $currency );
+            globalUtils::writeDebug($response);
+
+
+        }else{
+	        frontendError::addMessage("Pole",ERROR, "Některá pole nebyla vyplněna");
+            $this->setView("error");
+            return false;
+        }
 	}
 
 	public function processPayment(){
