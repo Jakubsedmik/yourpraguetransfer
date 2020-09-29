@@ -16,15 +16,17 @@ class objednavkaController extends frontendController {
             Tools::checkPresenceOfParam("db_persons", $this->requestData) &&
             Tools::checkPresenceOfParam("db_selected_way_option", $this->requestData) &&
             Tools::checkPresenceOfParam("db_currency", $this->requestData) &&
-            Tools::checkPresenceOfParam("db_car_id", $this->requestData)){
+            Tools::checkPresenceOfParam("db_car_id", $this->requestData) &&
+            Tools::checkPresenceOfParam("db_final_price", $this->requestData)){
 
 
 	        $car_id = $this->requestData['db_car_id'];
 	        $destination_from = $this->requestData['db_data_destination_from'];
             $destination_to = $this->requestData['db_data_destination_to'];
             $persons = $this->requestData['db_persons'];
-            $way_option = $this->requestData['db_selected_way_option'];
+            $way_option = $this->requestData['db_selected_way_option'] === 'true' ? true : false;
             $currency = $this->requestData['db_currency'];
+            $final_price = $this->requestData['db_final_price'];
 
 
             $distances = Tools::getDistanceDuration($destination_from, $destination_to);
@@ -32,9 +34,78 @@ class objednavkaController extends frontendController {
             $distance = $distances->distance;
 
             $response = vozidloClass::calculateComplexPrice($car_id, $destination_from, $destination_to, $persons, $way_option, $duration, $distance, $currency );
-            globalUtils::writeDebug($response);
 
+            if($response->status){
+                if($response->payload['final_price'] == $final_price){
 
+                    $request_data = array(
+                        'db_jmeno' => $this->requestData['db_name'],
+                        'db_prijmeni' => $this->requestData['db_surename'],
+                        'db_email' => $this->requestData['db_email'],
+                        'db_telefon' => $this->requestData['db_telephone'],
+                        'db_destinace_z' => $destination_from,
+                        'db_destinace_do' => $destination_to,
+                        'db_cas' => strtotime($this->requestData['db_time_date']),
+                        'db_cas_zpet' => strtotime($this->requestData['db_time_date_two_way']),
+                        'db_pocet_osob' => $this->requestData['db_persons'],
+                        'db_znameni' => $this->requestData['db_pickupsign'],
+                        'db_poznamka' => $this->requestData['db_note'],
+                        'db_detska_sedacka' => $this->requestData['db_kid_seat'],
+                        'db_velka_zavazadla' => $this->requestData['db_large_baggage'],
+                        'db_typ_platby' => $this->requestData['db_payment'],
+                        'db_mena' => $this->requestData['db_currency'],
+                        'db_cena' => $this->requestData['db_final_price'],
+                        'db_vozidlo_id' => $this->requestData['db_car_id'],
+                        'db_stav' => 0,
+                        'db_hash' => "",
+                    );
+
+                    $response = Tools::formProcessor(
+                        array(
+                            'db_jmeno',
+                            'db_prijmeni',
+                            'db_email',
+                            'db_telefon',
+                            'db_destinace_z',
+                            'db_destinace_do',
+                            'db_cas',
+                            'db_cas_zpet',
+                            'db_pocet_osob',
+                            'db_znameni',
+                            'db_poznamka',
+                            'db_detska_sedacka',
+                            'db_velka_zavazadla',
+                            'db_typ_platby',
+                            'db_mena',
+                            'db_cena',
+                            'db_vozidlo_id',
+                            'db_stav',
+                            'db_hash'
+                        ),
+                        $request_data,
+                        'objednavkaClass',
+                        'create'
+                    );
+
+                    if($response === true){
+                        $this->requestData = array();
+                        $this->requestData['z'] = $destination_from;
+                        $this->requestData['do'] = $destination_to;
+                        $this->requestData['osob'] = $persons;
+                        $this->requestData['distance'] = $distance;
+                        $this->requestData['cena'] = $final_price;
+                    }
+
+                }else{
+                    frontendError::addMessage("Pole",ERROR, "Pokoušíte se o něco špatného. Ceny nesedí!");
+                    $this->setView("error");
+                    return false;
+                }
+            }else{
+                frontendError::addMessage("Kalkulace",ERROR, "Došlo k chybě při kalkulaci ceny");
+                $this->setView("error");
+                return false;
+            }
         }else{
 	        frontendError::addMessage("Pole",ERROR, "Některá pole nebyla vyplněna");
             $this->setView("error");

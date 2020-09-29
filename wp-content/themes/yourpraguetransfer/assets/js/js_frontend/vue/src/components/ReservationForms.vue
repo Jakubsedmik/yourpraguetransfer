@@ -172,8 +172,8 @@
                             <div class="s7_chose-payment-method">
                                 <label for="s7_payment-methods" class="s7_modal-body-undertext text-uppercase">Vyberte platební metodu</label>
                                 <select name="s7_payment-methods" id="methods" class="border-0 w-100" v-model="step_fourth.payment">
-                                    <option value="online">Platba online - kartou / online bankovním převodem</option>
-                                    <option value="cash">Platba hotově v cíli</option>
+                                    <option value="1">Platba online - kartou / online bankovním převodem</option>
+                                    <option value="0">Platba hotově v cíli</option>
                                 </select>
                             </div>
                         </div>
@@ -326,7 +326,7 @@
                     large_baggage: false,
                 },
                 step_fourth: {
-                    payment: "online"
+                    payment: 1
                 },
                 loading: false,
 

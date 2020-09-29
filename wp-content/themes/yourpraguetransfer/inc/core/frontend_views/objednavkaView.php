@@ -8,9 +8,12 @@
                 <p>Děkujeme</p>
                 <p>Vaše objednávka byla zpracována. Souhrn Vaší objednávky Vám byl zaslán emailem</p>
                 <ul>
-                    <li>Destinace</li>
-                    <li>Čas</li>
-                    <li>Počet osob</li>
+                    <li>Odkud pojedeme: <?php echo $this->requestData['z']; ?></li>
+                    <li>Kam pojedeme: <?php echo $this->requestData['do']; ?></li>
+                    <li>Kdy pojedeme: <?php echo $this->requestData['z']; ?></li>
+                    <li>Počet osob: <?php echo $this->requestData['osob']; ?></li>
+                    <li>Vzdálenost: <?php echo $this->requestData['distance']; ?> km</li>
+                    <li>Cena: <?php echo $this->requestData['cena']; ?> Kč</li>
                 </ul>
             </div>
 

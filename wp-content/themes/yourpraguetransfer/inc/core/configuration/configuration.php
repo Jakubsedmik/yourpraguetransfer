@@ -147,34 +147,82 @@ $field_rules = array(
 			'type'     => NUMBER,
 			'required' => false
 		),
-		'db_uzivatel_id' => array(
-			'type'     => FOREIGN_KEY,
+		'db_jmeno' => array(
+			'type'     => STRING255,
 			'required' => true
 		),
-		'db_cena'       => array(
-			'type'     => PRICE,
+		'db_prijmeni'       => array(
+			'type'     => STRING255,
 			'required' => true
 		),
-		'db_mnozstvi'   => array(
-			'type'     => NUMBER,
+		'db_email'   => array(
+			'type'     => EMAIL,
 			'required' => true
 		),
-		'db_stav' => array(
-			'type' => NUMBER,
+		'db_telefon' => array(
+			'type' => TEL,
 			'required' => true
 		),
-		'db_hash' => array(
-			'type' => STRING255,
-			'required' => false
+		'db_destinace_z' => array(
+			'type' => STRING511,
+			'required' => true
 		),
-		'db_invoice_id' => array(
-			"type" => NUMBER,
-			'required' => false
+		'db_destinace_do' => array(
+			"type" => STRING511,
+			'required' => true
 		),
-		'db_invoice_link' => array(
-			"type" => PDF_URL,
-			"required" => false
-		)
+		'db_cas' => array(
+			"type" => TIMESTAMP,
+			"required" => true
+		),
+        'db_cas_zpet' => array(
+            "type" => TIMESTAMP,
+            "required" => false
+        ),
+        'db_pocet_osob' => array(
+            "type" => NUMBER,
+            "required" => true
+        ),
+        'db_znameni' => array(
+            "type" => STRING255,
+            "required" => false
+        ),
+        'db_poznamka' => array(
+            "type" => STRING511,
+            "required" => false
+        ),
+        'db_detska_sedacka' => array(
+            "type" => BOOL,
+            "required" => true
+        ),
+        'db_velka_zavazadla' => array(
+            "type" => BOOL,
+            "required" => true
+        ),
+        'db_typ_platby' => array(
+            "type" => BOOL,
+            "required" => true
+        ),
+        'db_mena' => array(
+            "type" => BOOL,
+            "required" => true
+        ),
+        'db_cena' => array(
+            "type" => PRICE,
+            "required" => true
+        ),
+        'db_vozidlo_id' => array(
+            "type" => FOREIGN_KEY,
+            "required" => true
+        ),
+        'db_stav' => array(
+            "type" => BOOL,
+            "required" => true
+        ),
+        'db_hash' => array(
+            "type" => STRING255,
+            "required" => false
+        )
 	),
 	"ciselnikClass"   => array(
 		'db_id'          => array(

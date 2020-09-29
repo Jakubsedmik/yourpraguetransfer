@@ -13,7 +13,6 @@ class objednavkaClass extends zakladniKamenClass {
     protected $db_destinace_z;
     protected $db_destinace_do;
     protected $db_cas;
-    protected $db_transport_id;
     protected $db_cas_zpet;
     protected $db_pocet_osob;
     protected $db_znameni;

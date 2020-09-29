@@ -274,7 +274,7 @@
                         directionsDisplay.setDirections(response);
                         directionsDisplay.setMap(map);
 
-                        _this.distance = Math.round(response.routes[0].legs[0].distance.value / 1000);
+                        _this.distance = Math.ceil(response.routes[0].legs[0].distance.value / 1000);
                         _this.duration = response.routes[0].legs[0].duration.value * 1000;
                         _this.fetchCarsAndPrices();
 
