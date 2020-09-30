@@ -221,6 +221,8 @@
                     </div>
 
                     <form :action="home_url + '/objednavka/'" method="post">
+                        <input type="hidden" name="action" value="createNewOrder">
+
                         <input type="hidden" :name="'db_' + index" :value="field" v-for="(field,index) in form_data">
                         <button ref="formSubmit" name="submit" value="1" type="submit"></button>
                     </form>

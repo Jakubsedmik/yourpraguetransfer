@@ -31,7 +31,11 @@ $rewrites = array(
 	'uzivatel_id' => array(
 		'regex' => '^uzivatel/([^/]*)/?',
 		'rewrite' => 'index.php?pagename=uzivatel&uzivatel_id=$matches[1]'
-	)
+	),
+    'objednavka_id' => array(
+        'regex' => '^objednavka/([^/]*)/?',
+        'rewrite' => 'index.php?pagename=objednavka&objednavka_id=$matches[1]'
+    )
 );
 
 
@@ -65,7 +69,7 @@ $routing_urls = array(
 		"listing" => home_url() . "/uzivatel/%d/"
 	),
 	"objednavkaClass" => array(
-		"detail" => home_url() . "/objednavka/"
+        'detail' => home_url() . '/objednavka/%d/',
 	),
     "vozidloClass" => array(
         "listing" => home_url() . "/vyhledavani/"

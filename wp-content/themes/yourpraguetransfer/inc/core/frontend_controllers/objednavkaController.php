@@ -7,7 +7,7 @@ class objednavkaController extends frontendController {
         return true;
     }
 
-    public function action() {
+    public function createNewOrder() {
 
 	    if(
 	        Tools::checkPresenceOfParam("submit", $this->requestData) &&
@@ -36,7 +36,10 @@ class objednavkaController extends frontendController {
             $response = vozidloClass::calculateComplexPrice($car_id, $destination_from, $destination_to, $persons, $way_option, $duration, $distance, $currency );
 
             if($response->status){
+                echo $final_price . "<br>";
+                echo $response->payload['final_price'];
                 if($response->payload['final_price'] == $final_price){
+
 
                     $request_data = array(
                         'db_jmeno' => $this->requestData['db_name'],
@@ -59,6 +62,8 @@ class objednavkaController extends frontendController {
                         'db_stav' => 0,
                         'db_hash' => "",
                     );
+
+                    $_this = $this;
 
                     $response = Tools::formProcessor(
                         array(
@@ -84,16 +89,19 @@ class objednavkaController extends frontendController {
                         ),
                         $request_data,
                         'objednavkaClass',
-                        'create'
+                        'create',
+                        null,
+                        function($objednavka, $source) use ($_this){
+                            $id = $objednavka->getId();
+                            $_this->setView("continue");
+                            Tools::jsRedirect(Tools::getFERoute("objednavkaClass",$id, "detail"),1000);
+                        }
                     );
 
-                    if($response === true){
-                        $this->requestData = array();
-                        $this->requestData['z'] = $destination_from;
-                        $this->requestData['do'] = $destination_to;
-                        $this->requestData['osob'] = $persons;
-                        $this->requestData['distance'] = $distance;
-                        $this->requestData['cena'] = $final_price;
+                    if($response === false){
+                        $this->setView("error");
+                        frontendError::addMessage("Chyba",ERROR, "Došlo k chybě při vytváření objednávky");
+                        return true;
                     }
 
                 }else{
@@ -112,6 +120,33 @@ class objednavkaController extends frontendController {
             return false;
         }
 	}
+
+	public function action(){
+
+        if(Tools::checkPresenceOfParam("objednavka_id",$this->requestData)){
+            $id = $this->requestData['objednavka_id'];
+            $objednavka = assetsFactory::getEntity('objednavkaClass', $id);
+
+            if($objednavka !== false){
+                $this->requestData = array();
+                $this->requestData['z'] = $objednavka->db_destinace_z;
+                $this->requestData['do'] = $objednavka->db_destinace_do;
+                $this->requestData['osob'] = $objednavka->db_pocet_osob;
+                $this->requestData['cena'] = $objednavka->db_cena;
+                $this->requestData['platba'] = $objednavka->db_typ_platby == 1 ? "Online platební kartou" : "Osobně";
+                $this->requestData['cas_tam'] = date(DATE_FORMAT,  $objednavka->db_cas);
+                if($objednavka->db_cas_zpet == 0){
+                    $this->requestData['cas_zpet'] = date(DATE_FORMAT,  $objednavka->db_cas_zpet);
+                }
+            }
+
+        }else{
+            frontendError::addMessage("ID", ERROR, "Chybějící ID");
+        }
+        $this->setView("objednavka");
+        $this->performView();
+
+    }
 
 	public function processPayment(){
 		if(uzivatelClass::getUserLoggedId() !== false) {

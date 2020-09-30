@@ -653,7 +653,7 @@ define( "PHONE", "(+48)" );
 define( "RADIUS", "0.5" );
 
 // DATE FORMAT
-define("DATE_FORMAT", "d.m.Y");
+define("DATE_FORMAT", "d.m.Y h:i");
 
 
 // DEFAULT WATERMARK
