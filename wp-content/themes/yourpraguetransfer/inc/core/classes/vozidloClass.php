@@ -55,8 +55,10 @@ class vozidloClass extends zakladniKamenClass
         $lat_lng_from = Tools::geocodeAdress($destination_from);
         $lat_lng_to = Tools::geocodeAdress($destination_to);
 
+
         if($car){
             if($car->db_max_osob >= $persons){
+
 
                 $res = zonaClass::isVertexOnAirport(array($lat_lng_to, $lat_lng_from));
                 if (count($res->belongToAirport)>0 && count($res->notBelongToAirport)>0){

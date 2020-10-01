@@ -1207,7 +1207,7 @@ function getCarOffers(){
     /* */
     $response = new stdClass();
 
-
+    $persons = 1;
 
 
     if(Tools::checkPresenceOfParam("from_lat_lng", $data) && Tools::checkPresenceOfParam("to_lat_lng",$data)){
@@ -1240,28 +1240,32 @@ function getCarOffers(){
                     $max_osob = $value->db_max_osob;
                     $min_osob = $value->db_min_osob;
 
-                    $vozidlo = $value->getSubobject("vozidlo");
-                    $vozidlo->setForceNotUpdate();
-                    $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
-                    $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
-                    $vozidlo->set_not_update("db_cenik_max_osob",$max_osob);
-                    $vozidlo->set_not_update("db_cenik_min_osob",$min_osob);
+                    if($min_osob <= $persons){
+                        $vozidlo = $value->getSubobject("vozidlo");
+                        $vozidlo->setForceNotUpdate();
+                        $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
+                        $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
 
-                    // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
-                    if(isset($vozidla[$vozidlo->getId()])){
-                        $old_vozidlo = $vozidla[$vozidlo->getId()];
-                        if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
-                            $vozidla[$vozidlo->getId()] = $vozidlo;
+                        if($vozidlo->db_max_osob >= $persons){
+                            // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
+                            if(isset($vozidla[$vozidlo->getId()])){
+                                $old_vozidlo = $vozidla[$vozidlo->getId()];
+                                if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
+                                    $vozidla[$vozidlo->getId()] = $vozidlo;
+                                }
+                            }else{
+                                $vozidla[$vozidlo->getId()] = $vozidlo;
+                            }
                         }
-                    }else{
-                        $vozidla[$vozidlo->getId()] = $vozidlo;
+
                     }
+
                 }
 
                 // je třeba vylistovat zbylá auta která nebyli v zóně, protože pro ně stanovíme cenu dle KM, pokud již je vůz v poli tak nepřidáváme, cena zóny má přednost
                 $vozidla_dalsi = assetsFactory::getAllEntity("vozidloClass");
                 foreach ($vozidla_dalsi as $key => $value){
-                    if(!isset($vozidla[$value->getId()])){
+                    if(!isset($vozidla[$value->getId()]) && $value->db_max_osob >= $persons){
                         $vozidla[$value->getId()] = $value;
                     }
                 }
@@ -1345,6 +1349,7 @@ function checkCarPrice(){
         $duration = $data['duration'];
         $distance = $data['distance'];
         $currency = $data['currency'];
+
 
         $car_id = $selected_offer['db_id'];
 

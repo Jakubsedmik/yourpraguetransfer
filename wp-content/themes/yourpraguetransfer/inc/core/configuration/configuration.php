@@ -56,9 +56,21 @@ define("FAKTUROID_API_KEY", "0152b6409f5e3bd901c27826be6dd81dd57f796b");
 define("FAKTUROID_AGENT", "PHPlib <sedmik@studioseven.cz>");
 
 // CURRENCY
-define("CURRENCY", "PLN");
+define("CURRENCY", "Kč");
 define("CURRENCY_CODE", "PLN");
 define("LANG_CODE", "pl-PL");
+
+$currencies = array(
+    0 => array(
+        'code' => 'CZK',
+        'label' => 'Kč'
+    ),
+    1 => array(
+        'code' => 'EUR',
+        'label' => '€'
+    )
+);
+
 
 
 // regex check konstanty

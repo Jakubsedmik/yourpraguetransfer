@@ -1077,8 +1077,13 @@ class Tools {
     }
 
 
-	public static function convertCurrency($val){
-	    return number_format($val, 0, ",", " ") . " " . CURRENCY;
+	public static function convertCurrency($val, $currency_code = 0){
+	    global $currencies;
+	    $currency = CURRENCY;
+	    if(isset($currencies[$currency_code])){
+	        $currency = $currencies[$currency_code]['label'];
+        }
+	    return number_format($val, 0, ",", " ") . " " . $currency;
     }
 
 	public static function getTextPart($string, $number_chars=32){
@@ -1117,7 +1122,7 @@ class Tools {
     }
 
     public static function getDistanceDuration($address_from, $address_to){
-	    $link = 'https://maps.googleapis.com/maps/api/directions/json?origin=' . urlencode($address_from) . '&destination=' . urlencode($address_to) . '&key=' . GOOGLE_API_KEY;
+	    $link = 'https://maps.googleapis.com/maps/api/directions/json?origin=' . urlencode($address_from) . '&destination=' . urlencode($address_to) . '&key=' . GOOGLE_API_KEY . '&mode=driving';
         $result = json_decode(file_get_contents($link));
 
         if(property_exists($result, "routes")){

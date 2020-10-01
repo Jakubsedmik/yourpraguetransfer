@@ -234,7 +234,7 @@
         async mounted() {
             // start map
             try {
-                const options = {libraries: ['places']};
+                const options = {libraries: ['places', 'directions']};
                 const loader = new Loader(this.google_api_key, options);
                 const google = await loader.load();
                 this.google = google;
@@ -262,10 +262,11 @@
 
                 var selectedMode = 'DRIVING';
                 var request = {
-                    origin: this.destination_from_lat_lng,
-                    destination: this.destination_to_lat_lng,
+                    origin: this.destination_from,
+                    destination: this.destination_to,
                     travelMode: google.maps.TravelMode[selectedMode]
                 };
+
                 directionsService.route(request, function(response, status) {
 
                     if (status == 'OK') {
@@ -273,6 +274,8 @@
                         var map = _this.buildMap();
                         directionsDisplay.setDirections(response);
                         directionsDisplay.setMap(map);
+
+                        console.log(response);
 
                         _this.distance = Math.ceil(response.routes[0].legs[0].distance.value / 1000);
                         _this.duration = response.routes[0].legs[0].duration.value * 1000;
