@@ -53,31 +53,25 @@ class gopayController extends frontendController {
 
 		if($result){
 			$id = $this->requestData['id'];
-			if(uzivatelClass::getUserLoggedId() !== false){
-				$objednavka = assetsFactory::getEntity("objednavkaClass",$id);
-				$uzivatel = assetsFactory::getEntity("uzivatelClass", uzivatelClass::getUserLoggedId());
+            $objednavka = assetsFactory::getEntity("objednavkaClass",$id);
 
-				if($objednavka && $uzivatel){
-					if($objednavka->db_stav == 0){
-						$this->simpleOrderPayment($objednavka, $uzivatel);
-						frontendError::addMessage(__("Platba", "realsys"), SUCCESS, __("Platební brána připravena. Pokračujte do platební brány", "realsys"));
-						return true;
-					}else{
-						$this->setView("error");
-						frontendError::addMessage(__("Objednávka", "realsys"), ERROR, __("Tato objednávka již byla zaplacena", "realsys"));
-						return false;
-					}
+            if($objednavka){
+                if($objednavka->db_stav == 0){
+                    $uzivatel = array();
+                    $this->simpleOrderPayment($objednavka, $uzivatel);
+                    frontendError::addMessage(__("Platba", "realsys"), SUCCESS, __("Platební brána připravena. Pokračujte do platební brány", "realsys"));
+                    return true;
+                }else{
+                    $this->setView("error");
+                    frontendError::addMessage(__("Objednávka", "realsys"), ERROR, __("Tato objednávka již byla zaplacena", "realsys"));
+                    return false;
+                }
+            }else{
+                $this->setView("error");
+                frontendError::addMessage(__("Objednávka", "realsys"), ERROR, __("Objednávka neexistuje", "realsys"));
+                return false;
+            }
 
-				}else{
-					$this->setView("error");
-					frontendError::addMessage(__("Objednávka a uživatel", "realsys"), ERROR, __("Objednávka nebo uživatel neexistuje", "realsys"));
-					return false;
-				}
-			}else{
-				$this->setView("error");
-				frontendError::addMessage(__("Autorizace", "realsys"), ERROR, __("Uživatel není přihlášen. Neleze provést platbu", "realsys"));
-				return false;
-			}
 		}else{
 			$this->setView("error");
 			frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
@@ -100,279 +94,64 @@ class gopayController extends frontendController {
 		), true);
 
 
+        if($result){
+            $gopay_id = $this->requestData['id'];
 
-		if(uzivatelClass::getUserLoggedId() != false){
-			if($result){
-				$gopay_id = $this->requestData['id'];
-				$status = $this->gopay->getStatus($gopay_id);
-				if(is_object($status) && $status->json["state"]=="PAID"){
-					$order_number = $status->json["order_number"];
+            $payment_result = $this->verifyPayment($gopay_id);
+            if($payment_result){
 
-					$objednavka = assetsFactory::getEntity("objednavkaClass", $order_number);
-					$uzivatel = assetsFactory::getEntity("uzivatelClass", uzivatelClass::getUserLoggedId());
+                $order_number = $payment_result->json["order_number"];
+                $objednavka = assetsFactory::getEntity("objednavkaClass", $order_number);
 
-					if($objednavka && $uzivatel){
-						$objednavka->db_hash = $gopay_id;
-						$objednavka->db_stav = 1;
 
-						$fakturoid = new fakturoidClass();
-						$fakturoid->createInvoiceForOrder($objednavka,true, true);
+                if($objednavka){
+                    $objednavka->db_hash = $gopay_id;
+                    $objednavka->db_stav = 1;
 
-						frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","realsys"));
-						$this->requestData['uzivatel'] = $uzivatel;
-						$this->requestData['objednavka'] = $objednavka;
-						$this->setView("confirmPayment");
-						return true;
+                    frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","realsys"));
 
-					}else{
-						frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Zadná objednávka v systému neexistuje a nemůže být zaplacena.","realsys"));
-						$this->setView("error");
-						return false;
-					}
+                    /* TODO zde by měl vystartovat konfirmační email informující o zaplacení objednávky */
 
-				}else{
-					frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte administrátora","realsys"));
-					$this->requestData['orderid'] = $this->requestData['orderid'];
-					$this->setView("errorPayment");
-					return false;
-				}
-			}else{
-				frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
-				$this->setView("error");
-				return false;
-			}
-		}else{
-			frontendError::addMessage(__("Autorizace", "realsys"), ERROR, __("Uživatel není přihlášen. Nelze potvrdit platbu", "realsys"));
-			$this->setView("error");
-			return false;
-		}
+                    $this->requestData['objednavka'] = $objednavka;
+                    $this->setView("confirmPayment");
+                    return true;
+
+                }else{
+                    frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Zadná objednávka v systému neexistuje a nemůže být zaplacena.","realsys"));
+                    $this->setView("error");
+                    return false;
+                }
+
+            }else{
+                frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte administrátora","realsys"));
+                $this->setView("errorPayment");
+                return false;
+            }
+        }else{
+            frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
+            $this->setView("error");
+            return false;
+        }
 
 	}
 
-	public function quickOrder(){
+	protected function verifyPayment($gopay_id){
+        $status = $this->gopay->getStatus($gopay_id);
+        return (is_object($status) && $status->json["state"]=="PAID") ? $status : false;
+    }
 
-		$result = Tools::postChecker($this->requestData, array(
-			'serviceid' => array(
-				'required' => true,
-				'type' => NUMBER
-			),
-			'redirect' => array(
-				'required' => true,
-				'type' => URL
-			),
-			'db_email' => array(
-				'required' => true,
-				'type' => EMAIL
-			)
-		), true);
-
-		if($result){
-			global $cenik_sluzeb;
-
-			$serviceid = $this->requestData['serviceid'];
-			$callbackurl = $this->requestData['redirect'];
-			$email = $this->requestData['db_email'];
-			$response = uzivatelClass::isUserAnonymous($email);
-
-			if(isset($cenik_sluzeb[$serviceid])){
-
-				$sluzba = $cenik_sluzeb[$serviceid];
-				$uzivatel = false;
-
-				if($response->status == 0){
-					$result = false;
-					$result = Tools::postChecker($this->requestData, array(
-						'db_jmeno' => array(
-							'required' => true,
-							'type' => STRING255
-						),
-						'db_prijmeni' => array(
-							'required' => true,
-							'type' => STRING255
-						)
-					), true);
-
-					if($result){
-
-						$uzivatel = assetsFactory::createEntity("uzivatelClass",array(
-							'db_jmeno' => $this->requestData['db_jmeno'],
-							'db_prijmeni' => $this->requestData['db_prijmeni'],
-							'db_email' => $this->requestData['db_email'],
-							'db_telefon' => '777 888 999',
-							'db_anonymous' => true
-						));
-
-						if(!$uzivatel){
-							frontendError::addMessage("Uživatel",ERROR, "Anonymního uživatele se bohužel nepodařilo vytvořit");
-							return false;
-						}
-
-					}else{
-						frontendError::addMessage("Jméno a příjmení", ERROR, "Chybějící pole jméno a příjmení");
-						return false;
-					}
-
-				}elseif ($response->status == 1){
-
-					$uzivatel = assetsFactory::getAllEntity("uzivatelClass",array(new filterClass("email","=","'" . $email . "'")));
-
-					if(is_array($uzivatel) && count($uzivatel) > 0){
-						$uzivatel = array_shift($uzivatel);
-					}else{
-						frontendError::addMessage("Uživatel", ERROR, "Anonymního uživatele se bohužel nepodařilo nalézt");
-						return false;
-					}
-
-				}elseif ($response->status == 2){
-					frontendError::addMessage("Email", ERROR, "Uživatel s tímto emailem je v systému řádně registrovaný. Nelze provést anonymní objednávku.");
-					return false;
-				}
-
-
-				if(is_object($uzivatel)){
-					$uzivatel_id = $uzivatel->getId();
-				}else{
-					$uzivatel_id = 1;
-				}
-
-				$anonymni_objednavka = assetsFactory::createEntity("objednavkaClass",array(
-					"db_cena" => $sluzba['price'] * ALONE_CREDIT_PRICE,
-					"db_mnozstvi" => $sluzba['price'],
-					"db_stav" => 0,
-					"db_uzivatel_id" => $uzivatel_id
-				));
-
-
-				Tools::jsRedirect($this->quickPayment($anonymni_objednavka, $callbackurl,$serviceid, $uzivatel),0);
-				$this->setView("quickOrder");
-				return true;
-
-			}else{
-				frontendError::addMessage(__("Služba", "realsys"), ERROR, __("Zadaná služba v systému neexistuje","realsys"));
-				$this->setView("error");
-				return false;
-			}
-		}else{
-			frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
-			$this->setView("error");
-			return false;
-		}
-
-	}
-
-	public function confirmQuickPayment(){
-		$result = Tools::postChecker($this->requestData, array(
-			"callbackurl" => array(
-				'required' => true,
-				'type' => NUMBER
-			),
-			'orderid' => array(
-				'required' => true,
-				'type' => NUMBER
-			),
-			"id" => array(
-				"required" => true,
-				"type" => NUMBER
-			),
-			"serviceid" => array(
-				"required" => true,
-				"type" => NUMBER
-			)
-		), true);
-
-
-		if($result){
-			$gopay_id = $this->requestData['id'];
-			$status = $this->gopay->getStatus($gopay_id);
-
-			if(is_object($status) && $status->json["state"]=="PAID"){
-				$order_number = $status->json["order_number"];
-
-				$objednavka = assetsFactory::getEntity("objednavkaClass", $order_number);
-
-				if($objednavka){
-					$objednavka->db_hash = $gopay_id;
-					$objednavka->db_stav = 1;
-
-					$fakturoid = new fakturoidClass();
-					$fakturoid->createInvoiceForOrder($objednavka,true, true);
-
-					frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","realsys"));
-
-					global $cenik_sluzeb;
-					$serviceid = $this->requestData['serviceid'];
-					$sluzba = $cenik_sluzeb[$serviceid];
-					if(!isset($service['requireEntity'])){
-
-						$transakce = assetsFactory::createEntity("transakceClass", array(
-							"id_odesilatel" => $objednavka->db_uzivatel_id,
-							"id_prijemce" => -1,
-							"mnozstvi" => $sluzba['price'],
-							"nazev_sluzby" => $sluzba['name'],
-							'accept' => 0
-						));
-
-
-						$redirect = $this->requestData['callbackurl'] . "?transactionid=" .  $transakce->getId();
-
-						$_SESSION['transactionid'] = $transakce->getId();
-						Tools::jsRedirect($redirect,0);
-						$this->requestData['objednavka'] = $objednavka;
-						$this->setView("confirmSimplePayment");
-						return true;
-
-					}else{
-						$this->setView("error");
-						frontendError::addMessage( __("Objednávka", "realsys"), ERROR, __("Zjednodušená objednávka nefunguje s komplexními službami","realsys"));
-						return false;
-					}
-				}else{
-					frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Zadná objednávka v systému neexistuje a nemůže být zaplacena.","realsys"));
-					$this->setView("error");
-					return false;
-				}
-			}else{
-				frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte administrátora","realsys"));
-				$this->requestData['orderid'] = $this->requestData['orderid'];
-				$this->setView("errorPayment");
-				return false;
-			}
-		}else{
-			frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
-			$this->setView("error");
-			return false;
-		}
-
-	}
-
-	protected function simpleOrderPayment($order, $user){
-		$contact = array(
+	protected function simpleOrderPayment($order, $contact, $description){
+		/*$contact = array(
 			'first_name' => $user->db_jmeno,
 			'last_name' => $user->db_prijmeni,
 			'email' => $user->db_email,
 			'phone_number' => $user->db_telefon,
-		);
+		);*/
 
 		$items = array(
-			array('name' => 'Objednávka kreditů', 'amount' => $order->db_cena * 100)
+			array('name' => $description, 'amount' => $order->db_cena * 100)
 		);
 		$return_url = GOPAY_STANDARD_CALLBACK . "&orderid=" . $order->getId();
-		return $this->simplePayment($order->db_cena, $items, $order->getId(),$contact, $return_url ,"Platba za kredity v systému");
-	}
-
-	protected function quickPayment($order, $callbackurl, $serviceid, $user){
-
-		$contact = array(
-			'first_name' => $user->db_jmeno,
-			'last_name' => $user->db_prijmeni,
-			'email' => $user->db_email
-		);
-
-		$items = array(
-			array('name' => 'Objednávka kreditů', 'amount' => $order->db_cena * 100)
-		);
-
-		$return_url = GOPAY_QUICK_CALLBACK . "&orderid=" . $order->getId() . "&callbackurl=" . $callbackurl . "&serviceid=" . $serviceid;
 		return $this->simplePayment($order->db_cena, $items, $order->getId(),$contact, $return_url ,"Platba za kredity v systému");
 	}
 

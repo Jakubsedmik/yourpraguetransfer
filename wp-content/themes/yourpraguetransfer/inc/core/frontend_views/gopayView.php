@@ -10,8 +10,9 @@
             <h2><?php echo __("Pokračujte do platební brány","realsys"); ?></h2>
             <p><?php echo __("Úspěšně jsme pro Vás připravili platební bod - prosím pokračuje do platební brány","realsys"); ?></p>
             <form action="<?php echo $gatewayUrl; ?>" method="post" id="gopay-payment-button">
-              <button name="pay" type="submit" class="btn"><?php echo __("Zaplatit platební kartou","realsys"); ?></button>
-              <script type="text/javascript" src="<?php echo $embedJs; ?>"></script>
+                <button name="pay" type="submit" class="btn"><?php echo __("Zaplatit platební kartou","realsys"); ?></button>
+                <!-- pokud není embed JS tak udělejme automatické placení, tzn rovnou redirect -->
+                <script type="text/javascript" src="<?php echo $embedJs; ?>"></script>
             </form>
 
         </div>
