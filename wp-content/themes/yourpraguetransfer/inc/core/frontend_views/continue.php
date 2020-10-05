@@ -2,6 +2,7 @@
     <div class="s7_sw-sec mx-auto">
         <div class="wrapper">
             <?php echo frontendError::getBackendErrors(); ?>
+            <?php echo frontendError::getFrontendErrors(); ?>
         </div>
     </div>
 </section>

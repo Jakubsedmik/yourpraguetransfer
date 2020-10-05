@@ -39,4 +39,38 @@ class objednavkaClass extends zakladniKamenClass {
 	public function getTableName() {
 		return "s7_objednavka";
 	}
+
+	public function sendConfirmationEmail(){
+
+	    Tools::sendMail(
+	        $this->db_email,
+            "Potvrzení",
+            "confirmOrder",
+            array(
+                "payment_link" => Tools::getFERoute("gopay",$this->getId(), "payment"),
+                "logo_link" => FRONTEND_IMAGES_PATH . "page-logo.png",
+                "cena" => Tools::convertCurrency($this->db_cena, $this->db_mena),
+                "zpet" => ($this->db_cas_zpet != 0 ? true : false),
+                "cesta_tam" => $this->db_destinace_z,
+                "cesta_zpet" => $this->db_destinace_do,
+                "pocet_osob" => $this->db_pocet_osob,
+                "platba" => $this->db_typ_platby
+            )
+        );
+    }
+
+    public function getInterfaceTypes() {
+        return array(
+            "db_id" => "number",
+            "db_jmeno" => "string",
+            "db_prijmeni" => "string",
+            "db_email" => "string",
+            "db_cena" => "price",
+            "db_mena" => "number",
+            "db_destinace_z" => "string",
+            "db_destinace_do" => "string",
+            "db_pocet_osob" => "number",
+            "db_stav" => "number",
+        );
+    }
 }

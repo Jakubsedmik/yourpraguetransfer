@@ -19,7 +19,12 @@
                     <li><strong>Platba:</strong> <?php echo $this->requestData['platba']; ?></li>
                 </ul>
 
-                <a href="" class="btn btn-lg border-0 rounded-0 text-white text-uppercase font-weight-bold">Zaplatit platební kartou</a>
+
+                <?php if($this->requestData['zaplaceno'] == true) : ?>
+                    <p>Tato objednávka již byla zaplacena. O jejím zaplacení jsme Vás informovali emailem.</p>
+                <?php else: ?>
+                    <a href="<?php echo Tools::getFERoute("gopay",$this->requestData['objednavka_id'],"payment"); ?>" class="btn btn-lg border-0 rounded-0 text-white text-uppercase font-weight-bold">Zaplatit platební kartou</a>
+                <?php endif; ?>
 
             </div>
 

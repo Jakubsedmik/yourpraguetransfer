@@ -1,8 +1,5 @@
 <?php
 
-$dev_branch = true;
-
-
 /*
  * RUN VARS
  */
@@ -569,7 +566,16 @@ $dictionary = array(
     'db_min_osob' => 'Min. osob',
     'db_jmeno' => 'Jméno',
     'db_pozice' => 'Pozice',
-    'db_reference' => 'Text reference'
+    'db_reference' => 'Text reference',
+    'db_prijmeni' => "Příjmení",
+    'db_email' => "Email",
+    'db_cena' => "Cena",
+    'db_destinace_z' => "Z",
+    'db_destinace_do' => "Do",
+    'db_pocet_osob' => "Počet osob",
+    'db_stav' => "Stav",
+    'db_typ_platby' => "Typ platby",
+    'db_mena' => "Měna"
 );
 
 
@@ -598,12 +604,6 @@ $dials = array(
 		'db_typ_vlastnictvi',
 		'db_material'
 	),
-	'uzivatelClass' => array(
-		'db_stav'
-	),
-	'objednavkaClass' => array(
-		'db_stav'
-	),
     'vozidloClass' => array(
         'db_trida',
         'db_jednotka'
@@ -616,7 +616,17 @@ $localDials = array(
 			0 => "Ne",
 			1 => "ANO"
 		)
-	)
+	),
+    'objednavkaClass' => array(
+        'db_mena' => array(
+            0 => $currencies[0]['label'],
+            1 => $currencies[1]['label']
+        ),
+        'db_stav' => array(
+            0 => "nezaplacená",
+            1 => "zaplacená"
+        )
+    )
 );
 
 

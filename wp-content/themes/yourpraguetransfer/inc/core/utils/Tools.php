@@ -477,6 +477,11 @@ class Tools {
 	    return $datumVytvoreni;
     }
 
+    public static function getSimpleNotationDate($timestamp){
+        $datum = date("Y-m-d\Th:i",$timestamp);
+        return $datum;
+    }
+
 
 
     /* UPLOAD TOOLS */
@@ -783,6 +788,10 @@ class Tools {
 	    if(is_array($data) && $to && is_string($to)){
 		    if($template){
 			    $cargo = self::serveTemplate($template, $data);
+			    ob_start();
+			    extract($data);
+			    eval(' ?>'.$cargo.'<?php ');
+			    $cargo = ob_get_clean();
 			    if($cargo){
                     wp_mail(
                         $to,
@@ -891,14 +900,31 @@ class Tools {
 		    }
 
         }else{
+
 		    $allPossibleDials = assetsFactory::getAllDials($classname, $property);
-		    foreach ($allPossibleDials as $key => $value){
-			    if($value->db_value == $currentValue) {
-				    $output .= '<option selected value="' . $value->db_value . '">' . $value->db_translation . '</option>';
-			    }else{
-				    $output .= '<option value="' . $value->db_value . '">' . $value->db_translation . '</option>';
-			    }
-		    }
+		    if(count($allPossibleDials) > 0){
+
+                foreach ($allPossibleDials as $key => $value){
+                    if($value->db_value == $currentValue) {
+                        $output .= '<option selected value="' . $value->db_value . '">' . $value->db_translation . '</option>';
+                    }else{
+                        $output .= '<option value="' . $value->db_value . '">' . $value->db_translation . '</option>';
+                    }
+                }
+            }else{
+		        global $localDials;
+		        if(isset($localDials[$classname]['db_' . $property])){
+		            $allPossibleDials = $localDials[$classname]['db_' . $property];
+                    foreach ($allPossibleDials as $key => $value){
+                        if($key == $currentValue) {
+                            $output .= '<option selected value="' . $key . '">' . $value . '</option>';
+                        }else{
+                            $output .= '<option value="' . $key . '">' . $value . '</option>';
+                        }
+                    }
+                }
+            }
+
 
         }
 	    $output .= '</select>';
@@ -917,6 +943,29 @@ class Tools {
         $output .= '</label>';
         $output .= '</div>';
         return $output;
+    }
+
+    public static function datePicker($time, $id, $label, $placeholder){
+        $mdbTime = Tools::getMdbNotationDate($time);
+	    ?>
+        <div class="md-form">
+            <input placeholder="<?php echo $placeholder; ?>" type="text" id="<?php echo $id; ?>" name="<?php echo $id; ?>" class="form-control datepicker" data-value="<?php echo $mdbTime; ?>">
+            <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+        </div>
+
+        <?php
+    }
+
+    public static function timePicker($time, $id, $label, $placeholder){
+        $mdbTime = Tools::getSimpleNotationDate($time);
+        ?>
+
+        <div class="md-form">
+            <input placeholder="<?php echo $placeholder; ?>" type="datetime-local" id="<?php echo $id; ?>" name="<?php echo $id; ?>" class="form-control" value="<?php echo $mdbTime; ?>">
+            <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+        </div>
+
+        <?php
     }
 
 
@@ -1166,4 +1215,6 @@ class Tools {
         return false;
 
     }
+
+
 }

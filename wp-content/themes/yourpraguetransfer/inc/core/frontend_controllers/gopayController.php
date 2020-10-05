@@ -44,6 +44,8 @@ class gopayController extends frontendController {
 
 	public function action() {
 
+
+
 		$result = Tools::postChecker($this->requestData, array(
 			"id" => array(
 				'required' => true,
@@ -57,8 +59,15 @@ class gopayController extends frontendController {
 
             if($objednavka){
                 if($objednavka->db_stav == 0){
-                    $uzivatel = array();
-                    $this->simpleOrderPayment($objednavka, $uzivatel);
+
+                    $contact = array(
+                        'first_name' => $objednavka->db_jmeno,
+                        'last_name' => $objednavka->db_prijmeni,
+                        'email' => $objednavka->db_email,
+                        'phone_number' => $objednavka->db_telefon,
+                    );
+
+                    $this->simpleOrderPayment($objednavka, $contact,"Platba za převoz vozu");
                     frontendError::addMessage(__("Platba", "realsys"), SUCCESS, __("Platební brána připravena. Pokračujte do platební brány", "realsys"));
                     return true;
                 }else{
@@ -110,8 +119,7 @@ class gopayController extends frontendController {
 
                     frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","realsys"));
 
-                    /* TODO zde by měl vystartovat konfirmační email informující o zaplacení objednávky */
-
+                    $this->sendPaymentConfirmation($objednavka);
                     $this->requestData['objednavka'] = $objednavka;
                     $this->setView("confirmPayment");
                     return true;
@@ -141,12 +149,6 @@ class gopayController extends frontendController {
     }
 
 	protected function simpleOrderPayment($order, $contact, $description){
-		/*$contact = array(
-			'first_name' => $user->db_jmeno,
-			'last_name' => $user->db_prijmeni,
-			'email' => $user->db_email,
-			'phone_number' => $user->db_telefon,
-		);*/
 
 		$items = array(
 			array('name' => $description, 'amount' => $order->db_cena * 100)
@@ -186,6 +188,7 @@ class gopayController extends frontendController {
 				'gatewayUrl' => $response->json['gw_url'],
 				'embedJs' => $gopay->urlToEmbedJs()
 			);
+
 			$this->requestData['gopayParameters'] = $templateParameters;
 			return $response->json['gw_url'];
 
@@ -194,4 +197,17 @@ class gopayController extends frontendController {
 			echo "oops, API returned {$response->statusCode}: {$response}";
 		}
 	}
+
+	public function sendPaymentConfirmation($objednavka){
+
+        Tools::sendMail(
+            $objednavka->db_email,
+            "Potvrzení o platbě",
+            "confirmPayment",
+            array(
+                "logo_link" => FRONTEND_IMAGES_PATH . "page-logo.png",
+                "cena" => Tools::convertCurrency($objednavka->db_cena, $objednavka->db_mena)
+            )
+        );
+    }
 }

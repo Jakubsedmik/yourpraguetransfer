@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <title>Potvrzení objednávky</title>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    </head>
+    <body style="margin: 0px; font-family: sans-serif, arial, verdana; background: #e4e4e4">
+        <!--[if (gte mso 9)|(IE)]><table width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: #243B4A; background: white" >
+                <tr style="box-shadow: 0px 8px 10px -2px #e4e4e4">
+                    <td style="padding: 20px 5px 20px 20px;" >
+                        <img src="{logo_link}" alt="Your Prague Transfers" style="max-width: 422px; width: 100%;">
+                    </td>
+                    <td style="padding: 20px 20px 20px 5px; text-align: right; font-weight: 700;">
+                        Potvrzení o objednávce
+                    </td>
+                </tr>
+                <tr style="">
+                    <td style="padding: 30px 20px 10px;">
+                        <h1 style="font-weight: 700; font-size: 25px;">Děkujeme za Vaši objednávku</h1>
+                    </td>
+                </tr>
+
+                <tr style="">
+                    <td style="padding: 30px 20px 10px;">
+                        <p style="font-size: 16px; line-height: 1.7;">Vaše objednávka jízdy proběhla úspěšně. Níže Vám zasíláme její rekapitulaci.</p>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="padding: 0px 20px 20px;">
+                        <ul style="font-size: 16px; line-height: 1.7;">
+                            <li>Odkud pojedete: {cesta_tam}</li>
+                            <li>Kam pojedete: {cesta_zpet}</li>
+                            <?php if($zpet) : ?>
+                                <li>Pojedete zpět: Ano</li>
+                            <?php endif; ?>
+                            <li>Kolik to stojí: {cena}</li>
+                            <li>Kolik Vás pojede: {pocet_osob}</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <?php if($platba) : ?>
+                <tr style="">
+                    <td style="padding: 30px 20px 10px;">
+                        <p style="font-size: 16px; line-height: 1.7;">V případě, že jste ještě objednávku neplatili můžete ji zaplatit níže pomocí tlačítka</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 20px 20px 40px;">
+                        <a href="{payment_link}" target="_blank" style="padding: 13px 30px; border-radius: 6px; font-weight: 700; background: #FF951A; color: white; text-decoration: none; ">Zaplatit</a></p>
+                    </td>
+                </tr>
+                <?php else: ?>
+                <tr style="">
+                    <td style="padding: 30px 20px 10px;">
+                        <p style="font-size: 16px; line-height: 1.7;">Objednávku zaplatíte po odvezení na místo v hotovosti.</p>
+                    </td>
+                </tr>
+                <?php endif; ?>
+
+            </table>
+
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+    </body>
+</html>

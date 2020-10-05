@@ -36,7 +36,6 @@ class objednavkaController extends frontendController {
             $response = vozidloClass::calculateComplexPrice($car_id, $destination_from, $destination_to, $persons, $way_option, $duration, $distance, $currency );
 
             if($response->status){
-                var_dump($response);
 
                 if($response->payload['final_price'] == $final_price){
 
@@ -93,6 +92,7 @@ class objednavkaController extends frontendController {
                         null,
                         function($objednavka, $source) use ($_this){
                             $id = $objednavka->getId();
+                            $objednavka->sendConfirmationEmail();
                             $_this->setView("continue");
                             Tools::jsRedirect(Tools::getFERoute("objednavkaClass",$id, "detail"),1000);
                         }
@@ -135,6 +135,15 @@ class objednavkaController extends frontendController {
                 $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, $objednavka->db_mena);
                 $this->requestData['platba'] = $objednavka->db_typ_platby == 1 ? "Online platební kartou" : "Osobně";
                 $this->requestData['cas_tam'] = Tools::formatTime($objednavka->db_cas);
+
+                $this->requestData['objednavka_id'] = $id;
+
+                if($objednavka->db_stav == 1){
+                    $this->requestData['zaplaceno'] = true;
+                }else {
+                    $this->requestData['zaplaceno'] = false;
+                }
+
                 if($objednavka->db_cas_zpet != 0){
                     $this->requestData['cas_zpet'] = Tools::formatTime($objednavka->db_cas_zpet);
                 }
@@ -148,91 +157,4 @@ class objednavkaController extends frontendController {
 
     }
 
-	public function processPayment(){
-		if(uzivatelClass::getUserLoggedId() !== false) {
-			$result = Tools::postChecker( $this->requestData, array(
-				"payment" => array(
-					"type"     => STRING63,
-					"required" => true
-				),
-				"credits" => array(
-					"type"     => NUMBER,
-					"required" => true
-				),
-				"serviceOrder" => array(
-					"type" => NUMBER,
-					"required" => false
-				)
-			), true );
-
-			if ( $result ) {
-				$payment = $this->requestData['payment'];
-				$credits = $this->requestData['credits'];
-				if($payment == "visa"){
-					global $cenik;
-
-					$serviceOrder = false;
-					if(Tools::checkPresenceOfParam("serviceOrder",$this->requestData)){
-						global $cenik_sluzeb;
-						$serviceId = $this->requestData['serviceOrder'];
-
-						if(isset($cenik_sluzeb[$serviceId])){
-							$service = $cenik_sluzeb[$serviceId];
-							if($credits == $service['price']){
-								$serviceOrder = $service;
-							}
-						}else{
-							frontendError::addMessage(__("Služba","realsys"), ERROR, __("Tato služba v systému neexistuje.","realsys"));
-							$this->setView("error");
-							return false;
-						}
-					}
-
-
-					if(Tools::checkPresenceOfParam($credits, $cenik) || $serviceOrder!= false){
-						if($serviceOrder!= false){
-							$finalPrice = $credits * ALONE_CREDIT_PRICE;
-						}else{
-							$finalPrice = $cenik[$credits];
-						}
-
-						$objednavka = assetsFactory::createEntity("objednavkaClass",array(
-							"db_mnozstvi" => $credits,
-							"db_cena" => $finalPrice,
-							"db_uzivatel_id" => uzivatelClass::getUserLoggedId(),
-							"db_stav" => 0
-						));
-
-
-						if($objednavka){
-							Tools::jsRedirect(Tools::getFERoute("gopay",$objednavka->getId(),"payment"), 1500, __("Potvrzení","realsys"), __("Potvrzujeme objednávku - přesměrováváme Vás na platební bránu","realsys"));
-							frontendError::addMessage(__("Objednávka","realsys"), SUCCESS, __("Potvrzujeme Vaši objednávku, přesměrováváme Vás na platební bránu","realsys"));
-							return true;
-						}else{
-							frontendError::addMessage(__("Objednávka","realsys"), ERROR, __("Objednávku se nepodařilo vytvořit - kontaktujte administrátora","realsys"));
-							$this->setView("error");
-							return false;
-						}
-
-					}else{
-						frontendError::addMessage(__("Množství kreditů","realsys"), ERROR, __("Toto množství kreditů neprodáváme","realsys"));
-						$this->setView("error");
-						return false;
-					}
-				}else{
-					frontendError::addMessage(__("Platební metoda","realsys"), ERROR, __("Tuto platební metodu systém nepodporuje","realsys"));
-					$this->setView("error");
-					return false;
-				}
-			}else{
-				frontendError::addMessage(__("Povinná pole","realsys"), ERROR, __("Některá pole nebyla vyplněna","realsys"));
-				$this->setView("error");
-				return false;
-			}
-		}else{
-			frontendError::addMessage(__("Autorizace","realsys"), ERROR, __("Uživatel není přihlášený. Pro nákup kreditů se nejprve přihlašte","realsys"));
-			$this->setView("error");
-			return false;
-		}
-	}
 }

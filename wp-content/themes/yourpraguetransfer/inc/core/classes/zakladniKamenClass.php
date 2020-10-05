@@ -705,6 +705,7 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 		global $dials, $localDials;
 		$classname = get_class($this);
 		if(isset($dials[$classname])){
+
 			$dials_new = $dials[$classname];
 
 			foreach ($dials_new as $propname){
@@ -722,11 +723,13 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 				}
 			}
 		}elseif(isset($localDials[$classname])){
+
 			$prop_names = $localDials[$classname];
 			foreach ($prop_names as $key => $val){
 				if(property_exists($this, $key)){
 					$prop_value = $this->$key;
 					if(isset($val[$prop_value])){
+
 						$this->set_not_update($key, $val[$prop_value]);
 					}
 				}else{

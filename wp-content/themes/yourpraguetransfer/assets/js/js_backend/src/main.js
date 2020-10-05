@@ -71,7 +71,10 @@ $(document).ready(function() {
         hiddenPrefix: 'db_',
         hiddenSuffix: ''
     });
+
     $('.datepicker').pickadate();
+
+    $('.date-time').dateTimePicker();
 });
 
 

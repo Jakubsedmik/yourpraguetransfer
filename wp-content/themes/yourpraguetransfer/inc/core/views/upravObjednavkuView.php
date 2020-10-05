@@ -15,23 +15,28 @@
 			<form class="text-center" style="color: #757575;" action="<?php Tools::getCurrentUrl(); ?>" method="POST">
 				<input type="hidden" name="db_id" value="<?php echo $this->viewData['objednavka']->getId(); ?>">
 
-				<!-- Cena-->
-				<div class="md-form">
-					<input type="number" id="db_cena" name="db_cena" class="form-control" value="<?php echo $this->viewData['objednavka']->dejData('db_cena'); ?>">
-					<label for="db_cena">Cena</label>
-				</div>
-				<!-- Množství -->
-				<div class="md-form">
-					<input type="number" id="db_mnozstvi" name="db_mnozstvi" class="form-control" value="<?php echo $this->viewData['objednavka']->dejData('db_mnozstvi'); ?>">
-					<label for="db_mnozstvi">Množství</label>
-				</div>
-				<!-- Připojený uživatel -->
                 <div class="form-row">
                     <div class="col-10">
-	                    <?php echo Tools::getSelectBoxForEntities("uzivatelClass", $this->viewData['objednavka']->db_uzivatel_id, array('db_id', 'db_email'),'Uživatel','db_uzivatel_id'); ?>
+                        <!-- Cena-->
+                        <?php echo Tools::simpleInput("db_cena", $this->viewData['objednavka']->dejData('db_cena'), "Cena", "number"); ?>
                     </div>
                     <div class="col-2">
-                        <a href="<?php echo Tools::getRoute("uzivatelClass", "edit",$this->viewData['objednavka']->db_uzivatel_id) ?>" class="btn-sm btn-block btn-secondary btn">Detail</a>
+                        <!-- Měna -->
+                        <div class="md-form">
+                            <?php echo Tools::getSelectBoxForDials("objednavkaClass","mena",$this->viewData['objednavka']->db_mena, 'Měna', "db_mena"); ?>
+                        </div>
+                    </div>
+
+
+                </div>
+
+				<!-- Připojené vozidlo-->
+                <div class="form-row">
+                    <div class="col-10">
+	                    <?php echo Tools::getSelectBoxForEntities("vozidloClass", $this->viewData['objednavka']->db_vozidlo_id, array('db_id', 'db_nazev'),'Vozidlo','db_vozidlo_id'); ?>
+                    </div>
+                    <div class="col-2">
+                        <a href="<?php echo Tools::getRoute("vozidloClass", "edit",$this->viewData['objednavka']->db_vozidlo_id) ?>" class="btn-sm btn-block btn-secondary btn">Detail</a>
                     </div>
                 </div>
 
@@ -39,6 +44,74 @@
 				<div class="md-form">
 					<?php echo Tools::getSelectBoxForDials("objednavkaClass","stav",$this->viewData['objednavka']->db_stav, 'Stav objednávky', "db_stav"); ?>
 				</div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- Odkud -->
+                        <?php echo Tools::simpleInput("db_destinace_z", $this->viewData['objednavka']->dejData('db_destinace_z'), "Destinace z", "text"); ?>
+                    </div>
+                    <div class="col">
+                        <!-- Kam -->
+                        <?php echo Tools::simpleInput("db_destinace_do", $this->viewData['objednavka']->dejData('db_destinace_do'), "Destinace do", "text"); ?>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- Jmeno -->
+                        <?php echo Tools::simpleInput("db_jmeno", $this->viewData['objednavka']->dejData('db_jmeno'), "Jméno", "text"); ?>
+                    </div>
+                    <div class="col">
+                        <!-- Prijmeni -->
+                        <?php echo Tools::simpleInput("db_prijmeni", $this->viewData['objednavka']->dejData('db_prijmeni'), "Příjmení", "text"); ?>
+                    </div>
+                    <div class="col">
+                        <!-- Email -->
+                        <?php echo Tools::simpleInput("db_email", $this->viewData['objednavka']->dejData('db_email'), "Email", "text"); ?>
+                    </div>
+                    <div class="col">
+                        <!-- Telefon -->
+                        <?php echo Tools::simpleInput("db_telefon", $this->viewData['objednavka']->dejData('db_telefon'), "Telefon", "text"); ?>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <?php echo Tools::timePicker($this->viewData['objednavka']->db_cas, "db_cas", "Čas vyzvednutí", "Vyberte čas vyzvednutí"); ?>
+                    </div>
+
+                    <div class="col">
+
+                        <?php
+                            if($this->viewData['objednavka']->db_cas_zpet == 0){
+                                echo "<strong class='text-danger'>Klient si nepřeje zpáteční jízdu, pokud ji chcete zavést tak stačí vyplnit datum a čas</strong>";
+                            }
+                            echo Tools::timePicker($this->viewData['objednavka']->db_cas_zpet, "db_cas_zpet", "Čas vyzvednutí zpátky", "Vyberte čas vyzvednutí zpátky");
+                            ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::simpleInput("db_pocet_osob", $this->viewData['objednavka']->dejData('db_pocet_osob'), "Počet osob", "number"); ?>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Dětská sedačka", 1, 'db_detska_sedacka', $this->viewData['objednavka']->dejData('db_detska_sedacka')); ?>
+                    </div>
+
+                    <div class="col">
+                        <?php echo Tools::switcher("Ano","Ne", "Velká zavazadla", 1, 'db_velka_zavazadla', $this->viewData['objednavka']->dejData('db_velka_zavazadla')); ?>
+                    </div>
+                </div>
+
+
+                <?php echo Tools::simpleInput("db_znameni", $this->viewData['objednavka']->dejData('db_znameni'), "Znamení", "text"); ?>
+
+                <?php echo Tools::simpleInput("db_poznamka", $this->viewData['objednavka']->dejData('db_poznamka'), "Poznámka", "text"); ?>
+
 
 				<div class="form-row">
 					<div class="col">
@@ -55,7 +128,7 @@
 					<div class="col">
 						<div class="md-form">
 							<?php
-							$mdbTime = Tools::getMdbNotationDate($this->viewData['objednavka']->db_datum_zalozeni);
+							    $mdbTime = Tools::getMdbNotationDate($this->viewData['objednavka']->db_datum_zalozeni);
 							?>
 							<input placeholder="Vyberte datum" type="text" id="db_datum_zalozeni" name="datum_zalozeni" class="form-control datepicker" data-value="<?php echo $mdbTime; ?>">
 							<label for="db_datum_zalozeni">Datum vytvoření</label>
@@ -63,29 +136,6 @@
 					</div>
 				</div>
 
-
-				<?php
-					$invoice_id = $this->viewData['objednavka']->db_invoice_id;
-					$invoice_link = $this->viewData['objednavka']->db_invoice_link;
-				?>
-
-                <p>Pro zregenrování faktury stačí tuto objednávku přepnout do stavu zaplacená a znovu uložit.</p>
-				<?php if($invoice_id !== -1 && $invoice_link !== '') : ?>
-					<div class="form-row">
-						<div class="col">
-							<div class="md-form">
-								<input placeholder="Fakturoid ID" type="text" id="db_invoice_id" name="db_invoice_id" class="form-control" disabled value="<?php echo $invoice_id; ?>">
-								<label for="db_datum_upravy">Fakturoid ID</label>
-							</div>
-
-						</div>
-						<div class="col">
-							<div class="md-form">
-								<a href="<?php echo $invoice_link; ?>" target="_blank" class="btn btn-small btn-icon btn-amber"><i class="fas fa-file-invoice mr-2"></i> Faktura</a>
-							</div>
-						</div>
-					</div>
-				<?php endif; ?>
 				<!-- Sign up button -->
 				<button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" name="ulozit" value="1" type="submit">Upravit</button>
 
