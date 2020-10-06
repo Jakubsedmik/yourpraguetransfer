@@ -54,20 +54,10 @@ class objednavkaController extends controller {
 		if(Tools::checkPresenceOfParam("vytvorit", $this->requestData)){
 			$request_data = $this->requestData;
 
-			globalUtils::writeDebug($request_data);
             if(Tools::checkPresenceOfParam("db_cas", $request_data) && Tools::checkPresenceOfParam("db_cas_zpet", $request_data)){
-                if($request_data['db_cas'] === '1970-01-01T12:00'){
-                    $request_data['db_cas'] = 0;
-                }else{
-                    $request_data['db_cas'] = strtotime($request_data['db_cas']);
-                }
 
-                if($request_data['db_cas_zpet'] === '1970-01-01T12:00'){
-                    $request_data['db_cas_zpet'] = 0;
-                }else{
-                    $request_data['db_cas_zpet'] = strtotime($request_data['db_cas']);
-                }
-
+                $request_data['db_cas'] = strtotime($request_data['db_cas']);
+                $request_data['db_cas_zpet'] = strtotime($request_data['db_cas']);
             }
 
 			$response = Tools::formProcessor(

@@ -478,7 +478,7 @@ class Tools {
     }
 
     public static function getSimpleNotationDate($timestamp){
-        $datum = date("Y-m-d\Th:i",$timestamp);
+        $datum = date("Y-m-d\TH:i",$timestamp);
         return $datum;
     }
 

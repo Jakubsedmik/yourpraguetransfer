@@ -74,7 +74,6 @@ $(document).ready(function() {
 
     $('.datepicker').pickadate();
 
-    $('.date-time').dateTimePicker();
 });
 
 

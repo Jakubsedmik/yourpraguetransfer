@@ -1,5 +1,5 @@
 <?php 
-define("VERSION_LINKS", "1.1");
+define("VERSION_LINKS", "1.2");
 session_start();
 
 /*
@@ -33,8 +33,8 @@ function s7_scripts_styles() {
 
         // VUE CLI
         $vueDirectory    = join( "/", [ get_template_directory_uri(), 'assets', 'js', 'js_frontend' ,'vue', 'dist' ] );
-        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css' );
-        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], '1.0.0', true );
+        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css', array(), VERSION_LINKS );
+        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], VERSION_LINKS, true );
         wp_enqueue_style( 'backend-vue-style' );
         wp_enqueue_script( 'backend-vue-script' );
 

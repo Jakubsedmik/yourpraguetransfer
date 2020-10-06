@@ -40,7 +40,7 @@ function adminHeaders($hook){
 		// packují všechno o se nachází v src a vytváří komplet file v dist
 
 		// CSS
-		wp_enqueue_style("all_css", $pluginUrl . "/assets/css/css_backend/dist/main.min.css");
+		wp_enqueue_style("all_css", $pluginUrl . "/assets/css/css_backend/dist/main.min.css",array(), VERSION_LINKS);
 
 		// JS
 		wp_enqueue_media();
@@ -55,10 +55,10 @@ function adminHeaders($hook){
 
 		// CSS
 		wp_enqueue_media();
-		wp_enqueue_style("bootstrap_min_css", $pluginUrl . "/assets/css/css_backend/src/main.css");
-		wp_enqueue_style("jquery_ui_css", $pluginUrl . "/assets/css/css_backend/src/jquery-ui.css");
-		wp_enqueue_style("confirmpopup_css", $pluginUrl . "/assets/css/css_backend/src/confirmPopup.less");
-		wp_enqueue_style("filepond_css", $pluginUrl . "/assets/css/css_backend/src/filepond.css");
+		wp_enqueue_style("bootstrap_min_css", $pluginUrl . "/assets/css/css_backend/src/main.css", array(), VERSION_LINKS);
+		wp_enqueue_style("jquery_ui_css", $pluginUrl . "/assets/css/css_backend/src/jquery-ui.css", array(), VERSION_LINKS);
+		wp_enqueue_style("confirmpopup_css", $pluginUrl . "/assets/css/css_backend/src/confirmPopup.less", array(), VERSION_LINKS);
+		wp_enqueue_style("filepond_css", $pluginUrl . "/assets/css/css_backend/src/filepond.css", array(), VERSION_LINKS);
 
 		// JS
 		wp_enqueue_script("jquery_min_js", $pluginUrl . "/assets/js/js_backend/src/jquery-3.4.1.js", array(), VERSION_LINKS, true);
@@ -77,8 +77,8 @@ function adminHeaders($hook){
 
 		// VUE CLI
         $vueDirectory    = join( "/", [ get_template_directory_uri(), 'assets', 'js', 'js_backend' ,'vue', 'dist' ] );
-        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css' );
-        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], '1.0.0', true );
+        wp_register_style( 'backend-vue-style', $vueDirectory . '/app.css', array(), VERSION_LINKS );
+        wp_register_script( 'backend-vue-script', $vueDirectory . '/app.js', [], VERSION_LINKS, true );
         wp_enqueue_style( 'backend-vue-style' );
         wp_enqueue_script( 'backend-vue-script' );
 
