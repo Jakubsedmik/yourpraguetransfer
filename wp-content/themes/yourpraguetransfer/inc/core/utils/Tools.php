@@ -957,12 +957,13 @@ class Tools {
     }
 
     public static function timePicker($time, $id, $label, $placeholder){
+	    $time = intval($time);
         $mdbTime = Tools::getSimpleNotationDate($time);
         ?>
 
-        <div class="md-form">
-            <input placeholder="<?php echo $placeholder; ?>" type="datetime-local" id="<?php echo $id; ?>" name="<?php echo $id; ?>" class="form-control" value="<?php echo $mdbTime; ?>">
+        <div class="mb-3">
             <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+            <input placeholder="<?php echo $placeholder; ?>" type="datetime-local" id="<?php echo $id; ?>" name="<?php echo $id; ?>" class="form-control active" value="<?php echo $mdbTime; ?>">
         </div>
 
         <?php

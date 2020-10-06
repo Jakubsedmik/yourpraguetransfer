@@ -516,6 +516,16 @@ function change_my_sender_name( $original_email_from ) {
 add_filter( 'wp_mail_from_name', 'change_my_sender_name' );
 
 
+add_filter('locale', 'wpse27056_setLocale');
+function wpse27056_setLocale($locale) {
+    if ( is_admin() ) {
+        return 'en_US';
+    }
+
+    return $locale;
+}
+
+
 /* DEAKTIVACE AKTUALIZACÍ */
 add_filter( 'auto_update_plugin', '__return_false' );
 add_filter( 'auto_update_theme', '__return_false' );

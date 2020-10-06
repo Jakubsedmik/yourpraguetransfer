@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-2">
                         <!-- Měna -->
-                        <div class="md-form">
+                        <div class="md-form alone">
                             <?php echo Tools::getSelectBoxForDials("objednavkaClass","mena",$this->viewData['objednavka']->db_mena, 'Měna', "db_mena"); ?>
                         </div>
                     </div>
@@ -40,10 +40,25 @@
                     </div>
                 </div>
 
-				<!-- Stav objednávky -->
-				<div class="md-form">
-					<?php echo Tools::getSelectBoxForDials("objednavkaClass","stav",$this->viewData['objednavka']->db_stav, 'Stav objednávky', "db_stav"); ?>
-				</div>
+
+                <div class="form-row">
+                    <div class="col-5">
+                        <!-- Stav objednávky -->
+                        <?php echo Tools::getSelectBoxForDials("objednavkaClass","stav",$this->viewData['objednavka']->db_stav, 'Stav objednávky', "db_stav"); ?>
+                    </div>
+                    <div class="col-5">
+                        <!-- Typ platby -->
+                        <?php echo Tools::getSelectBoxForDials("objednavkaClass","typ_platby",$this->viewData['objednavka']->db_typ_platby, 'Typ platby', "db_typ_platby"); ?>
+                    </div>
+
+                    <?php if($this->viewData['objednavka']->db_typ_platby == 1): ?>
+                    <div class="col-2">
+                        <!-- Platební odkaz -->
+                        <a target="_blank" href="<?php echo Tools::getFeRoute("objednavkaClass", $this->viewData['objednavka']->getId(),"detail"); ?>" class="btn-sm btn-block btn-amber btn">Platební odkaz</a>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
 
                 <div class="form-row">
                     <div class="col">
@@ -53,6 +68,11 @@
                     <div class="col">
                         <!-- Kam -->
                         <?php echo Tools::simpleInput("db_destinace_do", $this->viewData['objednavka']->dejData('db_destinace_do'), "Destinace do", "text"); ?>
+                    </div>
+
+                    <div class="col">
+                        <!-- počet osob -->
+                        <?php echo Tools::simpleInput("db_pocet_osob", $this->viewData['objednavka']->dejData('db_pocet_osob'), "Počet osob", "number"); ?>
                     </div>
                 </div>
 
@@ -89,10 +109,6 @@
                             }
                             echo Tools::timePicker($this->viewData['objednavka']->db_cas_zpet, "db_cas_zpet", "Čas vyzvednutí zpátky", "Vyberte čas vyzvednutí zpátky");
                             ?>
-                    </div>
-
-                    <div class="col">
-                        <?php echo Tools::simpleInput("db_pocet_osob", $this->viewData['objednavka']->dejData('db_pocet_osob'), "Počet osob", "number"); ?>
                     </div>
 
                 </div>
@@ -149,6 +165,3 @@
 	<!-- Material form register -->
 
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9RxWxpRRoy9R-wAILv5Owb7GaXHLVaw"
-        async defer></script>

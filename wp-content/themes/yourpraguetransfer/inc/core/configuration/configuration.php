@@ -591,7 +591,7 @@ require_once("relations.php");
 
 
 // CISELNIKY
-
+// číselníky které se přebírají z tabulky číselníků
 $dials = array(
 	'inzeratClass'  => array(
 		'db_typ_nemovitosti',
@@ -610,6 +610,7 @@ $dials = array(
     )
 );
 
+// místní číselníky, ty se vylučují s číselníky přebíraných z tabulky číselníků
 $localDials = array(
 	'obrazekClass' => array(
 		'db_front' => array(
@@ -625,6 +626,10 @@ $localDials = array(
         'db_stav' => array(
             0 => "nezaplacená",
             1 => "zaplacená"
+        ),
+        'db_typ_platby' => array(
+            0 => "hotově",
+            1 => "online"
         )
     )
 );

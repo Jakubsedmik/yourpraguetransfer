@@ -69,7 +69,7 @@ body .container-fluid {
 }
 /* H1, H2, ... */
 body h1 {
-  font-size: 69px;
+  font-size: 50px;
   font-family: "Roboto";
 }
 body h2 {
@@ -133,9 +133,9 @@ body .navbar {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-top: 75px;
-  padding-bottom: 78px;
-  min-height: 880px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  min-height: 800px;
 }
 #main-slider .s7_slider-under-title-text {
   margin-bottom: 60px;
@@ -169,7 +169,7 @@ body .navbar {
   max-width: 790px;
 }
 #main-slider .btn {
-  font-size: 24px;
+  font-size: 20px;
   max-width: 329px;
   padding-left: 70px;
   padding-right: 70px;
@@ -181,7 +181,7 @@ body .navbar {
   padding-right: 78px;
 }
 #main-slider .font-italic {
-  font-size: 22px;
+  font-size: 20px;
 }
 #main-slider .s7_slider-ico-img {
   max-width: 70px;
@@ -252,6 +252,8 @@ body .navbar {
 #vozovy-park .s7_vozovy-park-content {
   border: 1px solid #d9d9d9;
   padding: 29px 25px 33px;
+  position: relative;
+  overflow: hidden;
 }
 #vozovy-park .s7_car-img {
   margin-bottom: 10px;
@@ -259,7 +261,7 @@ body .navbar {
 #vozovy-park figure {
   overflow: hidden;
 }
-#vozovy-park figure.top:before {
+.s7_vozovy-park-content.top:before {
   content: "";
   position: absolute;
   width: 144px;
@@ -269,8 +271,9 @@ body .navbar {
   transform: rotate(45deg);
   text-align: center;
   background-image: linear-gradient(95deg, #fdbf5c, #fd7824, #cc2f97, #9538c0, #4a63d4);
+  z-index: 9;
 }
-#vozovy-park figure.top:after {
+.s7_vozovy-park-content.top:after {
   content: "TOP";
   position: absolute;
   color: white;
@@ -279,6 +282,7 @@ body .navbar {
   font-size: 21px;
   font-weight: bold;
   font-family: "Roboto";
+  z-index: 10;
 }
 #vozovy-park h3 {
   font-size: 32px;
@@ -287,7 +291,7 @@ body .navbar {
 }
 #vozovy-park .fa-star {
   font-size: 14px;
-  color: #8341c7;
+  color: #fd7824;
 }
 #vozovy-park .font-italic {
   font-size: 21px;
@@ -299,7 +303,14 @@ body .navbar {
 }
 #vozovy-park .s7_vozovy-park-cena {
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 14px;
+}
+#vozovy-park .s7_vozovy-park-cena strong {
+  font-size: 25px;
+  color: var(--s7_color-3);
+}
+#vozovy-park .s7_vozovy-park-cena .fas {
+  font-size: 25px;
 }
 #vozovy-park .s7_vozovy-park-dot {
   width: 4px;

@@ -13,7 +13,7 @@
     <div class="s7_vozovy-park-sw w-100 mx-auto">
         <h2 class="s7_underlink position-relative font-weight-bold text-center text-uppercase"><?php echo get_theme_mod( "vozovy_park_title" ); ?></h2>
         <p class="s7_vozovy-park-text text-center"><?php echo get_theme_mod( "vozovy_park_subtitle" ); ?></p>
-        <div class="row">
+        <div class="row justify-content-center">
             <?php foreach ($vehicles as $key => $value) : ?>
             <?php
 
@@ -37,8 +37,8 @@
 
             ?>
             <div class="s7_vozovy-park-auto col-lg-4 col-md-6 col-12">
-                <div class="s7_vozovy-park-content">
-                    <figure class="position-relative mb-0 <?php echo ($value->db_top == 1) ? "top" : '' ?>">
+                <div class="s7_vozovy-park-content <?php echo ($value->db_top == 1) ? "top" : '' ?>">
+                    <figure class="position-relative mb-0">
                         <img src="<?php echo $front_img; ?>" alt="" class="s7_car-img img-fluid w-100">
                     </figure>
                     <div class="d-flex align-items-center">

@@ -18,19 +18,27 @@ class objednavkaController extends controller {
 
 			if(Tools::checkPresenceOfParam("ulozit", $this->requestData)){
 				$request_data = $this->requestData;
+
+				if(Tools::checkPresenceOfParam("db_cas", $request_data) && Tools::checkPresenceOfParam("db_cas_zpet", $request_data)){
+                    $request_data['db_cas'] = strtotime($request_data['db_cas']);
+                    $request_data['db_cas_zpet'] = strtotime($request_data['db_cas_zpet']);
+                }
+
 				$response = Tools::formProcessor(
-					array("db_id", "db_cena", "db_mnozstvi", "db_uzivatel_id", "db_datum_zalozeni", "db_stav"),
+					array(
+					    "db_id", "db_cena", "db_jmeno", "db_prijmeni",
+                        "db_email", "db_telefon", "db_destinace_z",
+                        "db_destinace_do", "db_cas", "db_cas_zpet", "db_znameni",
+                        "db_poznamka", "db_detska_sedacka", "db_velka_zavazadla", "db_typ_platby",
+                        "db_mena", "db_cena", "db_vozidlo_id",
+                        "db_pocet_osob", "db_stav","db_datum_zalozeni"),
 					$request_data,
 					'objednavkaClass',
 					'edit',
 					null,
 					function($objednavka, $source){
-						// nutnost aktualizovat ve fakturoidu, neaktualizujeme na metodu aktualizovat protože ta by se odpálila i na další dílčí edity objednávky
-						if($objednavka->db_stav == 1) {
-							$fakturoid = new fakturoidClass();
-							$fakturoid->regenerateInvoiceFromOrder( $objednavka );
-						}
-					}
+					    return true;
+                    }
 				);
 			}
 
@@ -45,8 +53,31 @@ class objednavkaController extends controller {
 
 		if(Tools::checkPresenceOfParam("vytvorit", $this->requestData)){
 			$request_data = $this->requestData;
+
+			globalUtils::writeDebug($request_data);
+            if(Tools::checkPresenceOfParam("db_cas", $request_data) && Tools::checkPresenceOfParam("db_cas_zpet", $request_data)){
+                if($request_data['db_cas'] === '1970-01-01T12:00'){
+                    $request_data['db_cas'] = 0;
+                }else{
+                    $request_data['db_cas'] = strtotime($request_data['db_cas']);
+                }
+
+                if($request_data['db_cas_zpet'] === '1970-01-01T12:00'){
+                    $request_data['db_cas_zpet'] = 0;
+                }else{
+                    $request_data['db_cas_zpet'] = strtotime($request_data['db_cas']);
+                }
+
+            }
+
 			$response = Tools::formProcessor(
-				array("db_cena", "db_mnozstvi", "db_uzivatel_id", "db_stav"),
+                array(
+                    "db_cena", "db_jmeno", "db_prijmeni",
+                    "db_email", "db_telefon", "db_destinace_z",
+                    "db_destinace_do", "db_cas", "db_cas_zpet", "db_znameni",
+                    "db_poznamka", "db_detska_sedacka", "db_velka_zavazadla", "db_typ_platby",
+                    "db_mena", "db_cena", "db_vozidlo_id",
+                    "db_pocet_osob", "db_stav"),
 				$request_data,
 				'objednavkaClass',
 				'create'
