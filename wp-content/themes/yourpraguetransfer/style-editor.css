@@ -1,0 +1,13 @@
+body{
+  background-color: #f8f9fa!important;
+}
+
+/* Main column width */
+.wp-block {
+  max-width: 1250px;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  max-width: none;
+}

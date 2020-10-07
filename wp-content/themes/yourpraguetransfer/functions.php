@@ -529,3 +529,8 @@ function wpse27056_setLocale($locale) {
 /* DEAKTIVACE AKTUALIZACÍ */
 add_filter( 'auto_update_plugin', '__return_false' );
 add_filter( 'auto_update_theme', '__return_false' );
+
+/* GUTTENBERG */
+add_theme_support( 'align-wide' );
+add_theme_support( 'editor-styles' );
+add_editor_style( 'style-editor.css' );
