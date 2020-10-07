@@ -134,14 +134,14 @@ function removeElement (){
 
 		if($result){
 			$response->status = 1;
-			$response->message = __("Objekt byl odebrán","realsys");
+			$response->message = __("Objekt byl odebrán","yourpraguetransfer");
 		}else{
 			$response->status = 0;
-			$response->message = __("Nepodařilo se odebrat","realsys");
+			$response->message = __("Nepodařilo se odebrat","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Chybějící vstupní data","realsys");
+		$response->message = __("Chybějící vstupní data","yourpraguetransfer");
 	}
 
 
@@ -211,14 +211,14 @@ function getElements (){
 	if(is_array($result) && count($result) > 0){
 		$response = new stdClass();
 		$response->status = 0;
-		$response->message = __("Některé parametry nebyli vyplněny","realsys");
+		$response->message = __("Některé parametry nebyli vyplněny","yourpraguetransfer");
 		$response->description = $result;
 		wp_send_json($response);
 		die();
 	}elseif (!is_array($result)){
 		$response = new stdClass();
 		$response->status = 0;
-		$response->message = __("Nastala interní chyba","realsys");
+		$response->message = __("Nastala interní chyba","yourpraguetransfer");
 		wp_send_json($response);
 		die();
 	}
@@ -286,7 +286,7 @@ function getElements (){
 		$response->prekladHlavicek = $dictionary;
 		$response->totalRecords = $count;
 		$response->status = 1;
-		$response->message = __("Výsledky byli vráceny","realsys");
+		$response->message = __("Výsledky byli vráceny","yourpraguetransfer");
 		wp_send_json($response);
 		die();
 
@@ -294,7 +294,7 @@ function getElements (){
 	}else{
 		$response = new stdClass();
 		$response->status = 0;
-		$response->message = __("Tento model v systému neexistuje","realsys");
+		$response->message = __("Tento model v systému neexistuje","yourpraguetransfer");
 		wp_send_json($response);
 		die();
 	}
@@ -339,10 +339,10 @@ function setObrazkyParam(){
 		$obrazek->$param = $new_value;
 
 		$response->status = 1;
-		$response->message = __("Uloženo","realsys");
+		$response->message = __("Uloženo","yourpraguetransfer");
 	}else{
 		$response->status = 0;
-		$response->message = __("Chybějící parametry","realsys");
+		$response->message = __("Chybějící parametry","yourpraguetransfer");
 	}
 	wp_send_json($response);
 	die();
@@ -356,14 +356,14 @@ function removeObrazek(){
 		$result = assetsFactory::removeEntity("obrazekClass",$id);
 		if($result){
 			$response->status = 1;
-			$response->message = __("Smazáno","realsys");
+			$response->message = __("Smazáno","yourpraguetransfer");
 		}else{
 			$response->status = 0;
-			$response->message = __("Došlo k chybě při mazání","realsys");
+			$response->message = __("Došlo k chybě při mazání","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Chybějící parametry","realsys");
+		$response->message = __("Chybějící parametry","yourpraguetransfer");
 	}
 	wp_send_json($response);
 	die();
@@ -408,7 +408,7 @@ function googleVerification(){
 		);
 		if(is_array($uzivatel) && count($uzivatel) == 0){
 			$response->status = 1;
-			$response->message = __("Uživatel neexistuje","realsys");
+			$response->message = __("Uživatel neexistuje","yourpraguetransfer");
 		}else{
 
 			$verificationArray = array(
@@ -420,7 +420,7 @@ function googleVerification(){
 			if($payload){
 
 				$response->status = 0;
-				$response->message = __("Tento uživatel již existuje","realsys");
+				$response->message = __("Tento uživatel již existuje","yourpraguetransfer");
 				$uzivatel = array_shift($uzivatel);
 				$uzivatel->logIn();
 
@@ -434,13 +434,13 @@ function googleVerification(){
 				$response->actionHtml = $ob;
 			}else{
 				$response->status = -2;
-				$response->message = __("Systém - chyba, pokoušíte se o něco nekalého","realsys");
+				$response->message = __("Systém - chyba, pokoušíte se o něco nekalého","yourpraguetransfer");
 			}
 
 		}
 	}else{
 		$response->status = -1;
-		$response->message = __("Došlo k technické chybě - chybějící parametry","realsys");
+		$response->message = __("Došlo k technické chybě - chybějící parametry","yourpraguetransfer");
 	}
 	wp_send_json($response);
 	die();
@@ -636,19 +636,19 @@ function changeUserAvatar() {
 			}else{
 				$response = new stdClass();
 				$response->status = 0;
-				$response->message = __("Uživatel neexistuje nebo není zalogován","realsys");
+				$response->message = __("Uživatel neexistuje nebo není zalogován","yourpraguetransfer");
 			}
 		}else{
 			$response = new stdClass();
 			$response->status = 0;
-			$response->message = __("Nastala chyba!","realsys");
+			$response->message = __("Nastala chyba!","yourpraguetransfer");
 		}
 
 
 	}else{
 		$response = new stdClass();
 		$response->status = 0;
-		$response->message =__("Některé parametry nebyli specifikovány","realsys");
+		$response->message =__("Některé parametry nebyli specifikovány","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -680,22 +680,22 @@ function removeInzerat(){
 				$result = assetsFactory::removeEntity("inzeratClass", $inzerat_id);
 				if($result){
 					$response->status = 1;
-					$response->message = __("Úspěšně smazáno","realsys");
+					$response->message = __("Úspěšně smazáno","yourpraguetransfer");
 				}else{
 					$response->status = 0;
-					$response->message = __("Smazání se nevydařilo","realsys");
+					$response->message = __("Smazání se nevydařilo","yourpraguetransfer");
 				}
 			}else{
 				$response->status = 0;
-				$response->message = __("Inzerát není ve vlastnictví uživatele.","realsys");
+				$response->message = __("Inzerát není ve vlastnictví uživatele.","yourpraguetransfer");
 			}
 		}else{
 			$response->status = 0;
-			$response->message = __("Uživatel není přihlášen","realsys");
+			$response->message = __("Uživatel není přihlášen","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Některé parametry nebyli specifikovány","realsys");
+		$response->message = __("Některé parametry nebyli specifikovány","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -734,27 +734,27 @@ function changeInzeratStatus(){
 					if($inzerat->db_stav_inzeratu !== 2){
 						$inzerat->db_stav_inzeratu = $inzerat_status;
 						$response->status = 1;
-						$response->message = __("Úspěšná změna stavu inzerátu","realsys");
+						$response->message = __("Úspěšná změna stavu inzerátu","yourpraguetransfer");
 					}else{
 						$response->status = 0;
-						$response->message = __("Inzerát není ještě schválený. Nelze ho nyní aktivovat.","realsys");
+						$response->message = __("Inzerát není ještě schválený. Nelze ho nyní aktivovat.","yourpraguetransfer");
 					}
 				}else{
 					$response->status = 0;
-					$response->message = __("Nepřípustné hodnoty stavu inzerátu","realsys");
+					$response->message = __("Nepřípustné hodnoty stavu inzerátu","yourpraguetransfer");
 				}
 
 			}else{
 				$response->status = 0;
-				$response->message = __("Inzerát není ve vlastnictví uživatele","realsys");
+				$response->message = __("Inzerát není ve vlastnictví uživatele","yourpraguetransfer");
 			}
 		}else{
 			$response->status = 0;
-			$response->message = __("Uživatel není přihlášen","realsys");
+			$response->message = __("Uživatel není přihlášen","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Některé parametry nebyli specifikovány","realsys");
+		$response->message = __("Některé parametry nebyli specifikovány","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -793,19 +793,19 @@ function createInzeratImages(){
 			}else{
 				$response = new stdClass();
 				$response->status = 0;
-				$response->message = __("Uživatel neexistuje nebo není zalogován","realsys");
+				$response->message = __("Uživatel neexistuje nebo není zalogován","yourpraguetransfer");
 			}
 		}else{
 			$response = new stdClass();
 			$response->status = 0;
-			$response->message = __("Nastala chyba!","realsys");
+			$response->message = __("Nastala chyba!","yourpraguetransfer");
 		}
 
 
 	}else{
 		$response = new stdClass();
 		$response->status = 0;
-		$response->message = __("Některé parametry nebyli specifikovány","realsys");
+		$response->message = __("Některé parametry nebyli specifikovány","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -837,22 +837,22 @@ function removePes(){
 				$result = assetsFactory::removeEntity("hlidacipesClass", $pes_id);
 				if($result){
 					$response->status = 1;
-					$response->message = __("Úspěšně smazáno","realsys");
+					$response->message = __("Úspěšně smazáno","yourpraguetransfer");
 				}else{
 					$response->status = 0;
-					$response->message = __("Smazání se nevydařilo","realsys");
+					$response->message = __("Smazání se nevydařilo","yourpraguetransfer");
 				}
 			}else{
 				$response->status = 0;
-				$response->message = __("Inzerát není ve vlastnictví uživatele.","realsys");
+				$response->message = __("Inzerát není ve vlastnictví uživatele.","yourpraguetransfer");
 			}
 		}else{
 			$response->status = 0;
-			$response->message = __("Uživatel není přihlášen","realsys");
+			$response->message = __("Uživatel není přihlášen","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Některé parametry nebyli specifikovány","realsys");
+		$response->message = __("Některé parametry nebyli specifikovány","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -915,26 +915,26 @@ function createWatchdog(){
 
 								if($hlidacipes){
 									$response->status = 1;
-									$response->message = __("Hlídací pes úspěšně vytvořen","realsys");
+									$response->message = __("Hlídací pes úspěšně vytvořen","yourpraguetransfer");
 								}else{
 									$response->status = 0;
-									$response->message = __("Hlídací pes se nepodařil vytvořit","realsys");
+									$response->message = __("Hlídací pes se nepodařil vytvořit","yourpraguetransfer");
 								}
 							}else{
 								$response->status = 0;
-								$response->message = __("Nevalidní transakce","realsys");
+								$response->message = __("Nevalidní transakce","yourpraguetransfer");
 							}
 						}else{
 							$response->status = 0;
-							$response->message = __("Neplatná transakce","realsys");
+							$response->message = __("Neplatná transakce","yourpraguetransfer");
 						}
 					}else{
 						$response->status = 0;
-						$response->message = __("Neexistující transakce","realsys");
+						$response->message = __("Neexistující transakce","yourpraguetransfer");
 					}
 				}else{
 					$response->status = 0;
-					$response->message = __("Hlídací pes nebyl vytvořen, protože nebyla doložena platná transakce.","realsys");
+					$response->message = __("Hlídací pes nebyl vytvořen, protože nebyla doložena platná transakce.","yourpraguetransfer");
 				}
 
 			}else{
@@ -942,19 +942,19 @@ function createWatchdog(){
 				
 				if($hlidacipes){
 					$response->status = 1;
-					$response->message = __("Hlídací pes úspěšně vytvořen","realsys");
+					$response->message = __("Hlídací pes úspěšně vytvořen","yourpraguetransfer");
 				}else{
 					$response->status = 0;
-					$response->message = __("Hlídací pes se nepodařil vytvořit","realsys");
+					$response->message = __("Hlídací pes se nepodařil vytvořit","yourpraguetransfer");
 				}
 			}
 		}else{
 			$response->status = 0;
-			$response->message = __("Hlídací pes se nevytvořil. Nejste přihlášen.","realsys");
+			$response->message = __("Hlídací pes se nevytvořil. Nejste přihlášen.","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Nebyli zadány všechny parametry","realsys");
+		$response->message = __("Nebyli zadány všechny parametry","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -991,26 +991,26 @@ function checkUserCredits(){
 
 					if($price <= $billance){
 						$response->status = 1;
-						$response->message = __("Uživatel má dostatek kreditů","realsys");
+						$response->message = __("Uživatel má dostatek kreditů","yourpraguetransfer");
 					}else{
 						$response->status = 0;
-						$response->message = __("Uživatel nemá dostatek kreditů - stav kreditů:","realsys") . " " . $billance . ", " . __("Požadované množství:","realsys") . " " . $price;
+						$response->message = __("Uživatel nemá dostatek kreditů - stav kreditů:","yourpraguetransfer") . " " . $billance . ", " . __("Požadované množství:","yourpraguetransfer") . " " . $price;
 					}
 				}else{
 					$response->status = -1;
-					$response->message = __("Tato služba neexistuje","realsys");
+					$response->message = __("Tato služba neexistuje","yourpraguetransfer");
 				}
 			}else{
 				$response->status = -2;
-				$response->message = __("Neexistující uživatel","realsys");
+				$response->message = __("Neexistující uživatel","yourpraguetransfer");
 			}
 		}else{
 			$response->status = -3;
-			$response->message = __("Uživatel není přihlášen","realsys");
+			$response->message = __("Uživatel není přihlášen","yourpraguetransfer");
 		}
 	}else{
 		$response->status = -4;
-		$response->message = __("Povinná pole nebyla vyplněna.","realsys");
+		$response->message = __("Povinná pole nebyla vyplněna.","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -1066,11 +1066,11 @@ function payForService(){
 							$response = $factory->requestService($serviceid);
 						}else{
 							$response->status = -8;
-							$response->message = __("Zadaná entita nebyla nalezena.","realsys");
+							$response->message = __("Zadaná entita nebyla nalezena.","yourpraguetransfer");
 						}
 					}else{
 						$response->status = -1;
-						$response->message = __("Při objednání služby tohoto typu je třeba poskytnou informace o entitě a její ID","realsys");
+						$response->message = __("Při objednání služby tohoto typu je třeba poskytnou informace o entitě a její ID","yourpraguetransfer");
 					}
 				}else{
 					$factory = new transactionFactory($user);
@@ -1078,15 +1078,15 @@ function payForService(){
 				}
 			}else{
 				$response->status = -2;
-				$response->message = __("Neexistující uživatel","realsys");
+				$response->message = __("Neexistující uživatel","yourpraguetransfer");
 			}
 		}else{
 			$response->status = -3;
-			$response->message = __("Uživatel není přihlášen","realsys");
+			$response->message = __("Uživatel není přihlášen","yourpraguetransfer");
 		}
 	}else{
 		$response->status = -4;
-		$response->message = __("Povinná pole nebyla vyplněna.","realsys");
+		$response->message = __("Povinná pole nebyla vyplněna.","yourpraguetransfer");
 	}
 
 	wp_send_json($response);
@@ -1158,35 +1158,35 @@ function payForContact(){
 									));
 								}
 
-								$response->message = __("Kontakt úspěšně získán","realsys");
+								$response->message = __("Kontakt úspěšně získán","yourpraguetransfer");
 							}else{
 								$response->status = 0;
-								$response->message = __("Kontakt se nepodařilo získat. Neplatný uživatel.","realsys");
+								$response->message = __("Kontakt se nepodařilo získat. Neplatný uživatel.","yourpraguetransfer");
 							}
 						}else{
 							$response->status = 0;
-							$response->message = __("Kontakt se nepodařilo získat. Neplatný inzerát.","realsys");
+							$response->message = __("Kontakt se nepodařilo získat. Neplatný inzerát.","yourpraguetransfer");
 						}
 					}else{
 						$response->status = 0;
-						$response->message = __("Nevalidní transakce","realsys");
+						$response->message = __("Nevalidní transakce","yourpraguetransfer");
 					}
 				}else{
 					$response->status = 0;
-					$response->message = __("Neplatná transakce","realsys");
+					$response->message = __("Neplatná transakce","yourpraguetransfer");
 				}
 			}else{
 				$response->status = 0;
-				$response->message = __("Neexistující transakce","realsys");
+				$response->message = __("Neexistující transakce","yourpraguetransfer");
 			}
 
 		}else{
 			$response->status = 0;
-			$response->message = __("Kontakt nebyl získán. Nejste přihlášen.","realsys");
+			$response->message = __("Kontakt nebyl získán. Nejste přihlášen.","yourpraguetransfer");
 		}
 	}else{
 		$response->status = 0;
-		$response->message = __("Nebyli zadány všechny parametry","realsys");
+		$response->message = __("Nebyli zadány všechny parametry","yourpraguetransfer");
 	}
 
 	wp_send_json($response);

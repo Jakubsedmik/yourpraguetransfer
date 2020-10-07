@@ -534,3 +534,8 @@ add_filter( 'auto_update_theme', '__return_false' );
 add_theme_support( 'align-wide' );
 add_theme_support( 'editor-styles' );
 add_editor_style( 'style-editor.css' );
+
+
+/* TRANSLATIONS AUTOMATION */
+require_once (__DIR__ . "/inc/core/entity_translations/entity_translations_generator.php");
+switch_to_locale('en_US');

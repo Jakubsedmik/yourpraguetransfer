@@ -100,22 +100,23 @@ class objednavkaController extends frontendController {
 
                     if($response === false){
                         $this->setView("error");
-                        frontendError::addMessage("Chyba",ERROR, "Došlo k chybě při vytváření objednávky");
+                        frontendError::addMessage(__("Chyba","yourpraguetransfer"),ERROR, __("Došlo k chybě při vytváření objednávky","yourpraguetransfer"));
                         return true;
                     }
 
                 }else{
-                    frontendError::addMessage("Pole",ERROR, "Pokoušíte se o něco špatného. Ceny nesedí!");
+                    frontendError::addMessage(__("Pole","yourpraguetransfer"),ERROR, __("Pokoušíte se o něco špatného. Ceny nesedí!","yourpraguetransfer"));
                     $this->setView("error");
                     return false;
                 }
             }else{
-                frontendError::addMessage("Kalkulace",ERROR, "Došlo k chybě při kalkulaci ceny");
+                frontendError::addMessage(__("Kalkulace","yourpraguetransfer"),ERROR, __("Došlo k chybě při kalkulaci ceny","yourpraguetransfer"));
                 $this->setView("error");
                 return false;
             }
         }else{
-	        frontendError::addMessage("Pole",ERROR, "Některá pole nebyla vyplněna");
+	        frontendError::addMessage(__("Pole","yourpraguetransfer"),ERROR, __("Některá pole nebyla vyplněna","yourpraguetransfer"));
+
             $this->setView("error");
             return false;
         }
@@ -133,7 +134,7 @@ class objednavkaController extends frontendController {
                 $this->requestData['do'] = $objednavka->db_destinace_do;
                 $this->requestData['osob'] = $objednavka->db_pocet_osob;
                 $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, $objednavka->db_mena);
-                $this->requestData['platba'] = $objednavka->db_typ_platby == 1 ? "Online platební kartou" : "Osobně";
+                $this->requestData['platba'] = $objednavka->db_typ_platby == 1 ? __("Online platební kartou","yourpraguetransfer") : __("Osobně","yourpraguetransfer");
                 $this->requestData['cas_tam'] = Tools::formatTime($objednavka->db_cas);
 
                 $this->requestData['objednavka_id'] = $id;

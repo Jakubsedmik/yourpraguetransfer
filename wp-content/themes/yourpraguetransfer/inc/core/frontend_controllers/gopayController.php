@@ -68,22 +68,22 @@ class gopayController extends frontendController {
                     );
 
                     $this->simpleOrderPayment($objednavka, $contact,"Platba za převoz vozu");
-                    frontendError::addMessage(__("Platba", "realsys"), SUCCESS, __("Platební brána připravena. Pokračujte do platební brány", "realsys"));
+                    frontendError::addMessage(__("Platba", "yourpraguetransfer"), SUCCESS, __("Platební brána připravena. Pokračujte do platební brány", "yourpraguetransfer"));
                     return true;
                 }else{
                     $this->setView("error");
-                    frontendError::addMessage(__("Objednávka", "realsys"), ERROR, __("Tato objednávka již byla zaplacena", "realsys"));
+                    frontendError::addMessage(__("Objednávka", "yourpraguetransfer"), ERROR, __("Tato objednávka již byla zaplacena", "yourpraguetransfer"));
                     return false;
                 }
             }else{
                 $this->setView("error");
-                frontendError::addMessage(__("Objednávka", "realsys"), ERROR, __("Objednávka neexistuje", "realsys"));
+                frontendError::addMessage(__("Objednávka", "yourpraguetransfer"), ERROR, __("Objednávka neexistuje", "yourpraguetransfer"));
                 return false;
             }
 
 		}else{
 			$this->setView("error");
-			frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
+			frontendError::addMessage(__("Povinná pole","yourpraguetransfer"),ERROR, __("Některá povinná pole nebyla vyplněna","yourpraguetransfer"));
 			return false;
 		}
 
@@ -117,7 +117,7 @@ class gopayController extends frontendController {
                     $objednavka->db_hash = $gopay_id;
                     $objednavka->db_stav = 1;
 
-                    frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","realsys"));
+                    frontendError::addMessage(__("Úspěch","realsys"), SUCCESS, __("Objednávka byla úspěšně zaplacena.","yourpraguetransfer"));
 
                     $this->sendPaymentConfirmation($objednavka);
                     $this->requestData['objednavka'] = $objednavka;
@@ -125,18 +125,18 @@ class gopayController extends frontendController {
                     return true;
 
                 }else{
-                    frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Zadná objednávka v systému neexistuje a nemůže být zaplacena.","realsys"));
+                    frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Zadná objednávka v systému neexistuje a nemůže být zaplacena.","yourpraguetransfer"));
                     $this->setView("error");
                     return false;
                 }
 
             }else{
-                frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte administrátora","realsys"));
+                frontendError::addMessage(__("Objednávka","realsys"),ERROR, __("Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte administrátora","yourpraguetransfer"));
                 $this->setView("errorPayment");
                 return false;
             }
         }else{
-            frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","realsys"));
+            frontendError::addMessage(__("Povinná pole","realsys"),ERROR, __("Některá povinná pole nebyla vyplněna","yourpraguetransfer"));
             $this->setView("error");
             return false;
         }

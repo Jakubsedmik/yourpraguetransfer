@@ -40,6 +40,7 @@ class vozidloController extends controller {
             if ( $response === true ) {
                 $this->requestData             = array();
                 $this->requestData['continue'] = Tools::getRoute( "vozidloClass", "edit", Tools::$last_created->getId() ) . "#addImages";
+                generateNewStrings();
             }
         }
 
@@ -83,6 +84,7 @@ class vozidloController extends controller {
                     'vozidloClass',
                     'edit'
                 );
+                generateNewStrings();
             }
 
         } else {

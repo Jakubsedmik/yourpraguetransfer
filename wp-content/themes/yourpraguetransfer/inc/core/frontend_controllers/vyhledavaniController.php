@@ -48,7 +48,7 @@ class vyhledavaniController extends frontendController
             return true;
 
         }else{
-            frontendError::addMessage("Destination",ERROR, "Chybějící parametry aplikace");
+            frontendError::addMessage(__("Destination","yourpraguetransfer"),ERROR, __("Chybějící parametry aplikace","yourpraguetransfer"));
             $this->setView("error");
             return false;
         }

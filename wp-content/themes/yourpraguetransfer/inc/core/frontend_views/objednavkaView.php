@@ -4,26 +4,26 @@
 	        <?php echo frontendError::getBackendErrors(); ?>
 
             <div class="section-title">
-                <h1 class="title">Objednávka</h1>
-                <p>Děkujeme</p>
-                <p>Vaše objednávka byla zpracována. Souhrn Vaší objednávky Vám byl zaslán emailem</p>
+                <h1 class="title"><?php _e("Objednávka","yourpraguetransfer"); ?></h1>
+                <p><?php _e("Děkujeme","yourpraguetransfer"); ?></p>
+                <p><?php _e("Vaše objednávka byla zpracována. Souhrn Vaší objednávky Vám byl zaslán emailem","yourpraguetransfer"); ?></p>
                 <ul>
-                    <li><strong>Odkud pojedeme:</strong> <?php echo $this->requestData['z']; ?></li>
-                    <li><strong>Kam pojedeme:</strong> <?php echo $this->requestData['do']; ?></li>
-                    <li><strong>Kdy pojedeme:</strong> <?php echo $this->requestData['cas_tam']; ?></li>
+                    <li><strong><?php _e("Odkud pojedeme:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['z']; ?></li>
+                    <li><strong><?php _e("Kam pojedeme:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['do']; ?></li>
+                    <li><strong><?php _e("Kdy pojedeme:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cas_tam']; ?></li>
                     <?php if(isset($this->requestData['cas_zpet'])) : ?>
-                        <li><strong>Kdy pojedeme zpět:</strong> <?php echo $this->requestData['cas_zpet']; ?></li>
+                        <li><strong>Kdy pojedeme zpět:<?php _e("Objednávka","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cas_zpet']; ?></li>
                     <?php endif; ?>
-                    <li><strong>Počet osob:</strong> <?php echo $this->requestData['osob']; ?></li>
-                    <li><strong>Cena:</strong> <?php echo $this->requestData['cena']; ?></li>
-                    <li><strong>Platba:</strong> <?php echo $this->requestData['platba']; ?></li>
+                    <li><strong><?php _e("Počet osob:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['osob']; ?></li>
+                    <li><strong><?php _e("Cena:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cena']; ?></li>
+                    <li><strong><?php _e("Platba:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['platba']; ?></li>
                 </ul>
 
 
                 <?php if($this->requestData['zaplaceno'] == true) : ?>
-                    <p>Tato objednávka již byla zaplacena. O jejím zaplacení jsme Vás informovali emailem.</p>
+                    <p><?php _e("Tato objednávka již byla zaplacena. O jejím zaplacení jsme Vás informovali emailem.","yourpraguetransfer"); ?></p>
                 <?php else: ?>
-                    <a href="<?php echo Tools::getFERoute("gopay",$this->requestData['objednavka_id'],"payment"); ?>" class="btn btn-lg border-0 rounded-0 text-white text-uppercase font-weight-bold">Zaplatit platební kartou</a>
+                    <a href="<?php echo Tools::getFERoute("gopay",$this->requestData['objednavka_id'],"payment"); ?>" class="btn btn-lg border-0 rounded-0 text-white text-uppercase font-weight-bold"><?php _e("Zaplatit platební kartou","yourpraguetransfer"); ?></a>
                 <?php endif; ?>
 
             </div>
