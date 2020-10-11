@@ -3,6 +3,7 @@
     $vehicles = assetsFactory::getAllEntity("vozidloClass");
     foreach ($vehicles as $key => $value){
         $value->loadRelatedObjects("obrazekClass");
+        $value->translateEntity();
         $value->writeDials();
     }
 
@@ -42,7 +43,7 @@
                         <img src="<?php echo $front_img; ?>" alt="" class="s7_car-img img-fluid w-100">
                     </figure>
                     <div class="d-flex align-items-center">
-                        <h3 class="font-weight-bold"><?php echo __($value->db_trida,"yourpraguetransfer"); ?></h3>
+                        <h3 class="font-weight-bold"><?php echo $value->db_trida; ?></h3>
                         <div class="sz_vozovy-park-start">
                             <?php for($i=0; $i<$value->db_hvezdy; $i++): ?>
                                 <i class="fas fa-star"></i>
@@ -50,8 +51,8 @@
                         </div>
                     </div>
                     <div class="s7_vozovy-park-typ-auto font-italic">
-                        <?php echo __($value->db_nazev,"yourpraguetransfer"); ?></div>
-                    <p class="s7_vozovy-park-popis"><?php echo Tools::getTextPart(__($value->db_popis,"yourpraguetransfer"),160); ?></p>
+                        <?php echo $value->db_nazev; ?></div>
+                    <p class="s7_vozovy-park-popis"><?php echo Tools::getTextPart($value->db_popis,160); ?></p>
                     <div class="s7_vozovy-park-cena d-flex align-items-center">
                         <i class="fas fa-taxi mr-2"></i><span><strong><?php echo $value->dejData("db_cena_za_jednotku"); ?> </strong><?php echo CURRENCY ?>/<?php echo $value->dejData("db_jednotka");  ?></span>
                         <div class="s7_vozovy-park-dot mx-2"></div>

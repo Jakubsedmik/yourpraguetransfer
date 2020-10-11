@@ -34,10 +34,6 @@ define( "ADMIN_BASE_URL", BASE_URL . "wp-admin/admin.php?page=" . PLUGIN_SLUG );
 define( "RECAPTCHA", "6Ld5jcwUAAAAAHkJW4PKS2g11BUtuxMV7XvP2aud" );
 define( "RECAPTCHA_SITEKEY", "6Ld5jcwUAAAAANHZpw5Xa4g-EgVPTOMfmGSSqZ4l" );
 
-// SMS MANAGER API KEY
-define("SMS_API_KEY", "ebf1c47065b933d486f76f27abb4cd997c4c4c7f");
-
-
 // ajax konstanty
 define( "AJAXURL", admin_url( "admin-ajax.php" ) );
 
@@ -46,11 +42,6 @@ define("GOOGLE_ID", "169419171066-51n84mk31m3sdi47rtkj84tprnrppker.apps.googleus
 define("GOOGLE_API_KEY", "AIzaSyBLIBdR0G1-KMTJDEmHeLdI87qAItL7zyw");
 define("GOOGLE_SERVER_API_KEY", "AIzaSyDLb5HxunZlhEtXHmELaNbd9XMajfkoQvc");
 
-// FAKTUROID Credentials
-define("FAKTUROID_SLUG", "szukamdomdev");
-define("FAKTUROID_MAIL", "sedmik@studioseven.cz");
-define("FAKTUROID_API_KEY", "0152b6409f5e3bd901c27826be6dd81dd57f796b");
-define("FAKTUROID_AGENT", "PHPlib <sedmik@studioseven.cz>");
 
 // CURRENCY
 define("CURRENCY", "Kč");
@@ -517,28 +508,28 @@ $frontend_add_rules = array(
 
 $frontend_general_messages = array(
 	"db_heslo" => array(
-		"required" => __("Heslo musí být vyplněno", "realsys")
+		"required" => __("Heslo musí být vyplněno", "yourpraguetransfer")
 	),
 	"db_heslo2" => array(
-		"required" => __("Prosím potvrďte heslo","realsys")
+		"required" => __("Prosím potvrďte heslo","yourpraguetransfer")
 	),
 	"db_email" => array(
-		"remote" => __("Uživatel s touto emailovou adresou již existuje","realsys")
+		"remote" => __("Uživatel s touto emailovou adresou již existuje","yourpraguetransfer")
 	)
 );
 
 $frontend_common_messages = array(
-		"required" => __("Toto pole je povinné.","realsys"),
-        "email" => __("Zadejte platnou emailovou adresu.", "realsys"),
-        "url" => __("Zadejte platné URL.", "realsys"),
-        "date" => __("Zadejte platné datum.", "realsys"),
-        "dateISO" => __("Zadejte platné datum.", "realsys"),
-        "number" => __("Zadejte platné číslo.", "realsys"),
-        "digits" => __("Zadejte platné číslice.", "realsys"),
-        "creditcard" => __("Zadejte platné číslo kreditní karty.", "realsys"),
-        "maxlength" => __('Zadejte maximálně {0} znaků.', "realsys"),
-        "minlength" => __('Zadejte minimálně {0} znaků.', "realsys"),
-        "range" => __('Zadejte hodnotu mezi {0} a {1}.', "realsys")
+		"required" => __("Toto pole je povinné.","yourpraguetransfer"),
+        "email" => __("Zadejte platnou emailovou adresu.", "yourpraguetransfer"),
+        "url" => __("Zadejte platné URL.", "yourpraguetransfer"),
+        "date" => __("Zadejte platné datum.", "yourpraguetransfer"),
+        "dateISO" => __("Zadejte platné datum.", "yourpraguetransfer"),
+        "number" => __("Zadejte platné číslo.", "yourpraguetransfer"),
+        "digits" => __("Zadejte platné číslice.", "yourpraguetransfer"),
+        "creditcard" => __("Zadejte platné číslo kreditní karty.", "yourpraguetransfer"),
+        "maxlength" => __('Zadejte maximálně {0} znaků.', "yourpraguetransfer"),
+        "minlength" => __('Zadejte minimálně {0} znaků.', "yourpraguetransfer"),
+        "range" => __('Zadejte hodnotu mezi {0} a {1}.', "yourpraguetransfer")
 );
 
 
@@ -650,15 +641,15 @@ $ajax_localization = array(
 	"messages" => $frontend_general_messages,
 	"common_messages" => $frontend_common_messages,
 	"localizations" => array(
-		"totoCisloNeniValidni" => __("Toto číslo není validní.","realsys"),
-		"totoPscNeniValidni" => __("Toto PSČ není validní. Formát 123 45.","realsys"),
-		"nahrajteSvujObrazek" => __("Nahrajte svůj obrázek","realsys"),
-		"nacitani" => __("Načítání","realsys"),
-		"uploadovani" => __("Uploadování","realsys"),
-		"uspesneNahranoNaServer" => __("Úspěšně nahráno na server","realsys"),
-		"zruseno" => __("Zrušeno","realsys"),
-		"klepneteProZruseni" => __("Klepněte pro zrušení", "realsys"),
-		"klepneteProOpakovani" => __("Klepněte pro opakování", "realsys")
+		"totoCisloNeniValidni" => __("Toto číslo není validní.","yourpraguetransfer"),
+		"totoPscNeniValidni" => __("Toto PSČ není validní. Formát 123 45.","yourpraguetransfer"),
+		"nahrajteSvujObrazek" => __("Nahrajte svůj obrázek","yourpraguetransfer"),
+		"nacitani" => __("Načítání","yourpraguetransfer"),
+		"uploadovani" => __("Uploadování","yourpraguetransfer"),
+		"uspesneNahranoNaServer" => __("Úspěšně nahráno na server","yourpraguetransfer"),
+		"zruseno" => __("Zrušeno","yourpraguetransfer"),
+		"klepneteProZruseni" => __("Klepněte pro zrušení", "yourpraguetransfer"),
+		"klepneteProOpakovani" => __("Klepněte pro opakování", "yourpraguetransfer")
 	),
     "google_api_key" => GOOGLE_API_KEY
 );
@@ -688,196 +679,23 @@ define("ADD_WATERMARK", false);
 define("WATERMARK", __DIR__ . "/../../../assets/images/images_backend/watermark.png");
 define("WATERMARK_RESIZE_FACTOR", 1);
 
-$dispozice_options = array(
-	__("1+KK", "realsys") => __("1+KK", "realsys"),
-	__("1+1", "realsys") => __("1+1", "realsys"),
-	__("2+1", "realsys") => __("2+1", "realsys"),
-	__("3+1", "realsys") => __("3+1", "realsys"),
-	__("4+1", "realsys") => __("4+1", "realsys"),
-	__("5+1", "realsys") => __("5+1", "realsys"),
-	__("Více než 6", "realsys") => __("Více než 6", "realsys"),
-);
-
-
-// FILTER PARAMETERS
-
-$before24 = time() - 24*60*60;
-$before_month = time() - 30*24*60*60;
-$before_three_month = time() - 3*30*24*60*60;
-$dispozice_filter_options = $dispozice_options;
-$dispozice_filter_options[-1] = __("--Bez filtru--","realsys");
-
-$filter_parameters = array(
-	'db_typ_inzeratu' => array(
-		'name' => __('Typ inzerátu',"realsys"),
-		'type' => 'customswitcher',
-		'values' => array()
-	),
-	'db_typ_stavby' => array(
-		'name' => __("Typ stavby","realsys"),
-		'type' => 'select',
-		'values' => array()
-	),
-	'db_vybavenost' => array(
-		'name' => __('Vybavenost',"realsys"),
-		'type' => 'option',
-		'values' => array()
-	),
-	'db_lokalita' => array(
-		'name' => __('Lokalita',"realsys"),
-		'type' => 'map-search',
-		'values' => false,
-		'class' => "js-autocomplete"
-	),
-	'db_cena' => array(
-		'name' => __('Cena',"realsys"),
-		'type' => 'slider',
-		'values' => array(0,3000000)
-	),
-	'db_pocet_mistnosti' => array(
-		'name' => __('Dispozice',"realsys"),
-		'type' => 'select',
-		'values' => $dispozice_filter_options
-	),
-	'db_podlahova_plocha' => array(
-		'name' => __('Velikost',"realsys"),
-		'type' => 'slider',
-		'values' => array(0,255)
-	),
-	'db_datum_zalozeni' => array(
-		'name' => __("Datum přidání inzerátu","realsys"),
-		'type' => 'select-special',
-		'values' => array(
-			$before24 => array(
-				'label' => __('Méně jak 24h',"realsys"),
-				'operator' => '>'
-			),
-			$before_month => array(
-				'label' => __('Méně jak 1 měsíc',"realsys"),
-				'operator' => '>'
-			),
-			$before_three_month => array(
-				'label' => __('Méně jak 3 měsíce',"realsys"),
-				'operator' => '>'
-			),
-			-1 => array(
-				'label' => __('--Bez filtru--',"realsys"),
-				'operator' => '='
-			)
-		)
-	),
-	'db_balkon' => array(
-		'name' => __("Balkón","realsys"),
-		'type' => "checkbox",
-		'values' => false
-	),
-	'db_garaz' => array(
-		'name' => __("Garáž","realsys"),
-		'type' => "checkbox",
-		'values' => false
-	),
-	'db_vytah' => array(
-		'name' => __("Výtah","realsys"),
-		'type' => "checkbox",
-		'values' => false
-	),
-	'db_terasa' => array(
-		'name' => __("Terasa","realsys"),
-		'type' => "checkbox",
-		'values' => false
-	),
-	'db_parkovaci_misto' => array(
-		'name' => __("Parkování","realsys"),
-		'type' => "checkbox",
-		'values' => false
-	)
-);
-
-// FILTER HP PARAMETERS - filtery pro HP
-$filter_hp_parameters = array(
-	'db_typ_inzeratu',
-	'db_pocet_mistnosti',
-	'db_typ_stavby',
-	'db_lokalita'
-);
-
-
-// CENIK TOPOVANI
-$cenik = array(
-	20 => 15,
-	50 => 200,
-	100 => 500,
-	500 => 800
-);
-
-define("ALONE_CREDIT_PRICE", 4);
-
-
-// Ceníky služeb
-define("SLUZBA_HLIDACI_PES", 0);
-define("SLUZBA_TOPOVANI_INZERATU", 1);
-
-$cenik_sluzeb = array(
-	0 => array(
-		'id' => 0,
-		'name' => __('Hlídací pes',"realsys"),
-		'price' => 2
-	),
-	1 => array(
-		'id' => 1,
-		'name' => __('Topování inzerátu.',"realsys"),
-		'logName' => 'Top inzerátu ID: %d',
-		'price' => 1,
-		'requireEntity' => true,
-		'handleFunction' => "handleTopInzerat"
-	),
-	2 => array(
-		'id' => 2,
-		'name' => __('Zobrazení kontaktu',"realsys"),
-		'logName' => 'Zobrazení kontaktu ID: %d',
-		'price' => 3,
-		'requireEntity' => true
-	)
-);
-
-$patra_options = array(
-	1 => __("1. patro", "realsys"),
-	2 => __("2. patro", "realsys"),
-	3 => __("3. patro", "realsys"),
-	4 => __("4. patro", "realsys"),
-	5 => __("5. patro", "realsys"),
-	6 => __("6. patro", "realsys"),
-	7 => __("7. patro", "realsys"),
-	8 => __("8. patro", "realsys"),
-	9 => __("9. patro", "realsys"),
-	10 => __("10. patro", "realsys"),
-	11 => __("11. patro", "realsys"),
-	12 => __("12. patro", "realsys"),
-	13 => __("13. patro", "realsys"),
-	14 => __("14. patro", "realsys"),
-	15 => __("15. patro", "realsys"),
-);
-
-
-$celkem_podlazi_options = array(
-	1 => __("jednoho", "realsys"),
-	2 => __("dvou", "realsys"),
-	3 => __("tří", "realsys"),
-	4 => __("čtyř", "realsys"),
-	5 => __("pěti", "realsys"),
-	6 => __("šesti", "realsys"),
-	7 => __("sedmi", "realsys"),
-	8 => __("osmi", "realsys"),
-	9 => __("devíti", "realsys"),
-	10 => __("deseti", "realsys"),
-	11 => __("jedenácti", "realsys"),
-	12 => __("dvanácti", "realsys"),
-	13 => __("třinácti", "realsys"),
-	14 => __("čtrnácti", "realsys"),
-	15 => __("patnácti", "realsys"),
-);
-
 
 /* SENDING MAIL FROM */
 define("SENDER_MAIL","info@yourpraguetransfer.cz");
 define("SENDER_NAME", "Automat");
+
+
+/* TRANSLATION ENTITIES */
+$translation_entities = array(
+    'vozidloClass' => array(
+        'db_nazev',
+        'db_popis'
+    ),
+    'referenceClass' => array(
+        'db_pozice',
+        'db_reference'
+    ),
+    'ciselnikClass' => array(
+        'db_translation'
+    )
+);
