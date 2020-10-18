@@ -431,6 +431,7 @@ function getCarOffers(){
         foreach ($response->cars as $key => $value){
             $value->getSubobject("obrazek");
             $value->writeDials();
+            $value->translateWriteEntity();
             $value->ignoreInterface();
         }
     }

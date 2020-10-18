@@ -286,13 +286,10 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 
             global $translation_entities;
             if(isset($translation_entities[get_class($this)])){
-                $translation_class = array_values($translation_entities[get_class($this)]);
-                globalUtils::writeDebug($translation_class);
-                if(isset($translation_class[$name])){
-                    echo "YES I AM TRANSLATED: " . $name . "<br>";
+                $translation_class = $translation_entities[get_class($this)];
+                if(in_array($name, $translation_class)){
                     return __($this->$name, PLUGIN_SLUG);
                 }
-
             }
         }
         return $this->$name;
@@ -761,6 +758,23 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 
 	public function translateEntity(){
 	    $this->translate = true;
+    }
+
+    public function translateWriteEntity(){
+	    global $translation_entities;
+        $db_props = $this->vratDbPromenne();
+
+        if(isset($translation_entities[get_class($this)])){
+            $translation_class = $translation_entities[get_class($this)];
+        }
+
+        foreach ($db_props as $key => $value){
+            $newkey = "db_" . $key;
+            if(in_array($newkey,$translation_class)){
+                $this->setForceNotUpdate();
+                $this->$newkey = __($value, PLUGIN_SLUG);
+            }
+        }
     }
 
 

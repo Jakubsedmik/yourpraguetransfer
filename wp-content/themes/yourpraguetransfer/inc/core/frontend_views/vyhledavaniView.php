@@ -13,6 +13,8 @@
         destination_to="<?php echo $this->workData['destination_to']; ?>"
         destination_from="<?php echo $this->workData['destination_from']; ?>"
 
+        :translations="<?php echo Tools::prepareJsonToOutputHtmlAttr($this->workData['vyhledavani_translations']); ?>"
+
     ></search-component>
 
 </div>

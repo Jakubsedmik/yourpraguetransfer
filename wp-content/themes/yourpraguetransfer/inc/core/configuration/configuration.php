@@ -45,8 +45,8 @@ define("GOOGLE_SERVER_API_KEY", "AIzaSyDLb5HxunZlhEtXHmELaNbd9XMajfkoQvc");
 
 // CURRENCY
 define("CURRENCY", "Kč");
-define("CURRENCY_CODE", "PLN");
-define("LANG_CODE", "pl-PL");
+define("CURRENCY_CODE", "CZK");
+define("LANG_CODE", "en-US");
 
 $currencies = array(
     0 => array(
@@ -58,7 +58,6 @@ $currencies = array(
         'label' => '€'
     )
 );
-
 
 
 // regex check konstanty
@@ -689,7 +688,8 @@ define("SENDER_NAME", "Automat");
 $translation_entities = array(
     'vozidloClass' => array(
         'db_nazev',
-        'db_popis'
+        'db_popis',
+        'db_trida'
     ),
     'referenceClass' => array(
         'db_pozice',

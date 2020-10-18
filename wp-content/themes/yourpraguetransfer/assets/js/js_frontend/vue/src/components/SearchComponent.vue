@@ -4,7 +4,7 @@
         <!-- REKAPITULACE -->
         <section id="your-way" class="container-fluid text-white">
             <div class="s7_underpage-slider-sw s7_sw-sec mx-auto">
-                <h1 class="text-center text-white text-uppercase font-weight-bold pb-2">Vaše cesta</h1>
+                <h1 class="text-center text-white text-uppercase font-weight-bold pb-2">{{translations.vaseCesta}}</h1>
                 <div class="s7_place-ftw d-flex align-items-center flex-md-row flex-column justify-content-center">
                     <div class="s7_place-start d-flex align-items-center">
                         <i class="fas text-white fa-map-marker-alt mr-3"></i>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <a :href="home_url" class="btn rounded-0 w-100 font-weight-bold d-flex align-items-center justify-content-between mx-auto text-uppercase">
-                    <span class="text-white">Změnit cestu</span>
+                    <span class="text-white">{{translations.zmenitCestu}}</span>
                     <i class="fas fa-chevron-right text-white"></i>
                 </a>
             </div>
@@ -47,12 +47,12 @@
             <div class="s7_car-col col-xl-6 col-12 pr-0">
                 <form action="">
                     <select name="sorting_name" id="sorting_id" class="text-uppercase border-0 rounded-0 w-100" v-model="sortBy">
-                        <option value="0" selected>Řadit dle: Ceny vzestupně</option>
-                        <option value="1">Řadit dle: Ceny sestupně</option>
+                        <option value="0" selected>{{translations.raditDleCenyVzestupne}}</option>
+                        <option value="1">{{translations.raditDleCenySestupne}}</option>
                     </select>
                     <select name="currency_name" id="curreny_id" class="text-uppercase border-0 rounded-0 w-100" v-model="currency">
-                        <option value="0" selected>Měna: CZK</option>
-                        <option value="1">Měna: EUR</option>
+                        <option value="0" selected>{{translations.menaCZK}}</option>
+                        <option value="1">{{translations.menaEUR}}</option>
                     </select>
                 </form>
 
@@ -73,25 +73,25 @@
                             <p class="s7_nabidka-aut-popis">
                                 {{getPopis(auto)}}
                                 <gallery :images="getRestPhotos(auto)" :index="image_index" v-if="getRestPhotos(auto).length > 0" @close="image_index = null"></gallery>
-                                <button class="border-0 radius-0" @click="image_index=0" v-if="getRestPhotos(auto).length > 0"><i class="far fa-image"></i>Více fotografií</button>
+                                <button class="border-0 radius-0" @click="image_index=0" v-if="getRestPhotos(auto).length > 0"><i class="far fa-image"></i>{{translations.viceFotografii}}</button>
                             </p>
                         </div>
                         <div class="s7_reservation-buttons">
                             <div class="s7_res-button-one-way d-flex align-items-center">
                                 <div class="s7_res-price w-100 font-weight-bold">
                                     <p class="s7_res-big-text">{{getPriceTowards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
-                                    <p class="s7_res-small-text mb-0">jednosměrná</p></div>
+                                    <p class="s7_res-small-text mb-0">{{translations.jednosmerna}}</p></div>
                                 <a href="#" data-toggle="modal" data-target="#Modal-form-1" @click="openPopup(auto, getPriceTowards(auto), false)" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
-                                    <span class="text-white">Rezervovat</span>
+                                    <span class="text-white">{{translations.rezervovat}}</span>
                                     <i class="fas fa-chevron-right text-white"></i>
                                 </a>
                             </div>
                             <div class="s7_res-button-two-way d-flex align-items-center">
                                 <div class="s7_res-price w-100 font-weight-bold">
                                     <p class="s7_res-big-text">{{getPriceBackwards(auto) | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
-                                    <p class="s7_res-small-text mb-0">obousměrná</p></div>
+                                    <p class="s7_res-small-text mb-0">{{translations.obousmerna}}</p></div>
                                 <a href="#" data-toggle="modal" data-target="#Modal-form-1" @click="openPopup(auto, getPriceBackwards(auto), true)" class="s7_res-btn w-100 btn rounded-0 border-0 text-uppercase d-flex justify-content-between align-items-center">
-                                    <span class="text-white">Rezervovat</span>
+                                    <span class="text-white">{{translations.rezervovat}}</span>
                                     <i class="fas fa-chevron-right text-white"></i>
                                 </a>
                             </div>
@@ -100,24 +100,24 @@
                         <div class="s7_nabidka-aut-sluzby d-flex flex-row">
                             <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_voda) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-4.png'" alt="láhev vody" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Pití zdarma</p>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">{{translations.piti}}</p>
                             </div>
                             <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_wifi) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-2.png'" alt="wifi" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Wifi na palubě</p>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">{{translations.wifi}}</p>
                             </div>
 
                             <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_vyzvednuti) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-1.png'" alt="nonstop" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Vyzvednutí v odletové hale</p>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">{{translations.vyzvednuti}}</p>
                             </div>
                             <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_klimatizace) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-3.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Klimatizované vozidlo</p>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">{{translations.klimatizace}}</p>
                             </div>
                             <div class="s7_reservation-ico text-center d-flex align-items-center" v-if="parseInt(auto.db_voucher) === 1">
                                 <figure class="s7_res-ico mb-0"><img :src="images_path + '/res-ico-5.png'" alt="platební karty" class="s7_reservation-ico-img"></figure>
-                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">Voucher na turistiku</p>
+                                <p class="s7_reservation-ico-text text-uppercase font-weight-bold mb-0">{{translations.voucher}}</p>
                             </div>
                         </div>
                     </div>
@@ -159,6 +159,7 @@
             :images_path="images_path"
             :api_url="api_url"
             :home_url="home_url"
+            :translations="translations"
         ></ReservationForms>
     </div>
 </template>
@@ -229,6 +230,10 @@
             kurz_eur: {
                 required: true,
                 type: Number
+            },
+            translations: {
+                required: true,
+                type: Object
             }
         },
         async mounted() {
