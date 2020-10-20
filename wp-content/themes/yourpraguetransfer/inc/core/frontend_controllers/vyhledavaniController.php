@@ -45,6 +45,7 @@ class vyhledavaniController extends frontendController
             $this->workData['destination_to_lat_lng'] = $lat_lng_to;
             $this->workData['eur_ratio'] = $kurz-1;
 
+
             require_once (__DIR__. "/../configuration/vue-translations.php");
             $this->workData['vyhledavani_translations'] = $vyhledavani_translations;
 

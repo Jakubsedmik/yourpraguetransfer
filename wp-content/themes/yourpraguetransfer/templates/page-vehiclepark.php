@@ -7,6 +7,8 @@
         $value->writeDials();
     }
 
+    echo CURRENCY;
+
 ?>
 
 <!-- Vehicle park -->
@@ -56,7 +58,7 @@
                     <div class="s7_vozovy-park-cena d-flex align-items-center">
                         <i class="fas fa-taxi mr-2"></i><span><strong><?php echo $value->dejData("db_cena_za_jednotku"); ?> </strong><?php echo CURRENCY ?>/<?php echo $value->dejData("db_jednotka");  ?></span>
                         <div class="s7_vozovy-park-dot mx-2"></div>
-                        <span><strong><?php echo $value->dejData("db_letistni_transfer") . ' ' . CURRENCY; ?> </strong>/<?php _e("letištní transport", PLUGIN_SLUG); ?></span>
+                        <span><strong><?php echo Tools::convertCurrency($value->dejData("db_letistni_transfer")); ?> </strong>/<?php _e("letištní transport", PLUGIN_SLUG); ?></span>
                     </div>
                     <a href="#" class="btn w-100 border-0 rounded-0 text-uppercase font-weight-bold text-white"><?php _e("Spočítat cestu", "yourpraguetransfer"); ?></a>
                 </div>

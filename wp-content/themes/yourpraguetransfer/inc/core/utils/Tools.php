@@ -149,7 +149,7 @@ class Tools {
      */
     public static function prepareJsonToOutputHtmlAttr($object){
         if($object){
-            return str_replace('"',"'",json_encode($object));
+            return str_replace('"',"'",json_encode($object, JSON_HEX_APOS));
         }else {
             return "[]";
         }
@@ -1130,10 +1130,17 @@ class Tools {
 	public static function convertCurrency($val, $currency_code = 0){
 	    global $currencies;
 	    $currency = CURRENCY;
+	    $newval = $val;
 	    if(isset($currencies[$currency_code])){
 	        $currency = $currencies[$currency_code]['label'];
         }
-	    return number_format($val, 0, ",", " ") . " " . $currency;
+
+	    if($currency_code !== BASE_CURRENCY){
+	        $newval = round($newval / self::getEURRatio());
+	        // zde je třeba získávat eur ratio jen občas ne furt a zároveň je třeba rozšířit o další měny
+        }
+
+	    return number_format($newval, 0, ",", " ") . " " . $currency;
     }
 
 	public static function getTextPart($string, $number_chars=32){
@@ -1214,8 +1221,8 @@ class Tools {
             }
         }
         return false;
-
     }
+
 
 
 }

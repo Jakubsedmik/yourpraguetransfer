@@ -3,8 +3,8 @@
 $vyhledavani_translations = array(
 	"vaseCesta" => __("Vaše cesta", "yourpraguetransfer"),
 	"rezervovat" => __("Rezervovat", "yourpraguetransfer"),
-	"jednosměrná"=> __("jednosměrná", "yourpraguetransfer"),
-	"obousměrná" => __("obousměrná", "yourpraguetransfer"),
+	"jednosmerna"=> __("jednosměrná", "yourpraguetransfer"),
+	"obousmerna" => __("obousměrná", "yourpraguetransfer"),
 	"wifi"=> __("Wifi na palubě", "yourpraguetransfer"),
 	"vyzvednuti"=> __("Vyzvednutí v odletové hale", "yourpraguetransfer"),
 	"klimatizace"=> __("Klimatizované vozidlo", "yourpraguetransfer"),
