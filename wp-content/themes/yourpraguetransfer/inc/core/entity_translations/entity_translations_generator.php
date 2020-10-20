@@ -2,23 +2,11 @@
 
 
 function generateNewStrings(){
-    $entities = array(
-        'vozidloClass' => array(
-            'db_nazev',
-            'db_popis'
-        ),
-        'referenceClass' => array(
-            'db_pozice',
-            'db_reference'
-        ),
-        'ciselnikClass' => array(
-            'db_translation'
-        )
-    );
+    global $translation_entities;
 
     $totalString = "<?php\r\n";
 
-    foreach ($entities as $key => $value){
+    foreach ($translation_entities as $key => $value){
         $allEntities = assetsFactory::getAllEntity($key);
         foreach ($allEntities as $key1 => $value1){
             foreach ($value as $key2 => $value2){

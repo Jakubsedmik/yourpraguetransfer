@@ -34,6 +34,7 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 	private $subobjects; // proměnná sloužící k automatickému načítání struktur, které jsou k objektu přiřazené pomocí vazeb
 	private $forceNotUpdate;
 	private $serialize_only_database_values;
+	private $translate;
     
     /*
      * Konstruktor základního Kamene
@@ -53,6 +54,7 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
         $this->ignoreInterface = false;
         $this->valid = true;
         $this->forceNotUpdate = false;
+        $this->translate = false;
         
         if( $id > -1 ){
             $this->empty = true;
@@ -277,8 +279,19 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
     
     /*
      * magic get
+     * pokud je nastavené překládání tak vrací rovnou přeložené stringy
      */
     public function __get($name) {
+        if($this->translate == true){
+
+            global $translation_entities;
+            if(isset($translation_entities[get_class($this)])){
+                $translation_class = $translation_entities[get_class($this)];
+                if(in_array($name, $translation_class)){
+                    return __($this->$name, PLUGIN_SLUG);
+                }
+            }
+        }
         return $this->$name;
     }
 
@@ -742,6 +755,27 @@ abstract class zakladniKamenClass implements manipulationInterface, JsonSerializ
 	public function setForceNotUpdate(){
 		$this->set_not_update("forceNotUpdate",true);
 	}
+
+	public function translateEntity(){
+	    $this->translate = true;
+    }
+
+    public function translateWriteEntity(){
+	    global $translation_entities;
+        $db_props = $this->vratDbPromenne();
+
+        if(isset($translation_entities[get_class($this)])){
+            $translation_class = $translation_entities[get_class($this)];
+        }
+
+        foreach ($db_props as $key => $value){
+            $newkey = "db_" . $key;
+            if(in_array($newkey,$translation_class)){
+                $this->setForceNotUpdate();
+                $this->$newkey = __($value, PLUGIN_SLUG);
+            }
+        }
+    }
 
 
 	// predpis implementaci

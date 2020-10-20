@@ -1,0 +1,29 @@
+.s7-languageSwitcher{
+    position: fixed;
+    top: 0px;
+    right: 25px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    z-index: 999;
+    padding: 3px 5px;
+    background-color: #e4e4e4;
+}
+
+.s7-languageSwitcher li img{
+    width: 24px;
+    height: auto;
+}
+
+.s7-languageSwitcher li{
+    margin-right: 10px;
+}
+
+.s7-languageSwitcher li:last-of-type{
+    margin: 0px;
+}
+
+.admin-bar .s7-languageSwitcher{
+    top: 32px;
+}

