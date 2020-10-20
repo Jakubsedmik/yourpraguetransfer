@@ -1,0 +1,483 @@
+/*
+Theme Name: Your Prague Transfer
+Text Domain: yourpraguetransfer
+Version: 1.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Šablona pro autodopravue your prague transfer
+Tags: transport, transfer, prague, responsive
+Author: Studioseven.cz
+Author URI: https://studioseven.cz/
+*/
+
+/*----- RESPO -----*/
+@media only screen and (max-width: 1199px){
+    /*Burger Icon*/
+    #s7_nav-icon3{
+    width: 40px;
+    height: 22px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    }
+
+    #s7_nav-icon3 span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: var(--s7_color-2);
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+
+    #s7_nav-icon3 span:nth-child(1) {
+        top: 0px;
+    }
+
+    #s7_nav-icon3 span:nth-child(2),#s7_nav-icon3 span:nth-child(3) {
+        top: 9px;
+    }
+
+    #s7_nav-icon3 span:nth-child(4) {
+        top: 18px;
+    }
+
+    #s7_nav-icon3.open span:nth-child(1) {
+        top: 12px;
+        width: 0%;
+        left: 50%;
+    }
+
+    #s7_nav-icon3.open span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #s7_nav-icon3.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    #s7_nav-icon3.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    #s7_nav-icon3.open span, #s7_nav-icon3:hover span  {
+        background: var(--s7_color-3);
+    }
+    /*--- Respo logo ---*/
+    .navbar img{
+        height: auto;
+        max-width: 300px;
+    }
+    /*--- Respo Menu ---*/
+    header .navbar-nav{
+        padding-top: 25px;
+        padding-bottom: 15px;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link{
+        font-size: 14px;
+    }
+    /*--- Vehicle Park ---*/
+    #vozovy-park h3{
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 991px){
+    /*--- Main Slider ---*/
+    #main-slider input{
+        max-width: 250px;
+    }
+    
+    /*--- Vehicle Park ---*/
+    #vozovy-park .s7_vozovy-park-cena, #vozovy-park .btn, #contact .s7_contact-text,#main-slider .s7_slider-under-title-text, #main-slider .font-italic, #main-slider .btn, #vozovy-park .s7_btn-all-cars, #vozovy-park .s7_vozovy-park-text{
+        font-size: 18px;
+    }
+    
+    /*--- References ---*/
+    #references .s7_references-person-img{
+        max-width: 200px;
+    }
+    #references .s7_references-slider-name{
+        font-size: 20px;
+    }
+    #references .s7_references-slider-text{
+        font-size: 18px;
+        max-width: 500px;
+    }
+    
+    /*Contact*/
+    #contact .s7_contact-col{
+        padding-bottom: 50px;
+    }
+    #contact .s7_contact-text{
+        margin-bottom: 0;
+    }
+    #contact .s7_contact-ico-img{
+        max-width: 35px;
+    }
+    #contact .s7_contact-ico-text{
+        font-size: 25px;
+    }
+    #contact .s7_map-col{
+        padding-left: 0;
+        min-height: 280px;
+    }
+    
+    /*Footer*/
+    #footer ul{
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    /*--- Main Slider ---*/
+    body.s7_stop-scroll{
+        height: 100%;
+        overflow: hidden;
+    }
+    body:before{
+        width: 100vw;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.0);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.2s ease-out;
+        z-index: 1;
+    }
+    body.s7_stop-scroll:before{
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    body h1{
+        font-size: 45px;
+    }
+    body h2{
+        font-size: 33px;
+    }
+    .mb-50{
+        margin-bottom: 25px!important;
+    }
+    #main-slider{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        min-height: 780px;
+    }
+    #main-slider .s7_slider-under-title-text{
+        margin-bottom: 10px;
+    }
+    #main-slider .s7_slider-inputs{
+        margin-bottom: 10px;
+    }
+    #main-slider input{
+        max-width: 450px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #main-slider .s7_ftw-arrown i{
+        font-size: 28px;
+        transition: 0.1s ease-in-out;
+        transform: rotate(90deg);
+    }
+    #main-slider .s7_ftw-arrown i.active{
+        transform: rotate(90deg) scale(1.5);
+    }
+    #main-slider .btn{
+        max-width: 240px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #main-slider .btn:hover{
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+    #main-slider .s7_slider-ico{
+        flex-basis: calc(100% / 3);
+        flex-grow: unset;
+    }
+    /*--- Vehicle Park ---*/
+    #vozovy-park .s7_vozovy-park-text{
+        margin-bottom: 30px;
+    }
+    #vozovy-park .s7_btn-all-cars{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #vozovy-park .s7_btn-all-cars:hover{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    /*--- Footer ---*/
+    #footer{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #footer .s7_footer-logo{
+        max-width: 400px;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    #footer .col-12:nth-child(2){
+        margin-bottom: 30px;
+    }
+    #footer .s7_footer-contact{
+        font-size: 18px;
+    }
+    #footer .s7_footer-contact-phone, #footer .s7_footer-contact-envelope{
+        margin-bottom: 15px;
+    }
+    #footer .s7_footer-contact-map{
+        margin-bottom: 40px;
+    }
+    #footer .s7_footer-social-ico{
+        margin-bottom: 10px;
+    }
+    
+    /*Under Pages*/
+    .s7_hiw_sec1 h1{
+        margin-bottom: 50px;
+    }
+    .page-template-cms-template #content .container-fluid{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-size: cover;
+        background-position: center;
+    }
+    .s7_us_sec4 .wp-block-group, .s7_us_sec4 .wp-block-group__inner-container .wp-block-group:first-child, .s7_us_sec4 .wp-block-group__inner-container .wp-block-group:last-child, .s7_us_sec4 .wp-block-group{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .s7_safety_sec4:before, .s7_hiw_sec5:before, .s7_us_sec4_g:before, .s7_us_sec4_w:before{
+        border-left-width: 20px!important;
+        border-top-width: 20px!important;
+        border-right-width: 20px!important;
+        border-bottom-width: 20px!important;
+        bottom: -40px!important;
+    }
+    .s7_hiw_sec1 p, .s7_hiw_sec6 p, .s7_hiw_sec7 p, .s7_us_sec1 p{
+        font-size: 16px;
+    }
+    .s7_us_sec4 .wp-block-columns .wp-block-column{
+        margin-left: 0;
+    }
+    .s7_hiw_sec2 .wp-block-columns .wp-block-column:first-child, .s7_hiw_sec5 .wp-block-columns .wp-block-column:first-child, .s7_us_sec4 .wp-block-columns .wp-block-column:first-child{
+        padding-right: 50px;
+    }
+    .s7_hiw_sec2 .wp-block-columns .wp-block-column:last-child, .s7_hiw_sec5 .wp-block-columns .wp-block-column:last-child, .s7_us_sec4 .wp-block-columns .wp-block-column:last-child{
+        margin-left: 0px;
+    }
+    .blocks-gallery-grid.columns-6 .blocks-gallery-image, .blocks-gallery-grid.columns-6 .blocks-gallery-item, .wp-block-gallery.columns-6 .blocks-gallery-image, .wp-block-gallery.columns-6 .blocks-gallery-item{
+        width: calc((100% - 80px)/4);
+    }
+    .blocks-gallery-grid.columns-6 .blocks-gallery-image:nth-of-type(4n), .blocks-gallery-grid.columns-6 .blocks-gallery-item:nth-of-type(4n), .wp-block-gallery.columns-6 .blocks-gallery-image:nth-of-type(4n), .wp-block-gallery.columns-6 .blocks-gallery-item:nth-of-type(4n){
+        margin-right: 0!important;
+    }
+    .blocks-gallery-grid.columns-6 .blocks-gallery-image:nth-of-type(6n), .blocks-gallery-grid.columns-6 .blocks-gallery-item:nth-of-type(6n), .wp-block-gallery.columns-6 .blocks-gallery-image:nth-of-type(6n), .wp-block-gallery.columns-6 .blocks-gallery-item:nth-of-type(6n), .blocks-gallery-grid.columns-6 .blocks-gallery-image:nth-of-type(2n), .blocks-gallery-grid.columns-6 .blocks-gallery-item:nth-of-type(2n), .wp-block-gallery.columns-6 .blocks-gallery-image:nth-of-type(2n), .wp-block-gallery.columns-6 .blocks-gallery-item:nth-of-type(2n){
+        margin-right: 16px;
+    }
+    .navbar ul .nav-item:not(:last-child) .nav-link:before{
+        width: 100%;
+        left: 0;
+    }
+    .s7_us_sec4 .wp-block-columns .wp-block-column{
+        margin-left: 0;
+    }
+    .s7_us_sec4{
+        padding-top: 0!important;
+        padding-bottom: 0!important;
+    }
+    .s7_us_sec7 .wp-block-columns .wp-block-column:last-child{
+        margin-left: 0;
+        flex-basis: 50%!important;
+        padding-left: 20px;
+    }
+    .s7_us_sec7 .wp-block-columns .wp-block-column:first-child{
+        padding-right: 20px;
+        flex-basis: 50%!important;
+    }
+    .s7_hiw_sec2 .wp-block-columns{
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 600px){
+    .text-left{
+        text-align: center!important;
+    }
+    .s7_hiw_sec2 .wp-block-columns .wp-block-column:first-child, .s7_hiw_sec5 .wp-block-columns .wp-block-column:first-child, .s7_us_sec4 .wp-block-columns .wp-block-column:first-child{
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+    .s7_us_sec4_w .wp-block-columns .wp-block-column:last-child{
+        order: -1;
+    }
+    .s7_us_sec5 ul, .s7_us_sec6 ul{
+        column-count: 1;
+    }
+    .s7_us_sec7 .wp-block-columns .wp-block-column:first-child, .s7_us_sec7 .wp-block-columns .wp-block-column:last-child{
+        flex-basis: 100%!important;
+        padding-left: 0px;
+    }
+    .s7_us_sec7 .wp-block-columns .wp-block-column:last-child figure{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .s7_us_sec7 .s7_serv_taxi{
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    .s7_us_sec7, .s7_us_sec4_w, .s7_us_sec8, .s7_us_sec2, .s7_hiw_sec6{
+        padding-bottom: 0px!important;
+    }
+    .s7_us_sec7 ul{
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 575px){
+    /*--- Header ---*/
+    .navbar-toggler{
+        padding: 0.25rem 0.25rem;
+    }
+    /*--- Main Slider ---*/
+    body h1{
+        font-size: 30px;
+    }
+    body h2{
+        font-size: 24px;
+    }
+    #main-slider input::placeholder{
+        font-size: 16px;
+    }
+    #main-slider .s7_slider-ico{
+        flex-basis: calc(100% / 2);
+    }
+    /*--- Vehicle park ---*/
+    #vozovy-park h3{
+        font-size: 23px;
+    }
+    #vozovy-park .font-italic{
+        font-size: 20px;
+    }
+    #vozovy-park .row{
+        margin-bottom: 0;
+    }
+    /*--- References ---*/
+    #references{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #references .carousel-control-prev{
+        justify-content: flex-start;
+    }
+    #references .carousel-control-next{
+        justify-content: flex-end;
+    }
+    #references .carousel-control-prev-icon, #references .carousel-control-next-icon{
+        top: 10%;
+    }
+    #references .fa-chevron-left, #references .fa-chevron-right{
+        font-size: 35px;
+    }
+    #references .s7_references-slider-text{
+        max-width: 300px;
+    }
+    /*--- Number One ---*/
+    #number-one img{
+        max-width: 70px;
+    }
+    #number-one .s7_number-one-text{
+        font-size: 18px;
+    }
+    
+    /*--- Contact ---*/
+    #contact .s7_contact-ico-text{
+        font-size: 16px;
+    }
+    #contact .s7_contact-phone, #contact .s7_contact-envelope{
+        margin-bottom: 20px;
+    }
+    /*--- Header + Footer logos ---*/
+    .navbar img{
+        max-width: 250px;
+        height: 16px;
+    }
+    #copyright .s7_copyright-reference{
+        font-size: 16px;
+        letter-spacing: 10px;
+    }
+    .s7_hiw_sec1 h1{
+        margin-bottom: 25px;
+    }
+    .blocks-gallery-grid.columns-6 .blocks-gallery-image, .blocks-gallery-grid.columns-6 .blocks-gallery-item, .wp-block-gallery.columns-6 .blocks-gallery-image, .wp-block-gallery.columns-6 .blocks-gallery-item{
+        width: calc((100% - 80px)/2);
+    }
+    .blocks-gallery-grid.columns-6 .blocks-gallery-image:nth-of-type(2n), .blocks-gallery-grid.columns-6 .blocks-gallery-item:nth-of-type(2n), .wp-block-gallery.columns-6 .blocks-gallery-image:nth-of-type(2n), .wp-block-gallery.columns-6 .blocks-gallery-item:nth-of-type(2n){
+        margin-right: 0px!important;
+    }
+    .page-template-cms-template h3{
+        font-size: 20px;
+    }
+    .s7_safety_sec4 h2:before{
+        display: none;
+    }
+    .s7_hiw_sec5 h2{
+        border-bottom: 0;
+    }
+}
+@media only screen and (max-width: 400px){
+    html body{
+        margin-top: 0px;
+    }
+    body .navbar{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    #s7_nav-icon3{
+        width: 30px;
+    }
+    .navbar img{
+        max-width: 210px;
+        height: 14px;
+    }
+    .s7_us_sec7 p{
+        font-size: 18px;
+    }
+    .s7_us_sec5 li{
+        padding-left: 50px;
+        font-size: 16px;
+    }
+    .s7_us_sec5 li:before{
+        left: 0;
+    }
+    .s7_us_sec6 li{
+        padding-left: 50px;
+        font-size: 16px;
+    }
+    .s7_us_sec6 li:before{
+        left: 0;
+    }
+}
