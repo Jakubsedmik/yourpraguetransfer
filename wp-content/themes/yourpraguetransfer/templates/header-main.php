@@ -11,8 +11,11 @@
             <?php } ?>
 
         </div> <!-- Logo -->
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button id="s7_nav-icon3" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button> <!-- Burger Icon -->
         <div id="navbarCollapse" class="navbar-collapse collapse"> <!-- Responsive menu -->
             <?php if ( has_nav_menu( 'cms_header_menu' ) ) : ?>
