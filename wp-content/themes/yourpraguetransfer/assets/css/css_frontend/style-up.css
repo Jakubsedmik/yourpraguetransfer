@@ -486,3 +486,16 @@ Author URI: https://studioseven.cz/
 .s7_contact_flex p{
     margin-bottom: 0;
 }
+
+.s7_breadcrumbs ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-weight: 200;
+}
+
+.s7_breadcrumbs ul li {
+    margin: 0px 2px;
+}
