@@ -307,14 +307,11 @@ Author URI: https://studioseven.cz/
         text-align: right;
     }
     #main-slider input{
-        max-width: calc(100% - 30px)!important;
+        max-width: 100%!important;
         margin-top: 20px;
         margin-bottom: 20px;
-        padding-left: 20px!important;
+        padding-left: 50px!important;
         padding-right: 20px!important;
-    }
-    .s7_form-field img{
-        left: 0!important;
     }
     #main-slider .s7_ftw-arrown i{
         font-size: 28px;
