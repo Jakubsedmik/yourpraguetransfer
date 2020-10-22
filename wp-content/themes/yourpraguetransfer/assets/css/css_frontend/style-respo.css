@@ -186,6 +186,16 @@ Author URI: https://studioseven.cz/
         max-width: 25px;
         margin-right: 10px;
     }
+    .s7_contact_page .s7_contact-ico-text{
+        font-size: 25px;
+    }
+    .s7_contact_page .s7_contact-ico-img{
+        max-width: 40px;
+        margin-right: 15px;
+    }
+    .s7_contact_page .s7_contact-ico-img img{
+        height: auto;
+    }
 }
 
 @media only screen and (max-width: 991px){
@@ -242,6 +252,11 @@ Author URI: https://studioseven.cz/
     #res-contact .s7_res-contact-phone, #res-contact .s7_res-contact-envelope{
         margin-right: 0;
         margin-bottom: 40px;
+    }
+    
+    /*Contact*/
+    .s7_contact_page .s7_contact-ico-text{
+        font-size: 20px;
     }
 }
 
@@ -449,6 +464,21 @@ Author URI: https://studioseven.cz/
     #search-map .s7_reservation-buttons{
         width: 100%;
     }
+    .s7_contact_page .wp-block-column{
+        flex-basis: 100%;
+    }
+    .s7_contact_page .s7_contact-phone, .s7_contact_page .s7_contact-envelope{
+        margin-bottom: 20px;
+    }
+    .s7_contact_page .wp-block-columns .wp-block-column:first-child{
+        margin-bottom: 80px;
+    }
+    .s7_contact_page .wp-block-columns .wp-block-column:last-child{
+        margin-left: 0;
+    }
+    .s7_contact_page iframe{
+        height: 250px;
+    }
 }
 @media only screen and (max-width: 600px){
     .text-left{
@@ -613,5 +643,11 @@ Author URI: https://studioseven.cz/
     }
     .s7_us_sec6 li:before{
         left: 0;
+    }
+    .s7_contact_page .s7_contact-ico-text{
+        font-size: 17px;
+    }
+    .s7_contact_page .s7_contact-ico-img{
+        max-width: 30px
     }
 }

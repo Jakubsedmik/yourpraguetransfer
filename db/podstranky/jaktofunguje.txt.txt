@@ -1,10 +1,6 @@
 <!-- wp:group {"className":"container-fluid s7_hiw_sec1"} -->
 <div class="wp-block-group container-fluid s7_hiw_sec1"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","level":1,"className":"font-weight-bold text-uppercase"} -->
-<h1 class="has-text-align-center font-weight-bold text-uppercase">Jak to <span class="font-weight-light">funguje</span></h1>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"center","className":"mb-50"} -->
+<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:paragraph {"align":"center","className":"mb-50"} -->
 <p class="has-text-align-center mb-50">když jste vybrali místo vyzvednutí a místo vysazení  ,a  tipem auta  kterym by jste chteli cestovat,tak jste takmer hotoví<br>
 stačí v jednoduchých 3 krokoch vyplnit údaje o vás a  vaši  ojednávce<br>
  číslo letu pokud prilétáte ,jméno na cedulce řidiče,místo kam cestujete …<br>
