@@ -58,7 +58,7 @@
                             <strong>
                                 <?php echo Tools::convertCurrency($value->dejData("db_letistni_transfer")); ?>
                             </strong>/
-                            <?php _e("letištní transport", PLUGIN_SLUG); ?>
+                            <?php _e("letištní transport", "yourpraguetransfer"); ?>
                         </span>
                     </div>
                     <div class="s7_vozovy-park-popisky d-flex align-content-center mb-3">
