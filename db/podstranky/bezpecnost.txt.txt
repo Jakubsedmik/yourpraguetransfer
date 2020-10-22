@@ -44,8 +44,8 @@
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"id":85,"sizeSlug":"large","className":"text-center"} -->
-<figure class="wp-block-image size-large text-center"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/image6.png" alt="" class="wp-image-85"/></figure>
+<div class="wp-block-column"><!-- wp:image {"id":249,"sizeSlug":"large","className":"text-center"} -->
+<figure class="wp-block-image size-large text-center"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/child-car-seat.jpg" alt="" class="wp-image-249"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>

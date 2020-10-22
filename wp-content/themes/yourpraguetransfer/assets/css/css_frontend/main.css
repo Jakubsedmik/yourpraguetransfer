@@ -277,6 +277,9 @@ body .navbar {
   padding: 29px 25px 33px;
   position: relative;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 #vozovy-park .s7_car-img {
   margin-bottom: 10px;
@@ -346,6 +349,7 @@ body .navbar {
   max-width: 267px;
   padding-top: 11px;
   padding-bottom: 11px;
+  margin-top: auto;
 }
 #vozovy-park .s7_btn-all-cars {
   max-width: 307px;

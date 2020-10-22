@@ -201,7 +201,7 @@ Author URI: https://studioseven.cz/
 @media only screen and (max-width: 991px){
     /*--- Main Slider ---*/
     #main-slider input{
-        max-width: 250px;
+        max-width: unset!important;
     }
     
     /*--- Vehicle Park ---*/
@@ -304,11 +304,17 @@ Author URI: https://studioseven.cz/
     }
     .s7_form-field{
         width: 80%!important;
+        text-align: right;
     }
     #main-slider input{
-        max-width: 450px;
+        max-width: calc(100% - 30px)!important;
         margin-top: 20px;
         margin-bottom: 20px;
+        padding-left: 20px!important;
+        padding-right: 20px!important;
+    }
+    .s7_form-field img{
+        left: 0!important;
     }
     #main-slider .s7_ftw-arrown i{
         font-size: 28px;
@@ -414,6 +420,7 @@ Author URI: https://studioseven.cz/
     .navbar ul .nav-item:not(:last-child) .nav-link:before{
         width: 100%;
         left: 0;
+        transform: translateX(0);
     }
     .s7_us_sec4 .wp-block-columns .wp-block-column{
         margin-left: 0;
@@ -463,6 +470,7 @@ Author URI: https://studioseven.cz/
     }
     #search-map .s7_reservation-buttons{
         width: 100%;
+        max-width: unset;
     }
     .s7_contact_page .wp-block-column{
         flex-basis: 100%;
@@ -478,6 +486,18 @@ Author URI: https://studioseven.cz/
     }
     .s7_contact_page iframe{
         height: 250px;
+    }
+    #search-map .s7_res-car-img, #search-map .s7_car-text, #search-map .s7_res-car-img{
+        width: 100%;
+    }
+    #main-slider .s7_slider-usps{
+        justify-content: center;
+    }
+    #search-map .s7_nabidka-aut-popis{
+        max-width: unset;
+    }
+    .s7_res-button-one-way, .s7_res-button-two-way{
+        justify-content: space-between;
     }
 }
 @media only screen and (max-width: 600px){

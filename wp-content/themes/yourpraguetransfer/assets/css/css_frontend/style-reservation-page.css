@@ -412,7 +412,7 @@ input::-webkit-calendar-picker-indicator {
     color: var(--s7_color-2);
     font-size: 25px;
 }
-.modal .s7_input-personal-info-row{
+.modal .s7_input-personal-info-row .form-field{
     margin-bottom: 19px;
 }
 .modal .fa-star{
