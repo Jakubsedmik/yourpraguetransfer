@@ -1127,20 +1127,32 @@ class Tools {
     }
 
 
-	public static function convertCurrency($val, $currency_code = 0){
+	public static function convertCurrency($val, $currency_code = 0, $withCurrency = true){
 	    global $currencies;
-	    $currency = CURRENCY;
 	    $newval = $val;
-	    if(isset($currencies[$currency_code])){
-	        $currency = $currencies[$currency_code]['label'];
+
+	    if(is_string($currency_code)){
+	        foreach ($currencies as $key => $value){
+	            if($value['code'] == $currency_code){
+	                $currency = $value['label'];
+                }
+            }
+        }else{
+	        $currency_code = CURRENCY_CODE;
+            $currency = CURRENCY;
         }
+
 
 	    if($currency_code !== BASE_CURRENCY){
-	        $newval = round($newval / self::getEURRatio());
-	        // zde je třeba získávat eur ratio jen občas ne furt a zároveň je třeba rozšířit o další měny
+	        $newval = ceil($newval / self::getEURRatio());
         }
 
-	    return number_format($newval, 0, ",", " ") . " " . $currency;
+	    if($withCurrency){
+            return number_format($newval, 0, ",", " ") . " " . $currency;
+        }else{
+            return number_format($newval, 0, ",", " ");
+        }
+
     }
 
 	public static function getTextPart($string, $number_chars=32){
@@ -1209,6 +1221,30 @@ class Tools {
 	}
 
 	public static function getEURRatio(){
+
+        $posledniUpdate = get_option("kurz_cas");
+        $nyni = time();
+
+        if($posledniUpdate){
+            $rozdil = $nyni - $posledniUpdate;
+            if(($rozdil/60/60/24) <= 1){
+                $kurz = get_option("kurz");
+            }else{
+                $kurz = self::downloadEURRatio();
+                add_option("kurz_cas", time());
+                add_option("kurz", $kurz);
+            }
+        }else{
+            $kurz = self::downloadEURRatio();
+            add_option("kurz_cas", time());
+            add_option("kurz", $kurz);
+        }
+
+        return $kurz;
+
+    }
+
+    public static function downloadEURRatio(){
         $file = file_get_contents("http://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.xml");
         $kurzy =  simplexml_load_string($file);
         $polemen = $kurzy->tabulka->radek;

@@ -303,13 +303,23 @@ body .navbar {
 }
 #vozovy-park .s7_vozovy-park-popis {
   font-size: 15px;
+  margin-bottom: 10px;
+}
+#vozovy-park .s7_vozovy-park-popisky {
+  border-top: 1px dashed #d2d2d2;
+  padding-top: 15px;
+}
+#vozovy-park .s7_vozovy-park-popisky i {
+  color: #773da8;
 }
 #vozovy-park .s7_vozovy-park-cena {
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  line-height: 1.5;
+  border-top: 1px dashed #d2d2d2;
 }
 #vozovy-park .s7_vozovy-park-cena strong {
-  font-size: 25px;
+  font-size: 37px;
   color: var(--s7_color-3);
 }
 #vozovy-park .s7_vozovy-park-cena .fas {

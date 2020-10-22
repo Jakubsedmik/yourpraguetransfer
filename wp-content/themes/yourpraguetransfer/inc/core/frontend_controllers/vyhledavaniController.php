@@ -15,23 +15,7 @@ class vyhledavaniController extends frontendController
         if(Tools::checkPresenceOfParam("destination_from", $this->requestData) && Tools::checkPresenceOfParam("destination_to",$this->requestData)){
 
 
-            $posledniUpdate = get_option("kurz_cas");
-            $nyni = time();
-
-            if($posledniUpdate){
-                $rozdil = $nyni - $posledniUpdate;
-                if(($rozdil/60/60/24) <= 1){
-                    $kurz = get_option("kurz");
-                }else{
-                    $kurz = Tools::getEURRatio();
-                    add_option("kurz_cas", time());
-                    add_option("kurz", $kurz);
-                }
-            }else{
-                $kurz = Tools::getEURRatio();
-                add_option("kurz_cas", time());
-                add_option("kurz", $kurz);
-            }
+            $kurz = Tools::getEURRatio();
 
             $destination_from = $this->requestData['destination_from'];
             $destination_to = $this->requestData['destination_to'];
