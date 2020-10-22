@@ -203,12 +203,12 @@ Author URI: https://studioseven.cz/
     #main-slider input{
         max-width: unset!important;
     }
-    
+
     /*--- Vehicle Park ---*/
     #vozovy-park .s7_vozovy-park-cena, #vozovy-park .btn, #contact .s7_contact-text,#main-slider .s7_slider-under-title-text, #main-slider .font-italic, #main-slider .btn, #vozovy-park .s7_btn-all-cars, #vozovy-park .s7_vozovy-park-text{
         font-size: 18px;
     }
-    
+
     /*--- References ---*/
     #references .s7_references-person-img{
         max-width: 200px;
@@ -220,7 +220,7 @@ Author URI: https://studioseven.cz/
         font-size: 18px;
         max-width: 500px;
     }
-    
+
     /*Contact*/
     #contact .s7_contact-col{
         padding-bottom: 50px;
@@ -238,12 +238,12 @@ Author URI: https://studioseven.cz/
         padding-left: 0;
         min-height: 280px;
     }
-    
+
     /*Footer*/
     #footer ul{
         margin-bottom: 40px;
     }
-    
+
     /*Vyhledavani*/
     #res-contact{
         flex-direction: column;
@@ -253,7 +253,7 @@ Author URI: https://studioseven.cz/
         margin-right: 0;
         margin-bottom: 40px;
     }
-    
+
     /*Contact*/
     .s7_contact_page .s7_contact-ico-text{
         font-size: 20px;
@@ -303,7 +303,7 @@ Author URI: https://studioseven.cz/
         margin-bottom: 10px;
     }
     .s7_form-field{
-        width: 80%!important;
+        width: 100%!important;
         text-align: right;
     }
     #main-slider input{
@@ -374,7 +374,7 @@ Author URI: https://studioseven.cz/
     #footer .s7_footer-social-ico{
         margin-bottom: 10px;
     }
-    
+
     /*Under Pages*/
     .s7_hiw_sec1 h1{
         margin-bottom: 50px;
@@ -441,7 +441,7 @@ Author URI: https://studioseven.cz/
     .s7_hiw_sec2 .wp-block-columns{
         margin-bottom: 0;
     }
-    
+
     /*Vyhledavani*/
     #search-map .s7_nabidka-aut-info{
         margin-bottom: 60px;
@@ -588,7 +588,7 @@ Author URI: https://studioseven.cz/
     #number-one .s7_number-one-text{
         font-size: 18px;
     }
-    
+
     /*--- Contact ---*/
     #contact .s7_contact-ico-text{
         font-size: 16px;
