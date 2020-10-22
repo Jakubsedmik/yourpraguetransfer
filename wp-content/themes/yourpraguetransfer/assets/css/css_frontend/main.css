@@ -86,6 +86,12 @@ body .btn {
 body .btn:hover {
   background-color: var(--s7_color-3);
 }
+a {
+  color: var(--s7_color-2);
+}
+a:hover {
+  color: #000;
+}
 /*--- HEADER ---*/
 body .navbar {
   padding-top: 25px;
@@ -97,6 +103,12 @@ body .navbar {
 .navbar .nav-link {
   font-family: "Roboto";
   color: var(--s7_color-1);
+}
+.navbar .nav-item:hover a {
+  border-bottom: 2px solid var(--s7_color-2);
+}
+.navbar .nav-item a.current-menu-item {
+  border-bottom: 2px solid var(--s7_color-2);
 }
 .navbar .nav-item:last-child .nav-link {
   background-color: var(--s7_color-2);
@@ -125,11 +137,14 @@ body .navbar {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 15px;
+  left: 20px;
 }
 .s7_form-field input::placeholder,
 .s7_form-field input {
   font-size: 16px!important;
+}
+.s7_ftw-arrown {
+  min-width: 170px;
 }
 #main-slider {
   background-image: url("../../images/images_frontend/HP-bg.jpg");
@@ -257,9 +272,6 @@ body .navbar {
   padding: 29px 25px 33px;
   position: relative;
   overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 #vozovy-park .s7_car-img {
   margin-bottom: 10px;
@@ -339,7 +351,6 @@ body .navbar {
   max-width: 267px;
   padding-top: 11px;
   padding-bottom: 11px;
-  margin-top: auto;
 }
 #vozovy-park .s7_btn-all-cars {
   max-width: 307px;
