@@ -104,6 +104,9 @@ body .navbar {
   font-family: "Roboto";
   color: var(--s7_color-1);
 }
+.navbar .nav-item a {
+  border-bottom: 2px solid #fff;
+}
 .navbar .nav-item:hover a {
   border-bottom: 2px solid var(--s7_color-2);
 }
@@ -117,6 +120,7 @@ body .navbar {
 }
 .navbar .nav-item:last-child .nav-link:hover {
   background-color: var(--s7_color-3);
+  border-bottom: 2px solid #fff;
 }
 .fixed-special-top {
   position: sticky;
@@ -524,6 +528,10 @@ body .navbar {
 }
 #footer .s7_footer-nav-link {
   color: var(--s7_color-4);
+}
+#footer .s7_footer-nav-link:hover {
+  font-weight: bold;
+  color: var(--s7_color-2);
 }
 #footer .s7_footer-nav-link.active {
   font-weight: bold;
