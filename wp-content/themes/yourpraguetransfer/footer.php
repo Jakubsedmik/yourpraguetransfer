@@ -6,24 +6,16 @@
                 </figure>
                 <div class="row text-md-left text-center">
                     <div class="s7_footer-col-menu col-lg-2 col-md-6 col-12">
-                        <?php if ( is_active_sidebar( 'first_footer_col' ) ) : ?>
-                            <?php dynamic_sidebar('first_footer_col'); ?>
-                        <?php endif; ?>
+                        <?php lang_dynamic_sidebar('first_footer_col'); ?>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
-                        <?php if ( is_active_sidebar( 'second_footer_col' ) ) : ?>
-                            <?php dynamic_sidebar('second_footer_col'); ?>
-                        <?php endif; ?>
+                        <?php lang_dynamic_sidebar('second_footer_col'); ?>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
-                        <?php if ( is_active_sidebar( 'third_footer_col' ) ) : ?>
-                            <?php dynamic_sidebar('third_footer_col'); ?>
-                        <?php endif; ?>
+                        <?php lang_dynamic_sidebar('third_footer_col'); ?>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
-                        <?php if ( is_active_sidebar( 'fourth_footer_col' ) ) : ?>
-                            <?php dynamic_sidebar('fourth_footer_col'); ?>
-                        <?php endif; ?>
+                        <?php lang_dynamic_sidebar('fourth_footer_col'); ?>
                     </div>
                 </div>
             </div>

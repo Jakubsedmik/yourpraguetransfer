@@ -12,8 +12,8 @@
 <!-- Vehicle park -->
 <section id="vozovy-park" class="container-fluid">
     <div class="s7_vozovy-park-sw w-100 mx-auto">
-        <h2 class="s7_underlink position-relative font-weight-bold text-center text-uppercase"><?php echo get_theme_mod( "vozovy_park_title" ); ?></h2>
-        <p class="s7_vozovy-park-text text-center"><?php echo get_theme_mod( "vozovy_park_subtitle" ); ?></p>
+        <h2 class="s7_underlink position-relative font-weight-bold text-center text-uppercase"><?php echo_lang_theme_mod( "vozovy_park_title" ); ?></h2>
+        <p class="s7_vozovy-park-text text-center"><?php echo_lang_theme_mod( "vozovy_park_subtitle" ); ?></p>
         <div class="row justify-content-center">
             <?php foreach ($vehicles as $key => $value) : ?>
             <?php
@@ -75,7 +75,7 @@
             <?php endforeach; ?>
         </div>
         <!--a href="#" class="s7_btn-all-cars font-weight-bold d-flex mx-auto align-items-center justify-content-between w-100">
-            <span class="text-uppercase"><?php echo get_theme_mod( "vsechny_vozy" ); ?></span>
+            <span class="text-uppercase"><?php echo_lang_theme_mod( "vsechny_vozy" ); ?></span>
             <i class="fas fa-chevron-right"></i>
         </a-->
     </div>

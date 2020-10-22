@@ -1,23 +1,23 @@
 <section id="contact" class="s7_sw-sec mx-auto"> <!-- Contact -->
-    <h2 class="text-center text-uppercase font-weight-bold"><?php echo get_theme_mod( "kontakt_title" ); ?></h2>
-    <p class="s7_contact-text text-center"><?php echo get_theme_mod( "kontakt_subtitle" ); ?></p>
+    <h2 class="text-center text-uppercase font-weight-bold"><?php echo_lang_theme_mod( "kontakt_title" ); ?></h2>
+    <p class="s7_contact-text text-center"><?php echo_lang_theme_mod( "kontakt_subtitle" ); ?></p>
     <div class="row">
         <div class="s7_contact-col col-lg-6 col-12">
             <div class="s7_contact-phone d-flex align-items-center">
                 <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/phone.png" alt="phone" class="s7_contact-ico-img w-100">
-                <a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo get_theme_mod( "telefon" ); ?></a>
+                <a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo_lang_theme_mod( "telefon" ); ?></a>
             </div>
             <div class="s7_contact-envelope d-flex align-items-center">
                 <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/envelope.png" alt="phone" class="s7_contact-ico-img w-100">
-                <a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo get_theme_mod( "email" ); ?></a>
+                <a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none"><?php echo_lang_theme_mod( "email" ); ?></a>
             </div>
             <div class="s7_contact-map d-flex align-items-center">
                 <img src="<?php echo FRONTEND_IMAGES_PATH; ?>/map-mark.png" alt="phone" class="s7_contact-ico-img w-100">
-                <span class="s7_contact-ico-text font-weight-bold"><?php echo get_theme_mod( "adresa" ); ?></span>
+                <span class="s7_contact-ico-text font-weight-bold"><?php echo_lang_theme_mod( "adresa" ); ?></span>
             </div>
-            <p class="s7_contact-bigger-text font-weight-bold"><?php echo get_theme_mod( "neco_o_nas_title" ); ?></p>
-            <p class="s7_contact-info"><?php echo get_theme_mod( "neco_o_nas_subtitle" ); ?></p>
-            <a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100"><?php echo get_theme_mod( "vice_o_nas_button" ); ?></a>
+            <p class="s7_contact-bigger-text font-weight-bold"><?php echo_lang_theme_mod( "neco_o_nas_title" ); ?></p>
+            <p class="s7_contact-info"><?php echo_lang_theme_mod( "neco_o_nas_subtitle" ); ?></p>
+            <a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100"><?php echo_lang_theme_mod( "vice_o_nas_button" ); ?></a>
         </div>
         <div class="col-lg-6 col-12">
             <div class="s7_map-col h-100">

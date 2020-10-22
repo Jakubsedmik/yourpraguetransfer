@@ -27,6 +27,8 @@ class stavController extends controller {
 					'ciselnikClass',
 					'edit'
 				);
+
+                generateNewStrings();
 			}
 
 		}else{
@@ -47,6 +49,8 @@ class stavController extends controller {
 				'ciselnikClass',
 				'create'
 			);
+
+            generateNewStrings();
 
 			if($response === true){
 				$this->requestData = array();

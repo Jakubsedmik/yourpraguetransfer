@@ -74,23 +74,50 @@ function s7_theme_editor($wp_customize){
 		'priority'   => 30,
 	) );
 
+    $wp_customize->add_section( 'main_setting_en' , array(
+        'title'      => __( 'Vlastní nastavení šablony EN', 'realsys' ),
+        'priority'   => 30,
+    ) );
+
 	// DATA
 	$wp_customize->add_setting( 'slider_text_main' , array(
 		'default'   => 'Přeprava na zavolanou',
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'slider_text_main_en' , array(
+        'default'   => 'Přeprava na zavolanou',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'slider_text_secondary' , array(
 		'default'   => 'Jednoduše Zvolte odkud pojedete a kam to bude a získejte okamžik nabídky',
 		'transport' => 'refresh',
 	) );
+
+    $wp_customize->add_setting( 'slider_text_secondary_en' , array(
+        'default'   => 'Jednoduše Zvolte odkud pojedete a kam to bude a získejte okamžik nabídky',
+        'transport' => 'refresh',
+    ) );
 
 	$wp_customize->add_setting( 'slider_button_text' , array(
 		'default'   => 'Vyhledat',
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'slider_button_text_en' , array(
+        'default'   => 'Vyhledat',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'slider_perex_text' , array(
+        'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique posuere
+                        mi vitae venenatis. Suspendisse viverra ligula diam, sed pellentesque
+                        nunc luctus at. Phasellus pulvinar sagittis',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'slider_perex_text_en' , array(
         'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique posuere
                         mi vitae venenatis. Suspendisse viverra ligula diam, sed pellentesque
                         nunc luctus at. Phasellus pulvinar sagittis',
@@ -103,7 +130,17 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+    $wp_customize->add_setting( 'slider_covid_text_en' , array(
+        'default'   => '<strong class="text-white">Covid19 </strong>opatření',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'slider_covid_url' , array(
+        'default'   => '/',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'slider_covid_url_en' , array(
         'default'   => '/',
         'transport' => 'refresh',
     ) );
@@ -115,25 +152,50 @@ function s7_theme_editor($wp_customize){
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'usp1_en' , array(
+        'default'   => 'PITÍ ZDARMA',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'usp2' , array(
 		'default'   => 'PLATBA ONLINE',
 		'transport' => 'refresh',
 	) );
+
+    $wp_customize->add_setting( 'usp2_en' , array(
+        'default'   => 'PLATBA ONLINE',
+        'transport' => 'refresh',
+    ) );
 
 	$wp_customize->add_setting( 'usp3' , array(
 		'default'   => 'BEZPEČNOST',
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'usp3_en' , array(
+        'default'   => 'BEZPEČNOST',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'usp4' , array(
 		'default'   => 'WIFI NA PALUBĚ',
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'usp4_en' , array(
+        'default'   => 'WIFI NA PALUBĚ',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'usp5' , array(
 		'default'   => 'NONSTOP 24/7',
 		'transport' => 'refresh',
 	) );
+
+    $wp_customize->add_setting( 'usp5_en' , array(
+        'default'   => 'NONSTOP 24/7',
+        'transport' => 'refresh',
+    ) );
 
 
 	/* VOZOVY PARK */
@@ -142,15 +204,30 @@ function s7_theme_editor($wp_customize){
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'vozovy_park_title_en' , array(
+        'default'   => 'Náš vozový park',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'vozovy_park_subtitle' , array(
 		'default'   => 'Podívejte se, jakými vozy se u nás můžete svést. Vyberte si z naší nabídky přímo na míru.',
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'vozovy_park_subtitle_en' , array(
+        'default'   => 'Podívejte se, jakými vozy se u nás můžete svést. Vyberte si z naší nabídky přímo na míru.',
+        'transport' => 'refresh',
+    ) );
+
 	$wp_customize->add_setting( 'vsechny_vozy' , array(
 		'default'   => 'Všechny vozy',
 		'transport' => 'refresh',
 	) );
+
+    $wp_customize->add_setting( 'vsechny_vozy_en' , array(
+        'default'   => 'Všechny vozy',
+        'transport' => 'refresh',
+    ) );
 
 	/* KLIENTSKE REFERENCE */
 	$wp_customize->add_setting( 'klientske_reference_title' , array(
@@ -158,7 +235,17 @@ function s7_theme_editor($wp_customize){
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'klientske_reference_title_en' , array(
+        'default'   => 'Klientské reference',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'klientske_reference_subtitle' , array(
+        'default'   => 'Nejste si jistí? Naše reference to řeknou za nás.',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'klientske_reference_subtitle_en' , array(
         'default'   => 'Nejste si jistí? Naše reference to řeknou za nás.',
         'transport' => 'refresh',
     ) );
@@ -169,7 +256,17 @@ function s7_theme_editor($wp_customize){
 		'transport' => 'refresh',
 	) );
 
+    $wp_customize->add_setting( 'jsme_jednicka_title_en' , array(
+        'default'   => 'Jsme jednička na trhu',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'jsme_jednicka_subtitle' , array(
+        'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus nunc, pellentesque in venenatis sed, fermentum vitae nibh. Aliquam convallis pulvinar massa in rutrum',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'jsme_jednicka_subtitle_en' , array(
         'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus nunc, pellentesque in venenatis sed, fermentum vitae nibh. Aliquam convallis pulvinar massa in rutrum',
         'transport' => 'refresh',
     ) );
@@ -180,7 +277,17 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+    $wp_customize->add_setting( 'kontakt_title_en' , array(
+        'default'   => 'Kontakt',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'kontakt_subtitle' , array(
+        'default'   => 'Rezervujte si jízdu přímo na našem dispečinku. Neváhejte zavolat.',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'kontakt_subtitle_en' , array(
         'default'   => 'Rezervujte si jízdu přímo na našem dispečinku. Neváhejte zavolat.',
         'transport' => 'refresh',
     ) );
@@ -190,7 +297,17 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+    $wp_customize->add_setting( 'telefon_en' , array(
+        'default'   => '+420 722 855 989',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'email' , array(
+        'default'   => 'info@yourpraguetransfers.cz',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'email_en' , array(
         'default'   => 'info@yourpraguetransfers.cz',
         'transport' => 'refresh',
     ) );
@@ -200,7 +317,17 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+    $wp_customize->add_setting( 'adresa_en' , array(
+        'default'   => 'Evropská 27, 247 89, Praha 6',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'neco_o_nas_title' , array(
+        'default'   => 'Něco o nás',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'neco_o_nas_title_en' , array(
         'default'   => 'Něco o nás',
         'transport' => 'refresh',
     ) );
@@ -210,7 +337,17 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+    $wp_customize->add_setting( 'neco_o_nas_subtitle_en' , array(
+        'default'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.',
+        'transport' => 'refresh',
+    ) );
+
     $wp_customize->add_setting( 'vice_o_nas_button' , array(
+        'default'   => 'Více o nás',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'vice_o_nas_button_en' , array(
         'default'   => 'Více o nás',
         'transport' => 'refresh',
     ) );
@@ -227,6 +364,14 @@ function s7_theme_editor($wp_customize){
 		'type' => 'text'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_text_main_control_en', array(
+        'label'      => __( 'Hlavní nadpis slider', 'realsys' ),
+        'description' => __("Hlavní nadpis ve slideru"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_text_main_en',
+        'type' => 'text'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_text_secondary_control', array(
 		'label'      => __( 'Podnadpis slider', 'realsys' ),
 		'description' => __("Podnadpis slider"),
@@ -235,12 +380,27 @@ function s7_theme_editor($wp_customize){
 		'type' => 'text'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_text_secondary_control_en', array(
+        'label'      => __( 'Podnadpis slider', 'realsys' ),
+        'description' => __("Podnadpis slider"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_text_secondary_en',
+        'type' => 'text'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_button_text_control', array(
 		'label'      => __( 'Tlačítko ve slideru', 'realsys' ),
 		'description' => __("Tlačítko ve slideru"),
 		'section'    => 'main_setting',
 		'settings'   => 'slider_button_text'
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_button_text_control_en', array(
+        'label'      => __( 'Tlačítko ve slideru', 'realsys' ),
+        'description' => __("Tlačítko ve slideru"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_button_text_en'
+    )));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_perex_text_control', array(
 		'label'      => __( 'Perex slider', 'realsys' ),
@@ -250,6 +410,14 @@ function s7_theme_editor($wp_customize){
         'type' => 'textarea'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_perex_text_control_en', array(
+        'label'      => __( 'Perex slider', 'realsys' ),
+        'description' => __("Hutný text pod vyhledat"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_perex_text_en',
+        'type' => 'textarea'
+    )));
+
 	// USP
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp1_control', array(
 		'label'      => __( 'USP1', 'realsys' ),
@@ -258,12 +426,26 @@ function s7_theme_editor($wp_customize){
 		'settings'   => 'usp1',
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp1_control_en', array(
+        'label'      => __( 'USP1', 'realsys' ),
+        'description' => __("Pití zdarma"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'usp1_en',
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp2_control', array(
 		'label'      => __( 'USP2', 'realsys' ),
 		'description' => __("Platba online"),
 		'section'    => 'main_setting',
 		'settings'   => 'usp2',
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp2_control_en', array(
+        'label'      => __( 'USP2', 'realsys' ),
+        'description' => __("Platba online"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'usp2_en',
+    )));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp3_control', array(
 		'label'      => __( 'USP3', 'realsys' ),
@@ -272,12 +454,33 @@ function s7_theme_editor($wp_customize){
 		'settings'   => 'usp3'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp3_control_en', array(
+        'label'      => __( 'USP3', 'realsys' ),
+        'description' => __("Bezpečnost"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'usp3_en'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp4_control_en', array(
+        'label'      => __( 'USP4', 'realsys' ),
+        'description' => __("Wifi na palubě"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'usp4_en'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp4_control', array(
 		'label'      => __( 'USP4', 'realsys' ),
 		'description' => __("Wifi na palubě"),
 		'section'    => 'main_setting',
 		'settings'   => 'usp4'
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp5_control_en', array(
+        'label'      => __( 'USP5', 'realsys' ),
+        'description' => __("Nonstop 24/7"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'usp5_en'
+    )));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'usp5_control', array(
 		'label'      => __( 'USP5', 'realsys' ),
@@ -287,12 +490,26 @@ function s7_theme_editor($wp_customize){
 	)));
 
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vozovy_park_title_control_en', array(
+        'label'      => __( 'Vozový park', 'realsys' ),
+        'description' => __("Vozový park hlavní nadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'vozovy_park_title_en'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vozovy_park_title_control', array(
 		'label'      => __( 'Vozový park', 'realsys' ),
 		'description' => __("Vozový park hlavní nadpis"),
 		'section'    => 'main_setting',
 		'settings'   => 'vozovy_park_title'
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vozovy_park_subtitle_control_en', array(
+        'label'      => __( 'Vozový park podnadpis', 'realsys' ),
+        'description' => __("Vozový park podnadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'vozovy_park_subtitle_en'
+    )));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vozovy_park_subtitle_control', array(
 		'label'      => __( 'Vozový park podnadpis', 'realsys' ),
@@ -301,6 +518,13 @@ function s7_theme_editor($wp_customize){
 		'settings'   => 'vozovy_park_subtitle'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vsechny_vozy_control_en', array(
+        'label'      => __( 'Všechny vozy tlačítko', 'realsys' ),
+        'description' => __("Tlačítko všechny vozy"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'vsechny_vozy_en'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vsechny_vozy_control', array(
 		'label'      => __( 'Všechny vozy tlačítko', 'realsys' ),
 		'description' => __("Tlačítko všechny vozy"),
@@ -308,11 +532,25 @@ function s7_theme_editor($wp_customize){
 		'settings'   => 'vsechny_vozy'
 	)));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_covid_text_control_en', array(
+        'label'      => __( 'COVID19 Text', 'realsys' ),
+        'description' => __("COVID19 Tlačítko text"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_covid_text_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_covid_text_control', array(
         'label'      => __( 'COVID19 Text', 'realsys' ),
         'description' => __("COVID19 Tlačítko text"),
         'section'    => 'main_setting',
         'settings'   => 'slider_covid_text'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_covid_url_control_en', array(
+        'label'      => __( 'COVID19 Link', 'realsys' ),
+        'description' => __("COVID19 Link tlačítko"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'slider_covid_url_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'slider_covid_url_control', array(
@@ -324,12 +562,26 @@ function s7_theme_editor($wp_customize){
 
 	// Klientske reference
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_title_control_en', array(
+        'label'      => __( 'Klientské reference', 'realsys' ),
+        'description' => __("Nadpis klientské reference"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'klientske_reference_title_en'
+    )));
+
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_title_control', array(
 		'label'      => __( 'Klientské reference', 'realsys' ),
 		'description' => __("Nadpis klientské reference"),
 		'section'    => 'main_setting',
 		'settings'   => 'klientske_reference_title'
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_subtitle_control_en', array(
+        'label'      => __( 'Klientské reference', 'realsys' ),
+        'description' => __("Podnadpis klientské reference"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'klientske_reference_subtitle_en'
+    )));
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_subtitle_control', array(
 		'label'      => __( 'Klientské reference', 'realsys' ),
@@ -341,11 +593,25 @@ function s7_theme_editor($wp_customize){
 
 	// Jsme jednička
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'jsme_jednicka_title_control_en', array(
+        'label'      => __( 'Jsme jednička na trhu', 'realsys' ),
+        'description' => __("Jsme jednička na trhu nadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'jsme_jednicka_title_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'jsme_jednicka_title_control', array(
         'label'      => __( 'Jsme jednička na trhu', 'realsys' ),
         'description' => __("Jsme jednička na trhu nadpis"),
         'section'    => 'main_setting',
         'settings'   => 'jsme_jednicka_title'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'jsme_jednicka_subtitle_control_en', array(
+        'label'      => __( 'Jsme jednička na trhu', 'realsys' ),
+        'description' => __("Jsme jednička na trhu podnadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'jsme_jednicka_subtitle_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'jsme_jednicka_subtitle_control', array(
@@ -358,11 +624,25 @@ function s7_theme_editor($wp_customize){
 
     // Kontakt
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kontakt_title_control_en', array(
+        'label'      => __( 'Kontakt', 'realsys' ),
+        'description' => __("Kontakt nadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'kontakt_title_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kontakt_title_control', array(
         'label'      => __( 'Kontakt', 'realsys' ),
         'description' => __("Kontakt nadpis"),
         'section'    => 'main_setting',
         'settings'   => 'kontakt_title'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kontakt_subtitle_control_en', array(
+        'label'      => __( 'Kontakt', 'realsys' ),
+        'description' => __("Kontakt podnadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'kontakt_subtitle_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kontakt_subtitle_control', array(
@@ -372,11 +652,25 @@ function s7_theme_editor($wp_customize){
         'settings'   => 'kontakt_subtitle'
     )));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'telefon_control_en', array(
+        'label'      => __( 'Telefon', 'realsys' ),
+        'description' => __("Telefon"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'telefon_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'telefon_control', array(
         'label'      => __( 'Telefon', 'realsys' ),
         'description' => __("Telefon"),
         'section'    => 'main_setting',
         'settings'   => 'telefon'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'email_control_en', array(
+        'label'      => __( 'Email', 'realsys' ),
+        'description' => __("Email"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'email_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'email_control', array(
@@ -386,11 +680,25 @@ function s7_theme_editor($wp_customize){
         'settings'   => 'email'
     )));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'adresa_control_en', array(
+        'label'      => __( 'Adresa', 'realsys' ),
+        'description' => __("Adresa"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'adresa_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'adresa_control', array(
         'label'      => __( 'Adresa', 'realsys' ),
         'description' => __("Adresa"),
         'section'    => 'main_setting',
         'settings'   => 'adresa'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'neco_o_nas_title_control_en', array(
+        'label'      => __( 'Něco o nás', 'realsys' ),
+        'description' => __("Něco o nás nadpis"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'neco_o_nas_title_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'neco_o_nas_title_control', array(
@@ -400,11 +708,25 @@ function s7_theme_editor($wp_customize){
         'settings'   => 'neco_o_nas_title'
     )));
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'neco_o_nas_subtitle_control_en', array(
+        'label'      => __( 'Něco o nás', 'realsys' ),
+        'description' => __("Něco o nás perex"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'neco_o_nas_subtitle_en'
+    )));
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'neco_o_nas_subtitle_control', array(
         'label'      => __( 'Něco o nás', 'realsys' ),
         'description' => __("Něco o nás perex"),
         'section'    => 'main_setting',
         'settings'   => 'neco_o_nas_subtitle'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vice_o_nas_button_control_en', array(
+        'label'      => __( 'Něco o nás', 'realsys' ),
+        'description' => __("Více o nás button"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'vice_o_nas_button_en'
     )));
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vice_o_nas_button_control', array(
@@ -442,12 +764,34 @@ register_sidebar(array(
 ));
 
 register_sidebar(array(
+    'id' => 'first_footer_col_en',
+    'name' => 'Patička 1 EN',
+    'description' => 'Patička sloupec 1 EN',
+    'class' => 'col-lg-2 col-md-6 col-12',
+    'before_widget' => '<div class="s7_footer-col-menu">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
+));
+
+register_sidebar(array(
 	'id' => 'second_footer_col',
 	'name' => 'Patička 2',
 	'description' => 'Patička sloupec 2',
 	'class' => 'col-lg-3 col-md-6 col-12',
 	'before_title' => '<h3>',
 	'after_title' => '</h3>',
+    'before_widget' => '',
+    'after_widget' => '',
+));
+
+register_sidebar(array(
+    'id' => 'second_footer_col_en',
+    'name' => 'Patička 2 EN',
+    'description' => 'Patička sloupec 2 EN',
+    'class' => 'col-lg-3 col-md-6 col-12',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
     'before_widget' => '',
     'after_widget' => '',
 ));
@@ -464,12 +808,34 @@ register_sidebar(array(
 ));
 
 register_sidebar(array(
+    'id' => 'third_footer_col_en',
+    'name' => 'Patička 3 EN',
+    'description' => 'Patička sloupec 3 EN',
+    'class' => 'col-lg-4 col-md-6 col-12',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+    'before_widget' => '',
+    'after_widget' => '',
+));
+
+register_sidebar(array(
 	'id' => 'fourth_footer_col',
 	'name' => 'Patička 4',
 	'description' => 'Patička sloupec 4',
 	'class' => 'col-lg-3 col-md-6 col-12',
 	'before_title' => '<h3>',
 	'after_title' => '</h3>',
+    'before_widget' => '',
+    'after_widget' => '',
+));
+
+register_sidebar(array(
+    'id' => 'fourth_footer_col_en',
+    'name' => 'Patička 4 EN',
+    'description' => 'Patička sloupec 4 EN',
+    'class' => 'col-lg-3 col-md-6 col-12',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
     'before_widget' => '',
     'after_widget' => '',
 ));
@@ -571,4 +937,31 @@ function the_breadcrumb() {
     elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
     elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
     echo '</ul>';
+}
+
+function echo_lang_theme_mod($alias){
+    $locale = get_locale();
+    if($locale != 'cs_CZ'){
+        $lang = explode("_",$locale)[0];
+        echo get_theme_mod( $alias . "_" . $lang );
+    }else{
+        echo get_theme_mod( $alias);
+    }
+}
+
+function lang_dynamic_sidebar($id){
+
+    $locale = get_locale();
+    if($locale != 'cs_CZ') {
+        $lang = explode("_", $locale)[0];
+        if ( is_active_sidebar( $id . "_" . $lang) ){
+            dynamic_sidebar($id . "_" . $lang);
+        }
+    }else{
+        if ( is_active_sidebar( $id ) ){
+            dynamic_sidebar($id);
+        }
+    }
+
+
 }

@@ -6,8 +6,8 @@
 <!-- References -->
 <section id="references" class="container-fluid">
     <div class="s7_ref-slider s7_sw-sec mx-auto">
-        <h2 class="text-center font-weight-bold text-white text-uppercase"><?php echo get_theme_mod( "klientske_reference_title" ); ?></h2>
-        <p class="s7_reference-undertitle text-center text-white"><?php echo get_theme_mod( "klientske_reference_subtitle" ); ?></p>
+        <h2 class="text-center font-weight-bold text-white text-uppercase"><?php echo_lang_theme_mod( "klientske_reference_title" ); ?></h2>
+        <p class="s7_reference-undertitle text-center text-white"><?php echo_lang_theme_mod( "klientske_reference_subtitle" ); ?></p>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner">
                 <?php foreach($reference as $key => $value) : ?>

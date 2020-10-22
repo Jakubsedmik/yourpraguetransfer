@@ -418,17 +418,6 @@ Author URI: https://studioseven.cz/
     padding-top: 120px;
     background-color: #ebebeb;
 }
-.s7_us_sec9:before{
-    content: "";
-    left: 50%;
-    max-width: 1200px;
-    transform: translateX(-50%);
-    width: calc(100% - 50px);
-    height: 2px;
-    bottom: 0;
-    position: absolute;
-    background-color: var(--s7_color-2);
-}
 
 /*Contact*/
 .s7_contact_flex .wp-block-group__inner-container{

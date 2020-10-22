@@ -26,6 +26,8 @@ class referenceController extends controller
                 'create'
             );
 
+            generateNewStrings();
+
             if ( $response === true ) {
                 $this->requestData = array();
             }
@@ -60,6 +62,8 @@ class referenceController extends controller
                     'referenceClass',
                     'edit'
                 );
+
+                generateNewStrings();
             }
 
         } else {
