@@ -349,6 +349,20 @@ Author URI: https://studioseven.cz/
         padding-left: 40px;
         padding-right: 40px;
     }
+    #search-map select {
+      max-width:100%;
+    }
+    #search-map .s7_res-btn {
+    max-height: 40px;
+    max-width: 210px;
+    height: 40px;
+    }
+    .modal .modal-footer {
+    flex-direction: column;
+    }
+    .modal .s7_modal-footer-text {
+    width: 90%;
+    }
     /*--- Footer ---*/
     #footer{
         padding-top: 50px;
