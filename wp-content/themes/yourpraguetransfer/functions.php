@@ -1,5 +1,5 @@
 <?php
-define("VERSION_LINKS", "1.2");
+define("VERSION_LINKS", "1.3");
 session_start();
 require_once (__DIR__ . "/inc/core/entity_translations/translationHandler.php");
 
@@ -424,9 +424,8 @@ add_action("customize_register", "s7_theme_editor");
 /* Registrace menu do webu */
 function s7_registrace_menu(){
     register_nav_menu("cms_header_menu","CMS menu v hlavičce webu");
+    register_nav_menu("cms_header_menu_en","CMS menu v hlavičce webu (anglické)");
 	register_nav_menu("category_header_menu","Menu pro kategorie v hlavičce");
-    /*register_nav_menu("paticka","Menu v patičce webu");
-    register_nav_menu("doplnkoveMenu","Doplňkové menu - podmínky apod.");*/
 }
 add_action( 'after_setup_theme', 's7_registrace_menu' );
 

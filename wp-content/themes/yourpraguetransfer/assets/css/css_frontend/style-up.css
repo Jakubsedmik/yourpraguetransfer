@@ -224,12 +224,13 @@ Author URI: https://studioseven.cz/
 /*----- ABOUT US -----*/
 .s7_us_sec1{
     background-image: url("../../images/images_frontend/HP-bg.jpg");
-    padding-top: 50px;
-    padding-bottom: 60px;
+    background-position: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 .page-template-cms-template .wrapper>div:nth-of-type(2){
     background-image: none;
-    padding-top: 120px;
+    padding-top: 70px;
     padding-bottom: 0;
 }
 .s7_us_sec1 h1{

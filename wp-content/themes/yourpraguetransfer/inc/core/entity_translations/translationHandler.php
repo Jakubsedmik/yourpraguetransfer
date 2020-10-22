@@ -34,14 +34,12 @@ function power_up_translations () {
             $_SESSION['language_fe'] = $_GET['lang'];
             if(isset($languages[$language_exist]['prefered_currency'])){
                 $prefered_currency = $languages[$language_exist]['prefered_currency'];
+                $_SESSION['prefered_currency'] = $prefered_currency;
+
             }
         }
     }
 
-    if($prefered_currency !== false){
-        define("PREFERED_CURRENCY_CODE", $prefered_currency);
-        define("PREFERED_CURRENCY", $prefered_currency);
-    }
 
     if(isset($_SESSION['language_fe'])){
         switch_to_locale($_SESSION['language_fe']);
