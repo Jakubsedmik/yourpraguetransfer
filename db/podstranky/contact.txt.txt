@@ -1,0 +1,59 @@
+<!-- wp:group {"className":"container-fluid s7_contact_page"} -->
+<div class="wp-block-group container-fluid s7_contact_page"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"container s7_sw-sec mx-auto"} -->
+<div class="wp-block-group container s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:paragraph {"align":"center","className":"s7_contact-text"} -->
+<p class="has-text-align-center s7_contact-text"> Rezervujte si jízdu přímo na našem dispečinku. Neváhejte zavolat. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:group {"className":"s7_contact_flex s7_contact-phone"} -->
+<div class="wp-block-group s7_contact_flex s7_contact-phone"><div class="wp-block-group__inner-container"><!-- wp:image {"id":253,"width":50,"height":50,"sizeSlug":"large","className":"mb-0 s7_contact-ico-img"} -->
+<figure class="wp-block-image size-large is-resized mb-0 s7_contact-ico-img"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/phone.png" alt="" class="wp-image-253" width="50" height="50"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<a href="tel:+420 722 855 989" class="s7_contact-ico-text font-weight-bold text-decoration-none">+420 722 855 989</a>
+<!-- /wp:html --></div></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"s7_contact_flex s7_contact-envelope"} -->
+<div class="wp-block-group s7_contact_flex s7_contact-envelope"><div class="wp-block-group__inner-container"><!-- wp:image {"id":252,"width":50,"sizeSlug":"large","className":"mb-0 s7_contact-ico-img"} -->
+<figure class="wp-block-image size-large is-resized mb-0 s7_contact-ico-img"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/envelope.png" alt="" class="wp-image-252" width="50"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><a href="mailto:info@yourpraguetransfers.cz" class="s7_contact-ico-text font-weight-bold text-decoration-none">info@yourpraguetransfers.cz</a></p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"s7_contact_flex s7_contact-map"} -->
+<div class="wp-block-group s7_contact_flex s7_contact-map"><div class="wp-block-group__inner-container"><!-- wp:image {"id":251,"width":50,"sizeSlug":"large","className":"mb-0 s7_contact-ico-img"} -->
+<figure class="wp-block-image size-large is-resized mb-0 s7_contact-ico-img"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/map-mark.png" alt="" class="wp-image-251" width="50"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"className":"s7_contact-ico-text font-weight-bold mb-0"} -->
+<p class="s7_contact-ico-text font-weight-bold mb-0"> Evropská 27, 247 89, Praha 6 </p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"s7_contact-bigger-text"} -->
+<p class="s7_contact-bigger-text"><strong>Něco o nás</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"s7_contact-info"} -->
+<p class="s7_contact-info"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100">Více o nás</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:webfactory/map {"zoom":15,"height":450,"address":"Evropská 27"} -->
+<div class="wp-block-webfactory-map"><div class="wp-block-webfactory-map"><iframe width="100%" height="450px" src="https://www.google.com/maps/embed/v1/place?q=Evropsk%C3%A1%2027&amp;maptype=roadmap&amp;zoom=15&amp;key=AIzaSyAjyDspiPfzEfjRSS5fQzm-3jHFjHxeXB4" frameborder="0"></iframe></div></div>
+<!-- /wp:webfactory/map --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div></div>
+<!-- /wp:group --></div></div>
+<!-- /wp:group -->

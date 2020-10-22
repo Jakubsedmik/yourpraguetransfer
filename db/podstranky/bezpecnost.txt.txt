@@ -1,10 +1,6 @@
 <!-- wp:group {"className":"container-fluid s7_safety_sec1"} -->
 <div class="wp-block-group container-fluid s7_safety_sec1"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","level":1,"className":"font-weight-bold text-uppercase"} -->
-<h1 class="has-text-align-center font-weight-bold text-uppercase">Bezpečnost cestujících</h1>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold"} -->
+<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold"} -->
 <h2 class="has-text-align-center text-uppercase font-weight-bold">NAŠOU PRIORITOU <span class="font-weight-light">je vaša</span> bezpečnost a pohodlí</h2>
 <!-- /wp:heading --></div></div>
 <!-- /wp:group -->
@@ -32,15 +28,15 @@
 
 <!-- wp:group {"className":"container-fluid s7_safety_sec3"} -->
 <div class="wp-block-group container-fluid s7_safety_sec3"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","customTextColor":"#ffffff","className":"text-uppercase font-weight-bold mb-50"} -->
-<h2 class="has-text-color has-text-align-center text-uppercase font-weight-bold mb-50" style="color:#ffffff">Bezpečnost <span class="font-weight-light text-white">dětí</span></h2>
-<!-- /wp:heading -->
+<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:html -->
+<h2 class="has-text-color has-text-align-center text-uppercase font-weight-bold mb-50">Bezpečnost <span class="font-weight-light">dětí</span></h2>
+<!-- /wp:html -->
 
 <!-- wp:columns {"className":"mb-0"} -->
 <div class="wp-block-columns mb-0"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:paragraph {"customTextColor":"#ffffff","className":"text-left"} -->
-<p style="color:#ffffff" class="has-text-color text-left">pokud vezete deti v nabídce  k objednávke máte možnost priobjednat dětskou sedačku,objednání detské autosedačky je zdarma dle zákona v český republice každé díte pod 12 let musí bejt umístneno na autosedačce, tipy dětských autosedaček které nabízíme:</p>
-<!-- /wp:paragraph -->
+<div class="wp-block-column"><!-- wp:html -->
+<p class="has-text-color text-left">pokud vezete deti v nabídce  k objednávke máte možnost priobjednat dětskou sedačku,objednání detské autosedačky je zdarma dle zákona v český republice každé díte pod 12 let musí bejt umístneno na autosedačce, tipy dětských autosedaček které nabízíme:</p>
+<!-- /wp:html -->
 
 <!-- wp:list {"className":"list-unstyled"} -->
 <ul class="list-unstyled"><li>0-9 kg</li><li>9-18 kg</li><li>18-36 kg</li></ul>
@@ -56,8 +52,8 @@
 <!-- /wp:group --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"customBackgroundColor":"#ebebeb","className":"container-fluid s7_safety_sec4 position-relative text-center"} -->
-<div class="wp-block-group has-background container-fluid s7_safety_sec4 position-relative text-center" style="background-color:#ebebeb"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
+<!-- wp:group {"customBackgroundColor":"#ffffff","className":"container-fluid s7_safety_sec4 position-relative text-center"} -->
+<div class="wp-block-group has-background container-fluid s7_safety_sec4 position-relative text-center" style="background-color:#ffffff"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
 <div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold d-inline-block position-relative mb-50"} -->
 <h2 class="has-text-align-center text-uppercase font-weight-bold d-inline-block position-relative mb-50">Bezpečnost <span class="font-weight-light">osobních</span> údajů</h2>
 <!-- /wp:heading -->
@@ -68,8 +64,8 @@
 <!-- /wp:group --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"container-fluid s7_safety_sec5 position-relative"} -->
-<div class="wp-block-group container-fluid s7_safety_sec5 position-relative"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
+<!-- wp:group {"customBackgroundColor":"#ebebeb","className":"container-fluid s7_safety_sec5 position-relative"} -->
+<div class="wp-block-group has-background container-fluid s7_safety_sec5 position-relative" style="background-color:#ebebeb"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
 <div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold mb-50"} -->
 <h2 class="has-text-align-center text-uppercase font-weight-bold mb-50">Platby</h2>
 <!-- /wp:heading -->
