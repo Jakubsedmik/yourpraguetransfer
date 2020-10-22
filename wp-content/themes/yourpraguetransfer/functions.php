@@ -20,10 +20,6 @@ function s7_scripts_styles() {
 
 		// CSS - kompiluje ho automaticky LESS Watcher (při změně, ale dist nevytváří, nutno sepnout GULP)
 		wp_enqueue_style("main_css", site_url() . ASSETS_PATH . "css/css_frontend/main.css", array(), VERSION_LINKS);
-        
-        wp_enqueue_style("style_up_css", site_url() . ASSETS_PATH . "css/css_frontend/style-up.css", array(), VERSION_LINKS);
-        
-        wp_enqueue_style("style_respo_css", site_url() . ASSETS_PATH . "css/css_frontend/style-respo.css", array(), VERSION_LINKS);
 
 		// JS
 		wp_enqueue_script("jquery_js", site_url() . ASSETS_PATH . "js/js_frontend/jquery-3.5.1.min.js", array(), VERSION_LINKS, true);
@@ -532,5 +528,6 @@ add_editor_style( 'style-editor.css' );
 
 
 /* TRANSLATIONS AUTOMATION */
-
 require_once (__DIR__ . "/inc/core/entity_translations/entity_translations_generator.php");
+
+

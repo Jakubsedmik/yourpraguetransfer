@@ -49,7 +49,7 @@ Author URI: https://studioseven.cz/
     padding-bottom: 120px;
 }
 .s7_safety_sec3{
-    background-image: url("../../images/images_frontend/slider-bg.jpg");
+    background-color: #ebebeb;
     padding-top: 120px;
     padding-bottom: 120px;
 }
@@ -58,7 +58,6 @@ Author URI: https://studioseven.cz/
     margin: 0 auto;
 }
 .s7_safety_sec3 li{
-    color: white;
     position: relative;
     margin-bottom: 15px;
     padding-left: 100px;
@@ -71,8 +70,8 @@ Author URI: https://studioseven.cz/
     top: 9px;
     width: 24px;
     height: 2px;
-    background-color: white;
     margin-top: 0px;
+    background-color: var(--s7_color-4);
 }
 .s7_safety_sec4{
     padding-top: 120px;
@@ -84,10 +83,11 @@ Author URI: https://studioseven.cz/
     border-bottom: 34px solid transparent;
     border-left: 34px solid transparent;
     border-right: 34px solid transparent;
-    border-top: 34px solid #ebebeb;
+    border-top: 34px solid white;
     bottom: -68px;
     left: 50%;
     transform: translate(-50%);
+    z-index: 1;
 }
 .s7_safety_sec4 h2:before{
     content: "";
@@ -102,7 +102,7 @@ Author URI: https://studioseven.cz/
     padding-top: 120px;
     padding-bottom: 120px;
 }
-.s7_safety_sec5:before{
+.s7_safety_sec5:after{
     content: "";
     left: 50%;
     max-width: 1200px;
@@ -114,7 +114,7 @@ Author URI: https://studioseven.cz/
     background-color: var(--s7_color-2);
 }
 .s7_safety_sec5 .s7_platby_col{
-    background-color: #ebebeb;
+    background-color: white;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -206,6 +206,8 @@ Author URI: https://studioseven.cz/
 }
 .s7_hiw_sec7{
     padding-bottom: 120px;
+    padding-top: 120px;
+    background-color: #ebebeb;
 }
 .s7_hiw_sec7:before{
     content: "";
@@ -405,6 +407,10 @@ Author URI: https://studioseven.cz/
 }
 .s7_us_sec8, .s7_us_sec9{
     padding-bottom: 120px;
+}
+.s7_us_sec9{
+    padding-top: 120px;
+    background-color: #ebebeb;
 }
 .s7_us_sec9:before{
     content: "";

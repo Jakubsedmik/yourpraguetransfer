@@ -1,0 +1,650 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-18 17:43+0000\n"
+"PO-Revision-Date: 2020-10-18 17:44+0000\n"
+"Language-Team: Czech\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"Language: cs_CZ\n"
+"X-Loco-Version: 2.4.3; wp-5.3.2"
+
+#. Name of the template
+msgid "CMS Template"
+msgstr ""
+
+#: templates/page-reviews.php:33
+msgid "Google reference"
+msgstr ""
+
+#: templates/page-vehiclepark.php:10
+#: inc/core/entity_translations/entity_translations.php:18
+msgid "Shuttle"
+msgstr "Test Test"
+
+#: templates/page-vehiclepark.php:64
+msgid "Spočítat cestu"
+msgstr ""
+
+#: inc/core/api.php:85
+msgid "Objekt byl odebrán"
+msgstr ""
+
+#: inc/core/api.php:88
+msgid "Nepodařilo se odebrat"
+msgstr ""
+
+#: inc/core/api.php:92
+msgid "Chybějící vstupní data"
+msgstr ""
+
+#: inc/core/api.php:162
+msgid "Některé parametry nebyli vyplněny"
+msgstr ""
+
+#: inc/core/api.php:169
+msgid "Nastala interní chyba"
+msgstr ""
+
+#: inc/core/api.php:237
+msgid "Výsledky byli vráceny"
+msgstr ""
+
+#: inc/core/api.php:245
+msgid "Tento model v systému neexistuje"
+msgstr ""
+
+#: inc/core/api.php:290
+msgid "Uloženo"
+msgstr ""
+
+#: inc/core/api.php:293 inc/core/api.php:314
+msgid "Chybějící parametry"
+msgstr ""
+
+#: inc/core/api.php:307
+msgid "Smazáno"
+msgstr ""
+
+#: inc/core/api.php:310
+msgid "Došlo k chybě při mazání"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:511
+msgid "Heslo musí být vyplněno"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:514
+msgid "Prosím potvrďte heslo"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:517
+msgid "Uživatel s touto emailovou adresou již existuje"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:522
+msgid "Toto pole je povinné."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:523
+msgid "Zadejte platnou emailovou adresu."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:524
+msgid "Zadejte platné URL."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:525
+#: inc/core/configuration/configuration.php:526
+msgid "Zadejte platné datum."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:527
+msgid "Zadejte platné číslo."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:528
+msgid "Zadejte platné číslice."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:529
+msgid "Zadejte platné číslo kreditní karty."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:530
+msgid "Zadejte maximálně {0} znaků."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:531
+msgid "Zadejte minimálně {0} znaků."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:532
+msgid "Zadejte hodnotu mezi {0} a {1}."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:644
+msgid "Toto číslo není validní."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:645
+msgid "Toto PSČ není validní. Formát 123 45."
+msgstr ""
+
+#: inc/core/configuration/configuration.php:646
+msgid "Nahrajte svůj obrázek"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:647
+msgid "Načítání"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:648
+msgid "Uploadování"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:649
+msgid "Úspěšně nahráno na server"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:650
+msgid "Zrušeno"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:651
+msgid "Klepněte pro zrušení"
+msgstr ""
+
+#: inc/core/configuration/configuration.php:652
+msgid "Klepněte pro opakování"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:4
+msgid "Vaše cesta"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:5
+msgid "Rezervovat"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:6
+msgid "jednosměrná"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:7
+msgid "obousměrná"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:8
+msgid "Wifi na palubě"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:9
+msgid "Vyzvednutí v odletové hale"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:10
+msgid "Klimatizované vozidlo"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:11
+msgid "Pití zdarma"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:12
+msgid "Voucher na turistiku"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:13
+msgid "Změnit cestu"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:14
+msgid "Měna: CZK"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:15
+msgid "Měna: EUR"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:16
+msgid "Řadit dle: Ceny vzestupně"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:17
+msgid "Řadit dle: Ceny sestupně"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:18
+msgid "Rezervace cesty"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:19
+msgid "Proveďte rezervaci Vaší cesty a nic Vám neunikne"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:20
+msgid "Vyzvedneme Vás"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:21
+msgid "Odvezeme Vás"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:22
+msgid "Adresa"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:23
+msgid "Při změně adresy může dojít k přepočítání ceny"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:24
+msgid "Pokračovat"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:26
+msgid "Kdy pro Vás přijedeme"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:27
+msgid "(cesta zpět)"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:28
+msgid "Počet osob"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:29
+msgid "Jméno"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:30
+msgid "Příjmení"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:31
+msgid "Email"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:32
+msgid "Telefon"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:33
+msgid "Pickup sign"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:34
+msgid "Číslo letu/vlaku/autobusu"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:35
+msgid "Poznámka"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:36
+msgid "Speciální požadavky"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:37
+msgid "Velká zavazadla"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:38
+msgid "Dětská sedačka"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:39
+msgid "Rekapitulace"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:40
+msgid "osoby"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:41
+msgid "Jak zaplatíte"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:42
+msgid "Vyberte platební metodu"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:43
+msgid "Pokračováním souhlasíte s"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:44
+msgid "a s"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:45
+msgid "Platba online - kartou / online bankovním převodem"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:46
+msgid "Platba hotově v cíli"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:49
+msgid "Místo"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:50
+msgid "Osoby a datum"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:51
+msgid "Údaje objednatele"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:52
+#: inc/core/frontend_controllers/gopayController.php:71
+msgid "Platba"
+msgstr ""
+
+#: inc/core/configuration/vue-translations.php:53
+msgid "Potvrzení"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:2
+msgid "Mercedes Viano"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:3
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies non "
+"elit nec pellentesque. Nunc consectetur odio dapibus urna auctor, vel "
+"posuere nisl hendrerit. "
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:4
+msgid "Lincoln TC120"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:5
+#: inc/core/entity_translations/entity_translations.php:7
+#: inc/core/entity_translations/entity_translations.php:11
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed tristique "
+"sapien. Pellentesque et finibus lorem. Maecenas malesuada nulla ac sem "
+"lobortis gravida. In cursus quam neque, sagittis viverra risus pulvinar nec."
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:6
+msgid "Mercedes E"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:8
+msgid "Ford"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:9
+msgid ""
+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris elementum "
+"mauris vitae tortor. In laoreet, magna id viverra tincidunt, sem odio "
+"bibendum justo, vel imperdiet sapien wisi sed libero. Vivamus luctus egestas "
+"leo. In dapibus augue non sapien. Duis aute irure dolor in reprehenderit in "
+"voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:10
+msgid "Škoda"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:12
+msgid "Bussines Manager - Praha"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:13
+msgid "Velice dobrá přepravní společnost, doporučuji vyzkoušet."
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:14
+msgid "Frontend Developer"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:15
+msgid ""
+"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris elementum "
+"mauris vitae tortor. In laoreet, magna id viverra tincidunt, sem odio "
+"bibendum justo, vel imperdiet sapien wisi sed libero."
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:16
+msgid "h"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:17
+msgid "km"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:19
+msgid "Limusine"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:20
+msgid "Mikrobus"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:21
+msgid "Bussiness Class"
+msgstr ""
+
+#: inc/core/entity_translations/entity_translations.php:22
+msgid "Sedan class"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:71
+msgid "Platební brána připravena. Pokračujte do platební brány"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:75
+#: inc/core/frontend_controllers/gopayController.php:80
+#: inc/core/frontend_views/objednavkaView.php:7
+#: inc/core/frontend_views/objednavkaView.php:15
+msgid "Objednávka"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:75
+msgid "Tato objednávka již byla zaplacena"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:80
+msgid "Objednávka neexistuje"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:86
+msgid "Povinná pole"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:86
+#: inc/core/frontend_controllers/gopayController.php:139
+msgid "Některá povinná pole nebyla vyplněna"
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:120
+msgid "Objednávka byla úspěšně zaplacena."
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:128
+msgid "Zadná objednávka v systému neexistuje a nemůže být zaplacena."
+msgstr ""
+
+#: inc/core/frontend_controllers/gopayController.php:134
+msgid ""
+"Objednávka nebyla úspěšně zaplacena. Opakujte proces nebo kontaktujte "
+"administrátora"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:103
+msgid "Chyba"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:103
+msgid "Došlo k chybě při vytváření objednávky"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:108
+#: inc/core/frontend_controllers/objednavkaController.php:118
+msgid "Pole"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:108
+msgid "Pokoušíte se o něco špatného. Ceny nesedí!"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:113
+msgid "Kalkulace"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:113
+msgid "Došlo k chybě při kalkulaci ceny"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:118
+msgid "Některá pole nebyla vyplněna"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:137
+msgid "Online platební kartou"
+msgstr ""
+
+#: inc/core/frontend_controllers/objednavkaController.php:137
+msgid "Osobně"
+msgstr ""
+
+#: inc/core/frontend_controllers/vyhledavaniController.php:51
+msgid "Destination"
+msgstr ""
+
+#: inc/core/frontend_controllers/vyhledavaniController.php:51
+msgid "Chybějící parametry aplikace"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:5
+msgid "Objednávka byla zaplacena"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:7
+msgid "Děkujeme za zaplacení objednávky, níže je její rekapitulace"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:11
+msgid "Cesta tam:"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:13
+msgid "Cesta zpět:"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:15
+#: inc/core/frontend_views/objednavkaView.php:17
+msgid "Počet osob:"
+msgstr ""
+
+#: inc/core/frontend_views/confirmPaymentView.php:16
+#: inc/core/frontend_views/objednavkaView.php:18
+msgid "Cena:"
+msgstr ""
+
+#: inc/core/frontend_views/errorPaymentView.php:5
+msgid "Došlo k chybě při úhradě objednávky"
+msgstr ""
+
+#: inc/core/frontend_views/errorPaymentView.php:6
+msgid "Objednávka nebyla zaplacena."
+msgstr ""
+
+#: inc/core/frontend_views/errorPaymentView.php:7
+msgid "Znovu k platbě"
+msgstr ""
+
+#: inc/core/frontend_views/errorPaymentView.php:8
+msgid "Zpět k objednávce"
+msgstr ""
+
+#: inc/core/frontend_views/errorView.php:5
+msgid "Došlo k chybám! Snažíte se o něco špatného!"
+msgstr ""
+
+#: inc/core/frontend_views/errorView.php:6
+msgid "Došlo k chybám, tyto chyby jsou způsobené nesprávnou manipulací s webem"
+msgstr ""
+
+#: inc/core/frontend_views/gopayView.php:11
+msgid "Pokračujte do platební brány"
+msgstr ""
+
+#: inc/core/frontend_views/gopayView.php:12
+msgid ""
+"Úspěšně jsme pro Vás připravili platební bod - prosím pokračuje do platební "
+"brány"
+msgstr ""
+
+#: inc/core/frontend_views/gopayView.php:14
+#: inc/core/frontend_views/objednavkaView.php:26
+msgid "Zaplatit platební kartou"
+msgstr ""
+
+#: inc/core/frontend_views/gopayView.php:18
+msgid "Přesměrování na platební bránu"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:8
+msgid "Děkujeme"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:9
+msgid ""
+"Vaše objednávka byla zpracována. Souhrn Vaší objednávky Vám byl zaslán "
+"emailem"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:11
+msgid "Odkud pojedeme:"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:12
+msgid "Kam pojedeme:"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:13
+msgid "Kdy pojedeme:"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:19
+msgid "Platba:"
+msgstr ""
+
+#: inc/core/frontend_views/objednavkaView.php:24
+msgid ""
+"Tato objednávka již byla zaplacena. O jejím zaplacení jsme Vás informovali "
+"emailem."
+msgstr ""
+
+#. Name of the theme
+msgid "Your Prague Transfer"
+msgstr ""
+
+#. Description of the theme
+msgid "Šablona pro autodopravue your prague transfer"
+msgstr ""
+
+#. Author of the theme
+msgid "Studioseven.cz"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://studioseven.cz/"
+msgstr ""
