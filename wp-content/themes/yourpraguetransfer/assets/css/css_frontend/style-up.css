@@ -103,17 +103,6 @@ Author URI: https://studioseven.cz/
     padding-bottom: 120px;
     background-color: #ebebeb;
 }
-.s7_safety_sec5:after{
-    content: "";
-    left: 50%;
-    max-width: 1200px;
-    transform: translateX(-50%);
-    width: calc(100% - 50px);
-    height: 2px;
-    bottom: 0;
-    position: absolute;
-    background-color: var(--s7_color-2);
-}
 .s7_safety_sec5 .s7_platby_col{
     background-color: white;
     padding: 15px;
@@ -208,17 +197,6 @@ Author URI: https://studioseven.cz/
     padding-bottom: 120px;
     padding-top: 120px;
     background-color: #ebebeb;
-}
-.s7_hiw_sec7:before{
-    content: "";
-    left: 50%;
-    max-width: 1200px;
-    transform: translateX(-50%);
-    width: calc(100% - 50px);
-    height: 2px;
-    bottom: 0;
-    position: absolute;
-    background-color: var(--s7_color-2);
 }
 
 /*----- ABOUT US -----*/
