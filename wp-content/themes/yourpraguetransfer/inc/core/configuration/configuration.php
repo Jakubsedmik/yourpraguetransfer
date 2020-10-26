@@ -209,7 +209,7 @@ $field_rules = array(
             "required" => true
         ),
         'db_typ_platby' => array(
-            "type" => BOOL,
+            "type" => NUMBER,
             "required" => true
         ),
         'db_mena' => array(
@@ -593,20 +593,9 @@ require_once("relations.php");
 // CISELNIKY
 // číselníky které se přebírají z tabulky číselníků
 $dials = array(
-	'inzeratClass'  => array(
-		'db_typ_nemovitosti',
-		'db_typ_stavby',
-		'db_typ_inzeratu',
-		'db_stav_objektu',
-		'db_stav_inzeratu',
-		'db_vybavenost',
-		'db_penb',
-		'db_typ_vlastnictvi',
-		'db_material'
-	),
     'vozidloClass' => array(
         'db_trida',
-        'db_jednotka'
+        'db_jednotka',
     )
 );
 
@@ -628,8 +617,9 @@ $localDials = array(
             1 => "zaplacená"
         ),
         'db_typ_platby' => array(
-            0 => "hotově",
-            1 => "online"
+            0 => "Hotově u řidiče",
+            1 => "Online kartou předem",
+            2 => "Kartou u řidiče"
         )
     )
 );

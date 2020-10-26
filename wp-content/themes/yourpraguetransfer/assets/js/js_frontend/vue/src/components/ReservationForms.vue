@@ -7,7 +7,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content border-0" :class="{componentLoading: this.loading}">
 
-                    <div class="modal-header flex-column align-items-center border-0">
+                    <div class="modal-header flex-column align-items-center border-0" ref="scrollhere">
                         <h2 class="s7_underlink modal-title position-relative font-weight-bold text-center text-uppercase" id="Modal-form-1-Label" v-html="translations.rezervaceCesty"></h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -140,6 +140,9 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+                            <p>
+                                <strong>{{translations.vekAVaha}}</strong>
+                            </p>
                         </div>
 
                     </div>
@@ -176,6 +179,7 @@
                             <div class="s7_chose-payment-method">
                                 <label for="s7_payment-methods" class="s7_modal-body-undertext text-uppercase">{{translations.vybertePlatebniMetodu}}</label>
                                 <select name="s7_payment-methods" id="methods" class="border-0 w-100" v-model="step_fourth.payment">
+                                    <option value="2">{{translations.platbaKartouRidici}}</option>
                                     <option value="1">{{translations.platbaKartou}}</option>
                                     <option value="0">{{translations.platbaHotoveVCili}}</option>
                                 </select>
@@ -224,7 +228,7 @@
                         <p class="s7_modal-footer-text text-white m-0">5. {{translations.potvrzeni}}</p>
                     </div>
 
-                    <form :action="home_url + '/objednavka/'" method="post">
+                    <form :action="home_url + '/objednavka/'" method="post" class="fakeForm">
                         <input type="hidden" name="action" value="createNewOrder">
 
                         <input type="hidden" :name="'db_' + index" :value="field" v-for="(field,index) in form_data">
@@ -461,6 +465,19 @@
 
                 toValidate.$touch();
                 if (!toValidate.$invalid) {
+
+                    var options = {
+                        container: '.modal',
+                        easing: 'ease-in',
+                        offset: 0,
+                        force: true,
+                        cancelable: true,
+                        x: false,
+                        y: true
+                    };
+                    var element = this.$refs['scrollhere'];
+                    this.$scrollTo(element,300, options);
+
                     this.step++;
                 }
             },
@@ -603,6 +620,10 @@
         position: absolute;
         background-position: 50% 20%;
         background-repeat: no-repeat;
+    }
+
+    .fakeForm{
+        visibility: hidden;
     }
 
 </style>

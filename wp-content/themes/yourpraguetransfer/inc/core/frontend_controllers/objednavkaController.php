@@ -130,11 +130,12 @@ class objednavkaController extends frontendController {
 
             if($objednavka !== false){
                 $this->requestData = array();
+                $objednavka->writeDials();
                 $this->requestData['z'] = $objednavka->db_destinace_z;
                 $this->requestData['do'] = $objednavka->db_destinace_do;
                 $this->requestData['osob'] = $objednavka->db_pocet_osob;
-                $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, $objednavka->db_mena);
-                $this->requestData['platba'] = $objednavka->db_typ_platby == 1 ? __("Online platební kartou","yourpraguetransfer") : __("Osobně","yourpraguetransfer");
+                $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, intval($objednavka->db_mena));
+                $this->requestData['platba'] = $objednavka->db_typ_platby;
                 $this->requestData['cas_tam'] = Tools::formatTime($objednavka->db_cas);
 
                 $this->requestData['objednavka_id'] = $id;

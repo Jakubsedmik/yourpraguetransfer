@@ -65,5 +65,7 @@ $vyhledavani_translations = array(
 	"udajeObjednatele"=> __("Údaje objednatele", "yourpraguetransfer"),
 	"platba"=> __("Platba", "yourpraguetransfer"),
 	"potvrzeni"=> __("Potvrzení", "yourpraguetransfer"),
+    "vekAVaha" => __("V případě že jste zaškrtli možnost \"Dětská sedačka\", prosím napiště do poznámky věk a váhu dítěte", "yourpraguetransfer"),
+    "platbaKartouRidici" => __("Platba kartou řidiči", "yourpraguetransfer")
 
 );

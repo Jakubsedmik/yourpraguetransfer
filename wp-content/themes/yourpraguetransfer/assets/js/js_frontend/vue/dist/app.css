@@ -32,6 +32,9 @@
     background-position: 50% 20%;
     background-repeat: no-repeat;
 }
+.fakeForm{
+    visibility: hidden;
+}
 
 
 

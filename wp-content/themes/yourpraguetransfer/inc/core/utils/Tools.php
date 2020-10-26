@@ -1137,6 +1137,13 @@ class Tools {
 	                $currency = $value['label'];
                 }
             }
+        }else if(is_numeric($currency_code)){
+
+	        if(isset($currencies[$currency_code])){
+	            $currency_code_new = $currencies[$currency_code]['code'];
+	            $currency = $currencies[$currency_code]['label'];
+                $currency_code = $currency_code_new;
+            }
         }else{
 	        $currency_code = CURRENCY_CODE;
             $currency = CURRENCY;
