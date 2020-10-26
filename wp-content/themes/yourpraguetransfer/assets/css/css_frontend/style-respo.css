@@ -199,6 +199,12 @@ Author URI: https://studioseven.cz/
 }
 
 @media only screen and (max-width: 991px){
+
+    .modal .modal-body{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     /*--- Main Slider ---*/
     #main-slider input{
         max-width: unset!important;
