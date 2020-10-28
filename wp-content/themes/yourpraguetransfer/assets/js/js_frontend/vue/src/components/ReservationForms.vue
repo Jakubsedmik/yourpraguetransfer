@@ -154,9 +154,9 @@
                             <h3 class="font-weight-bold"><i class="fas fa-map-marker-alt"></i>{{translations.rekapitulace}}</h3>
                             <div class="s7_content-ico-row s7_recap-dates-times d-flex align-items-baseline">
                                 <i class="s7_content-ico far fa-calendar-alt"></i>
-                                <p class="s7_recap-date-time-start mb-0">{{step_second.time_date}}</p>
+                                <p class="s7_recap-date-time-start mb-0">{{step_second.time_date | format_date}}</p>
                                 <i class="s7_content-ico fas fa-history" v-if="selected_way_option == true"></i>
-                                <p class="s7_recap-date-time-goal mb-0" v-if="selected_way_option == true">{{step_second.time_date_two_way}}</p>
+                                <p class="s7_recap-date-time-goal mb-0" v-if="selected_way_option == true">{{step_second.time_date_two_way | format_date}}</p>
                             </div>
                             <div class="s7_content-ico-row s7_recap-persons d-flex align-items-baseline">
                                 <i class="s7_content-ico fas fa-user-alt"></i>
@@ -550,6 +550,13 @@
             format_price: function (price) {
                 let val = price;
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            },
+            format_date: function (date) {
+                var options = {
+                    year: 'numeric', month: 'numeric', day: 'numeric',
+                    hour: 'numeric', minute: 'numeric'
+                };
+                return new Intl.DateTimeFormat('cs-CZ', options).format(new Date(date));
             }
         },
         computed: {
