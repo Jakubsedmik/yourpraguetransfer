@@ -130,6 +130,7 @@ function s7_theme_editor($wp_customize){
         'transport' => 'refresh',
     ) );
 
+
     $wp_customize->add_setting( 'slider_covid_text_en' , array(
         'default'   => '<strong class="text-white">Covid19 </strong>opatření',
         'transport' => 'refresh',
@@ -349,6 +350,16 @@ function s7_theme_editor($wp_customize){
 
     $wp_customize->add_setting( 'vice_o_nas_button_en' , array(
         'default'   => 'Více o nás',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'vice_o_nas_button_url' , array(
+        'default'   => 'https://test.cz',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'vice_o_nas_button_url_cz' , array(
+        'default'   => 'https://test.com',
         'transport' => 'refresh',
     ) );
 
@@ -734,6 +745,20 @@ function s7_theme_editor($wp_customize){
         'description' => __("Více o nás button"),
         'section'    => 'main_setting',
         'settings'   => 'vice_o_nas_button'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vice_o_nas_button_url_control', array(
+        'label'      => __( 'Něco o nás', 'realsys' ),
+        'description' => __("Více o nás button URL"),
+        'section'    => 'main_setting',
+        'settings'   => 'vice_o_nas_button_url'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'vice_o_nas_button_url_control_en', array(
+        'label'      => __( 'Něco o nás', 'realsys' ),
+        'description' => __("Více o nás button URL"),
+        'section'    => 'main_setting',
+        'settings'   => 'vice_o_nas_button_url_en'
     )));
 
 

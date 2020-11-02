@@ -17,7 +17,7 @@
             </div>
             <p class="s7_contact-bigger-text font-weight-bold"><?php echo_lang_theme_mod( "neco_o_nas_title" ); ?></p>
             <p class="s7_contact-info"><?php echo_lang_theme_mod( "neco_o_nas_subtitle" ); ?></p>
-            <a href="#" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100"><?php echo_lang_theme_mod( "vice_o_nas_button" ); ?></a>
+            <a href="<?php echo_lang_theme_mod( "vice_o_nas_button_url" ); ?>" class="btn rounded-0 text-uppercase text-white font-weight-bold w-100"><?php echo_lang_theme_mod( "vice_o_nas_button" ); ?></a>
         </div>
         <div class="col-lg-6 col-12">
             <div class="s7_map-col h-100">
