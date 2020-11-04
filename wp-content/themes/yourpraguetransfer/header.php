@@ -15,7 +15,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title><?php bloginfo('name'); ?> - <?php wp_title(); ?></title>
+        <title><?php wp_title(); ?></title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/icons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo home_url(); ?>/wp-content/themes/yourpraguetransfer/assets/images/images_frontend/icons/favicon-32x32.png">
