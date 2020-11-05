@@ -913,9 +913,6 @@ body .navbar {
   }
 }
 @media only screen and (max-width: 400px) {
-  html body {
-    margin-top: 60px;
-  }
   body .navbar {
     padding-top: 10px;
     padding-bottom: 10px;

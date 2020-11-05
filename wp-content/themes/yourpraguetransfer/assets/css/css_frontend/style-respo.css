@@ -200,6 +200,10 @@ Author URI: https://studioseven.cz/
 
 @media only screen and (max-width: 991px){
 
+    body .navbar{
+        border-bottom: 2px solid #d8d8d8;
+    }
+
     .modal .modal-body{
         padding-left: 20px;
         padding-right: 20px;
@@ -356,15 +360,20 @@ Author URI: https://studioseven.cz/
       max-width:100%;
     }
     #search-map .s7_res-btn {
-    max-height: 40px;
-    max-width: 210px;
-    height: 40px;
+        max-height: 40px;
+        max-width: 210px;
+        height: 40px;
     }
     .modal .modal-footer {
-    flex-direction: column;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 60px;
     }
     .modal .s7_modal-footer-text {
-    width: 90%;
+        width: 100%;
+        margin-bottom: 3px!important;
     }
     /*--- Footer ---*/
     #footer{
@@ -555,6 +564,11 @@ Author URI: https://studioseven.cz/
     .navbar-toggler{
         padding: 0.25rem 0.25rem;
     }
+
+    .navbar-toggler:focus{
+        outline: none;
+    }
+
     /*--- Main Slider ---*/
     body h1{
         font-size: 30px;

@@ -69,7 +69,7 @@
                             <i class="fas fa-suitcase"></i> 1-<?php echo $value->db_max_zavazadel; ?> <?php _e("zavazadel", "yourpraguetransfer") ?>
                         </span>
                     </div>
-                    <a href="#" class="btn w-100 border-0 rounded-0 text-uppercase font-weight-bold text-white"><?php _e("Spočítat cestu", "yourpraguetransfer"); ?></a>
+                    <a class="btn w-100 border-0 rounded-0 text-uppercase font-weight-bold text-white js-slide-up"><?php _e("Spočítat cestu", "yourpraguetransfer"); ?></a>
                 </div>
             </div>
             <?php endforeach; ?>

@@ -27,3 +27,17 @@
 .admin-bar .s7-languageSwitcher{
     top: 32px;
 }
+
+
+@media screen and (max-width: 800px)  {
+    .s7-languageSwitcher{
+        top: 180px;
+        right: 0px;
+        flex-direction: column;
+        background-color: #c3c3c3;
+    }
+
+    .s7-languageSwitcher li{
+        margin-right: 0px;
+    }
+}

@@ -67,3 +67,10 @@ $(document).ready(function () {
     }
 
 });
+
+/* SLIDE UP */
+$(document).ready(function () {
+    $(".js-slide-up").click(function () {
+        $("body, html").animate({scrollTop: 0}, 300);
+    });
+});
