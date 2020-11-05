@@ -22,10 +22,10 @@
                     <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0 js-autocomplete" name="destination_to" required>
                 </div>
             </div>
-            <button type="submit" class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4">
+            <div type="submit" class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4">
                 <span class="text-white text-uppercase"><?php echo_lang_theme_mod( "slider_button_text" ); ?></span>
                 <i class="fas fa-chevron-right text-white"></i>
-            </button>
+            </div>
         </form>
         <p class="text-center font-italic mb-5 animate__animated animate__fadeInUp animate__delay-4s">
             <?php echo_lang_theme_mod( "slider_perex_text" ); ?>
