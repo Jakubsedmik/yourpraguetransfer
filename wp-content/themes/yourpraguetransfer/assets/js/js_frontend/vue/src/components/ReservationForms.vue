@@ -67,8 +67,8 @@
                                 <label for="s7_input-form-count-passenger" class="s7_modal-body-undertext text-uppercase">{{translations.pocetOsob}} * <span class="s7_modal-body-lower-text">{{translations.kolikOsobChcete}}</span></label>
                                 <input type="number" name="s7_input-form-count-passenger" class="border-0 w-100" v-model.trim="$v.step_second.persons.$model" @change="checkForNewPrice">
                                 <div class="s7_buttons-p-m position-absolute d-flex flex-column justify-content-between">
-                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus" @click="increasePersons()">+</button>
-                                    <button class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus" @click="decreasePersons()">-</button>
+                                    <span class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white minus" @click="increasePersons()">+</span>
+                                    <span class="s7_button-plus-minus d-flex align-items-center p-0 justify-content-center border-0 text-white plus" @click="decreasePersons()">-</span>
                                 </div>
                                 <div class="form-field-error" v-if="!$v.step_second.persons.required">{{translations.poleJePovinne}}</div>
                             </div>
@@ -191,10 +191,10 @@
                     <div class="modal-body">
 
                         <div class="s7_form-next-btn-div">
-                            <button type="submit" @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
+                            <div @click.prevent="nextStep" class="s7_form-next-btn btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100">
                                 <span class="text-white text-uppercase">{{translations.pokracovat}}</span>
                                 <i class="fas fa-chevron-right text-white"></i>
-                            </button>
+                            </div>
                         </div>
 
                         <div class="s7_form-1-end row flex-sm-row flex-column">

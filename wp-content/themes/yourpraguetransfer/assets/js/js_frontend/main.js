@@ -74,3 +74,18 @@ $(document).ready(function () {
         $("body, html").animate({scrollTop: 0}, 300);
     });
 });
+
+/* FAKE SUBMIT */
+
+$(document).ready(function () {
+    $(".js-fakeSubmit").click(function () {
+        var $form = $(this).closest("form");
+        var form = $form[0];
+        if(form.checkValidity()){
+            $form.submit();
+        }else{
+            form.reportValidity();
+        }
+    });
+});
+
