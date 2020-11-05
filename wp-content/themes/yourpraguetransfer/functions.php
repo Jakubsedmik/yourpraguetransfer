@@ -1,5 +1,5 @@
 <?php
-define("VERSION_LINKS", "1.7");
+define("VERSION_LINKS", "1.8");
 session_start();
 require_once (__DIR__ . "/inc/core/entity_translations/translationHandler.php");
 
