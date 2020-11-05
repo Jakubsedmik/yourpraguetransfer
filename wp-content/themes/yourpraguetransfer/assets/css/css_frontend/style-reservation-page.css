@@ -383,6 +383,7 @@ input::-webkit-calendar-picker-indicator {
     background-color: #afafaf;
     font-weight: 400;
     overflow: hidden;
+    cursor: pointer;
 }
 .modal .s7_buttons-p-m{
     height: 70px;

@@ -49,7 +49,7 @@ class objednavkaClass extends zakladniKamenClass {
             array(
                 "payment_link" => Tools::getFERoute("gopay",$this->getId(), "payment"),
                 "logo_link" => FRONTEND_IMAGES_PATH . "page-logo.png",
-                "cena" => Tools::convertCurrency(intval($this->db_cena), intval($this->db_mena)),
+                "cena" => Tools::convertCurrency(intval($this->db_cena), intval($this->db_mena), true, false),
                 "zpet" => ($this->db_cas_zpet != 0 ? true : false),
                 "cesta_tam" => $this->db_destinace_z,
                 "cesta_zpet" => $this->db_destinace_do,
