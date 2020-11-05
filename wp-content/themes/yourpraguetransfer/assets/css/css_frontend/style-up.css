@@ -466,3 +466,7 @@ Author URI: https://studioseven.cz/
 .s7_breadcrumbs ul li {
     margin: 0px 2px;
 }
+
+.js-fakeSubmit{
+    cursor: pointer;
+}

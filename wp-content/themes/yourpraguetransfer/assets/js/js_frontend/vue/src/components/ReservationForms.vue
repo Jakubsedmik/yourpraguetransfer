@@ -41,8 +41,7 @@
 
                     </div>
 
-
-
+                    
                     <!-- PART 2 -->
                     <div class="modal-body" v-if="step == 1">
                         <div class="s7_modal-body-content s7_modal-body-content-start-2">

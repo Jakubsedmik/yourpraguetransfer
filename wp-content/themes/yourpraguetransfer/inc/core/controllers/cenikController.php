@@ -15,7 +15,6 @@ class cenikController extends controller
             $request_data = $this->requestData;
             $id           = false;
 
-            globalUtils::writeDebug($this->requestData);
 
             $response = Tools::formProcessor(
                 array(

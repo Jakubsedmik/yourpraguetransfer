@@ -125,8 +125,8 @@ class vozidloClass extends zakladniKamenClass
         }
 
         if($currency == 1){
-            $kurz = Tools::getEURRatio();
-            $response->payload['final_price'] = ceil($response->payload['final_price'] / $kurz);
+            $kurz = round(Tools::getEURRatio(),2);
+            $response->payload['final_price'] = floor($response->payload['final_price'] / $kurz);
         }
 
         return $response;
@@ -142,7 +142,7 @@ class vozidloClass extends zakladniKamenClass
         if($unit == 0){
             $final_price = $price_per_unit * $distance;
         }else{
-            $final_price = $price_per_unit * ceil($duration / 1000 / 60 / 60);
+            $final_price = $price_per_unit * $duration;
         }
 
         $response->status = 1;

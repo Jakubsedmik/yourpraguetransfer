@@ -35,10 +35,10 @@ class objednavkaController extends frontendController {
 
             $response = vozidloClass::calculateComplexPrice($car_id, $destination_from, $destination_to, $persons, $way_option, $duration, $distance, $currency );
 
+
             if($response->status){
 
                 if($response->payload['final_price'] == $final_price){
-
 
                     $request_data = array(
                         'db_jmeno' => $this->requestData['db_name'],
@@ -130,11 +130,12 @@ class objednavkaController extends frontendController {
 
             if($objednavka !== false){
                 $this->requestData = array();
-                $objednavka->writeDials();
+
                 $this->requestData['z'] = $objednavka->db_destinace_z;
                 $this->requestData['do'] = $objednavka->db_destinace_do;
                 $this->requestData['osob'] = $objednavka->db_pocet_osob;
-                $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, intval($objednavka->db_mena));
+                $this->requestData['cena'] = Tools::convertCurrency($objednavka->db_cena, intval($objednavka->db_mena), true, false);
+                $objednavka->writeDials();
                 $this->requestData['platba'] = $objednavka->db_typ_platby;
                 $this->requestData['cas_tam'] = Tools::formatTime($objednavka->db_cas);
 
@@ -149,6 +150,8 @@ class objednavkaController extends frontendController {
                 if($objednavka->db_cas_zpet != 0){
                     $this->requestData['cas_zpet'] = Tools::formatTime($objednavka->db_cas_zpet);
                 }
+
+
             }
 
         }else{

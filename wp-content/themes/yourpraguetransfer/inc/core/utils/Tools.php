@@ -1006,7 +1006,7 @@ class Tools {
 		    $id = $id .= '[]';
         }
 		$output = '<select class="mdb-select md-form mt-0" searchable="' . $search_label . '" id="' . $id .  '" name="' . $id . '" ' . (($multiple) ? 'multiple' : '') . '>';
-
+        $output .= '<option disabled>Zóna</option>';
 		foreach ($allPossibleOptions as $key => $value){
 		    if(is_array($selected_object_id)){
 		        if(in_array($value->db_id, $selected_object_id)){
@@ -1127,7 +1127,7 @@ class Tools {
     }
 
 
-	public static function convertCurrency($val, $currency_code = 0, $withCurrency = true){
+	public static function convertCurrency($val, $currency_code = 0, $withCurrency = true, $convertCurrency = true){
 	    global $currencies;
 	    $newval = $val;
 
@@ -1150,7 +1150,7 @@ class Tools {
         }
 
 
-	    if($currency_code !== BASE_CURRENCY){
+	    if($currency_code !== BASE_CURRENCY && $convertCurrency == true){
 	        $newval = ceil($newval / self::getEURRatio());
         }
 
@@ -1247,7 +1247,7 @@ class Tools {
             add_option("kurz", $kurz);
         }
 
-        return $kurz;
+        return $kurz-1;
 
     }
 

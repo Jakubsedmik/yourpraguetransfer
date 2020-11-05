@@ -471,7 +471,7 @@ function checkCarPrice(){
         $destination_to = $data['destination_to'];
         $persons = $data['persons'];
         $selected_way_option = $data['selected_way_option'];
-        $duration = $data['duration'];
+        $duration = ceil(intval($data['duration']) / 1000 / 60 / 60);
         $distance = $data['distance'];
         $currency = $data['currency'];
 
