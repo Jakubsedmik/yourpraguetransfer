@@ -22,7 +22,7 @@
                     <input type="text" placeholder="Do místa (např. centrum Praha)" class="w-100 border-0 px-5 py-0 js-autocomplete" name="destination_to" required>
                 </div>
             </div>
-            <div type="submit" class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4">
+            <div class="btn mx-auto border-0 rounded-0 font-weight-bold d-flex justify-content-between align-items-center w-100 py-3 mb-4 js-fakeSubmit">
                 <span class="text-white text-uppercase"><?php echo_lang_theme_mod( "slider_button_text" ); ?></span>
                 <i class="fas fa-chevron-right text-white"></i>
             </div>
