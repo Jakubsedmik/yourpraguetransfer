@@ -29,13 +29,16 @@
 }
 
 
-
 @media screen and (max-width: 800px)  {
     .s7-languageSwitcher{
         top: 180px;
         right: 0px;
         flex-direction: column;
         background-color: #c3c3c3;
+    }
+
+    .admin-bar .s7-languageSwitcher{
+        top: 200px;
     }
 
     .s7-languageSwitcher li{
