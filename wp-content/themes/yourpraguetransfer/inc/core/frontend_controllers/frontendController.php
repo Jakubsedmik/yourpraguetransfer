@@ -65,8 +65,8 @@ abstract class frontendController {
 
 	    if(count($routes_passed) > 0){
 		    call_user_func(array($this, self::$beforeHeadersMethod));
-	    	add_filter("the_content", array($this, self::$afterHeadersMethod ));
-
+	    	//add_filter("the_content", array($this, self::$afterHeadersMethod ));
+            add_action("the_realsys_content", array($this, self::$afterHeadersMethod ));
 	    }
     }
 
