@@ -1,81 +1,83 @@
-<!-- wp:group {"className":"container-fluid s7_safety_sec1"} -->
-<div class="wp-block-group container-fluid s7_safety_sec1"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold"} -->
-<h2 class="has-text-align-center text-uppercase font-weight-bold">NAŠOU PRIORITOU <span class="font-weight-light">je vaša</span> bezpečnost a pohodlí</h2>
+<!-- wp:group {"align":"full"} -->
+<div class="wp-block-group alignfull"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
+<h2 class="has-text-align-center"><strong>NAŠOU PRIORITOU JE VAŠA BEZPEČNOST A POHODLÍ</strong></h2>
 <!-- /wp:heading --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"align":"center","id":76,"width":72,"sizeSlug":"large","className":"text-uppercase text-center"} -->
-<div class="wp-block-image text-uppercase text-center"><figure class="aligncenter size-large is-resized"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/Safety.png" alt="" class="wp-image-76" width="72"/><figcaption>bezpečnost</figcaption></figure></div>
+<!-- wp:image {"align":"center","id":76,"width":72,"height":70,"sizeSlug":"large"} -->
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/Safety.png" alt="" class="wp-image-76" width="72" height="70"/><figcaption>BEZPEČNOST</figcaption></figure></div>
 <!-- /wp:image -->
 
-<!-- wp:paragraph {"align":"center","className":"s7_width_x1"} -->
-<p class="has-text-align-center s7_width_x1">naše prepravní společnost Prague airport chauffers splnuje vsechny zákonné požadavky na legální  provozování smluvní prepravy osob  v Praze i mimo českou republiku .</p>
-<!-- /wp:paragraph --></div></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"container-fluid s7_safety_sec2"} -->
-<div class="wp-block-group container-fluid s7_safety_sec2"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold mb-50"} -->
-<h2 class="has-text-align-center text-uppercase font-weight-bold mb-50">Bezpečnost <span class="font-weight-light">cestujících</span></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"center","className":"s7_width_x1"} -->
-<p class="has-text-align-center s7_width_x1">všichni s našich ridicu maji sjednané pojištení na prepravu cestujících nad rámec povinneho zakonom daneho pojištení. Naše vozidla splnujou všechny požadavky na bezpečnou prepravu, a každoročne prochazeji prisnýma technickyma kontrolama,  každou z práve uskotočnovanych  jízd monitorujeme podle gps které maji zabudovane všechny vozidla a přesne určej polohu kde se prave naše vozidlo s ridicem nachazej ve vyhlašce česky republiky je povinnost každýho cestujícího použí bezpečnostní pasy, a proto toto pravidlo dodržujeme</p>
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center"><strong>naše prepravní společnost Prague airport chauffers splnuje vsechny zákonné požadavky na legální  provozování smluvní prepravy osob  v Praze i mimo českou republiku .</strong></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"container-fluid s7_safety_sec3"} -->
-<div class="wp-block-group container-fluid s7_safety_sec3"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:html -->
-<h2 class="has-text-color has-text-align-center text-uppercase font-weight-bold mb-50">Bezpečnost <span class="font-weight-light">dětí</span></h2>
-<!-- /wp:html -->
+<!-- wp:group {"align":"full","className":"pb-120"} -->
+<div class="wp-block-group alignfull pb-120"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
+<h2 class="has-text-align-center"><strong>BEZPEČNOST CESTUJÍCÍCH</strong></h2>
+<!-- /wp:heading -->
 
-<!-- wp:columns {"className":"mb-0"} -->
-<div class="wp-block-columns mb-0"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:html -->
-<p class="has-text-color text-left">pokud vezete deti v nabídce  k objednávke máte možnost priobjednat dětskou sedačku,objednání detské autosedačky je zdarma dle zákona v český republice každé díte pod 12 let musí bejt umístneno na autosedačce, tipy dětských autosedaček které nabízíme:</p>
-<!-- /wp:html -->
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">všichni s našich ridicu maji sjednané pojištení na prepravu cestujících nad rámec povinneho zakonom daneho pojištení. Naše vozidla splnujou všechny požadavky na bezpečnou prepravu, a každoročne prochazeji prisnýma technickyma kontrolama,  každou z práve uskotočnovanych  jízd monitorujeme podle gps které maji zabudovane všechny vozidla a přesne určej polohu kde se prave naše vozidlo s ridicem nachazej ve vyhlašce česky republiky je povinnost každýho cestujícího použí bezpečnostní pasy, a proto toto pravidlo dodržujeme</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:group --></div></div>
+<!-- /wp:group -->
 
-<!-- wp:list {"className":"list-unstyled"} -->
-<ul class="list-unstyled"><li>0-9 kg</li><li>9-18 kg</li><li>18-36 kg</li></ul>
+<!-- wp:group {"customBackgroundColor":"#ebebeb","align":"full","className":"pb-120"} -->
+<div class="wp-block-group alignfull has-background pb-120" style="background-color:#ebebeb"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
+<h2 class="has-text-align-center"><strong>BEZPEČNOST DĚTÍ</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph -->
+<p>pokud vezete deti v nabídce  k objednávke máte možnost priobjednat dětskou sedačku,objednání detské autosedačky je zdarma dle zákona v český republice každé díte pod 12 let musí bejt umístneno na autosedačce, tipy dětských autosedaček které nabízíme:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"className":"s7_ul-normal"} -->
+<ul class="s7_ul-normal"><li>0-9 kg</li><li>9-18 kg</li><li>18-36 kg</li></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column -->
 
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"id":249,"sizeSlug":"large","className":"text-center"} -->
-<figure class="wp-block-image size-large text-center"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/child-car-seat.jpg" alt="" class="wp-image-249"/></figure>
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":249,"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/child-car-seat.jpg" alt="" class="wp-image-249"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"customBackgroundColor":"#ffffff","className":"container-fluid s7_safety_sec4 position-relative text-center"} -->
-<div class="wp-block-group has-background container-fluid s7_safety_sec4 position-relative text-center" style="background-color:#ffffff"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold d-inline-block position-relative mb-50"} -->
-<h2 class="has-text-align-center text-uppercase font-weight-bold d-inline-block position-relative mb-50">Bezpečnost <span class="font-weight-light">osobních</span> údajů</h2>
+<!-- wp:group {"customBackgroundColor":"#ffffff","align":"full","className":"pb-120 s7_us_sec_w"} -->
+<div class="wp-block-group alignfull has-background pb-120 s7_us_sec_w" style="background-color:#ffffff"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
+<h2 class="has-text-align-center"><strong>BEZPEČNOST OSOBNÍCH ÚDAJŮ</strong></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","className":"s7_width_x1"} -->
-<p class="has-text-align-center s7_width_x1">naše společnosnost se s váma zavazuje že s vašimi osobními údaji bude nakládáno v souladu s bezpečnostními předpisy GDPR a k údajum v databazí nebude mít přístup nikdo jiný než naše společnost a nebudou nikde zverejnovany .</p>
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">naše společnosnost se s váma zavazuje že s vašimi osobními údaji bude nakládáno v souladu s bezpečnostními předpisy GDPR a k údajum v databazí nebude mít přístup nikdo jiný než naše společnost a nebudou nikde zverejnovany .</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"customBackgroundColor":"#ebebeb","className":"container-fluid s7_safety_sec5 position-relative"} -->
-<div class="wp-block-group has-background container-fluid s7_safety_sec5 position-relative" style="background-color:#ebebeb"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"s7_sw-sec mx-auto"} -->
-<div class="wp-block-group s7_sw-sec mx-auto"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","className":"text-uppercase font-weight-bold mb-50"} -->
-<h2 class="has-text-align-center text-uppercase font-weight-bold mb-50">Platby</h2>
+<!-- wp:group {"customBackgroundColor":"#ebebeb","align":"full","className":"s7_last_sec pb-120"} -->
+<div class="wp-block-group alignfull has-background s7_last_sec pb-120" style="background-color:#ebebeb"><div class="wp-block-group__inner-container"><!-- wp:group -->
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
+<h2 class="has-text-align-center"><strong>PLATBY</strong></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","className":"mb-5"} -->
-<p class="has-text-align-center mb-5">vaše internetové platby jsou chráneny bezpečným sistemem  3 d secure. po zadáníplatebních údajú vám do telefonu prijde potvrzovací sms . cestující mužou využít nasledujících plateb</p>
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">vaše internetové platby jsou chráneny bezpečným sistemem  3 d secure. po zadáníplatebních údajú vám do telefonu prijde potvrzovací sms . cestující mužou využít nasledujících plateb</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"className":"s7_platby_col"} -->
+<!-- wp:columns {"className":"s7_platby_cols"} -->
+<div class="wp-block-columns s7_platby_cols"><!-- wp:column {"className":"s7_platby_col"} -->
 <div class="wp-block-column s7_platby_col"><!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">platba kartou , nebo debetní kartou / visa , mastercard american expres</p>
 <!-- /wp:paragraph --></div>
@@ -106,16 +108,16 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:columns {"className":"mb-0 s7_druhy_cols"} -->
-<div class="wp-block-columns mb-0 s7_druhy_cols"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:paragraph -->
-<p>vaše bezpečnost je pro nás prioritní. </p>
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center"><strong>vaše bezpečnost je pro nás prioritní. </strong></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:paragraph -->
-<p>naši prepravou máte jistotu.</p>
+<div class="wp-block-column"><!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center"><strong>naši prepravou máte jistotu.</strong></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>
