@@ -291,6 +291,23 @@ Author URI: https://studioseven.cz/
         margin-bottom: 30px;
         font-size: 35px;
     }
+    .page-template-cms-template h3{
+        margin-bottom: 24px;
+        font-size: 25px;
+    }
+    .page-template-cms-template h4{
+        margin-bottom: 30px;
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    .page-template-cms-template h5{
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    .page-template-cms-template h6{
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
     .page-template-cms-template .wp-block-column{
         flex-basis: 100%!important;
         margin-left: 0;
@@ -533,6 +550,18 @@ Author URI: https://studioseven.cz/
     .page-template-cms-template h2{
         margin-bottom: 30px;
         font-size: 35px;
+    }
+    .page-template-cms-template h3{
+        font-size: 23px;
+    }
+    .page-template-cms-template h4{
+        font-size: 21px;
+    }
+    .page-template-cms-template h5{
+        font-size: 18px;
+    }
+    .page-template-cms-template h6{
+        font-size: 18px;
     }
     .page-template-cms-template .wrapper>.wp-block-group{
         padding-top: 50px;

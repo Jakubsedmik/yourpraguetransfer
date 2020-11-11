@@ -30,6 +30,9 @@ Author URI: https://studioseven.cz/
 .s7_breadcrumbs ul li {
     margin: 0px 2px;
 }
+.s7_breadcrumbs ul li:before{
+    display: none;
+}
 .btn{
     cursor: pointer;
 }
@@ -48,15 +51,22 @@ Author URI: https://studioseven.cz/
 .page-template-cms-template h3{
     margin-bottom: 30px;
     color: var(--s7_color-4);
+    font-size: 28px;
 }
 .page-template-cms-template h4{
     color: var(--s7_color-4);
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 .page-template-cms-template h5{
     color: var(--s7_color-4);
+    margin-bottom: 15px;
+    font-size: 21px;
 }
 .page-template-cms-template h6{
     color: var(--s7_color-4);
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 .page-template-cms-template p{
     font-size: 18px;
@@ -130,13 +140,13 @@ Author URI: https://studioseven.cz/
     background-position: center;
     background-size: cover;
 }
-.page-template-cms-template .s7_ul-normal li{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item){
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
 }
-.page-template-cms-template .s7_ul-normal li:before{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item):before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -145,14 +155,14 @@ Author URI: https://studioseven.cz/
     content: "";
     position: absolute;
 }
-.page-template-cms-template .s7_ul-white li{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_ul-white li{
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
     color: white;
 }
-.page-template-cms-template .s7_ul-white li:before{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_ul-white li:before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -164,12 +174,12 @@ Author URI: https://studioseven.cz/
 .page-template-cms-template .s7_ul-count-2{
     column-count: 2;
 }
-.page-template-cms-template .s7_wrong-li li, .page-template-cms-template .s7_nice-li li{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_wrong-li li, .page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_nice-li li{
     position: relative;
     padding-left: 35px;
     font-size: 18px;
 }
-.page-template-cms-template .s7_wrong-li li:before{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_wrong-li li:before{
     content: "+";
     position: absolute;
     left: 0px;
@@ -178,8 +188,11 @@ Author URI: https://studioseven.cz/
     font-weight: bold;
     top: -11px;
     transform: rotate(45deg);
+    width: unset;
+    height: unset;
+    background-color: unset;
 }
-.page-template-cms-template .s7_nice-li li:before{
+.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_nice-li li:before{
     content: "";
     position: absolute;
     left: 0px;
@@ -192,6 +205,7 @@ Author URI: https://studioseven.cz/
     border: 4px solid green;
     border-top: 0;
     border-right: 0;
+    background-color: unset;
 }
 .page-template-cms-template .s7_serv_taxi{
     padding-bottom: 80px;
