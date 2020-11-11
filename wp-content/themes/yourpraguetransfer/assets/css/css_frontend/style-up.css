@@ -14,255 +14,95 @@ Author URI: https://studioseven.cz/
     max-width: 800px;
     margin: 0 auto;
 }
-.s7_vozovy-park-sw{
-    
+.s7_us_sec1{
+    background-image: url("../../images/images_frontend/HP-bg.jpg");
+    background-position: center;
+    padding-bottom: 120px!important;
+}
+.s7_breadcrumbs ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-weight: 200;
+}
+.s7_breadcrumbs ul li {
+    margin: 0px 2px;
+}
+.btn{
+    cursor: pointer;
 }
 .navbar .nav-item a{
     font-size: 15px;
 }
-/*----- SAFETY -----*/
-.page-template-cms-template .container{
-    cursor: unset;
-    user-select: auto;
-}
-.s7_safety_sec1{
-    background-color: white;
-    padding-top: 120px;
-    padding-bottom: 0px;
-}
-.s7_safety_sec1 h2{
-    margin-bottom: 100px;
-}
-.s7_safety_sec1 figcaption{
-    font-size: 22px;
-    margin-bottom: 35px;
-    letter-spacing: 1px;
+.page-template-cms-template h1{
     font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0px;
 }
-.s7_safety_sec1 p{
+.page-template-cms-template h2{
+    margin-bottom: 50px;
+    color: var(--s7_color-4);
+}
+.page-template-cms-template h3{
+    margin-bottom: 30px;
+    color: var(--s7_color-4);
+}
+.page-template-cms-template h4{
+    color: var(--s7_color-4);
+}
+.page-template-cms-template h5{
+    color: var(--s7_color-4);
+}
+.page-template-cms-template h6{
+    color: var(--s7_color-4);
+}
+.page-template-cms-template p{
     font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--s7_color-4);
+}
+.page-template-cms-template a{
+    color: var(--s7_color-4);
+}
+.page-template-cms-template{
+    color: var(--s7_color-4);
+}
+.page-template-cms-template section.wrapper ul{
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+.page-template-cms-template .alignfull{
     padding-left: 25px;
     padding-right: 25px;
 }
-.s7_safety_sec2{
+.page-template-cms-template .wrapper>.wp-block-group{
     padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_safety_sec3{
-    background-color: #ebebeb;
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_safety_sec3 .wp-block-columns{
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.s7_safety_sec3 li{
-    position: relative;
-    margin-bottom: 15px;
-    padding-left: 100px;
-    font-size: 16px;
-}
-.s7_safety_sec3 li:before{
-    content: "";
-    position: absolute;
-    left: 50px;
-    top: 9px;
-    width: 24px;
-    height: 2px;
-    margin-top: 0px;
-    background-color: var(--s7_color-4);
-}
-.s7_safety_sec4{
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_safety_sec4:before{
-    content: "";
-    position: absolute;
-    border-bottom: 34px solid transparent;
-    border-left: 34px solid transparent;
-    border-right: 34px solid transparent;
-    border-top: 34px solid white;
-    bottom: -68px;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 1;
-}
-.s7_safety_sec4 h2:before{
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    background-color: var(--s7_color-2);
-}
-.s7_safety_sec5{
-    padding-top: 120px;
-    padding-bottom: 120px;
-    background-color: #ebebeb;
-}
-.s7_safety_sec5 .s7_platby_col{
-    background-color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 32px
-}
-.s7_safety_sec5 .s7_platby_col p{
-    margin-bottom: 0;
-}
-.s7_safety_sec5 .s7_druhy_cols p{
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/*----- HOW IT WORKS -----*/
-.s7_hiw_sec1{
-    padding-top: 120px;
-    padding-bottom: 0px;
-}
-.s7_hiw_sec1 h1{
-    margin-bottom: 100px;
-}
-.mb-50{
-    margin-bottom: 50px!important;
-}
-.s7_hiw_sec1 p{
-    font-size: 18px;
-}
-.s7_hiw_sec2{
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_hiw_sec2 .wp-block-columns{
-    align-items: center;
-}
-.s7_hiw_sec2 p{
-    max-width: 550px;
-}
-.s7_hiw_sec3{
-    background-image: url(../../images/images_frontend/slider-bg.jpg);
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_hiw_sec3 p{
-    max-width: 550px;
-    font-size: 18px;
-}
-.s7_hiw_sec4{
-    padding-top: 120px;
-    padding-bottom: 104px;
-}
-.s7_hiw_sec5{
-    background-color: #ebebeb;
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_hiw_sec5:before{
-    content: "";
-    position: absolute;
-    border-bottom: 34px solid transparent;
-    border-left: 34px solid transparent;
-    border-right: 34px solid transparent;
-    border-top: 34px solid #ebebeb;
-    bottom: -68px;
-    left: 50%;
-    transform: translate(-50%);
-}
-.s7_hiw_sec5 h2{
-    border-bottom: 3px solid var(--s7_color-2);
-}
-.s7_hiw_sec5 .wp-block-columns{
-    align-items: center;
-}
-.s7_hiw_sec5 .wp-block-columns p{
-    max-width: 550px;
-}
-.s7_hiw_sec5 .wp-block-column figure{
-    margin-bottom: 0;
-}
-.s7_hiw_sec6{
-    padding-top: 120px;
-    padding-bottom: 104px;
-}
-.s7_hiw_sec6 p, .s7_hiw_sec7 p{
-    font-size: 18px;
-}
-.s7_hiw_sec7{
-    padding-bottom: 120px;
-    padding-top: 120px;
-    background-color: #ebebeb;
-}
-
-/*----- ABOUT US -----*/
-.s7_us_sec1{
-    background-image: url("../../images/images_frontend/HP-bg.jpg");
-    background-position: center;
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-.page-template-cms-template .wrapper>div:nth-of-type(2){
-    background-image: none;
-    padding-top: 70px;
     padding-bottom: 0;
 }
-.s7_us_sec1 h1{
-    margin-bottom: 0px;
+.page-template-cms-template .wrapper>.wp-block-group.pb-120{
+    padding-bottom: 120px;
 }
-.s7_us_sec1 h2{
-    font-size: 28px;
-}
-.s7_us_sec1 p{
-    max-width: 550px;
+.page-template-cms-template .wrapper>.wp-block-group>div>div{
+    max-width: 1250px;
+    width: 100%;
     margin: 0 auto;
-    font-size: 18px;
 }
-.s7_us_sec2{
-    padding-top: 120px;
-}
-.s7_us_sec2 p, .s7_us_sec3 p{
+.page-template-cms-template .wrapper>.wp-block-group>div>div.s7_w_850{
     max-width: 850px;
-    margin: 0 auto;
 }
-.s7_us_sec2 p.text-center, .s7_us_sec3 p.text-center{
-    font-size: 18px;
+.page-template-cms-template figure{
+    text-align: center;
 }
-.s7_us_sec2 a, .s7_us_sec3 a{
-    margin-top: 25px;
-    transition: 0.2s ease-out;
-}
-.s7_us_sec2 a:hover, .s7_us_sec3 a:hover{
-    text-decoration: none;
-    background-color: var(--s7_color-3)!important;
-}
-.s7_us_sec2 strong, .s7_us_sec3 strong{
-    color: white;
-}
-.s7_us_sec3{
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_us_sec4 .wp-block-group__inner-container .wp-block-group:first-child, .s7_us_sec4 .wp-block-group__inner-container .wp-block-group:last-child{
-    padding-top: 120px;
-    padding-bottom: 120px;
-    background-color: #ebebeb;
-}
-.s7_us_sec4 h3{
-    margin-bottom: 30px;
-    padding: 0 25px;
-}
-.s7_us_sec4 .wp-block-columns{
+.page-template-cms-template .wp-block-columns, .page-template-cms-template figure, .page-template-cms-template .wp-block-image{
     margin-bottom: 0;
 }
-.s7_us_sec4 .s7_sw-sec{
-    max-width: 800px;
+.page-template-cms-template .s7_us_sec_g, .page-template-cms-template .s7_us_sec_w{
+    position: relative;
 }
-.s7_us_sec4_g:before{
+.page-template-cms-template .s7_us_sec_g:before{
     content: "";
     position: absolute;
     border-bottom: 34px solid transparent;
@@ -273,7 +113,7 @@ Author URI: https://studioseven.cz/
     left: 50%;
     transform: translate(-50%);
 }
-.s7_us_sec4_w:before{
+.page-template-cms-template .s7_us_sec_w:before{
     content: "";
     position: absolute;
     border-bottom: 34px solid transparent;
@@ -285,24 +125,18 @@ Author URI: https://studioseven.cz/
     transform: translate(-50%);
     z-index: 1;
 }
-.s7_us_sec4 .wp-block-group{
-    padding-top: 120px;
-    padding-bottom: 120px;
+.page-template-cms-template .s7_colored-bg{
+    background-image: url(../../images/images_frontend/slider-bg.jpg);
+    background-position: center;
+    background-size: cover;
 }
-.s7_us_sec5{
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_us_sec5 ul, .s7_us_sec6 ul{
-    column-count: 2;
-}
-.s7_us_sec5 li{
+.page-template-cms-template .s7_ul-normal li{
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
 }
-.s7_us_sec5 li:before{
+.page-template-cms-template .s7_ul-normal li:before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -311,19 +145,14 @@ Author URI: https://studioseven.cz/
     content: "";
     position: absolute;
 }
-.s7_us_sec6{
-    background-image: url(../../images/images_frontend/slider-bg.jpg);
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-.s7_us_sec6 li{
+.page-template-cms-template .s7_ul-white li{
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
     color: white;
 }
-.s7_us_sec6 li:before{
+.page-template-cms-template .s7_ul-white li:before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -332,30 +161,15 @@ Author URI: https://studioseven.cz/
     content: "";
     position: absolute;
 }
-.s7_us_sec7{
-    padding-top: 120px;
-    padding-bottom: 120px;
-    
+.page-template-cms-template .s7_ul-count-2{
+    column-count: 2;
 }
-.s7_us_sec7 h2{
-    margin-bottom: 30px;
-}
-.s7_us_sec7 p{
-    margin-bottom: 30px;
-    font-size: 22px;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-.s7_us_sec7 h3{
-    margin-bottom: 30px;
-}
-.s7_us_sec7 li{
-    font-size: 18px;
-    margin-bottom: 10px;
+.page-template-cms-template .s7_wrong-li li, .page-template-cms-template .s7_nice-li li{
     position: relative;
-    padding-left: 40px;
+    padding-left: 35px;
+    font-size: 18px;
 }
-.s7_us_sec7 .s7_wrong-li li:before{
+.page-template-cms-template .s7_wrong-li li:before{
     content: "+";
     position: absolute;
     left: 0px;
@@ -365,7 +179,7 @@ Author URI: https://studioseven.cz/
     top: -11px;
     transform: rotate(45deg);
 }
-.s7_us_sec7 .s7_nice-li li:before{
+.page-template-cms-template .s7_nice-li li:before{
     content: "";
     position: absolute;
     left: 0px;
@@ -379,23 +193,54 @@ Author URI: https://studioseven.cz/
     border-top: 0;
     border-right: 0;
 }
-.s7_us_sec7 .wp-block-columns{
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.s7_us_sec7 .s7_serv_taxi{
+.page-template-cms-template .s7_serv_taxi{
     padding-bottom: 80px;
     border-bottom: 2px solid var(--s7_color-2);
-    margin-bottom: 91px;
+    margin-bottom: 75px!important;
 }
-.s7_us_sec8, .s7_us_sec9{
-    padding-bottom: 120px;
+.page-template-cms-template .s7_last_sec{
+    position: relative;
 }
-.s7_us_sec9{
-    padding-top: 120px;
-    background-color: #ebebeb;
+.page-template-cms-template .s7_last_sec:before{
+    content: "";
+    left: 50%;
+    max-width: 1200px;
+    transform: translateX(-50%);
+    width: calc(100% - 50px);
+    height: 2px;
+    bottom: 0;
+    position: absolute;
+    background-color: var(--s7_color-2);
 }
+.page-template-cms-template .wp-block-button__link strong{
+    color: white;
+}
+.page-template-cms-template .wp-block-button__link:hover{
+    background-color: var(--s7_color-3)!important;
+    text-decoration: none;
+}
+.page-template-cms-template .s7_platby_col{
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+.page-template-cms-template .wp-block-image img{
+    height: auto;
+}
+.page-template-cms-template .container{
+    cursor: unset;
+    user-select: auto;
+}
+.s7_safety_sec1 figcaption{
+    font-size: 22px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
 
 /*Contact*/
 .s7_contact_flex .wp-block-group__inner-container{
@@ -452,21 +297,4 @@ Author URI: https://studioseven.cz/
 }
 .s7_contact_flex p{
     margin-bottom: 0;
-}
-
-.s7_breadcrumbs ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    font-weight: 200;
-}
-
-.s7_breadcrumbs ul li {
-    margin: 0px 2px;
-}
-
-.btn{
-    cursor: pointer;
 }
