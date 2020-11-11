@@ -14,7 +14,7 @@ get_header();
             while ( have_posts() ) {
         ?>
      
-        <div class="wp-block-group container-fluid s7_us_sec1">
+        <div class="container-fluid s7_us_sec1">
             <div class="wp-block-group__inner-container">
                 <div class="wp-block-group s7_sw-sec mx-auto">
                     <div class="wp-block-group__inner-container">

@@ -17,7 +17,8 @@ Author URI: https://studioseven.cz/
 .s7_us_sec1{
     background-image: url("../../images/images_frontend/HP-bg.jpg");
     background-position: center;
-    padding-bottom: 120px!important;
+    padding-bottom: 80px;
+    padding-top: 80px;
 }
 .s7_breadcrumbs ul{
     list-style: none;
@@ -73,9 +74,6 @@ Author URI: https://studioseven.cz/
     margin-bottom: 20px;
     color: var(--s7_color-4);
 }
-.page-template-cms-template a{
-    color: var(--s7_color-4);
-}
 .page-template-cms-template{
     color: var(--s7_color-4);
 }
@@ -89,7 +87,7 @@ Author URI: https://studioseven.cz/
     padding-right: 25px;
 }
 .page-template-cms-template .wrapper>.wp-block-group{
-    padding-top: 120px;
+    padding-top: 80px;
     padding-bottom: 0;
 }
 .page-template-cms-template .wrapper>.wp-block-group.pb-120{
@@ -214,17 +212,6 @@ Author URI: https://studioseven.cz/
 }
 .page-template-cms-template .s7_last_sec{
     position: relative;
-}
-.page-template-cms-template .s7_last_sec:before{
-    content: "";
-    left: 50%;
-    max-width: 1200px;
-    transform: translateX(-50%);
-    width: calc(100% - 50px);
-    height: 2px;
-    bottom: 0;
-    position: absolute;
-    background-color: var(--s7_color-2);
 }
 .page-template-cms-template .wp-block-button__link strong{
     color: white;
