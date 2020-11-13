@@ -346,44 +346,47 @@ function getCarOffers(){
         if(count($airport->notBelongToAirport)>0 && count($airport->belongToAirport)>0){
             $destination = array_pop($airport->notBelongToAirport);
 
-            // zjistíme zdali daná destinace spadá do některé
-            $destination_zone = zonaClass::isVertexInZones($destination);
+            // zjistíme zdali daná destinace spadá do některé ze zón, vrátíme všechny zóny do kterých spadá
+            $destination_zones = zonaClass::isVertexInZones($destination);
 
-            if($destination_zone!== false){
-
-                // získám ze zóny všechny ceníky které mají zahrnutou zónu v sobě a jsou seřazené od nejlevnějšího po nejdražší
-                $ceniky = $destination_zone->getCeniky();
+            if(count($destination_zones) > 0){
 
                 $vozidla = array();
 
-                // k ceníkům a najedeme vozidla, ty zakládáme do pole a připojujeme k ním ceny z ceníků
-                foreach ($ceniky as $key => $value){
+                foreach ($destination_zones as $key => $destination_zone){
 
-                    $cena_tam = $value->db_cena_tam;
-                    $cena_zpet = $value->db_cena_zpet;
-                    $max_osob = $value->db_max_osob;
-                    $min_osob = $value->db_min_osob;
+                    // získám ze zóny všechny ceníky které mají zahrnutou zónu v sobě a jsou seřazené od nejlevnějšího po nejdražší
+                    $ceniky = $destination_zone->getCeniky();
 
-                    if($min_osob <= $persons){
-                        $vozidlo = $value->getSubobject("vozidlo");
-                        $vozidlo->setForceNotUpdate();
-                        $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
-                        $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
+                    // k ceníkům a najedeme vozidla, ty zakládáme do pole a připojujeme k ním ceny z ceníků
+                    foreach ($ceniky as $key => $value){
 
-                        if($vozidlo->db_max_osob >= $persons){
-                            // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
-                            if(isset($vozidla[$vozidlo->getId()])){
-                                $old_vozidlo = $vozidla[$vozidlo->getId()];
-                                if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
+                        $cena_tam = $value->db_cena_tam;
+                        $cena_zpet = $value->db_cena_zpet;
+                        $max_osob = $value->db_max_osob;
+                        $min_osob = $value->db_min_osob;
+
+                        if($min_osob <= $persons){
+                            $vozidlo = $value->getSubobject("vozidlo");
+                            $vozidlo->setForceNotUpdate();
+                            $vozidlo->set_not_update("db_cenik_cena_tam",$cena_tam);
+                            $vozidlo->set_not_update("db_cenik_cena_zpet",$cena_zpet);
+
+                            if($vozidlo->db_max_osob >= $persons){
+                                // u vozidel však musíme kontrolovat zdali již není v seznamu pokud ano, záznam zaměníme pouze pokud je cena vyšší jinak necháme
+                                if(isset($vozidla[$vozidlo->getId()])){
+                                    $old_vozidlo = $vozidla[$vozidlo->getId()];
+                                    if($old_vozidlo->db_cena_tam < $vozidlo->db_cena_tam){
+                                        $vozidla[$vozidlo->getId()] = $vozidlo;
+                                    }
+                                }else{
                                     $vozidla[$vozidlo->getId()] = $vozidlo;
                                 }
-                            }else{
-                                $vozidla[$vozidlo->getId()] = $vozidlo;
                             }
+
                         }
 
                     }
-
                 }
 
                 // je třeba vylistovat zbylá auta která nebyli v zóně, protože pro ně stanovíme cenu dle KM, pokud již je vůz v poli tak nepřidáváme, cena zóny má přednost

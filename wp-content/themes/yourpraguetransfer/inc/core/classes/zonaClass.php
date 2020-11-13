@@ -62,13 +62,14 @@ class zonaClass extends zakladniKamenClass
         // najdeme zbylé zóny, které nejsou letiště
         $rest_zones = assetsFactory::getAllEntity("zonaClass",array(new filterClass("nazev", "!=", "'letiště'")));
 
+        $return_zone = array();
         // zjistím zdali destinace spadá do některé ze zón
         foreach ($rest_zones as $key => $value){
             if($value->isVertexInside($vertex)){
-                return $value;
+                $return_zones[] = $value;
             }
         }
-        return false;
+        return $return_zones;
 
     }
 

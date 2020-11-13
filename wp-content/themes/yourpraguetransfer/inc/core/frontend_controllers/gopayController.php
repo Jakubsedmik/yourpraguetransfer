@@ -13,9 +13,9 @@ class gopayController extends frontendController {
 
 	public function __construct( $actionName ) {
 		$this->gopay = GoPay\payments(array(
-			'goid' => '8292273517',
-			'clientId' => '1466427842',
-			'clientSecret' => 'Ebysb4Yw',
+			'goid' => '8060638179',
+			'clientId' => '1564608375',
+			'clientSecret' => 'nvp5U83f',
 			'isProductionMode' => false,
 			'language' => Language::CZECH
 		));
