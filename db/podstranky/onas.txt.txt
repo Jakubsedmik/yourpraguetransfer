@@ -65,7 +65,7 @@
 
 <!-- wp:column {"width":50} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"align":"center","id":218,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="aligncenter size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/e_class_uvodna-min-removebg-preview.png" alt="" class="wp-image-218"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="/wp-content/uploads/2020/10/e_class_uvodna-min-removebg-preview.png" alt="" class="wp-image-218"/></figure></div>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>
@@ -87,7 +87,7 @@
 
 <!-- wp:column {"verticalAlignment":"center","width":50} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:image {"align":"center","id":219,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="aligncenter size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/ford_shutlle_uvod-min-removebg-preview.png" alt="" class="wp-image-219"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="/wp-content/uploads/2020/10/ford_shutlle_uvod-min-removebg-preview.png" alt="" class="wp-image-219"/></figure></div>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>
@@ -109,7 +109,7 @@
 
 <!-- wp:column {"width":50} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"align":"center","id":247,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="aligncenter size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/limo-long-uvodna-min-removebg-preview.png" alt="" class="wp-image-247"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="/wp-content/uploads/2020/10/limo-long-uvodna-min-removebg-preview.png" alt="" class="wp-image-247"/></figure></div>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>
@@ -163,7 +163,7 @@
 
 <!-- wp:column {"width":65} -->
 <div class="wp-block-column" style="flex-basis:65%"><!-- wp:image {"align":"right","id":182,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="alignright size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/pexels-moose-photos-1587014.jpg" alt="" class="wp-image-182"/></figure></div>
+<div class="wp-block-image"><figure class="alignright size-large"><img src="/wp-content/uploads/2020/10/pexels-moose-photos-1587014.jpg" alt="" class="wp-image-182"/></figure></div>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -181,7 +181,7 @@
 
 <!-- wp:column {"width":65} -->
 <div class="wp-block-column" style="flex-basis:65%"><!-- wp:image {"align":"right","id":184,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="alignright size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/pexels-andrea-piacquadio-941693.jpg" alt="" class="wp-image-184"/></figure></div>
+<div class="wp-block-image"><figure class="alignright size-large"><img src="/wp-content/uploads/2020/10/pexels-andrea-piacquadio-941693.jpg" alt="" class="wp-image-184"/></figure></div>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>

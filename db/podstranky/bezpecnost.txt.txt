@@ -7,7 +7,7 @@
 <!-- /wp:group -->
 
 <!-- wp:image {"align":"center","id":76,"width":72,"height":70,"sizeSlug":"large"} -->
-<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/Safety.png" alt="" class="wp-image-76" width="72" height="70"/><figcaption>BEZPEČNOST</figcaption></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="/wp-content/uploads/2020/10/Safety.png" alt="" class="wp-image-76" width="72" height="70"/><figcaption>BEZPEČNOST</figcaption></figure></div>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"align":"center"} -->
@@ -47,7 +47,7 @@
 
 <!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":249,"sizeSlug":"large"} -->
-<figure class="wp-block-image size-large"><img src="http://localhost/yourpraguetransfer/wp-content/uploads/2020/10/child-car-seat.jpg" alt="" class="wp-image-249"/></figure>
+<figure class="wp-block-image size-large"><img src="/wp-content/uploads/2020/10/child-car-seat.jpg" alt="" class="wp-image-249"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div></div>

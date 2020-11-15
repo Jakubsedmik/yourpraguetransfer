@@ -29,7 +29,7 @@ class pointLocation {
      * @param bool $pointOnVertex
      * @return int 1 pokud je uvnitř polyhonu, 3 pokud je přesně na jednom z bodů, 2 pokud je přesně na hraně, 0 pokud neleží uvnitř
      */
-    function pointInPolygon($point, $polygon, $pointOnVertex = true) {
+    function pointInPolygon2($point, $polygon, $pointOnVertex = true) {
         $this->pointOnVertex = $pointOnVertex;
 
         // Transform string coordinates into arrays with x and y values
@@ -81,7 +81,6 @@ class pointLocation {
                 return true;
             }
         }
-
     }
 
     function pointStringToCoordinates($pointString) {
@@ -98,6 +97,49 @@ class pointLocation {
         if($first !== $last){
             $polygon[] = $first;
         }
+    }
+
+    function transformPolygon($polygon){
+        if(is_array($polygon)){
+            $vertices_x = array();
+            $vertices_y = array();
+            foreach ($polygon as $key => $value){
+                $vertices_x[] = $value->lng;
+                $vertices_y[] = $value->lat;
+            }
+            return array('x' => $vertices_x, 'y' => $vertices_y);
+        }else{
+            return false;
+        }
+
+    }
+
+
+    /**
+    From: http://www.daniweb.com/web-development/php/threads/366489
+    Also see http://en.wikipedia.org/wiki/Point_in_polygon
+     */
+
+    function pointInPolygon($point, $polygon)
+    {
+
+        $this->enclosePolygon($polygon);
+        $vertices = $this->transformPolygon($polygon);
+        $vertices_x = $vertices['x'];
+        $vertices_y = $vertices['y'];
+
+        $points_polygon = count($polygon); // number vertices
+
+        $longitude_x = $point['lng'];
+        $latitude_y = $point['lat'];
+
+        $i = $j = $c = 0;
+        for ($i = 0, $j = $points_polygon-1 ; $i < $points_polygon; $j = $i++) {
+            if ( (($vertices_y[$i] > $latitude_y != ($vertices_y[$j] > $latitude_y)) &&
+                ($longitude_x < ($vertices_x[$j] - $vertices_x[$i]) * ($latitude_y - $vertices_y[$i]) / ($vertices_y[$j] - $vertices_y[$i]) + $vertices_x[$i]) ) )
+                $c = !$c;
+        }
+        return $c;
     }
 
 }
