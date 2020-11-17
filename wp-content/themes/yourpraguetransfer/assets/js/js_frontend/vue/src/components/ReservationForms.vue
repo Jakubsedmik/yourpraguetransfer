@@ -173,7 +173,7 @@
                             <h3 class="font-weight-bold">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span v-html="translations.jakZaplatite"></span>
-                                <span class="s7_payment-title">({{precalculated_price | format_price}} {{currency_label}})</span>
+                                <span class="s7_payment-title">({{data_final_price | format_price}} {{currency_label}})</span>
                             </h3>
                             <div class="s7_chose-payment-method">
                                 <label for="s7_payment-methods" class="s7_modal-body-undertext text-uppercase">{{translations.vybertePlatebniMetodu}}</label>
