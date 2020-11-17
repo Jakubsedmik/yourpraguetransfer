@@ -129,9 +129,13 @@ class pointLocation {
         $vertices_y = $vertices['y'];
 
         $points_polygon = count($polygon); // number vertices
-
-        $longitude_x = $point['lng'];
-        $latitude_y = $point['lat'];
+        if(is_array($point)){
+            $longitude_x = $point['lng'];
+            $latitude_y = $point['lat'];
+        }else{
+            $longitude_x = $point->lng;
+            $latitude_y = $point->lat;
+        }
 
         $i = $j = $c = 0;
         for ($i = 0, $j = $points_polygon-1 ; $i < $points_polygon; $j = $i++) {
