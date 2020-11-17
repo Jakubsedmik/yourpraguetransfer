@@ -31,7 +31,7 @@
                     </div>
                     <div class="s7_underpage-ico d-flex align-items-center">
                         <figure class="mb-0"><img :src="images_path + '/money.png'" alt="" class="w-100"></figure>
-                        <p class="s7_underpage-text font-weight-light text-white mb-0">od <strong class="text-white">580</strong> Kč</p>
+                        <p class="s7_underpage-text font-weight-light text-white mb-0">od {{lowest_price | format_price}} <span class="s7_res-normal-text">{{currency_label}}</span></p>
                     </div>
                 </div>
                 <a :href="home_url" class="btn rounded-0 w-100 font-weight-bold d-flex align-items-center justify-content-between mx-auto text-uppercase">
@@ -397,6 +397,18 @@
             },
             currency_label: function () {
                 return (this.currency == 1 ? "€" : "Kč");
+            },
+            lowest_price: function(){
+                var lowest = '-';
+                for(var i in this.cars_offers){
+                    var car = this.cars_offers[i];
+                    if(lowest === '-'){
+                        lowest = this.getPriceTowards(car);
+                    }else if(this.getPriceTowards(car) < lowest){
+                        lowest = this.getPriceTowards(car);
+                    }
+                }
+                return lowest;
             },
             cars_offers: function () {
                 var sortin = this.sortBy;

@@ -27,12 +27,14 @@ get_header();
             </div>
         </div>
 
-        <?php
-                the_post();
-                the_content();
+        <div class="s7-cms-content">
+            <?php
+                    the_post();
+                    the_content();
+                }
             }
-        }
-        ?>
+            ?>
+        </div>
     </section>
 
 <?php get_footer() ?>

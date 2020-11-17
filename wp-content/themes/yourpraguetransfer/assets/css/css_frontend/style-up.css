@@ -82,24 +82,38 @@ Author URI: https://studioseven.cz/
     padding-left: 0;
     text-align: left;
 }
-.page-template-cms-template .alignfull{
+.page-template-cms-template .alignfull, .page-template-cms-template .alignwide{
     padding-left: 25px;
     padding-right: 25px;
 }
-.page-template-cms-template .wrapper>.wp-block-group{
-    padding-top: 80px;
-    padding-bottom: 0;
+.page-template-cms-template .wrapper .s7-cms-content > .wp-block-group{
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
-.page-template-cms-template .wrapper>.wp-block-group.pb-120{
+.page-template-cms-template .pb-120{
     padding-bottom: 120px;
 }
-.page-template-cms-template .wrapper>.wp-block-group>div>div{
+.page-template-cms-template .wrapper .s7-cms-content .alignwide{
     max-width: 1250px;
     width: 100%;
     margin: 0 auto;
 }
-.page-template-cms-template .wrapper>.wp-block-group>div>div.s7_w_850{
+
+.page-template-cms-template .wrapper .s7-cms-content .alignfull .wp-block-group__inner-container{
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-template-cms-template .wrapper .s7-cms-content .alignfull{
+    max-width: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-template-cms-template .s7_w_850{
     max-width: 850px;
+    margin: 0 auto;
 }
 .page-template-cms-template figure{
     text-align: center;
@@ -138,13 +152,13 @@ Author URI: https://studioseven.cz/
     background-position: center;
     background-size: cover;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item){
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item){
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item):before{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul li:not(.blocks-gallery-item):before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -153,14 +167,14 @@ Author URI: https://studioseven.cz/
     content: "";
     position: absolute;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_ul-white li{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_ul-white li{
     font-size: 18px;
     margin-bottom: 10px;
     padding-left: 100px;
     position: relative;
     color: white;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_ul-white li:before{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_ul-white li:before{
     top: 11px;
     left: 50px;
     width: 24px;
@@ -172,12 +186,12 @@ Author URI: https://studioseven.cz/
 .page-template-cms-template .s7_ul-count-2{
     column-count: 2;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_wrong-li li, .page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_nice-li li{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_wrong-li li, .page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_nice-li li{
     position: relative;
     padding-left: 35px;
     font-size: 18px;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_wrong-li li:before{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_wrong-li li:before{
     content: "+";
     position: absolute;
     left: 0px;
@@ -190,7 +204,7 @@ Author URI: https://studioseven.cz/
     height: unset;
     background-color: unset;
 }
-.page-template-cms-template section.wrapper>div:not(.s7_us_sec1) ul.s7_nice-li li:before{
+.page-template-cms-template section.wrapper>.s7-cms-content>div:not(.s7_us_sec1) ul.s7_nice-li li:before{
     content: "";
     position: absolute;
     left: 0px;
