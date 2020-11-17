@@ -93,5 +93,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
-error_reporting(1);
-ini_set('display_errors', 'On');
