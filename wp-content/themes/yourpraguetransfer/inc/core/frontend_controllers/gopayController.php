@@ -206,7 +206,7 @@ class gopayController extends frontendController {
             "confirmPayment",
             array(
                 "logo_link" => FRONTEND_IMAGES_PATH . "page-logo.png",
-                "cena" => Tools::convertCurrency(intval($objednavka->db_cena), intval($objednavka->db_mena))
+                "cena" => Tools::convertCurrency(intval($objednavka->db_cena), intval($objednavka->db_mena), true, false)
             )
         );
     }
