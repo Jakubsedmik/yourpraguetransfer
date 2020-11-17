@@ -154,12 +154,21 @@ class gopayController extends frontendController {
 			array('name' => $description, 'amount' => $order->db_cena * 100)
 		);
 		$return_url = GOPAY_STANDARD_CALLBACK . "&orderid=" . $order->getId();
-		return $this->simplePayment($order->db_cena, $items, $order->getId(),$contact, $return_url ,"Platba za kredity v systému");
+
+		global $currencies;
+		$currency = intval($order->db_mena);
+		if(isset($currencies[$currency])){
+		    $currency = $currencies[$currency]['code'];
+        }else{
+		    $currency = Currency::CZECH_CROWNS;
+        }
+
+
+		return $this->simplePayment($order->db_cena, $items, $order->getId(),$contact, $return_url ,"Platba za kredity v systému", $currency);
 	}
 
-	protected function simplePayment($ammount, $items, $order_number, $contact, $return_url, $order_description){
+	protected function simplePayment($ammount, $items, $order_number, $contact, $return_url, $order_description, $currency){
 
-		$currency = Currency::CZECH_CROWNS;
 		$lang = Language::CZECH;
 
 		$gopay = $this->gopay;
