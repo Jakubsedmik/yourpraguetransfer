@@ -680,8 +680,8 @@ define("WATERMARK_RESIZE_FACTOR", 1);
 
 
 /* SENDING MAIL FROM */
-define("SENDER_MAIL","info@yourpraguetransfer.cz");
-define("SENDER_NAME", "Automat");
+define("SENDER_MAIL","info@prague-chauffeur-service.cz");
+define("SENDER_NAME", "Prague Chauffeur Service");
 
 
 /* TRANSLATION ENTITIES */
