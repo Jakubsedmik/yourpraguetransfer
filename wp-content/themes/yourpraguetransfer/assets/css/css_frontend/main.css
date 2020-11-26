@@ -106,18 +106,18 @@ body .navbar {
 .navbar .nav-item a {
   border-bottom: 2px solid #fff;
 }
-.navbar .nav-item:hover a {
+.navbar .nav-item:hover > a {
   border-bottom: 2px solid var(--s7_color-2);
 }
 .navbar .nav-item a.current-menu-item {
   border-bottom: 2px solid var(--s7_color-2);
 }
-.navbar .nav-item:last-child .nav-link {
+.navbar .nav-item:last-of-type .nav-link {
   background-color: var(--s7_color-2);
   padding: 0.3125rem 1rem;
   transition: 0.2s ease-out;
 }
-.navbar .nav-item:last-child .nav-link:hover {
+.navbar .nav-item:last-of-type .nav-link:hover {
   background-color: var(--s7_color-3);
   border-bottom: 2px solid #fff;
 }
@@ -609,6 +609,33 @@ body .navbar {
 #copyright a {
   color: #8d8d8d;
 }
+.navbar-nav > .nav-item > .sub-menu {
+  position: absolute;
+  display: none;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  left: 0px;
+  min-width: 200px;
+  list-style: none;
+}
+.navbar-nav > .nav-item > .sub-menu > .nav-item .nav-link:hover {
+  background-color: whitesmoke;
+  border-bottom: 2px solid var(--s7_color-2);
+}
+.navbar-nav > .nav-item {
+  position: relative;
+}
+.navbar-nav > .nav-item:hover > .sub-menu {
+  display: block;
+}
+.navbar .nav-item .sub-menu .nav-link {
+  background-color: white;
+  padding: 10px;
+}
+#s7_nav-icon3:focus {
+  outline: none;
+}
 /*----- RESPO -----*/
 @media only screen and (max-width: 1199px) {
   /*Burger Icon*/
@@ -840,6 +867,14 @@ body .navbar {
   }
   #footer .s7_footer-social-ico {
     margin-bottom: 10px;
+  }
+  .navbar-nav > .nav-item > .sub-menu {
+    position: static;
+    display: block;
+    min-width: unset;
+  }
+  .navbar-nav > .nav-item {
+    text-align: right;
   }
 }
 @media only screen and (max-width: 575px) {

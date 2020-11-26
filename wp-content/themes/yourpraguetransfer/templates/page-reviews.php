@@ -30,6 +30,8 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="text-center"><a href="#" class="btn rounded-0 w-100 text-white text-uppercase font-weight-bold"><?php _e("Google reference", "yourpraguetransfer"); ?></a></div>
+        <div class="text-center">
+            <a href="<?php echo_lang_theme_mod( "klientske_reference_url" ); ?>" class="btn rounded-0 w-100 text-white text-uppercase font-weight-bold"><?php _e("Google reference", "yourpraguetransfer"); ?></a>
+        </div>
     </div>
 </section>

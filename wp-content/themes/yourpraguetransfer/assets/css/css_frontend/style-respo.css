@@ -77,6 +77,10 @@ Author URI: https://studioseven.cz/
     cursor: pointer;
     }
 
+    #search-map select{
+        max-width: 400px;
+    }
+
     #s7_nav-icon3.collapsed span {
         display: block;
         position: absolute;
@@ -199,6 +203,10 @@ Author URI: https://studioseven.cz/
 }
 
 @media only screen and (max-width: 991px){
+
+    #search-map select{
+        margin-bottom: 10px;
+    }
 
     body .navbar{
         border-bottom: 2px solid #d8d8d8;
@@ -432,7 +440,8 @@ Author URI: https://studioseven.cz/
         padding-right: 40px;
     }
     #search-map select {
-      max-width:100%;
+        max-width:100%;
+        margin-bottom: 10px;
     }
     #search-map .s7_res-btn {
         max-height: 40px;
@@ -474,6 +483,22 @@ Author URI: https://studioseven.cz/
     }
     #footer .s7_footer-social-ico{
         margin-bottom: 10px;
+    }
+
+    #your-way h1{
+        text-align: left!important;
+    }
+
+    #your-way .s7_place-ftw, #your-way .s7_underpage-col-row{
+        align-items: flex-start!important;
+    }
+
+    #your-way .s7_ftw-arrows{
+        margin-left: 5px;
+    }
+
+    #your-way a {
+        margin: 0!important;
     }
 
     /*Under Pages*/
@@ -772,7 +797,6 @@ Author URI: https://studioseven.cz/
     }
     #search-map select:first-of-type{
         margin-right: 0;
-        margin-bottom: 30px;
     }
     /*Underpage*/
     .page-template-cms-template .s7_ul-count-2{

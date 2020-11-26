@@ -1,5 +1,5 @@
 <?php
-define("VERSION_LINKS", "2.1");
+define("VERSION_LINKS", "2.2");
 session_start();
 require_once (__DIR__ . "/inc/core/entity_translations/translationHandler.php");
 
@@ -243,6 +243,16 @@ function s7_theme_editor($wp_customize){
 
     $wp_customize->add_setting( 'klientske_reference_subtitle' , array(
         'default'   => 'Nejste si jistí? Naše reference to řeknou za nás.',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'klientske_reference_url' , array(
+        'default'   => 'https://google.com',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_setting( 'klientske_reference_url_en' , array(
+        'default'   => 'https://google.com',
         'transport' => 'refresh',
     ) );
 
@@ -600,6 +610,20 @@ function s7_theme_editor($wp_customize){
 		'section'    => 'main_setting',
 		'settings'   => 'klientske_reference_subtitle'
 	)));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_url_control', array(
+        'label'      => __( 'Klientské reference link', 'realsys' ),
+        'description' => __("Link na klientské reference na google"),
+        'section'    => 'main_setting',
+        'settings'   => 'klientske_reference_url'
+    )));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'klientske_reference_url_control_en', array(
+        'label'      => __( 'Klientské reference link', 'realsys' ),
+        'description' => __("Link na klientské reference na google"),
+        'section'    => 'main_setting_en',
+        'settings'   => 'klientske_reference_url_en'
+    )));
 
 
 	// Jsme jednička

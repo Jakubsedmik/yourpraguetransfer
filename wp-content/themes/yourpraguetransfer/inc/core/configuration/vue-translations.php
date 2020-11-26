@@ -36,7 +36,7 @@ $vyhledavani_translations = array(
 	"phone" => __("+420 777 888 999","yourpraguetransfer"),
 	"jannovak" => __("JANNOVAK","yourpraguetransfer"),
 	"cx" => __("CX-8875","yourpraguetransfer"),
-	"privezteMiNeco" => __("Přivezte mi něco k jídlu prosím","yourpraguetransfer"),
+	"privezteMiNeco" => __("Zadejte jiné požadavky k Vaší cestě","yourpraguetransfer"),
 
 	"kdyProVasPrijedeme"=> __("Kdy pro Vás přijedeme", "yourpraguetransfer"),
 	"cestaZpet" => __("(cesta zpět)", "yourpraguetransfer"),

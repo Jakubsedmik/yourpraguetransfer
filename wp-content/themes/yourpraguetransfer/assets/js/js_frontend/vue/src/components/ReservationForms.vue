@@ -12,7 +12,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <p class="s7_modal-header-text text-center">{{translations.provedteRezervaci}}</p>
+                        <!--p class="s7_modal-header-text text-center">{{translations.provedteRezervaci}}</p-->
                     </div>
 
 
@@ -107,8 +107,9 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-field" :class="{ 'form-field--error': $v.step_third.telephone.$error }">
                                         <label for="s7_input-form-tel" class="s7_modal-body-undertext text-uppercase">{{translations.telefon}} *</label>
-                                        <input type="text" name="s7_input-form-tel" class="border-0 w-100" :placeholder="translations.phone" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" v-model.trim="$v.step_third.telephone.$model">
+                                        <input type="text" name="s7_input-form-tel" class="border-0 w-100" :placeholder="translations.phone" v-model.trim="$v.step_third.telephone.$model">
                                         <div class="form-field-error" v-if="!$v.step_third.telephone.required">{{translations.poleJePovinne}}</div>
+                                        <div class="form-field-error" v-if="!$v.step_third.telephone.phoneValidator">Telefon není ve správném formátu</div>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +245,12 @@
     import { required, minLength, email, integer, requiredIf } from 'vuelidate/lib/validators';
     import Axios from "axios";
     import VueAxios from 'vue-axios';
-    import VueGoogleAutocomplete from 'vue-google-autocomplete'
+    import VueGoogleAutocomplete from 'vue-google-autocomplete';
+
+    const phoneValidator = function (value) {
+        const regex = /^(\+420)? ?[1-9][0-9]{2} ?[0-9]{3} ?[0-9]{3}$/;
+        return regex.test(value);
+    };
 
     export default {
         name: "ReservationForms",
@@ -339,7 +345,7 @@
                     large_baggage: false,
                 },
                 step_fourth: {
-                    payment: 1
+                    payment: 0
                 },
                 loading: false,
 
@@ -383,7 +389,8 @@
                     email
                 },
                 telephone: {
-                    required
+                    required,
+                    phoneValidator
                 }
             },
         },
