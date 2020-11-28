@@ -54,6 +54,7 @@ class objednavkaClass extends zakladniKamenClass {
                 "cena" => Tools::convertCurrency(intval($this->db_cena), intval($this->db_mena), true, false),
                 "zpet" => ($this->db_cas_zpet != 0 ? true : false),
                 "kdy_cesta_zpet" => Tools::formatTime($this->db_cas_zpet),
+                "kdy_cesta_tam" => Tools::formatTime($this->db_cas),
                 "odkud" => $this->db_destinace_z,
                 "kam" => $this->db_destinace_do,
                 "pocet_osob" => $this->db_pocet_osob,
