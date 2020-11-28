@@ -12,7 +12,7 @@
                     <li><strong><?php _e("Kam pojedeme:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['do']; ?></li>
                     <li><strong><?php _e("Kdy pojedeme:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cas_tam']; ?></li>
                     <?php if(isset($this->requestData['cas_zpet'])) : ?>
-                        <li><strong>Kdy pojedeme zpět:<?php _e("Objednávka","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cas_zpet']; ?></li>
+                        <li><strong><?php _e("Kdy pojedeme zpět:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cas_zpet']; ?></li>
                     <?php endif; ?>
                     <li><strong><?php _e("Počet osob:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['osob']; ?></li>
                     <li><strong><?php _e("Cena:","yourpraguetransfer"); ?></strong> <?php echo $this->requestData['cena']; ?></li>
