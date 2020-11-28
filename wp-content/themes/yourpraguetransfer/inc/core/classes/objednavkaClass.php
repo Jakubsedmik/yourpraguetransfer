@@ -47,14 +47,19 @@ class objednavkaClass extends zakladniKamenClass {
             "Potvrzení",
             "confirmOrder",
             array(
+                "id" => $this->getId(),
+                'vozidlo' => assetsFactory::getEntity("vozidloClass", $this->db_vozidlo_id)->db_nazev,
                 "payment_link" => Tools::getFERoute("gopay",$this->getId(), "payment"),
                 "logo_link" => FRONTEND_IMAGES_PATH . "page-logo.png",
                 "cena" => Tools::convertCurrency(intval($this->db_cena), intval($this->db_mena), true, false),
                 "zpet" => ($this->db_cas_zpet != 0 ? true : false),
-                "cesta_tam" => $this->db_destinace_z,
-                "cesta_zpet" => $this->db_destinace_do,
+                "kdy_cesta_zpet" => Tools::formatTime($this->db_cas_zpet),
+                "odkud" => $this->db_destinace_z,
+                "kam" => $this->db_destinace_do,
                 "pocet_osob" => $this->db_pocet_osob,
-                "platba" => $this->db_typ_platby
+                "platba" => $this->db_typ_platby,
+                "stav_platby" => $this->db_stav,
+                "jmeno" => $this->db_jmeno . " " . $this->db_prijmeni,
             )
         );
     }

@@ -31,18 +31,39 @@
                 <tr>
                     <td style="padding: 0px 20px 20px;">
                         <ul style="font-size: 16px; line-height: 1.7;">
-                            <li><?php _e("Odkud pojedete:", "yourpraguetransfer"); ?> {cesta_tam}</li>
-                            <li><?php _e("Kam pojedete:", "yourpraguetransfer"); ?> {cesta_zpet}</li>
+                            <li><?php _e("ID objednávky:", "yourpraguetransfer"); ?> {id}</li>
+                            <li><?php _e("Typ objednávky:", "yourpraguetransfer"); ?> <?php _e("Transfer z letiště", "yourpraguetransfer"); ?> </li>
+                            <li><?php _e("Odkud pojedete:", "yourpraguetransfer"); ?> {odkud}</li>
+                            <li><?php _e("Vozidlo:", "yourpraguetransfer"); ?> {vozidlo}</li>
+                            <li><?php _e("Jméno na cedulce:", "yourpraguetransfer"); ?> {jmeno}</li>
+                            <li><?php _e("Status cesty:", "yourpraguetransfer"); ?> <?php _e("Potvrzena", "yourpraguetransfer"); ?></li>
+                            <li><?php _e("Kam pojedete:", "yourpraguetransfer"); ?> {kam}</li>
                             <?php if($zpet) : ?>
-                                <li><?php _e("Pojedete zpět:", "yourpraguetransfer"); ?> <?php _e("Ano", "yourpraguetransfer"); ?></li>
+                                <li><?php _e("Kdy pojedete zpět:", "yourpraguetransfer"); ?> {kdy_cesta_zpet}</li>
                             <?php endif; ?>
-                            <li><?php _e("Kolik to stojí:", "yourpraguetransfer"); ?>{cena}</li>
-                            <li><?php _e("Kolik Vás pojede:", "yourpraguetransfer"); ?>{pocet_osob}</li>
+                            <li><?php _e("Cena za cestu:", "yourpraguetransfer"); ?> {cena} <?php _e("(Cena zde uvedená je včetně DPH a zahrnuje veškeré případné poplatky)", "yourpraguetransfer"); ?></li>
+                            <li><?php _e("Počet cestujících:", "yourpraguetransfer"); ?> {pocet_osob}</li>
+                            <li><?php _e("Preferovaný způsob platby:", "yourpraguetransfer"); ?>
+                                <?php
+                                    if($platba == 2){
+                                        _e("Platba kartou řidiči", "yourpraguetransfer");
+                                    }elseif($platba == 1){
+                                        _e("Platba kartou předem", "yourpraguetransfer");
+                                    }else{
+                                        _e("Platba hotově v cíly", "yourpraguetransfer");
+                                    }
+                                ?>
+                            </li>
+                            <li><?php _e("Stav platby:", "yourpraguetransfer"); ?>
+                                <?php
+                                    (($stav_platby == 1) ? _e("Zaplaceno", "yourpraguetransfer") : _e("Nezaplaceno", "yourpraguetransfer"));
+                                ?>
+                            </li>
                         </ul>
                     </td>
                 </tr>
 
-                <?php if($platba) : ?>
+                <?php if($stav_platby == 0) : ?>
                 <tr style="">
                     <td style="padding: 30px 20px 10px;">
                         <p style="font-size: 16px; line-height: 1.7;"><?php _e("V případě, že jste ještě objednávku neplatili můžete ji zaplatit níže pomocí tlačítka", "yourpraguetransfer"); ?></p>
@@ -50,7 +71,7 @@
                 </tr>
 
                 <tr>
-                    <td style="padding: 20px 20px 40px;">
+                    <td style="padding: 20px 20px 10px;">
                         <a href="{payment_link}" target="_blank" style="padding: 13px 30px; border-radius: 6px; font-weight: 700; background: #FF951A; color: white; text-decoration: none; "><?php _e("Zaplatit", "yourpraguetransfer"); ?></a></p>
                     </td>
                 </tr>
@@ -61,6 +82,35 @@
                     </td>
                 </tr>
                 <?php endif; ?>
+
+
+                <tr style="">
+                    <td style="padding: 40px 20px 10px;">
+                        <h2>PŘÍLET DO PRAHY - JAK TO FUNGUJE :</h2>
+                        <p style="font-size: 16px; line-height: 1.7;">
+                            Najít Vašeho řidiče je velmi jednoduché. Po tom co vystoupíte z letadla, vyzvednete si vaše zavazadla a projdete pasovou kontrolou, v příletové hale na Vás bude čekat Váš řidič ve společenském obleku a bude držet v ruce černou ceduli s Vaším jménem nebo jménem firmy. Váš let neustále sledujeme, nemusíte se obávat že přiletíte dříve nebo později. Neúčtujeme si žádné jiné poplatky navíc. Řidič vás vždy vyzvedne na čas. Pokud chcete vytvořit novou objednávku navštivte naše web stránky www.prague-chauffeur-service.cz.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr style="">
+                    <td style="padding: 0px 20px 10px;">
+                        <h2>ZÁKAZNÍCKÝ SERVIS :</h2>
+                        <p style="font-size: 16px; line-height: 1.7;">
+                            Zastihnete nás kdykoliv a to na telefonním čísle <strong>+420 702 054 840</strong>. Pokud voláte z jiného telefonního operátora než je v České Republice, zadejte předvolbu vaši země. Například +420 ČESKO, +34 ŠPANĚLSKO, +49 NĚMECKO.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr style="">
+                    <td style="padding: 0px 20px 10px;">
+                        <h2>PLATBY:</h2>
+                        <p style="font-size: 16px; line-height: 1.7;">
+                            U každé přepravy po zaplacení dostáváte voucher a doklad o zaplacení. Pokud je vaše trasa delší, cestujete z jiných měst nebo ze zahraničí, z měst mimo Českou republiku, můžeme požadovat o zaplacení 50%, které slouží jako depozit neboli záloha na přepravu.
+                        </p>
+                    </td>
+                </tr>
+
 
             </table>
 
