@@ -536,3 +536,8 @@ input::-webkit-calendar-picker-indicator {
 .modal .s7_form-4-text-links a{
     color: var(--s7_color-2);
 }
+
+.blueimp-gallery>.close {
+    font-size: 70px!important;
+    color: white!important;
+}
