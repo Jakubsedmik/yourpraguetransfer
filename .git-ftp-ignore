@@ -1,17 +1,264 @@
-.gitignore
-*/.gitignore
-*/.gitkeep
-.git-ftp-ignore
-.git-ftp-include
-.gitlab-ci.yml
-node_modules/*
-.idea
-wp-config.php
-.htaccess
-grafika
-DB
-webpack.config.js
-gulpfile.js
-backend_webpack.config.js
-package.json
-package-lock.json
+[
+    {
+        term_id: 1, // id termínu
+        term_from: "09.01.2020", // termín od (nutno dodržet specifikovaný formát)
+        term_to: "12.01.2020", // termín do (nutno dodržet specifikovaný formát)
+        term_day_from: "čt", // den od
+        term_day_to: "ne", // den do
+        term_nights: 3, // počet nocí
+        term_ordered_total_price: 9874, // cena za osazenou skipinu
+        rooms: [ // pokoje dostupné v rámci  termínu
+            {
+                room_id: 1, // id pokoje
+                room_label: "Standard 2/3", // název pokoje
+                room_description: "Velký pokoj pro 2 osoby s přistýlkou.", // popis pokoje
+                room_eating: "Bed & Breakfast", // strava v pokoji
+                room_transport: "Vlastní doprava", // doprava k danému pokoji
+                room_min_persons: 1, // minimální počet osob
+                room_max_persons: 4, // maximální počet osob
+ 
+                room_badges: [ // štítky u pokoje
+                    {
+                        label: 'Skipass 6 dní', //  titulek štítku
+                        type: 'ski', // příznak rozlišující design štítku
+                        value: 6 // hodnota štítku, pokud nějakou má
+                    },
+                    {
+                        label: 'Last Minute',
+                        type: 'lm',
+                        value: 0
+                    }
+                ],
+                room_price_description: [ // rozpis cen pokoje
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: false, // pokud existuje stará cena tak int (>0), jinak int (0)
+                room_new_price: 11530, // současná cena
+                room_since_price: 1111, // cena za nejlevnější skupinu
+                room_free: 2, // volných pokojů
+                room_available_to_buy: true, // pokoje je k online objednání = true, pokoje je na vžádání = false
+                room_ordered: [ // umístění skupin do pokoje. V případě že máme ve vyhledávání více skupin tak tímto způsobem jim předvybereme pokoje, musí se shodovat Value s tím co je nastaveno v filtru obsazenosti
+                    {legend: "Skupina 1", value: 0},
+                    {legend: "Skupina 2", value: 1}
+                ]
+            },
+            {
+                room_id: 2,
+                room_label: "Economy 2/3",
+                room_description: "Ekonomický pokoj pro 2 osoby s přistýlkou.",
+                room_eating: "All inclusive",
+                room_transport: "Vlastní doprava",
+                room_min_persons: 2,
+                room_max_persons: 6,
+                room_badges: [
+                    {
+                        label: 'Skipass 8 dní',
+                        type: 'ski',
+                        value: 8
+                    },
+                    {
+                        label: 'Last Minute',
+                        type: 'lm',
+                        value: 0
+                    }
+                ],
+                room_price_description: [
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: 9370,
+                room_new_price: 7530,
+                room_since_price: 1111,                
+                room_free: 2,
+                room_available_to_buy: false
+            },
+            {
+                room_id: 3,
+                room_label: "Billo 4",
+                room_description: "Billo - neboli vybydlený pokoj pro 4 osoby, ale cigošů se vejde 8.",
+                room_eating: "Polopenze",
+                room_transport: "Autobusem",
+                room_min_persons: 2,
+                room_max_persons: 4,
+                room_badges: [
+                    {
+                        label: 'Skipass 6 dní',
+                        type: 'ski',
+                        value: 6
+                    },
+                    {
+                        label: 'First Minute',
+                        type: 'fm',
+                        value: 0
+                    }
+                ],
+                room_price_description: [
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: 7370,
+                room_new_price: 6530,
+                room_since_price: 1111,
+                room_free: 2,
+                room_available_to_buy: true
+            }
+        ]
+    },
+    {
+        term_id: 2,
+        term_from: "09.01.2020",
+        term_to: "12.01.2020",
+        term_day_from: "čt",
+        term_day_to: "ne",
+        term_nights: 3,
+        term_ordered_total_price: 9874,
+        rooms: [
+            {
+                room_id: 1,
+                room_label: "Standard 2/3",
+                room_description: "Velký pokoj pro 2 osoby s přistýlkou.",
+                room_eating: "Bed & Breakfast",
+                room_transport: "Vlastní doprava",
+                room_min_persons: 1,
+                room_max_persons: 4,
+ 
+                room_badges: [
+                    {
+                        label: 'Skipass 6 dní',
+                        type: 'ski',
+                        value: 6
+                    },
+                    {
+                        label: 'Last Minute',
+                        type: 'lm',
+                        value: 0
+                    }
+                ],
+                room_price_description: [
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: false,
+                room_new_price: 11530,
+                room_since_price: 1111,
+                room_free: 2,
+                room_available_to_buy: true
+            },
+            {
+                room_id: 2,
+                room_label: "Economy 2/3",
+                room_description: "Ekonomický pokoj pro 2 osoby s přistýlkou.",
+                room_eating: "All inclusive",
+                room_transport: "Vlastní doprava",
+                room_min_persons: 2,
+                room_max_persons: 6,
+                room_badges: [
+                    {
+                        label: 'Skipass 6 dní',
+                        type: 'ski',
+                        value: 6
+                    },
+                    {
+                        label: 'Last Minute',
+                        type: 'lm',
+                        value: 0
+                    }
+                ],
+                room_price_description: [
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: 9370,
+                room_new_price: 7530,
+                room_free: 2,
+                room_available_to_buy: false
+            },
+            {
+                room_id: 3,
+                room_label: "Billo 4",
+                room_description: "Billo - neboli vybydlený pokoj pro 4 osoby, ale cigošů se vejde 8.",
+                room_eating: "Polopenze",
+                room_transport: "Autobusem",
+                room_min_persons: 2,
+                room_max_persons: 4,
+                room_badges: [
+                    {
+                        label: 'Skipass 6 dní',
+                        type: 'ski',
+                        value: 6
+                    }
+                ],
+                room_price_description: [
+                    {
+                        "label": "Základní cena(3x 7250Kč)",
+                        "value": 21750
+                    },
+                    {
+                        "label": "Dítě (5)",
+                        "value": -1200
+                    },
+                    {
+                        "label": "sleva",
+                        "value": -3570
+                    }
+                ],
+                room_old_price: 7370,
+                room_new_price: 6530,
+                room_since_price: 1111,
+                room_free: 1,
+                room_available_to_buy: true
+            }
+        ]
+    }
+]
